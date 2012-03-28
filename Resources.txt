@@ -1,0 +1,2 @@
+http://geochalkboard.wordpress.com/2009/03/30/reading-xml-files-with-the-google-maps-api/
+http://econym.org.uk/gmap/
