@@ -4,3 +4,9 @@ pythongeocode2.py # get lat long
 PythonXML.py or PythonMySQL.py # output as xml or enter into mysql database
 upload XMLouput.tx as example.xml to djinnius.com
 point browser to http://www.djinnius.com/phpsqlajax_map_v3.html
+
+---
+new proc as of 4/3/2012
+download html file from mcohio.org/sheriff (detailed view)
+SheriffSalesLinkCreator_Detailed.py #strip,format,geocode,enter into mysql data
+point browser to http://www.djinnius.com/SheriffSales/SheriffSalesMap.html

@@ -1,0 +1,926 @@
+<markers>
+<marker lat="39.7545080" lng="-84.1175290" html="2012-03-02 &lt;br&gt; 2011 CV 01550 &lt;br&gt; $40,000.00" label="5130 CHRISTY AVENUE  DAYTON $40,000.00"/>
+<marker lat="39.7934093" lng="-84.2227285" html="2012-03-02 &lt;br&gt; 2011 CV 01737 &lt;br&gt; $46,000.00" label="417 HIDDEN WOODS LANE  DAYTON $46,000.00"/>
+<marker lat="39.7693221" lng="-84.2093210" html="2012-03-02 &lt;br&gt; 2011 CV 02143 &lt;br&gt; $22,000.00" label="711 NORTH AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.9080020" lng="-84.3183010" html="2012-03-02 &lt;br&gt; 2011 CV 02169 &lt;br&gt; $46,000.00" label="110 TOPSFIELD FARM CIRCLE  ENGLEWOOD $46,000.00"/>
+<marker lat="39.7990090" lng="-84.1379290" html="2012-03-02 &lt;br&gt; 2011 CV 02280 &lt;br&gt; $12,000.00" label="304 WANETA AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.7795850" lng="-84.2289650" html="2012-03-02 &lt;br&gt; 2011 CV 02281 &lt;br&gt; $32,000.00" label="1827 HARVARD BOULEVARD  DAYTON $32,000.00"/>
+<marker lat="39.8732140" lng="-84.1103620" html="2012-03-02 &lt;br&gt; 2011 CV 02460 &lt;br&gt; $110,000.00" label="8301 CHINABERRY PLACE  HUBER HEIGHTS $110,000.00"/>
+<marker lat="39.6806750" lng="-84.3056930" html="2012-03-02 &lt;br&gt; 2011 CV 02683 &lt;br&gt; $34,000.00" label="6844 GERMANTOWN PIKE  MIAMISBURG $34,000.00"/>
+<marker lat="39.7298830" lng="-84.1534370" html="2012-03-02 &lt;br&gt; 2011 CV 02763 &lt;br&gt; $38,000.00" label="159 BELLAIRE AVENUE  DAYTON $38,000.00"/>
+<marker lat="39.7469524" lng="-84.1536608" html="2012-03-02 &lt;br&gt; 2011 CV 02800 &lt;br&gt; $10,000.00" label="913-915 CREIGHTON AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.6590920" lng="-84.1247350" html="2012-03-02 &lt;br&gt; 2011 CV 03075 &lt;br&gt; $22,000.00" label="5700 COACH DRIVE WEST  DAYTON $22,000.00"/>
+<marker lat="39.6379080" lng="-84.2843910" html="2012-03-02 &lt;br&gt; 2011 CV 03180 &lt;br&gt; $32,000.00" label="434 MONTGOMERY STREET  MIAMISBURG $32,000.00"/>
+<marker lat="39.7464487" lng="-84.1550456" html="2012-03-02 &lt;br&gt; 2011 CV 03245 &lt;br&gt; $20,000.00" label="1908 WYOMING STREET  DAYTON $20,000.00"/>
+<marker lat="39.7442670" lng="-84.1607609" html="2012-03-02 &lt;br&gt; 2011 CV 03281 &lt;br&gt; $36,000.00" label="137 VIRGINIA AVENUE  DAYTON $36,000.00"/>
+<marker lat="39.6852159" lng="-84.1265190" html="2012-03-02 &lt;br&gt; 2011 CV 03283 &lt;br&gt; $74,000.00" label="4171 GREEN SPRINGS DRIVE  KETTERING $74,000.00"/>
+<marker lat="39.7672960" lng="-84.1966870" html="2012-03-02 &lt;br&gt; 2011 CV 03314 &lt;br&gt; $20,000.00" label="108 FLORAL AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.8010970" lng="-84.2199490" html="2012-03-02 &lt;br&gt; 2011 CV 03375 &lt;br&gt; $6,000.00" label="21 REDDER AVENUE  DAYTON $6,000.00"/>
+<marker lat="39.6419980" lng="-84.2798490" html="2012-03-02 &lt;br&gt; 2011 CV 03418 &lt;br&gt; $34,000.00" label="724 EAST MAPLE AVENUE  MIAMISBURG $34,000.00"/>
+<marker lat="39.7747689" lng="-84.2110576" html="2012-03-02 &lt;br&gt; 2011 CV 03423 &lt;br&gt; $18,000.00" label="811 AND 813 FERNDALE AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.7259020" lng="-84.1255360" html="2012-03-02 &lt;br&gt; 2011 CV 03471 &lt;br&gt; $10,000.00" label="1528 FLESHER AVENUE  KETTERING $10,000.00"/>
+<marker lat="39.8598080" lng="-84.1364360" html="2012-03-02 &lt;br&gt; 2011 CV 03500 &lt;br&gt; $78,000.00" label="5582 CAMERFORD DRIVE  HUBER HEIGHTS $78,000.00"/>
+<marker lat="39.8020266" lng="-84.1890201" html="2012-03-02 &lt;br&gt; 2011 CV 03530 &lt;br&gt; $12,000.00" label="2224 ONAOTA AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.6224459" lng="-84.2747450" html="2012-03-02 &lt;br&gt; 2011 CV 03669 &lt;br&gt; $84,000.00" label="1195 TRISH COURT  MIAMISBURG $84,000.00"/>
+<marker lat="39.7991260" lng="-84.3141660" html="2012-03-02 &lt;br&gt; 2011 CV 03736 &lt;br&gt; $20,000.00" label="100 - 102 WEST WORLEY AVENUE  TROTWOOD $20,000.00"/>
+<marker lat=" NO SALE" lng="39.7127980" html="2012-03-02 &lt;br&gt; 2011 CV 03773 &lt;br&gt; $60,000.00" label="1629 DUTCHESS AVENUE  DAYTON $60,000.00"/>
+<marker lat="39.6057650" lng="-84.2081240" html="2012-03-02 &lt;br&gt; 2011 CV 03859 &lt;br&gt; $116,000.00" label="9910 WASHINGTON CHURCH ROAD  MIAMISBURG $116,000.00"/>
+<marker lat="39.7760279" lng="-84.2093189" html="2012-03-02 &lt;br&gt; 2011 CV 03891 &lt;br&gt; $12,000.00" label="344 KENILWORTH AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.8905020" lng="-84.1904630" html="2012-03-02 &lt;br&gt; 2011 CV 03915 &lt;br&gt; 0.0" label="523 NORTH TIONDA DRIVE  VANDALIA 0.0"/>
+<marker lat="39.6372290" lng="-84.2845040" html="2012-03-02 &lt;br&gt; 2011 CV 03923 &lt;br&gt; $50,000.00" label="339 SOUTH 5TH STREET  MIAMISBURG $50,000.00"/>
+<marker lat="39.8589580" lng="-84.3070089" html="2012-03-02 &lt;br&gt; 2011 CV 04045 &lt;br&gt; $54,000.00" label="102 HAVENWOOD DRIVE  ENGLEWOOD $54,000.00"/>
+<marker lat="39.6919580" lng="-84.2090980" html="2012-03-02 &lt;br&gt; 2011 CV 04122 &lt;br&gt; $46,000.00" label="2221 OWENDALE DRIVE  DAYTON $46,000.00"/>
+<marker lat="39.6450260" lng="-84.2145300" html="2012-03-02 &lt;br&gt; 2011 CV 04152 &lt;br&gt; $100,000.00" label="7339 MOHAWK TRAIL ROAD  DAYTON $100,000.00"/>
+<marker lat="39.7027460" lng="-84.1094789" html="2012-03-02 &lt;br&gt; 2011 CV 04188 &lt;br&gt; $54,000.00" label="2816 CHINOOK LANE  DAYTON $54,000.00"/>
+<marker lat="39.8637360" lng="-84.1221800" html="2012-03-02 &lt;br&gt; 2011 CV 04235 &lt;br&gt; $46,000.00" label="7615 REMMICK LANE  HUBER HEIGHTS $46,000.00"/>
+<marker lat="39.8060045" lng="-84.1253612" html="2012-03-02 &lt;br&gt; 2011 CV 04275 &lt;br&gt; $30,000.00" label="4386 SILVERBERRY AVENUE  DAYTON $30,000.00"/>
+<marker lat="39.7056180" lng="-84.1564719" html="2012-03-02 &lt;br&gt; 2011 CV 04277 &lt;br&gt; $74,000.00" label="2816 HAZELWOOD AVENUE  KETTERING $74,000.00"/>
+<marker lat="39.7259570" lng="-84.1390840" html="2012-03-02 &lt;br&gt; 2011 CV 04346 &lt;br&gt; $40,000.00" label="2828 DWIGHT AVENUE  DAYTON $40,000.00"/>
+<marker lat="39.6484310" lng="-84.1284600" html="2012-03-02 &lt;br&gt; 2011 CV 04426 &lt;br&gt; $40,000.00" label="6630 GREEN BRANCH DRIVE  CENTERVILLE $40,000.00"/>
+<marker lat="39.7453860" lng="-84.3800250" html="2012-03-02 &lt;br&gt; 2011 CV 04429 &lt;br&gt; $46,000.00" label="300 EAST MAIN STREET  NEW LEBANON $46,000.00"/>
+<marker lat="39.7623140" lng="-84.1333830" html="2012-03-02 &lt;br&gt; 2011 CV 04438 &lt;br&gt; $24,000.00" label="4616 MERRYDALE AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.6072450" lng="-84.2154660" html="2012-03-02 &lt;br&gt; 2011 CV 04467 &lt;br&gt; $68,000.00" label="2431 CHAFFMAN COURT  MIAMISBURG $68,000.00"/>
+<marker lat="39.6647080" lng="-84.2316530" html="2012-03-02 &lt;br&gt; 2011 CV 04498 &lt;br&gt; $26,000.00" label="1657 MARS HILL DRIVE  WEST CARROLLTON $26,000.00"/>
+<marker lat="39.8087230" lng="-84.1877760" html="2012-03-02 &lt;br&gt; 2011 CV 04544 &lt;br&gt; $8,000.00" label="2444 KOEHLER AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.6597110" lng="-84.2546060" html="2012-03-02 &lt;br&gt; 2011 CV 04574 &lt;br&gt; $48,000.00" label="50 IRONWOOD DRIVE  DAYTON $48,000.00"/>
+<marker lat="39.5864310" lng="-84.2117220" html="2012-03-02 &lt;br&gt; 2011 CV 04576 &lt;br&gt; $132,000.00" label="423 STANTON DRIVE  SPRINGBORO $132,000.00"/>
+<marker lat="39.7440167" lng="-84.1506116" html="2012-03-02 &lt;br&gt; 2011 CV 04642 &lt;br&gt; $10,000.00" label="1137-1139 PURSELL AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.7607900" lng="-84.1137930" html="2012-03-02 &lt;br&gt; 2011 CV 04643 &lt;br&gt; $38,000.00" label="461 TOWNSEND PLACE  DAYTON $38,000.00"/>
+<marker lat="39.7525768" lng="-84.1326920" html="2012-03-02 &lt;br&gt; 2011 CV 04755 &lt;br&gt; $20,000.00" label="1810 BROWNELL ROAD  DAYTON $20,000.00"/>
+<marker lat="39.7290040" lng="-84.1432140" html="2012-03-02 &lt;br&gt; 2011 CV 04809 &lt;br&gt; $28,000.00" label="1003 BELLAIRE AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.8990800" lng="-84.3136650" html="2012-03-02 &lt;br&gt; 2011 CV 04878 &lt;br&gt; $40,000.00" label="44 DRAPER LANE  UNION $40,000.00"/>
+<marker lat="39.8380190" lng="-84.4103740" html="2012-03-02 &lt;br&gt; 2011 CV 04899 &lt;br&gt; $38,000.00" label="502 MARKET STREET  BROOKVILLE $38,000.00"/>
+<marker lat="39.8364520" lng="-84.4153790" html="2012-03-02 &lt;br&gt; 2011 CV 04911 &lt;br&gt; $30,000.00" label="12 HARSHMAN STREET  BROOKVILLE $30,000.00"/>
+<marker lat="39.7970190" lng="-84.1834400" html="2012-03-02 &lt;br&gt; 2011 CV 04925 &lt;br&gt; $20,000.00" label="2600 NEVA DRIVE  DAYTON $20,000.00"/>
+<marker lat="39.7670828" lng="-84.2048390" html="2012-03-02 &lt;br&gt; 2011 CV 04953 &lt;br&gt; $30,000.00" label="232 SUPERIOR AVENUE  DAYTON $30,000.00"/>
+<marker lat="39.7877830" lng="-84.3058439" html="2012-03-02 &lt;br&gt; 2011 CV 04977 &lt;br&gt; $26,000.00" label="2 BROOKHAVEN DRIVE  TROTWOOD $26,000.00"/>
+<marker lat="39.6415280" lng="-84.1995710" html="2012-03-02 &lt;br&gt; 2011 CV 04998 &lt;br&gt; $80,000.00" label="7457 YANKEE STREET  CENTERVILLE $80,000.00"/>
+<marker lat="39.7758540" lng="-84.1713690" html="2012-03-02 &lt;br&gt; 2011 CV 05013 &lt;br&gt; $8,000.00" label="15 BALTIMORE STREET  DAYTON $8,000.00"/>
+<marker lat="39.7970010" lng="-84.3173620" html="2012-03-02 &lt;br&gt; 2011 CV 05026 &lt;br&gt; $30,000.00" label="316-318 WEST MAIN STREET  TROTWOOD $30,000.00"/>
+<marker lat="39.8467119" lng="-84.0896290" html="2012-03-02 &lt;br&gt; 2011 CV 05034 &lt;br&gt; $94,000.00" label="7615 CHAMBERSBURG ROAD  DAYTON $94,000.00"/>
+<marker lat="39.7545620" lng="-84.2079950" html="2012-03-02 &lt;br&gt; 2011 CV 05076 &lt;br&gt; $48,000.00" label="109 HORACE STREET  DAYTON $48,000.00"/>
+<marker lat="39.8075160" lng="-84.1979510" html="2012-03-02 &lt;br&gt; 2011 CV 05141 &lt;br&gt; $12,000.00" label="3939 MADRID AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.8669480" lng="-84.1170060" html="2012-03-02 &lt;br&gt; 2011 CV 05145 &lt;br&gt; $48,000.00" label="6645 STONEHURST DRIVE  HUBER HEIGHTS $48,000.00"/>
+<marker lat="39.7602690" lng="-84.1238360" html="2012-03-02 &lt;br&gt; 2011 CV 05184 &lt;br&gt; $48,000.00" label="2328 EDEN LANE  DAYTON $48,000.00"/>
+<marker lat="39.6709070" lng="-84.2575930" html="2012-03-02 &lt;br&gt; 2011 CV 05200 &lt;br&gt; $38,000.00" label="102 EAST CIRCLE DRIVE  WEST CARROLLTON $38,000.00"/>
+<marker lat="39.7944950" lng="-84.3028320" html="2012-03-02 &lt;br&gt; 2011 CV 05209 &lt;br&gt; $38,000.00" label="101 MARIO DRIVE  TROTWOOD $38,000.00"/>
+<marker lat="39.8375310" lng="-84.2615270" html="2012-03-02 &lt;br&gt; 2011 CV 05253 &lt;br&gt; $64,000.00" label="157 ASHBROOK ROAD  DAYTON $64,000.00"/>
+<marker lat="39.8019610" lng="-84.2656250" html="2012-03-02 &lt;br&gt; 2011 CV 05280 &lt;br&gt; $7,000.00" label="4563 CURUNDU AVENUE  DAYTON $7,000.00"/>
+<marker lat="39.5850080" lng="-84.2129300" html="2012-03-02 &lt;br&gt; 2011 CV 05444 &lt;br&gt; $154,000.00" label="90 PAINTERS COURT  SPRINGBORO $154,000.00"/>
+<marker lat="39.7623250" lng="-84.2361070" html="2012-03-02 &lt;br&gt; 2011 CV 05446 &lt;br&gt; $20,000.00" label="522 ANNA STREET  DAYTON $20,000.00"/>
+<marker lat="39.6597000" lng="-84.2410590" html="2012-03-02 &lt;br&gt; 2011 CV 05448 &lt;br&gt; $66,000.00" label="312 FARNSWORTH DRIVE  WEST CARROLLTON $66,000.00"/>
+<marker lat="39.8096559" lng="-84.2476840" html="2012-03-02 &lt;br&gt; 2011 CV 05463 &lt;br&gt; $10,000.00" label="3649 YELLOWSTONE AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.7686060" lng="-84.1467620" html="2012-03-02 &lt;br&gt; 2011 CV 05501 &lt;br&gt; $18,000.00" label="3425 EAST 2ND STREET  DAYTON $18,000.00"/>
+<marker lat="39.7727490" lng="-84.2393500" html="2012-03-02 &lt;br&gt; 2011 CV 05510 &lt;br&gt; $8,000.00" label="1405 CANFIELD AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.7540500" lng="-84.1430470" html="2012-03-02 &lt;br&gt; 2011 CV 05536 &lt;br&gt; $28,000.00" label="734 EAST CIRCLE DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.7204160" lng="-84.3255680" html="2012-03-02 &lt;br&gt; 2011 CV 05553 &lt;br&gt; $28,000.00" label="7859 DAYTON LIBERTY ROAD  DAYTON $28,000.00"/>
+<marker lat="39.7829670" lng="-84.2311610" html="2012-03-02 &lt;br&gt; 2011 CV 05599 &lt;br&gt; $50,000.00" label="1930 BURROUGHS DRIVE  DAYTON $50,000.00"/>
+<marker lat="39.7759850" lng="-84.1796760" html="2012-03-02 &lt;br&gt; 2011 CV 05620 &lt;br&gt; $10,000.00" label="239 KISER STREET  DAYTON $10,000.00"/>
+<marker lat="39.8547150" lng="-84.2805420" html="2012-03-02 &lt;br&gt; 2011 CV 05621 &lt;br&gt; $66,000.00" label="7481 SHEELIN COURT  DAYTON $66,000.00"/>
+<marker lat="39.8826139" lng="-84.1318530" html="2012-03-02 &lt;br&gt; 2011 CV 05628 &lt;br&gt; $88,000.00" label="5822 OLDEGATE COURT  HUBER HEIGHTS $88,000.00"/>
+<marker lat="39.6833870" lng="-84.1403080" html="2012-03-09 &lt;br&gt; 2002 CV 08209 &lt;br&gt; $52,000.00" label="4353 Wehner Road  Kettering $52,000.00"/>
+<marker lat="39.8317850" lng="-84.1901340" html="2012-03-09 &lt;br&gt; 2006 CV 05986 &lt;br&gt; $28,000.00" label="6903 KEATS DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.7795650" lng="-84.2240780" html="2012-03-09 &lt;br&gt; 2007 CV 03495 &lt;br&gt; $8,000.00" label="1716 Radcliff Road  Dayton $8,000.00"/>
+<marker lat="39.8603720" lng="-84.1183230" html="2012-03-09 &lt;br&gt; 2007 CV 04113 &lt;br&gt; $44,000.00" label="7418 Treon Place  Huber Heights $44,000.00"/>
+<marker lat="39.7995310" lng="-84.2319700" html="2012-03-09 &lt;br&gt; 2007 CV 05722 &lt;br&gt; $56,000.00" label="3567 WALES DRIVE  DAYTON $56,000.00"/>
+<marker lat="39.8255130" lng="-84.2059490" html="2012-03-09 &lt;br&gt; 2007 CV 08024 &lt;br&gt; $44,000.00" label="5413 Autumn Place  Dayton $44,000.00"/>
+<marker lat="39.7804400" lng="-84.2316640" html="2012-03-09 &lt;br&gt; 2007 CV 10027 &lt;br&gt; $34,000.00" label="525 Alameda Place  Dayton $34,000.00"/>
+<marker lat="39.7723200" lng="-84.2014120" html="2012-03-09 &lt;br&gt; 2008 CV 01171 &lt;br&gt; $20,000.00" label="450 Forest Avenue  Dayton $20,000.00"/>
+<marker lat="39.6831430" lng="-84.1435590" html="2012-03-09 &lt;br&gt; 2008 CV 03284 &lt;br&gt; $16,000.00" label="1321 Heatherdale Drive  Dayton $16,000.00"/>
+<marker lat=" NO SALE" lng="39.7969719" html="2012-03-09 &lt;br&gt; 2008 CV 06663 &lt;br&gt; $14,000.00" label="203 RYBURN AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.7190340" lng="-84.1336120" html="2012-03-09 &lt;br&gt; 2008 CV 11188 &lt;br&gt; $50,000.00" label="2015 CULVER AVENUE  DAYTON $50,000.00"/>
+<marker lat="39.8547070" lng="-84.1221330" html="2012-03-09 &lt;br&gt; 2009 CV 00832 &lt;br&gt; $44,000.00" label="6088 LEYCROSS DRIVE  DAYTON $44,000.00"/>
+<marker lat="39.7899970" lng="-84.2166960" html="2012-03-09 &lt;br&gt; 2009 CV 01294 &lt;br&gt; $34,000.00" label="121 WEST BEECHWOOD AVENUE  DAYTON $34,000.00"/>
+<marker lat="39.7756740" lng="-84.2072720" html="2012-03-09 &lt;br&gt; 2009 CV 02251 &lt;br&gt; $20,000.00" label="243 KENWOOD AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.7601430" lng="-84.2646230" html="2012-03-09 &lt;br&gt; 2009 CV 02375 &lt;br&gt; $4,000.00" label="4644 KUENDINGER AVENUE  DAYTON $4,000.00"/>
+<marker lat="39.6595600" lng="-84.2485520" html="2012-03-09 &lt;br&gt; 2009 CV 03043 &lt;br&gt; $72,000.00" label="361 GREENPORT DRIVE  WEST CARROLLTON $72,000.00"/>
+<marker lat="39.6244880" lng="-84.2025540" html="2012-03-09 &lt;br&gt; 2009 CV 03140 &lt;br&gt; $46,000.00" label="1164 CAPTAINS BRIDGE  DAYTON $46,000.00"/>
+<marker lat="39.7773575" lng="-84.1695603" html="2012-03-09 &lt;br&gt; 2009 CV 03525 &lt;br&gt; $18,000.00" label="174 ALTON AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.8022423" lng="-84.2447162" html="2012-03-09 &lt;br&gt; 2009 CV 04317 &lt;br&gt; $42,000.00" label="3814 KLEPINGER ROAD  DAYTON $42,000.00"/>
+<marker lat="39.8315270" lng="-84.1295770" html="2012-03-09 &lt;br&gt; 2009 CV 04446 &lt;br&gt; $32,000.00" label="5400 MANGOLD DRIVE  DAYTON $32,000.00"/>
+<marker lat="39.8365260" lng="-84.2795490" html="2012-03-09 &lt;br&gt; 2009 CV 05219 &lt;br&gt; $64,000.00" label="6259 RANGEVIEW DRIVE  CLAYTON $64,000.00"/>
+<marker lat="39.8332229" lng="-84.1936900" html="2012-03-09 &lt;br&gt; 2009 CV 05997 &lt;br&gt; $36,000.00" label="7012 BOBOLINK PLACE  DAYTON $36,000.00"/>
+<marker lat=" NO SALE" lng="39.7407390" html="2012-03-09 &lt;br&gt; 2009 CV 06241 &lt;br&gt; $28,000.00" label="1434 HOCHWALT AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.9047981" lng="-84.4005943" html="2012-03-09 &lt;br&gt; 2009 CV 06467 &lt;br&gt; 0.0" label="20 N. PLUM STREET  PHILLIPSBURG 0.0"/>
+<marker lat="39.8393730" lng="-84.3181720" html="2012-03-09 &lt;br&gt; 2009 CV 07216 &lt;br&gt; $52,000.00" label="6411 DAMSON DRIVE  CLAYTON $52,000.00"/>
+<marker lat="39.7840730" lng="-84.2228370" html="2012-03-09 &lt;br&gt; 2009 CV 08704 &lt;br&gt; $18,000.00" label="623 WEST NORMAN AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.6609430" lng="-84.2604490" html="2012-03-09 &lt;br&gt; 2009 CV 09030 &lt;br&gt; $40,000.00" label="262 GRANTWOOD DRIVE  DAYTON $40,000.00"/>
+<marker lat="39.6685505" lng="-84.2441339" html="2012-03-09 &lt;br&gt; 2009 CV 09644 &lt;br&gt; $42,000.00" label="330 ENXING AVENUE  DAYTON $42,000.00"/>
+<marker lat="39.5954580" lng="-84.1234670" html="2012-03-09 &lt;br&gt; 2010 CV 00097 &lt;br&gt; $354,000.00" label="10100 BEAUFORT RUN  DAYTON $354,000.00"/>
+<marker lat="39.7821690" lng="-84.2203480" html="2012-03-09 &lt;br&gt; 2010 CV 00156 &lt;br&gt; $36,000.00" label="429 BROOKSIDE DRIVE  DAYTON $36,000.00"/>
+<marker lat="39.7260470" lng="-84.2698160" html="2012-03-09 &lt;br&gt; 2010 CV 00649 &lt;br&gt; $24,000.00" label="4906 COULSON DRIVE  DAYTON $24,000.00"/>
+<marker lat="39.8400630" lng="-84.2608020" html="2012-03-09 &lt;br&gt; 2010 CV 01153 &lt;br&gt; $30,000.00" label="284 ASHBROOK ROAD  DAYTON $30,000.00"/>
+<marker lat="39.7173160" lng="-84.1631150" html="2012-03-09 &lt;br&gt; 2010 CV 02103 &lt;br&gt; $70,000.00" label="410-412 LONSDALE AVENUE  OAKWOOD $70,000.00"/>
+<marker lat="39.7530842" lng="-84.1744187" html="2012-03-09 &lt;br&gt; 2010 CV 02332 &lt;br&gt; $4,000.00" label="161 KASTNER AVENUE  DAYTON $4,000.00"/>
+<marker lat="39.7074132" lng="-84.1499193" html="2012-03-09 &lt;br&gt; 2010 CV 03320 &lt;br&gt; $40,000.00" label="2724 ACORN DRIVE  KETTERING $40,000.00"/>
+<marker lat="39.8612510" lng="-84.1348570" html="2012-03-09 &lt;br&gt; 2010 CV 04856 &lt;br&gt; $70,000.00" label="7360 CHARNWOOD DRIVE  HUBER HEIGHTS $70,000.00"/>
+<marker lat="39.6876559" lng="-84.2186950" html="2012-03-09 &lt;br&gt; 2010 CV 04869 &lt;br&gt; $16,000.00" label="4713  PENSACOLA BLVD  DAYTON $16,000.00"/>
+<marker lat="39.6320180" lng="-84.1825370" html="2012-03-09 &lt;br&gt; 2010 CV 05017 &lt;br&gt; $22,000.00" label="7816 BETSY ROSS CIRCLE  DAYTON $22,000.00"/>
+<marker lat="39.6839400" lng="-84.4228750" html="2012-03-09 &lt;br&gt; 2010 CV 06153 &lt;br&gt; 0.0" label="209 DEAN DRIVE  FARMERSVILLE 0.0"/>
+<marker lat="39.6183660" lng="-84.1905120" html="2012-03-09 &lt;br&gt; 2010 CV 06329 &lt;br&gt; $76,000.00" label="1122 EVERGREEN PARK COURT  DAYTON $76,000.00"/>
+<marker lat="39.8542860" lng="-84.1156139" html="2012-03-09 &lt;br&gt; 2010 CV 07014 &lt;br&gt; $54,000.00" label="7027 HUBBARD DRIVE  HUBER HEIGHTS $54,000.00"/>
+<marker lat="39.7139390" lng="-84.1357360" html="2012-03-09 &lt;br&gt; 2010 CV 07328 &lt;br&gt; $50,000.00" label="1624 REDBUSH AVENUE  KETTERING $50,000.00"/>
+<marker lat="39.7656909" lng="-84.2311810" html="2012-03-09 &lt;br&gt; 2010 CV 07338 &lt;br&gt; $10,000.00" label="2513-2515 RIVERVIEW AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.8374909" lng="-84.4157501" html="2012-03-09 &lt;br&gt; 2010 CV 07357 &lt;br&gt; $66,000.00" label="125 NORTH WOLF CREEK STREET  BROOKVILLE $66,000.00"/>
+<marker lat="39.7559610" lng="-84.2513210" html="2012-03-09 &lt;br&gt; 2010 CV 07490 &lt;br&gt; $1,600.00" label="3008 EDISON STREET  DAYTON $1,600.00"/>
+<marker lat="39.6699900" lng="-84.2439750" html="2012-03-09 &lt;br&gt; 2010 CV 07673 &lt;br&gt; $44,000.00" label="404 SAVOY AVENUE  WEST CARROLLTON $44,000.00"/>
+<marker lat="39.6917797" lng="-84.1417292" html="2012-03-09 &lt;br&gt; 2010 CV 08169 &lt;br&gt; $32,000.00" label="3781 CLAYBOURNE ROAD  KETTERING $32,000.00"/>
+<marker lat="39.7393820" lng="-84.1282600" html="2012-03-09 &lt;br&gt; 2010 CV 08590 &lt;br&gt; $46,000.00" label="4620 ARCADIA BOULEVARD  DAYTON $46,000.00"/>
+<marker lat="39.7713840" lng="-84.1431760" html="2012-03-09 &lt;br&gt; 2010 CV 09195 &lt;br&gt; $28,000.00" label="234 NORTH DELMAR AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.7188680" lng="-84.2750070" html="2012-03-09 &lt;br&gt; 2010 CV 09266 &lt;br&gt; $14,000.00" label="5174 TUCSON DRIVE  DAYTON $14,000.00"/>
+<marker lat="39.7814550" lng="-84.2281730" html="2012-03-09 &lt;br&gt; 2010 CV 09703 &lt;br&gt; $28,000.00" label="1819 AUBURN AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.6092439" lng="-84.1656360" html="2012-03-09 &lt;br&gt; 2010 CV 09721 &lt;br&gt; $108,000.00" label="171 JOY ELIZABETH DRIVE  CENTERVILLE $108,000.00"/>
+<marker lat="39.8831850" lng="-84.1797850" html="2012-03-09 &lt;br&gt; 2010 CV 09750 &lt;br&gt; $104,000.00" label="661 CASSEL CREEK DRIVE  VANDALIA $104,000.00"/>
+<marker lat="39.8540520" lng="-84.1372010" html="2012-03-09 &lt;br&gt; 2010 CV 10140 &lt;br&gt; $38,000.00" label="5673 TROY VILLA BLVD  HUBER HEIGHTS $38,000.00"/>
+<marker lat="39.7503920" lng="-84.1780470" html="2012-03-09 &lt;br&gt; 2011 CV 00034 &lt;br&gt; $16,000.00" label="213 JAMES STREET  DAYTON $16,000.00"/>
+<marker lat="39.7425230" lng="-84.1313170" html="2012-03-09 &lt;br&gt; 2011 CV 00062 &lt;br&gt; $28,000.00" label="4437 CORINTH DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.8063230" lng="-84.1047230" html="2012-03-09 &lt;br&gt; 2011 CV 00065 &lt;br&gt; $104,000.00" label="4416 HARDWOOD TRAIL  DAYTON $104,000.00"/>
+<marker lat="39.7089370" lng="-84.2502960" html="2012-03-09 &lt;br&gt; 2011 CV 00089 &lt;br&gt; $132,000.00" label="3906 STONY HOLLOW ROAD  DAYTON $132,000.00"/>
+<marker lat="39.8087159" lng="-84.3289440" html="2012-03-09 &lt;br&gt; 2011 CV 00129 &lt;br&gt; $58,000.00" label="7810 WATERTON COURT  DAYTON $58,000.00"/>
+<marker lat="39.7266870" lng="-84.1609100" html="2012-03-09 &lt;br&gt; 2011 CV 00422 &lt;br&gt; $46,000.00" label="553 SHROYER ROAD  DAYTON $46,000.00"/>
+<marker lat=" NO SALE" lng="39.7437570" html="2012-03-09 &lt;br&gt; 2011 CV 01005 &lt;br&gt; $32,000.00" label="1632 COVENTRY ROAD  DAYTON $32,000.00"/>
+<marker lat="39.8453779" lng="-84.1278690" html="2012-03-09 &lt;br&gt; 2011 CV 01117 &lt;br&gt; $40,000.00" label="5348 TILBURY ROAD  DAYTON $40,000.00"/>
+<marker lat="39.7990663" lng="-84.2200606" html="2012-03-09 &lt;br&gt; 2011 CV 01158 &lt;br&gt; $8,000.00" label="6 CAMDEN AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.6552310" lng="-84.1241100" html="2012-03-09 &lt;br&gt; 2011 CV 01387 &lt;br&gt; $48,000.00" label="1770 PIPER LANE #101  DAYTON $48,000.00"/>
+<marker lat="39.7606750" lng="-84.1484460" html="2012-03-09 &lt;br&gt; 2011 CV 01410 &lt;br&gt; $22,000.00" label="412 BURKHARDT AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.7939360" lng="-84.3056299" html="2012-03-09 &lt;br&gt; 2011 CV 01443 &lt;br&gt; $12,000.00" label="3 STUBBS DRIVE  TROTWOOD $12,000.00"/>
+<marker lat="39.8511300" lng="-84.3039720" html="2012-03-09 &lt;br&gt; 2011 CV 02692 &lt;br&gt; $66,000.00" label="4014 LOOP DRIVE  ENGLEWOOD $66,000.00"/>
+<marker lat="39.8372420" lng="-84.1188740" html="2012-03-09 &lt;br&gt; 2011 CV 03106 &lt;br&gt; $42,000.00" label="5802 BRANDT PIKE  HUBER HEIGHTS $42,000.00"/>
+<marker lat="39.7438922" lng="-84.1419286" html="2012-03-09 &lt;br&gt; 2011 CV 03203 &lt;br&gt; $36,000.00" label="1630 ROSEMONT BOULEVARD  DAYTON $36,000.00"/>
+<marker lat="39.8198592" lng="-84.1669900" html="2012-03-09 &lt;br&gt; 2011 CV 03488 &lt;br&gt; $154,000.00" label="3300 NEEDMORE ROAD  DAYTON $154,000.00"/>
+<marker lat="39.7372350" lng="-84.2460090" html="2012-03-09 &lt;br&gt; 2011 CV 03524 &lt;br&gt; $46,000.00" label="846 MOUNT CLAIR AVENUE  DAYTON $46,000.00"/>
+<marker lat="39.6729399" lng="-84.2559650" html="2012-03-09 &lt;br&gt; 2011 CV 04838 &lt;br&gt; $46,000.00" label="115 WEST PEASE AVENUE  WEST CARROLLTON $46,000.00"/>
+<marker lat="39.7101140" lng="-84.1565090" html="2012-03-09 &lt;br&gt; 2011 CV 05106 &lt;br&gt; $46,000.00" label="2537 HAZELWOOD AVENUE  KETTERING $46,000.00"/>
+<marker lat="39.8013460" lng="-84.2617640" html="2012-03-09 &lt;br&gt; 2011 CV 05241 &lt;br&gt; $8,000.00" label="4347 CATALINA AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.7472971" lng="-84.1666424" html="2012-03-09 &lt;br&gt; 2011 CV 05382 &lt;br&gt; $16,000.00" label="1011 WYOMING STREET  DAYTON $16,000.00"/>
+<marker lat="39.7852240" lng="-84.3045730" html="2012-03-09 &lt;br&gt; 2011 CV 05596 &lt;br&gt; $42,000.00" label="70  BROOKHAVEN DRIVE  TROTWOOD $42,000.00"/>
+<marker lat="39.7376120" lng="-84.3891310" html="2012-03-09 &lt;br&gt; 2011 CV 05927 &lt;br&gt; $72,000.00" label="512 HAZELHURST STREET  NEW LEBANON $72,000.00"/>
+<marker lat="39.8085820" lng="-84.2152930" html="2012-03-09 &lt;br&gt; 2011 CV 06008 &lt;br&gt; $34,000.00" label="1081 RYDALE DRIVE  DAYTON $34,000.00"/>
+<marker lat="39.8049780" lng="-84.2134470" html="2012-03-09 &lt;br&gt; 2011 CV 06023 &lt;br&gt; $26,000.00" label="348 CASTLEWOOD AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.7471570" lng="-84.1047830" html="2012-03-16 &lt;br&gt; 2005 CV 03470 &lt;br&gt; $36,000.00" label="5821 MAYVILLE DRIVE  DAYTON $36,000.00"/>
+<marker lat="39.7027670" lng="-84.2377860" html="2012-03-16 &lt;br&gt; 2008 CV 02050 &lt;br&gt; $50,000.00" label="3200 Dorf Drive  Dayton $50,000.00"/>
+<marker lat="39.6131490" lng="-84.2077319" html="2012-03-16 &lt;br&gt; 2009 CV 00437 &lt;br&gt; $100,000.00" label="9404 TAHOE DRIVE  CENTERVILLE $100,000.00"/>
+<marker lat="39.8977740" lng="-84.3131300" html="2012-03-16 &lt;br&gt; 2009 CV 05646 &lt;br&gt; 0.0" label="310 SAN BERNARDINO TRAIL  UNION 0.0"/>
+<marker lat="39.7891790" lng="-84.2161230" html="2012-03-16 &lt;br&gt; 2009 CV 06345 &lt;br&gt; $18,000.00" label="121 MARSON DRIVE  DAYTON $18,000.00"/>
+<marker lat="39.8288540" lng="-84.1227950" html="2012-03-16 &lt;br&gt; 2009 CV 07060 &lt;br&gt; $48,000.00" label="5312 NAPLES DRIVE  HUBER HEIGHTS $48,000.00"/>
+<marker lat=" NO SALE" lng="39.8541020" html="2012-03-16 &lt;br&gt; 2009 CV 07425 &lt;br&gt; $28,000.00" label="5831 TROY VILLA BLVD  HUBER HEIGHTS $28,000.00"/>
+<marker lat="39.7427480" lng="-84.1609019" html="2012-03-16 &lt;br&gt; 2010 CV 01289 &lt;br&gt; $18,000.00" label="225 VIRGINIA AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.7748090" lng="-84.2067830" html="2012-03-16 &lt;br&gt; 2010 CV 02610 &lt;br&gt; $24,000.00" label="505 HOMEWOOD AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.8642390" lng="-84.1504740" html="2012-03-16 &lt;br&gt; 2010 CV 03476 &lt;br&gt; $46,000.00" label="4808 MEADOWVISTA DRIVE  HUBER HEIGHTS $46,000.00"/>
+<marker lat="39.7932340" lng="-84.1438690" html="2012-03-16 &lt;br&gt; 2010 CV 04302 &lt;br&gt; $10,000.00" label="2339 GUERNSEY DELL AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.7506600" lng="-84.1777210" html="2012-03-16 &lt;br&gt; 2010 CV 04582 &lt;br&gt; $6,000.00" label="212 JAMES STREET  DAYTON $6,000.00"/>
+<marker lat="39.8559950" lng="-84.2658299" html="2012-03-16 &lt;br&gt; 2010 CV 04661 &lt;br&gt; $44,000.00" label="260 ARMITAGE LANE  DAYTON $44,000.00"/>
+<marker lat="39.7778090" lng="-84.2477160" html="2012-03-16 &lt;br&gt; 2010 CV 04709 &lt;br&gt; $4,000.00" label="1620-1626 HAROLD DRIVE  DAYTON $4,000.00"/>
+<marker lat="39.7499920" lng="-84.4598420" html="2012-03-16 &lt;br&gt; 2010 CV 04881 &lt;br&gt; $58,000.00" label="290 NORTH SULPHUR SPRINGS ROAD  WEST ALEXANDRIA $58,000.00"/>
+<marker lat="39.8668200" lng="-84.1285470" html="2012-03-16 &lt;br&gt; 2010 CV 05069 &lt;br&gt; $30,000.00" label="8146 MOUNT HOOD  HUBER HEIGHTS $30,000.00"/>
+<marker lat="39.6676870" lng="-84.2516270" html="2012-03-16 &lt;br&gt; 2010 CV 05118 &lt;br&gt; $38,000.00" label="23 MAPLE HILL DRIVE  WEST CARROLLTON $38,000.00"/>
+<marker lat="39.8777029" lng="-84.2109470" html="2012-03-16 &lt;br&gt; 2010 CV 05184 &lt;br&gt; $60,000.00" label="1031 RONALD STREET  VANDALIA $60,000.00"/>
+<marker lat="39.8660900" lng="-84.1487030" html="2012-03-16 &lt;br&gt; 2010 CV 05186 &lt;br&gt; $46,000.00" label="4880 TRAILSIDE COURT  HUBER HEIGHTS $46,000.00"/>
+<marker lat="39.7149990" lng="-84.1976140" html="2012-03-16 &lt;br&gt; 2010 CV 05188 &lt;br&gt; $54,000.00" label="1537 OLD LANE AVENUE  KETTERING $54,000.00"/>
+<marker lat="39.7502620" lng="-84.1504990" html="2012-03-16 &lt;br&gt; 2010 CV 05265 &lt;br&gt; $28,000.00" label="653 WILFRED AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.8228070" lng="-84.2291280" html="2012-03-16 &lt;br&gt; 2010 CV 05421 &lt;br&gt; $34,000.00" label="5721 MARKEY ROAD  DAYTON $34,000.00"/>
+<marker lat="39.7462790" lng="-84.1039320" html="2012-03-16 &lt;br&gt; 2010 CV 06025 &lt;br&gt; $46,000.00" label="5875 KEVIN DRIVE  DAYTON $46,000.00"/>
+<marker lat="39.7647970" lng="-84.2775230" html="2012-03-16 &lt;br&gt; 2010 CV 06203 &lt;br&gt; $10,000.00" label="5251 WHALEY DRIVE  DAYTON $10,000.00"/>
+<marker lat="39.7698210" lng="-84.1395250" html="2012-03-16 &lt;br&gt; 2010 CV 06599 &lt;br&gt; $26,000.00" label="148 NORTH CHERRYWOOD AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.7151340" lng="-84.1338880" html="2012-03-16 &lt;br&gt; 2010 CV 06711 &lt;br&gt; $50,000.00" label="2209 CULVER AVENUE  KETTERING $50,000.00"/>
+<marker lat="39.7621899" lng="-84.1691840" html="2012-03-16 &lt;br&gt; 2010 CV 06758 &lt;br&gt; $20,000.00" label="33 RINGGOLD STREET  DAYTON $20,000.00"/>
+<marker lat="39.7854680" lng="-84.2161040" html="2012-03-16 &lt;br&gt; 2010 CV 06877 &lt;br&gt; $18,000.00" label="322 CHERRY DRIVE  DAYTON $18,000.00"/>
+<marker lat="39.7244570" lng="-84.1421070" html="2012-03-16 &lt;br&gt; 2010 CV 07060 &lt;br&gt; $20,000.00" label="3105 SOUTH SMITHVILLE ROAD  DAYTON $20,000.00"/>
+<marker lat="39.8878190" lng="-84.1842650" html="2012-03-16 &lt;br&gt; 2010 CV 07910 &lt;br&gt; $64,000.00" label="123 KENNETH AVENUE  VANDALIA $64,000.00"/>
+<marker lat="39.8318280" lng="-84.1369930" html="2012-03-16 &lt;br&gt; 2010 CV 08552 &lt;br&gt; $46,000.00" label="4437 PALETZ COURT  DAYTON $46,000.00"/>
+<marker lat="39.7622740" lng="-84.2473390" html="2012-03-16 &lt;br&gt; 2010 CV 08554 &lt;br&gt; $34,000.00" label="823 NORTH UPLAND AVENUE  DAYTON $34,000.00"/>
+<marker lat="39.7779700" lng="-84.2172350" html="2012-03-16 &lt;br&gt; 2010 CV 08559 &lt;br&gt; $20,000.00" label="431 FOUNTAIN AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.8348350" lng="-84.1132350" html="2012-03-16 &lt;br&gt; 2010 CV 08568 &lt;br&gt; $48,000.00" label="5653 BENEDICT ROAD  HUBER HEIGHTS $48,000.00"/>
+<marker lat="39.7889229" lng="-84.2135710" html="2012-03-16 &lt;br&gt; 2010 CV 08569 &lt;br&gt; $12,000.00" label="2657 NORTH MAIN STREET  DAYTON $12,000.00"/>
+<marker lat="39.6582170" lng="-84.1401810" html="2012-03-16 &lt;br&gt; 2010 CV 08575 &lt;br&gt; $140,000.00" label="850 E. WHIPP ROAD  CENTERVILLE $140,000.00"/>
+<marker lat="39.6623087" lng="-84.2589123" html="2012-03-16 &lt;br&gt; 2010 CV 09630 &lt;br&gt; $70,000.00" label="118 GOLFWOOD DRIVE  WEST CARROLLTON $70,000.00"/>
+<marker lat="39.7334550" lng="-84.2775680" html="2012-03-16 &lt;br&gt; 2010 CV 10035 &lt;br&gt; $44,000.00" label="5365 EASTPORT AVENUE  DAYTON $44,000.00"/>
+<marker lat="39.7528379" lng="-84.1720210" html="2012-03-16 &lt;br&gt; 2011 CV 01985 &lt;br&gt; $4,000.00" label="325-327 XENIA AVENUE  DAYTON $4,000.00"/>
+<marker lat="39.8090520" lng="-84.2178980" html="2012-03-16 &lt;br&gt; 2011 CV 02362 &lt;br&gt; $10,000.00" label="4385 FAIR OAKS ROAD  DAYTON $10,000.00"/>
+<marker lat=" NO SALE" lng="39.7904750" html="2012-03-16 &lt;br&gt; 2011 CV 02428 &lt;br&gt; $42,000.00" label="803 UHRIG AVENUE  DAYTON $42,000.00"/>
+<marker lat="39.7199260" lng="-84.1351090" html="2012-03-16 &lt;br&gt; 2011 CV 02638 &lt;br&gt; $42,000.00" label="1912 PITTSFIELD STREET  KETTERING $42,000.00"/>
+<marker lat=" NO SALE" lng="39.8004380" html="2012-03-16 &lt;br&gt; 2011 CV 02693 &lt;br&gt; $34,000.00" label="300 WEST SHERRY DRIVE  TROTWOOD $34,000.00"/>
+<marker lat="39.7563880" lng="-84.2092240" html="2012-03-16 &lt;br&gt; 2011 CV 02795 &lt;br&gt; $14,000.00" label="900 WEST THIRD STREET  DAYTON $14,000.00"/>
+<marker lat="39.8523280" lng="-84.1234860" html="2012-03-16 &lt;br&gt; 2011 CV 03331 &lt;br&gt; $38,000.00" label="6045 HEMINGWAY ROAD  HUBER HEIGHTS $38,000.00"/>
+<marker lat="39.7458110" lng="-84.1041570" html="2012-03-16 &lt;br&gt; 2011 CV 03363 &lt;br&gt; $28,000.00" label="5864 KEVIN DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.7574160" lng="-84.2146630" html="2012-03-16 &lt;br&gt; 2011 CV 03459 &lt;br&gt; $5,000.00" label="115 BROADWAY STREET  DAYTON $5,000.00"/>
+<marker lat="39.6728110" lng="-84.2111369" html="2012-03-16 &lt;br&gt; 2011 CV 03832 &lt;br&gt; $14,000.00" label="2267 CREW CIRCLE  DAYTON $14,000.00"/>
+<marker lat="39.8787440" lng="-84.1126290" html="2012-03-16 &lt;br&gt; 2011 CV 04521 &lt;br&gt; $100,000.00" label="6648 CHARLESFATE DRIVE  HUBER HEIGHTS $100,000.00"/>
+<marker lat="39.7203990" lng="-84.1450190" html="2012-03-16 &lt;br&gt; 2011 CV 04526 &lt;br&gt; $28,000.00" label="1109 MENDOTA COURT  KETTERING $28,000.00"/>
+<marker lat="39.7603460" lng="-84.2428420" html="2012-03-16 &lt;br&gt; 2011 CV 04613 &lt;br&gt; $18,000.00" label="531 HURON AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.7443490" lng="-84.3825440" html="2012-03-16 &lt;br&gt; 2011 CV 04970 &lt;br&gt; $24,000.00" label="185 CAIN STREET  NEW LEBANON $24,000.00"/>
+<marker lat="39.7274820" lng="-84.1464360" html="2012-03-16 &lt;br&gt; 2011 CV 05267 &lt;br&gt; $42,000.00" label="2804 ARDEN AVENUE  DAYTON $42,000.00"/>
+<marker lat="39.8161775" lng="-84.2286156" html="2012-03-16 &lt;br&gt; 2011 CV 05290 &lt;br&gt; $100,000.00" label="5299 MARKEY ROAD  DAYTON $100,000.00"/>
+<marker lat="39.7739630" lng="-84.3837000" html="2012-03-16 &lt;br&gt; 2011 CV 05907 &lt;br&gt; $62,000.00" label="10916 LITTLE RICHMOND ROAD  BROOKVILLE $62,000.00"/>
+<marker lat="39.7907020" lng="-84.3061350" html="2012-03-16 &lt;br&gt; 2011 CV 06024 &lt;br&gt; $36,000.00" label="111 STUBBS DRIVE  TROTWOOD $36,000.00"/>
+<marker lat="39.7306040" lng="-84.1353470" html="2012-03-16 &lt;br&gt; 2011 CV 06076 &lt;br&gt; $48,000.00" label="2425 HAZEL AVENUE  DAYTON $48,000.00"/>
+<marker lat="39.6720903" lng="-84.1089962" html="2012-03-16 &lt;br&gt; 2011 CV 06161 &lt;br&gt; $62,000.00" label="3009 BIRDWOOD ROAD  KETTERING $62,000.00"/>
+<marker lat="39.7891590" lng="-84.2164160" html="2012-03-16 &lt;br&gt; 2011 CV 06227 &lt;br&gt; $28,000.00" label="131 MARSON DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.7368120" lng="-84.1449350" html="2012-03-16 &lt;br&gt; 2011 CV 06228 &lt;br&gt; $24,000.00" label="2200 JOHN GLENN ROAD  DAYTON $24,000.00"/>
+<marker lat="39.6231269" lng="-84.3581980" html="2012-03-16 &lt;br&gt; 2011 CV 06297 &lt;br&gt; $94,000.00" label="13 PRAIRIE PLACE  GERMANTOWN $94,000.00"/>
+<marker lat="39.8305840" lng="-84.2844170" html="2012-03-16 &lt;br&gt; 2011 CV 06318 &lt;br&gt; $64,000.00" label="5714 HILLARY STREET  DAYTON $64,000.00"/>
+<marker lat="39.8537486" lng="-84.2822892" html="2012-03-16 &lt;br&gt; 2011 CV 06356 &lt;br&gt; $58,000.00" label="5436 SAVINA AVENUE  DAYTON $58,000.00"/>
+<marker lat="39.7110200" lng="-84.1577020" html="2012-03-16 &lt;br&gt; 2011 CV 06408 &lt;br&gt; $60,000.00" label="647 MONTERAY AVENUE  KETTERING $60,000.00"/>
+<marker lat="39.8277250" lng="-84.3677699" html="2012-03-16 &lt;br&gt; 2011 CV 06464 &lt;br&gt; $64,000.00" label="5617 DIAMOND MILL ROAD  BROOKVILLE $64,000.00"/>
+<marker lat="39.8093020" lng="-84.1815860" html="2012-03-16 &lt;br&gt; 2011 CV 06535 &lt;br&gt; $32,000.00" label="4709 WIRE DRIVE  DAYTON $32,000.00"/>
+<marker lat="39.6235360" lng="-84.1236000" html="2012-03-16 &lt;br&gt; 2011 CV 06620 &lt;br&gt; $114,000.00" label="1455 SEMINARY VIEW DRIVE  CENTERVILLE $114,000.00"/>
+<marker lat="39.7977690" lng="-84.3181430" html="2012-03-16 &lt;br&gt; 2011 CV 06655 &lt;br&gt; $32,000.00" label="16 CARMA DRIVE  DAYTON $32,000.00"/>
+<marker lat="39.7629730" lng="-84.1504820" html="2012-03-16 &lt;br&gt; 2011 CV 06702 &lt;br&gt; $4,000.00" label="145-47 IRWIN STREET  DAYTON $4,000.00"/>
+<marker lat="39.8248240" lng="-84.1903420" html="2012-03-16 &lt;br&gt; 2011 CV 06875 &lt;br&gt; $20,000.00" label="2336 CARDINAL AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.6581010" lng="-84.3034450" html="2012-03-23 &lt;br&gt; 2006 CV 05490 &lt;br&gt; $32,000.00" label="6732 Manning Road  Miamisburg $32,000.00"/>
+<marker lat="39.8316890" lng="-84.2491050" html="2012-03-23 &lt;br&gt; 2008 CV 05059 &lt;br&gt; $94,000.00" label="5813 Jennysim Place  Dayton $94,000.00"/>
+<marker lat="39.8394690" lng="-84.3166940" html="2012-03-23 &lt;br&gt; 2008 CV 09658 &lt;br&gt; $64,000.00" label="6527 BURKWOOD DRIVE  CLAYTON $64,000.00"/>
+<marker lat="39.8438000" lng="-84.2427174" html="2012-03-23 &lt;br&gt; 2008 CV 11167 &lt;br&gt; $16,000.00" label="FREDERICK PIKE  DAYTON $16,000.00"/>
+<marker lat="39.6616320" lng="-84.1513860" html="2012-03-23 &lt;br&gt; 2009 CV 04352 &lt;br&gt; $86,000.00" label="5924 HITHERGREEN DRIVE  DAYTON $86,000.00"/>
+<marker lat="39.6097670" lng="-84.3198139" html="2012-03-23 &lt;br&gt; 2009 CV 06226 &lt;br&gt; $104,000.00" label="7731 FARMINGTON ROAD  MIAMISBURG $104,000.00"/>
+<marker lat="39.8587333" lng="-84.3150236" html="2012-03-23 &lt;br&gt; 2009 CV 06668 &lt;br&gt; $40,000.00" label="875 SUNSET DRIVE  ENGLEWOOD $40,000.00"/>
+<marker lat="39.7901230" lng="-84.2079150" html="2012-03-23 &lt;br&gt; 2009 CV 06893 &lt;br&gt; $8,000.00" label="208 EAST BEECHWOOD AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.7537070" lng="-84.1558987" html="2012-03-23 &lt;br&gt; 2009 CV 07099 &lt;br&gt; $6,000.00" label="405-407 SAINT NICHOLAS  DAYTON $6,000.00"/>
+<marker lat="39.6530150" lng="-84.2128750" html="2012-03-23 &lt;br&gt; 2009 CV 07645 &lt;br&gt; $170,000.00" label="2311 WOOD TRAILS COURT  DAYTON $170,000.00"/>
+<marker lat="39.8293120" lng="-84.2570530" html="2012-03-23 &lt;br&gt; 2010 CV 01486 &lt;br&gt; $66,000.00" label="5719 ALGOMA STREET  DAYTON $66,000.00"/>
+<marker lat="39.6876810" lng="-84.3488689" html="2012-03-23 &lt;br&gt; 2010 CV 02960 &lt;br&gt; $42,000.00" label="9045 HEMPLE ROAD  GERMANTOWN $42,000.00"/>
+<marker lat="39.6033714" lng="-84.2157092" html="2012-03-23 &lt;br&gt; 2010 CV 03393 &lt;br&gt; $74,000.00" label="2448 MIAMI VILLAGE DRIVE  MIAMISBURG $74,000.00"/>
+<marker lat=" NO SALE" lng="39.7598110" html="2012-03-23 &lt;br&gt; 2010 CV 04357 &lt;br&gt; $50,000.00" label="8910 OLD DAYTON ROAD  DAYTON $50,000.00"/>
+<marker lat="39.6991540" lng="-84.2038470" html="2012-03-23 &lt;br&gt; 2010 CV 04572 &lt;br&gt; $54,000.00" label="3612 ELMIRA DRIVE  KETTERING $54,000.00"/>
+<marker lat="39.9125470" lng="-84.3673300" html="2012-03-23 &lt;br&gt; 2010 CV 04660 &lt;br&gt; $60,000.00" label="11528 DIAMOND MILL ROAD  ENGLEWOOD $60,000.00"/>
+<marker lat="39.6149790" lng="-84.3954399" html="2012-03-23 &lt;br&gt; 2010 CV 05248 &lt;br&gt; $78,000.00" label="11536 OXFORD ROAD  GERMANTOWN $78,000.00"/>
+<marker lat="39.8783170" lng="-84.3360500" html="2012-03-23 &lt;br&gt; 2010 CV 05628 &lt;br&gt; $90,000.00" label="1003 THISTLEDOWN TRACE  ENGLEWOOD $90,000.00"/>
+<marker lat="39.8718130" lng="-84.3015590" html="2012-03-23 &lt;br&gt; 2010 CV 05689 &lt;br&gt; $38,000.00" label="108 BROWNSTONE DRIVE  ENGLEWOOD $38,000.00"/>
+<marker lat="39.7409612" lng="-84.2174969" html="2012-03-23 &lt;br&gt; 2010 CV 07089 &lt;br&gt; 0.0" label="1128 SOUTH PAUL LAURENCE DUNBAR STREET  DAYTON 0.0"/>
+<marker lat="39.6468400" lng="-84.2805290" html="2012-03-23 &lt;br&gt; 2010 CV 07292 &lt;br&gt; $20,000.00" label="615 SENNETT STREET  MIAMISBURG $20,000.00"/>
+<marker lat=" NO SALE" lng="39.6808110" html="2012-03-23 &lt;br&gt; 2010 CV 08463 &lt;br&gt; $26,000.00" label="5303 EXETER ROAD  WEST CARROLLTON $26,000.00"/>
+<marker lat="39.8882080" lng="-84.2144290" html="2012-03-23 &lt;br&gt; 2010 CV 09343 &lt;br&gt; $36,000.00" label="861 FITCHLAND DRIVE  VANDALIA $36,000.00"/>
+<marker lat="39.7388780" lng="-84.2158670" html="2012-03-23 &lt;br&gt; 2010 CV 09378 &lt;br&gt; $20,000.00" label="1245 SOUTH BROADWAY STREET  DAYTON $20,000.00"/>
+<marker lat="39.8379430" lng="-84.3103680" html="2012-03-23 &lt;br&gt; 2010 CV 10177 &lt;br&gt; $70,000.00" label="6350 UNION ROAD  CLAYTON $70,000.00"/>
+<marker lat="39.8622226" lng="-84.2857786" html="2012-03-23 &lt;br&gt; 2011 CV 00027 &lt;br&gt; $753,999.00" label="5 WEST WENGER ROAD  ENGLEWOOD $753,999.00"/>
+<marker lat="39.8465070" lng="-84.2709830" html="2012-03-23 &lt;br&gt; 2011 CV 00649 &lt;br&gt; $82,000.00" label="140 OLD SALEM ROAD  DAYTON $82,000.00"/>
+<marker lat="39.7989170" lng="-84.2007560" html="2012-03-23 &lt;br&gt; 2011 CV 00736 &lt;br&gt; $24,629.00" label="1439 E. SIEBENTHALER AVENUE  DAYTON $24,629.00"/>
+<marker lat="39.8598850" lng="-84.1331770" html="2012-03-23 &lt;br&gt; 2011 CV 00937 &lt;br&gt; $48,000.00" label="7271 TROY MANOR ROAD  HUBER HEIGHTS $48,000.00"/>
+<marker lat="41.8239891" lng="-71.4128343" html="2012-03-23 &lt;br&gt; 2011 CV 01096 &lt;br&gt; $4,000.00" label="PROVIDENCE ROAD-VACANT LOT  BROOKVILLE $4,000.00"/>
+<marker lat="39.7959910" lng="-84.3803050" html="2012-03-23 &lt;br&gt; 2011 CV 01096 &lt;br&gt; $56,000.00" label="10706 HEETER ROAD  BROOKVILLE $56,000.00"/>
+<marker lat="39.7565250" lng="-84.1731340" html="2012-03-23 &lt;br&gt; 2011 CV 01154 &lt;br&gt; $48,000.00" label="107 LA BELLA STREET  DAYTON $48,000.00"/>
+<marker lat="39.8968860" lng="-84.1773060" html="2012-03-23 &lt;br&gt; 2011 CV 01618 &lt;br&gt; $62,000.00" label="216 WILKSFORD COURT  VANDALIA $62,000.00"/>
+<marker lat="39.7432260" lng="-84.1529259" html="2012-03-23 &lt;br&gt; 2011 CV 02691 &lt;br&gt; $18,000.00" label="1217 CARLISLE AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.6813260" lng="-84.2197690" html="2012-03-23 &lt;br&gt; 2011 CV 02779 &lt;br&gt; $44,000.00" label="5136 PENSACOLA BOULEVARD  MORAINE $44,000.00"/>
+<marker lat="39.7074690" lng="-84.1922810" html="2012-03-23 &lt;br&gt; 2011 CV 02790 &lt;br&gt; $30,000.00" label="1035 WEST DOROTHY LANE  DAYTON $30,000.00"/>
+<marker lat="39.6278720" lng="-84.3092360" html="2012-03-23 &lt;br&gt; 2011 CV 02992 &lt;br&gt; $58,000.00" label="8154 SOUTH UNION ROAD  MIAMISBURG $58,000.00"/>
+<marker lat="39.6740110" lng="-84.1305610" html="2012-03-23 &lt;br&gt; 2011 CV 03128 &lt;br&gt; $66,000.00" label="4892 ARCHMORE DRIVE  DAYTON $66,000.00"/>
+<marker lat="39.9117900" lng="-84.3233560" html="2012-03-23 &lt;br&gt; 2011 CV 03419 &lt;br&gt; $94,000.00" label="11458 OLD MILL ROAD  UNION $94,000.00"/>
+<marker lat="39.6363630" lng="-84.1712770" html="2012-03-23 &lt;br&gt; 2011 CV 03705 &lt;br&gt; $186,000.00" label="PARAGON ROAD  DAYTON $186,000.00"/>
+<marker lat="39.6640068" lng="-84.2135708" html="2012-03-23 &lt;br&gt; 2011 CV 04084 &lt;br&gt; $78,000.00" label="6006 VERDI DRIVE  DAYTON $78,000.00"/>
+<marker lat="39.6569110" lng="-84.2637150" html="2012-03-23 &lt;br&gt; 2011 CV 04088 &lt;br&gt; $124,000.00" label="1401 NORTH HEINCKE ROAD  MIAMISBURG $124,000.00"/>
+<marker lat="39.7349310" lng="-84.1325899" html="2012-03-23 &lt;br&gt; 2011 CV 04201 &lt;br&gt; $48,000.00" label="4438 WOODBINE AVENUE  DAYTON $48,000.00"/>
+<marker lat="39.6583234" lng="-84.1427821" html="2012-03-23 &lt;br&gt; 2011 CV 04322 &lt;br&gt; $100,000.00" label="690 EAST WHIPP ROAD  CENTERVILLE $100,000.00"/>
+<marker lat="39.9042814" lng="-84.3688278" html="2012-03-23 &lt;br&gt; 2011 CV 04760 &lt;br&gt; $136,000.00" label="10942 DIAMOND MILL ROAD  ENGLEWOOD $136,000.00"/>
+<marker lat="39.7822550" lng="-84.1655470" html="2012-03-23 &lt;br&gt; 2011 CV 04767 &lt;br&gt; $8,000.00" label="219 RITCHIE STREET  DAYTON $8,000.00"/>
+<marker lat="39.7962980" lng="-84.1839270" html="2012-03-23 &lt;br&gt; 2011 CV 05116 &lt;br&gt; $22,000.00" label="2525 ONEIDA AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.8075150" lng="-84.1052250" html="2012-03-23 &lt;br&gt; 2011 CV 05127 &lt;br&gt; $92,000.00" label="4435 HAWK WATCH WAY  DAYTON $92,000.00"/>
+<marker lat="39.8138600" lng="-84.2267390" html="2012-03-23 &lt;br&gt; 2011 CV 05178 &lt;br&gt; $32,000.00" label="42 SWALLOW DRIVE  DAYTON $32,000.00"/>
+<marker lat="39.6940540" lng="-84.2840669" html="2012-03-23 &lt;br&gt; 2011 CV 05316 &lt;br&gt; $108,000.00" label="5678 PINNACLE ROAD  MIAMISBURG $108,000.00"/>
+<marker lat="39.6016130" lng="-84.1557940" html="2012-03-23 &lt;br&gt; 2011 CV 05386 &lt;br&gt; $200,000.00" label="9777 COUNTRY CREEK WAY  DAYTON $200,000.00"/>
+<marker lat="39.6562650" lng="-84.2655950" html="2012-03-23 &lt;br&gt; 2011 CV 05489 &lt;br&gt; $138,000.00" label="1374 GRANITE PEAK WAY  MIAMISBURG $138,000.00"/>
+<marker lat="39.8015120" lng="-84.3198290" html="2012-03-23 &lt;br&gt; 2011 CV 05590 &lt;br&gt; $28,000.00" label="403 W. SHERRY DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.7761120" lng="-84.2336750" html="2012-03-23 &lt;br&gt; 2011 CV 05590 &lt;br&gt; $14,000.00" label="1646 CORNELL DRIVE  DAYTON $14,000.00"/>
+<marker lat="39.8290630" lng="-84.2895320" html="2012-03-23 &lt;br&gt; 2011 CV 05590 &lt;br&gt; $22,000.00" label="5097 WELL FLEET DRIVE  DAYTON $22,000.00"/>
+<marker lat="39.8017520" lng="-84.2386490" html="2012-03-23 &lt;br&gt; 2011 CV 05590 &lt;br&gt; $28,000.00" label="3179 VALERIE ARMS #9  DAYTON $28,000.00"/>
+<marker lat="39.8076430" lng="-84.2271070" html="2012-03-23 &lt;br&gt; 2011 CV 05590 &lt;br&gt; $58,000.00" label="215 MAR KEN DRIVE  DAYTON $58,000.00"/>
+<marker lat="39.8015190" lng="-84.3094780" html="2012-03-23 &lt;br&gt; 2011 CV 05590 &lt;br&gt; $46,000.00" label="301 MADISON AVENUE  DAYTON $46,000.00"/>
+<marker lat="39.7628560" lng="-84.2045450" html="2012-03-23 &lt;br&gt; 2011 CV 05590 &lt;br&gt; $12,000.00" label="727 W. RIVERVIEW DRIVE  DAYTON $12,000.00"/>
+<marker lat="39.7264330" lng="-84.1493000" html="2012-03-23 &lt;br&gt; 2011 CV 05700 &lt;br&gt; $38,000.00" label="2851 WINBURN AVENUE  DAYTON $38,000.00"/>
+<marker lat="39.7087300" lng="-84.3703960" html="2012-03-23 &lt;br&gt; 2011 CV 05737 &lt;br&gt; $190,000.00" label="2409 DIAMOND MILL ROAD  FARMERSVILLE $190,000.00"/>
+<marker lat="39.7575050" lng="-84.2549440" html="2012-03-23 &lt;br&gt; 2011 CV 05752 &lt;br&gt; $26,000.00" label="4100 OAKRIDGE DRIVE  DAYTON $26,000.00"/>
+<marker lat="39.7540710" lng="-84.1344270" html="2012-03-23 &lt;br&gt; 2011 CV 05817 &lt;br&gt; $8,000.00" label="1763 TUTTLE AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.8035910" lng="-84.2133610" html="2012-03-23 &lt;br&gt; 2011 CV 05909 &lt;br&gt; $30,000.00" label="337 E. MELFORD AVENUE  DAYTON $30,000.00"/>
+<marker lat="39.8206380" lng="-84.2298770" html="2012-03-23 &lt;br&gt; 2011 CV 06069 &lt;br&gt; $50,000.00" label="5064 BROCK LANE  DAYTON $50,000.00"/>
+<marker lat="39.8213590" lng="-84.2751920" html="2012-03-23 &lt;br&gt; 2011 CV 06501 &lt;br&gt; $66,000.00" label="5191 DENLINGER ROAD  DAYTON $66,000.00"/>
+<marker lat="39.7402960" lng="-84.1963290" html="2012-03-23 &lt;br&gt; 2011 CV 06547 &lt;br&gt; $12,000.00" label="339 W STEWART STREET  DAYTON $12,000.00"/>
+<marker lat="39.7074050" lng="-84.1964320" html="2012-03-23 &lt;br&gt; 2011 CV 06632 &lt;br&gt; $92,000.00" label="3040-3046 SOUTHDALE DRIVE  DAYTON $92,000.00"/>
+<marker lat="39.6648110" lng="-84.2316550" html="2012-03-23 &lt;br&gt; 2011 CV 06673 &lt;br&gt; $20,000.00" label="1651 MARS HILL DRIVE  WEST CARROLLTON $20,000.00"/>
+<marker lat="39.8429130" lng="-84.2899429" html="2012-03-23 &lt;br&gt; 2011 CV 06681 &lt;br&gt; $80,000.00" label="6725 GALAXIE DRIVE  DAYTON $80,000.00"/>
+<marker lat="39.8290293" lng="-84.1298472" html="2012-03-23 &lt;br&gt; 2011 CV 06961 &lt;br&gt; $30,000.00" label="4588 KAPP DRIVE  DAYTON $30,000.00"/>
+<marker lat="39.8108848" lng="-84.2579280" html="2012-03-23 &lt;br&gt; 2011 CV 07189 &lt;br&gt; $24,000.00" label="4381 MARLOWE STREET  DAYTON $24,000.00"/>
+<marker lat=" NO SALE" lng="39.7898440" html="2012-03-23 &lt;br&gt; 2011 CV 07252 &lt;br&gt; $28,000.00" label="21 BASSWOOD AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.8749965" lng="-84.3333420" html="2012-03-30 &lt;br&gt; 2010 CV 04421 &lt;br&gt; $66,000.00" label="4027 TWIN LAKES CIRCLE  CLATON $66,000.00"/>
+<marker lat="39.6762030" lng="-84.1473470" html="2012-03-30 &lt;br&gt; 2010 CV 04632 &lt;br&gt; $56,000.00" label="4890 WALDEN LANE  KETTERING $56,000.00"/>
+<marker lat="39.7268700" lng="-84.2698290" html="2012-03-30 &lt;br&gt; 2010 CV 05261 &lt;br&gt; $12,000.00" label="4906 TENSHAW DRIVE  DAYTON $12,000.00"/>
+<marker lat="39.7676910" lng="-84.2067129" html="2012-03-30 &lt;br&gt; 2010 CV 05264 &lt;br&gt; $18,000.00" label="18 FEDERAL STREET  DAYTON $18,000.00"/>
+<marker lat="39.7879340" lng="-84.2609600" html="2012-03-30 &lt;br&gt; 2010 CV 05339 &lt;br&gt; $14,000.00" label="4650 GREENWICH VILLAGE AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.7374840" lng="-84.2516500" html="2012-03-30 &lt;br&gt; 2010 CV 05805 &lt;br&gt; $7,000.00" label="83 OAK LEAF DRIVE  DAYTON $7,000.00"/>
+<marker lat="39.7402064" lng="-84.1378707" html="2012-03-30 &lt;br&gt; 2010 CV 05819 &lt;br&gt; $26,000.00" label="4119 ARCADIA BLVD.  DAYTON $26,000.00"/>
+<marker lat="39.7457430" lng="-84.1352390" html="2012-03-30 &lt;br&gt; 2010 CV 05828 &lt;br&gt; $28,000.00" label="1539 MERILINE AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.7671880" lng="-84.1529910" html="2012-03-30 &lt;br&gt; 2010 CV 07349 &lt;br&gt; $5,000.00" label="2916 E. 2ND STREET  DAYTON $5,000.00"/>
+<marker lat="39.7859490" lng="-84.1581510" html="2012-03-30 &lt;br&gt; 2010 CV 07504 &lt;br&gt; $196,000.00" label="1328-44 ST. ADALBERT AVENUE  DAYTON $196,000.00"/>
+<marker lat="39.7032072" lng="-84.1883651" html="2012-03-30 &lt;br&gt; 2010 CV 07776 &lt;br&gt; $122,000.00" label="1050 COTTONWOOD ROAD  DAYTON $122,000.00"/>
+<marker lat="39.7512830" lng="-84.1474110" html="2012-03-30 &lt;br&gt; 2010 CV 07895 &lt;br&gt; $24,000.00" label="545 KOLPING AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.7820770" lng="-84.2151350" html="2012-03-30 &lt;br&gt; 2010 CV 08948 &lt;br&gt; $18,000.00" label="251 MARATHON AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.6921600" lng="-84.1546220" html="2012-03-30 &lt;br&gt; 2010 CV 09586 &lt;br&gt; $46,000.00" label="860 GARDNER ROAD  DAYTON $46,000.00"/>
+<marker lat="39.6674453" lng="-84.1248387" html="2012-03-30 &lt;br&gt; 2010 CV 09816 &lt;br&gt; $86,000.00" label="2285 EAST RAHN ROAD  KETTERING $86,000.00"/>
+<marker lat="39.7778810" lng="-84.2011380" html="2012-03-30 &lt;br&gt; 2010 CV 09976 &lt;br&gt; $3,000.00" label="53 BOND STREET  DAYTON $3,000.00"/>
+<marker lat="39.7713530" lng="-84.2078380" html="2012-03-30 &lt;br&gt; 2011 CV 00225 &lt;br&gt; $2,000.00" label="515 GRAFTON AVENUE  DAYTON $2,000.00"/>
+<marker lat="39.8044820" lng="-84.3050810" html="2012-03-30 &lt;br&gt; 2011 CV 00551 &lt;br&gt; $16,000.00" label="413 NORTH EPPINGTON DRIVE  TROTWOOD $16,000.00"/>
+<marker lat="39.8755280" lng="-84.2173050" html="2012-03-30 &lt;br&gt; 2011 CV 03568 &lt;br&gt; $84,000.00" label="1317 CORNISH DRIVE  VANDALIA $84,000.00"/>
+<marker lat="39.6739790" lng="-84.2100470" html="2012-03-30 &lt;br&gt; 2011 CV 03857 &lt;br&gt; $12,000.00" label="5351 DUNMORE DRIVE  DAYTON $12,000.00"/>
+<marker lat="39.8735710" lng="-84.1166530" html="2012-03-30 &lt;br&gt; 2011 CV 03889 &lt;br&gt; $42,000.00" label="8209 SCHOOLGATE DRIVE  HUBER HEIGHTS $42,000.00"/>
+<marker lat="39.7218250" lng="-84.2748420" html="2012-03-30 &lt;br&gt; 2011 CV 03966 &lt;br&gt; $26,000.00" label="1660 HOPEWELL AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.7309530" lng="-84.1339930" html="2012-03-30 &lt;br&gt; 2011 CV 04003 &lt;br&gt; $32,000.00" label="1130 HIGHRIDGE AVENUE  DAYTON $32,000.00"/>
+<marker lat="39.7647600" lng="-84.1399930" html="2012-03-30 &lt;br&gt; 2011 CV 04017 &lt;br&gt; $36,000.00" label="62 SOUTH CHERRYWOOD AVENUE  DAYTON $36,000.00"/>
+<marker lat="39.7597820" lng="-84.2573940" html="2012-03-30 &lt;br&gt; 2011 CV 04227 &lt;br&gt; $22,000.00" label="4145 KAMMER AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.6205020" lng="-84.2004550" html="2012-03-30 &lt;br&gt; 2011 CV 04460 &lt;br&gt; $90,000.00" label="1636 TURNBERRY VILLAGE DRIVE  CENTERVILLE $90,000.00"/>
+<marker lat="39.9047662" lng="-84.4016379" html="2012-03-30 &lt;br&gt; 2011 CV 04847 &lt;br&gt; $42,000.00" label="50 SOUTH STATE STREET  PHILLIPSBURG $42,000.00"/>
+<marker lat="39.7898960" lng="-84.2147250" html="2012-03-30 &lt;br&gt; 2011 CV 04982 &lt;br&gt; $10,000.00" label="24 WEST BEECHWOOD AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.8354500" lng="-84.2997840" html="2012-03-30 &lt;br&gt; 2011 CV 05033 &lt;br&gt; $102,000.00" label="6130 PAR DRIVE  CLAYTON $102,000.00"/>
+<marker lat="39.8024799" lng="-84.2214744" html="2012-03-30 &lt;br&gt; 2011 CV 05051 &lt;br&gt; $1,200.00" label="29 AND 31 WEST MELFORD AVENUE  DAYTON $1,200.00"/>
+<marker lat="39.6409830" lng="-84.1139479" html="2012-03-30 &lt;br&gt; 2011 CV 05064 &lt;br&gt; $190,000.00" label="6886 LATE AUTUMN COURT  CENTERVILLE $190,000.00"/>
+<marker lat="39.8548270" lng="-84.2642670" html="2012-03-30 &lt;br&gt; 2011 CV 05149 &lt;br&gt; $8,000.00" label="8720 MEEKER ROAD  DAYTON $8,000.00"/>
+<marker lat="39.8754464" lng="-84.3020063" html="2012-03-30 &lt;br&gt; 2011 CV 05187 &lt;br&gt; $32,000.00" label="28 OVERLOOK STREET  ENGLEWOOD $32,000.00"/>
+<marker lat="39.6776330" lng="-84.1457220" html="2012-03-30 &lt;br&gt; 2011 CV 05188 &lt;br&gt; $70,000.00" label="1236 BERNA LANE  KETTERING $70,000.00"/>
+<marker lat="39.7791930" lng="-84.2423309" html="2012-03-30 &lt;br&gt; 2011 CV 05313 &lt;br&gt; $38,000.00" label="3312 HARVARD BOULEVARD  DAYTON $38,000.00"/>
+<marker lat="39.8745740" lng="-84.2018750" html="2012-03-30 &lt;br&gt; 2011 CV 05389 &lt;br&gt; $190,000.00" label="1343 LEAF TREE LANE  VANDALIA $190,000.00"/>
+<marker lat="39.7792880" lng="-84.2391090" html="2012-03-30 &lt;br&gt; 2011 CV 05414 &lt;br&gt; $36,000.00" label="3120 HARVARD BOULEVARD  DAYTON $36,000.00"/>
+<marker lat="39.6562410" lng="-84.1297540" html="2012-03-30 &lt;br&gt; 2011 CV 05416 &lt;br&gt; $56,000.00" label="6081 SINGLE TREE LANE  CENTERVILLE $56,000.00"/>
+<marker lat="39.6407944" lng="-84.1419479" html="2012-03-30 &lt;br&gt; 2011 CV 05421 &lt;br&gt; $116,000.00" label="7176 HARTCREST LANE  CENTERVILLE $116,000.00"/>
+<marker lat="39.7721050" lng="-84.2092940" html="2012-03-30 &lt;br&gt; 2011 CV 05422 &lt;br&gt; $20,000.00" label="141 WROE AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.7511500" lng="-84.1132310" html="2012-03-30 &lt;br&gt; 2011 CV 05492 &lt;br&gt; $48,000.00" label="4514 EASTMAN AVENUE  DAYTON $48,000.00"/>
+<marker lat="39.6262800" lng="-84.3515060" html="2012-03-30 &lt;br&gt; 2011 CV 05509 &lt;br&gt; $46,000.00" label="115 ROGERS DRIVE  GERMANTOWN $46,000.00"/>
+<marker lat="39.8303889" lng="-84.2288340" html="2012-03-30 &lt;br&gt; 2011 CV 05529 &lt;br&gt; $52,000.00" label="6214 CARRIAGE DRIVE  DAYTON $52,000.00"/>
+<marker lat="39.7820670" lng="-84.2048690" html="2012-03-30 &lt;br&gt; 2011 CV 05549 &lt;br&gt; $20,000.00" label="133 RIDGE AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.8362970" lng="-84.2560820" html="2012-03-30 &lt;br&gt; 2011 CV 05614 &lt;br&gt; $32,000.00" label="7815 NORTH MAIN STREET #45  DAYTON $32,000.00"/>
+<marker lat="39.7693439" lng="-84.3121800" html="2012-03-30 &lt;br&gt; 2011 CV 05658 &lt;br&gt; $42,000.00" label="1571 NORTH UNION ROAD  TROTWOOD $42,000.00"/>
+<marker lat="39.6477870" lng="-84.2708180" html="2012-03-30 &lt;br&gt; 2011 CV 05736 &lt;br&gt; $52,000.00" label="732 LOOP STREET  MIAMISBURG $52,000.00"/>
+<marker lat="39.8807298" lng="-84.3022269" html="2012-03-30 &lt;br&gt; 2011 CV 06186 &lt;br&gt; $36,000.00" label="220 VALLEYVIEW DRIVE  ENGLEWOOD $36,000.00"/>
+<marker lat="39.7083630" lng="-84.1916300" html="2012-03-30 &lt;br&gt; 2011 CV 06188 &lt;br&gt; $34,000.00" label="1233 SOUTHLYN DRIVE  DAYTON $34,000.00"/>
+<marker lat="39.7962010" lng="-84.1450530" html="2012-03-30 &lt;br&gt; 2011 CV 06320 &lt;br&gt; $26,000.00" label="629 TYRON AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.8220040" lng="-84.2680470" html="2012-03-30 &lt;br&gt; 2011 CV 06355 &lt;br&gt; $56,000.00" label="5141 WEDDINGTON DRIVE  TROTWOOD $56,000.00"/>
+<marker lat="39.7016300" lng="-84.1178769" html="2012-03-30 &lt;br&gt; 2011 CV 06469 &lt;br&gt; $28,000.00" label="2520 DANZ AVENUE  KETTERING $28,000.00"/>
+<marker lat="39.6445800" lng="-84.2151440" html="2012-03-30 &lt;br&gt; 2011 CV 06527 &lt;br&gt; $68,000.00" label="7388 MIDDLEPORT DRIVE  DAYTON $68,000.00"/>
+<marker lat="39.7390339" lng="-84.3977400" html="2012-03-30 &lt;br&gt; 2011 CV 06544 &lt;br&gt; $42,000.00" label="425 LUFKIN DRIVE  NEW LEBANON $42,000.00"/>
+<marker lat="39.7166450" lng="-84.1725120" html="2012-03-30 &lt;br&gt; 2011 CV 06631 &lt;br&gt; $170,000.00" label="1613 FAR HILLS AVENUE  DAYTON $170,000.00"/>
+<marker lat="39.7050180" lng="-84.1986770" html="2012-03-30 &lt;br&gt; 2011 CV 06698 &lt;br&gt; $32,000.00" label="3215 SOUTHDALE DRIVE #7  KETTERING $32,000.00"/>
+<marker lat="39.6851420" lng="-84.2339620" html="2012-03-30 &lt;br&gt; 2011 CV 06713 &lt;br&gt; $10,000.00" label="3304 CLEARVIEW AVENUE  MORAINE $10,000.00"/>
+<marker lat="39.6676930" lng="-84.2511460" html="2012-03-30 &lt;br&gt; 2011 CV 06763 &lt;br&gt; $28,000.00" label="15 MAPLE HILL DRIVE  WEST CARROLLTON $28,000.00"/>
+<marker lat="39.9015140" lng="-84.3193960" html="2012-03-30 &lt;br&gt; 2011 CV 06815 &lt;br&gt; $48,000.00" label="147 MCCRAW DRIVE  ENGLEWOOD $48,000.00"/>
+<marker lat="39.7673328" lng="-84.1377900" html="2012-03-30 &lt;br&gt; 2011 CV 06898 &lt;br&gt; $3,000.00" label="59 NORTH SMITHVILLE ROAD  DAYTON $3,000.00"/>
+<marker lat="39.6653350" lng="-84.2298440" html="2012-03-30 &lt;br&gt; 2011 CV 07659 &lt;br&gt; $78,000.00" label="5924 NORWELL DRIVE  DAYTON $78,000.00"/>
+<marker lat="39.8618850" lng="-84.1249560" html="2012-03-30 &lt;br&gt; 2011 CV 07715 &lt;br&gt; $48,000.00" label="6222 TAYLORSVILLE ROAD  HUBER HEIGHTS $48,000.00"/>
+<marker lat="39.6962570" lng="-84.2019480" html="2012-03-30 &lt;br&gt; 2011 CV 07761 &lt;br&gt; $28,000.00" label="3813 UTICA DRIVE  KETTERING $28,000.00"/>
+<marker lat="39.8426730" lng="-84.2925420" html="2012-04-06 &lt;br&gt; 2004 CV 04497 &lt;br&gt; $54,000.00" label="6665 TAYWOOD ROAD  ENGLEWOOD $54,000.00"/>
+<marker lat="39.7930870" lng="-84.2627370" html="2012-04-06 &lt;br&gt; 2006 CV 05578 &lt;br&gt; $36,000.00" label="2503 ARLENE AVENUE  DAYTON $36,000.00"/>
+<marker lat="39.6920190" lng="-84.1343170" html="2012-04-06 &lt;br&gt; 2006 CV 07587 &lt;br&gt; $46,000.00" label="3717 Lisbon Street  Kettering $46,000.00"/>
+<marker lat="39.8575900" lng="-84.1244310" html="2012-04-06 &lt;br&gt; 2006 CV 09226 &lt;br&gt; $44,000.00" label="7031 KLYEMORE DRIVE  DAYTON $44,000.00"/>
+<marker lat="39.8776250" lng="-84.1130150" html="2012-04-06 &lt;br&gt; 2006 CV 10046 &lt;br&gt; $60,000.00" label="8748 DEER HOLLOW DRIVE  DAYTON $60,000.00"/>
+<marker lat="39.8396560" lng="-84.4282379" html="2012-04-06 &lt;br&gt; 2007 CV 08681 &lt;br&gt; $28,000.00" label="631 RAMBLEWOOD COURT  BROOKVILLE $28,000.00"/>
+<marker lat="39.7849330" lng="-84.3173489" html="2012-04-06 &lt;br&gt; 2008 CV 09676 &lt;br&gt; $48,000.00" label="304 SKINNER DRIVE  TROTWOOD $48,000.00"/>
+<marker lat="39.7747350" lng="-84.2139160" html="2012-04-06 &lt;br&gt; 2008 CV 09778 &lt;br&gt; $10,000.00" label="949-951 FERNDALE AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.6849380" lng="-84.1202820" html="2012-04-06 &lt;br&gt; 2008 CV 09815 &lt;br&gt; $88,000.00" label="2359 HEMPHILL ROAD  KETTERING $88,000.00"/>
+<marker lat="39.8389840" lng="-84.2775370" html="2012-04-06 &lt;br&gt; 2008 CV 10997 &lt;br&gt; $74,000.00" label="6407 NORANDA DRIVE  DAYTON $74,000.00"/>
+<marker lat="39.8436680" lng="-84.1273850" html="2012-04-06 &lt;br&gt; 2009 CV 01590 &lt;br&gt; $38,000.00" label="6231 FALKLAND DRIVE  DAYTON $38,000.00"/>
+<marker lat="39.8114240" lng="-84.2964150" html="2012-04-06 &lt;br&gt; 2009 CV 02282 &lt;br&gt; $62,000.00" label="709 BROAD OAK DRIVE  DAYTON $62,000.00"/>
+<marker lat="39.6133521" lng="-84.1722915" html="2012-04-06 &lt;br&gt; 2009 CV 03084 &lt;br&gt; $104,000.00" label="375 WEST SPRING VALLEY ROAD  DAYTON $104,000.00"/>
+<marker lat="39.7459586" lng="-84.1575633" html="2012-04-06 &lt;br&gt; 2009 CV 03277 &lt;br&gt; $26,000.00" label="1028 PRITZ AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.7922889" lng="-84.2139360" html="2012-04-06 &lt;br&gt; 2009 CV 04093 &lt;br&gt; $28,000.00" label="13 EAST MAPLEWOOD AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.6122510" lng="-84.2028320" html="2012-04-06 &lt;br&gt; 2009 CV 05509 &lt;br&gt; $194,000.00" label="9381 PARKSIDE DRIVE  CENTERVILLE $194,000.00"/>
+<marker lat="39.7803400" lng="-84.2037450" html="2012-04-06 &lt;br&gt; 2009 CV 05926 &lt;br&gt; $14,000.00" label="60 MARY AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.7866540" lng="-84.2365370" html="2012-04-06 &lt;br&gt; 2009 CV 06113 &lt;br&gt; $10,000.00" label="2105 VICTORIA AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.6250240" lng="-84.1846540" html="2012-04-06 &lt;br&gt; 2009 CV 06922 &lt;br&gt; $118,000.00" label="901 SUNNYCREEK DRIVE  CENTERVILLE $118,000.00"/>
+<marker lat="39.7917980" lng="-84.2655950" html="2012-04-06 &lt;br&gt; 2009 CV 09354 &lt;br&gt; $12,000.00" label="2406 WYTHE COURT  DAYTON $12,000.00"/>
+<marker lat="39.7446480" lng="-84.2979639" html="2012-04-06 &lt;br&gt; 2009 CV 09739 &lt;br&gt; $4,000.00" label="102 LAWNCREST AVENUE  DAYTON $4,000.00"/>
+<marker lat="39.7186820" lng="-84.1352170" html="2012-04-06 &lt;br&gt; 2009 CV 10542 &lt;br&gt; $44,000.00" label="2016 PITTSFIELD STREET  KETTERING $44,000.00"/>
+<marker lat="39.6998430" lng="-84.1205460" html="2012-04-06 &lt;br&gt; 2010 CV 00447 &lt;br&gt; $70,000.00" label="2416 MORNINGSTAR COURT  DAYTON $70,000.00"/>
+<marker lat="39.7777630" lng="-84.2113720" html="2012-04-06 &lt;br&gt; 2010 CV 02686 &lt;br&gt; $28,000.00" label="220 FOUNTAIN AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.7464310" lng="-84.1562440" html="2012-04-06 &lt;br&gt; 2010 CV 02814 &lt;br&gt; $8,000.00" label="1804 WYOMING STREET  DAYTON $8,000.00"/>
+<marker lat="39.8477720" lng="-84.1248610" html="2012-04-06 &lt;br&gt; 2010 CV 02875 &lt;br&gt; $50,000.00" label="6509 ROSEBURY DRIVE  DAYTON $50,000.00"/>
+<marker lat="39.7815640" lng="-84.2151430" html="2012-04-06 &lt;br&gt; 2010 CV 02999 &lt;br&gt; $6,000.00" label="252 MARATHON AVENUE  DAYTON $6,000.00"/>
+<marker lat="39.6060750" lng="-84.2154780" html="2012-04-06 &lt;br&gt; 2010 CV 03137 &lt;br&gt; $78,000.00" label="9945 LINCOLNSHIRE ROAD  MIAMISBURG $78,000.00"/>
+<marker lat="39.6990710" lng="-84.2092700" html="2012-04-06 &lt;br&gt; 2010 CV 03644 &lt;br&gt; $24,000.00" label="3809 FULTON AVENUE  MORAINE $24,000.00"/>
+<marker lat="39.6740489" lng="-84.3119630" html="2012-04-06 &lt;br&gt; 2010 CV 04371 &lt;br&gt; $26,000.00" label="7174 GERMANTOWN PIKE  MIAMISBURG $26,000.00"/>
+<marker lat="39.6708990" lng="-84.2564690" html="2012-04-06 &lt;br&gt; 2010 CV 04400 &lt;br&gt; $26,000.00" label="228 WEST MAIN STREET  WEST CARROLLTON $26,000.00"/>
+<marker lat="39.6389970" lng="-84.2138440" html="2012-04-06 &lt;br&gt; 2010 CV 05040 &lt;br&gt; $44,000.00" label="7670 MAD RIVER ROAD  DAYTON $44,000.00"/>
+<marker lat="39.6598320" lng="-84.2476990" html="2012-04-06 &lt;br&gt; 2010 CV 05613 &lt;br&gt; $56,000.00" label="922 SPRING LAKE CIRCLE  WEST CARROLLTON $56,000.00"/>
+<marker lat="39.6439499" lng="-84.2856700" html="2012-04-06 &lt;br&gt; 2010 CV 05874 &lt;br&gt; $52,000.00" label="302 EAST PEARL STREET  MIAMISBURG $52,000.00"/>
+<marker lat="39.8619870" lng="-84.1044220" html="2012-04-06 &lt;br&gt; 2010 CV 08699 &lt;br&gt; $54,000.00" label="7555 BRANT PKE  HUBER HEIGHTS $54,000.00"/>
+<marker lat="39.7883700" lng="-84.2594970" html="2012-04-06 &lt;br&gt; 2011 CV 00855 &lt;br&gt; $4,000.00" label="4609 GREENWICH VILLAGE  DAYTON $4,000.00"/>
+<marker lat="39.7085620" lng="-84.1372930" html="2012-04-06 &lt;br&gt; 2011 CV 01822 &lt;br&gt; $60,000.00" label="2651 PENTLEY PLACE  KETTERING $60,000.00"/>
+<marker lat="39.9130750" lng="-84.3086410" html="2012-04-06 &lt;br&gt; 2011 CV 02945 &lt;br&gt; $24,000.00" label="110 PEPPERWOOD PLACE  UNION $24,000.00"/>
+<marker lat="39.8518900" lng="-84.3046619" html="2012-04-06 &lt;br&gt; 2011 CV 03561 &lt;br&gt; $50,000.00" label="4001 LOOP DRIVE  ENGLEWOOD $50,000.00"/>
+<marker lat="39.6469230" lng="-84.2267530" html="2012-04-06 &lt;br&gt; 2011 CV 03587 &lt;br&gt; $18,000.00" label="3092 BRIGHT BOUNTY LANE  DAYTON $18,000.00"/>
+<marker lat="39.9134070" lng="-84.3168589" html="2012-04-06 &lt;br&gt; 2011 CV 03664 &lt;br&gt; $94,000.00" label="175 CONCORD FARM ROAD  UNION $94,000.00"/>
+<marker lat="39.6231440" lng="-84.3012470" html="2012-04-06 &lt;br&gt; 2011 CV 03665 &lt;br&gt; $84,000.00" label="7283 ZECK ROAD  MIAMISBURG $84,000.00"/>
+<marker lat="39.7442760" lng="-84.1600910" html="2012-04-06 &lt;br&gt; 2011 CV 03666 &lt;br&gt; $50,000.00" label="136 VIRGINIA AVENUE  DAYTON $50,000.00"/>
+<marker lat="39.7643710" lng="-84.2352960" html="2012-04-06 &lt;br&gt; 2011 CV 04200 &lt;br&gt; $1,600.00" label="1017-1019 NORTH JAMES H. MCGEE BLVD  DAYTON $1,600.00"/>
+<marker lat="39.7002020" lng="-84.2422920" html="2012-04-06 &lt;br&gt; 2011 CV 04607 &lt;br&gt; $64,000.00" label="2269 WIENBURG DRIVE  DAYTON $64,000.00"/>
+<marker lat="39.6722440" lng="-84.1484350" html="2012-04-06 &lt;br&gt; 2011 CV 04692 &lt;br&gt; $78,000.00" label="817 BRITTON AVENUE  DAYTON $78,000.00"/>
+<marker lat="39.6810031" lng="-84.1199116" html="2012-04-06 &lt;br&gt; 2011 CV 04696 &lt;br&gt; $88,000.00" label="4409 CLARENDON DRIVE  KETTERING $88,000.00"/>
+<marker lat="39.8944130" lng="-84.3154730" html="2012-04-06 &lt;br&gt; 2011 CV 04735 &lt;br&gt; $38,000.00" label="416 JOELLEN PLACE  ENGLEWOOD $38,000.00"/>
+<marker lat="39.7682750" lng="-84.2713740" html="2012-04-06 &lt;br&gt; 2011 CV 04946 &lt;br&gt; $10,000.00" label="1476 COURTER STREET  DAYTON $10,000.00"/>
+<marker lat="39.8038340" lng="-84.2495450" html="2012-04-06 &lt;br&gt; 2011 CV 05110 &lt;br&gt; $22,000.00" label="3723 BARBAROSA DRIVE  TROTWOOD $22,000.00"/>
+<marker lat="39.8291590" lng="-84.3052850" html="2012-04-06 &lt;br&gt; 2011 CV 05196 &lt;br&gt; $38,000.00" label="6497 GREENBROOK  DAYTON $38,000.00"/>
+<marker lat="39.6289620" lng="-84.1568670" html="2012-04-06 &lt;br&gt; 2011 CV 05230 &lt;br&gt; $140,000.00" label="900 E. FRANKLIN STREET  DAYTON $140,000.00"/>
+<marker lat="39.8599929" lng="-84.3364635" html="2012-04-06 &lt;br&gt; 2011 CV 05246 &lt;br&gt; $172,000.00" label="5228 VIRGINIA SPRINGS DRIVE  CLAYTON $172,000.00"/>
+<marker lat="39.7411970" lng="-84.1520790" html="2012-04-06 &lt;br&gt; 2011 CV 05274 &lt;br&gt; $26,000.00" label="1325 ARBOR AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.8088650" lng="-84.2274500" html="2012-04-06 &lt;br&gt; 2011 CV 05322 &lt;br&gt; $40,000.00" label="244 JULIA AVENUE  DAYTON $40,000.00"/>
+<marker lat="39.7530750" lng="-84.2565810" html="2012-04-06 &lt;br&gt; 2011 CV 05657 &lt;br&gt; $8,000.00" label="338 BUNGALOW ROAD  DAYTON $8,000.00"/>
+<marker lat="39.7843700" lng="-84.2581050" html="2012-04-06 &lt;br&gt; 2011 CV 05681 &lt;br&gt; $8,000.00" label="4517 QUEENS AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.7020250" lng="-84.2429130" html="2012-04-06 &lt;br&gt; 2011 CV 05879 &lt;br&gt; $30,000.00" label="2327 WIENBURG DRIVE  DAYTON $30,000.00"/>
+<marker lat="39.8550650" lng="-84.0595560" html="2012-04-06 &lt;br&gt; 2011 CV 05928 &lt;br&gt; $46,000.00" label="7300 NEW CARLISLE PIKE  HUBER HEIGHTS $46,000.00"/>
+<marker lat="39.8244950" lng="-84.1943090" html="2012-04-06 &lt;br&gt; 2011 CV 05963 &lt;br&gt; $12,000.00" label="6029 FOSTER DRIVE  DAYTON $12,000.00"/>
+<marker lat="39.7532780" lng="-84.1537520" html="2012-04-06 &lt;br&gt; 2011 CV 06070 &lt;br&gt; $20,000.00" label="1621 XENIA AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.6671070" lng="-84.1339700" html="2012-04-06 &lt;br&gt; 2011 CV 06090 &lt;br&gt; $86,000.00" label="2048 EAST RAHN ROAD  DAYTON $86,000.00"/>
+<marker lat="39.7617130" lng="-84.1358810" html="2012-04-06 &lt;br&gt; 2011 CV 06091 &lt;br&gt; $24,000.00" label="401 MERTLAND AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.7315660" lng="-84.4043380" html="2012-04-06 &lt;br&gt; 2011 CV 06199 &lt;br&gt; $48,000.00" label="856 FULS ROAD  NEW LEBANON $48,000.00"/>
+<marker lat="39.8059260" lng="-84.2690530" html="2012-04-06 &lt;br&gt; 2011 CV 06359 &lt;br&gt; $36,000.00" label="4029 BRUMBAUGH BOULEVARD  DAYTON $36,000.00"/>
+<marker lat="39.8627800" lng="-84.3028889" html="2012-04-06 &lt;br&gt; 2011 CV 06463 &lt;br&gt; $48,000.00" label="516 LAMBERT LANE  ENGLEWOOD $48,000.00"/>
+<marker lat="39.8245350" lng="-84.1166880" html="2012-04-06 &lt;br&gt; 2011 CV 06536 &lt;br&gt; $70,000.00" label="4741 WHITEWOOD COURT  DAYTON $70,000.00"/>
+<marker lat="39.7502520" lng="-84.1574350" html="2012-04-06 &lt;br&gt; 2011 CV 06582 &lt;br&gt; $12,000.00" label="701 - 703 PRITZ AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.7714150" lng="-84.1438180" html="2012-04-06 &lt;br&gt; 2011 CV 06741 &lt;br&gt; $30,000.00" label="235 NORTH DELMAR AVENUE  DAYTON $30,000.00"/>
+<marker lat="39.7659220" lng="-84.2144730" html="2012-04-06 &lt;br&gt; 2011 CV 06835 &lt;br&gt; $12,000.00" label="749 SUPERIOR AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.7992210" lng="-84.2124820" html="2012-04-06 &lt;br&gt; 2011 CV 07008 &lt;br&gt; $28,000.00" label="248 SANDHURST DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.6796990" lng="-84.2095510" html="2012-04-06 &lt;br&gt; 2011 CV 07272 &lt;br&gt; $42,000.00" label="2396 BUSHWICK DRIVE  DAYTON $42,000.00"/>
+<marker lat="39.8001360" lng="-84.2094950" html="2012-04-06 &lt;br&gt; 2011 CV 07463 &lt;br&gt; $14,000.00" label="608 REDWOOD AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.6685140" lng="-84.2269300" html="2012-04-06 &lt;br&gt; 2011 CV 07464 &lt;br&gt; $52,000.00" label="5907 HOMEDALE STREET  DAYTON $52,000.00"/>
+<marker lat="39.8610570" lng="-84.1922740" html="2012-04-06 &lt;br&gt; 2011 CV 07492 &lt;br&gt; $84,000.00" label="4119 TANGLETREE COURT  DAYTON $84,000.00"/>
+<marker lat="39.6768990" lng="-84.2139660" html="2012-04-13 &lt;br&gt; 2007 CV 07264 &lt;br&gt; $14,000.00" label="5227 Belle Isle Drive  Dayton $14,000.00"/>
+<marker lat="39.7226840" lng="-84.1977120" html="2012-04-13 &lt;br&gt; 2007 CV 07491 &lt;br&gt; $50,000.00" label="1612 Carrollton Avenue  Kettering $50,000.00"/>
+<marker lat="39.8530660" lng="-84.1163640" html="2012-04-13 &lt;br&gt; 2007 CV 09402 &lt;br&gt; $46,000.00" label="6520 Menlo Way  Dayton $46,000.00"/>
+<marker lat="39.8008250" lng="-84.2262580" html="2012-04-13 &lt;br&gt; 2008 CV 00176 &lt;br&gt; $70,000.00" label="3325 Catalpa Drive  Dayton $70,000.00"/>
+<marker lat="39.7516840" lng="-84.2583630" html="2012-04-13 &lt;br&gt; 2008 CV 02046 &lt;br&gt; $30,000.00" label="4311 Midway Avenue  Dayton $30,000.00"/>
+<marker lat="39.6579080" lng="-84.3285060" html="2012-04-13 &lt;br&gt; 2008 CV 07702 &lt;br&gt; $30,000.00" label="8004 MANNING ROAD  GERMANTOWN $30,000.00"/>
+<marker lat="39.8289090" lng="-84.2850250" html="2012-04-13 &lt;br&gt; 2008 CV 07803 &lt;br&gt; $84,000.00" label="4917 MAGELLAN AVENUE  TROTWOOD $84,000.00"/>
+<marker lat="39.7938590" lng="-84.1397960" html="2012-04-13 &lt;br&gt; 2009 CV 00317 &lt;br&gt; $8,000.00" label="2458 BUSHNELL AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.7847191" lng="-84.2429014" html="2012-04-13 &lt;br&gt; 2009 CV 02690 &lt;br&gt; $6,000.00" label="1937 KIPLING DRIVE  DAYTON $6,000.00"/>
+<marker lat="39.9136990" lng="-84.3158820" html="2012-04-13 &lt;br&gt; 2009 CV 03040 &lt;br&gt; $80,000.00" label="160 CONCORD FARM ROAD  UNION $80,000.00"/>
+<marker lat="39.8941840" lng="-84.1815940" html="2012-04-13 &lt;br&gt; 2009 CV 04059 &lt;br&gt; $26,000.00" label="857 WESTHAFER ROAD  VANDALIA $26,000.00"/>
+<marker lat="39.6566390" lng="-84.1134359" html="2012-04-13 &lt;br&gt; 2009 CV 04839 &lt;br&gt; $48,000.00" label="2624 S. KINGS ARMS CIRCLE  CENTERVILLE $48,000.00"/>
+<marker lat="39.8255340" lng="-84.1077420" html="2012-04-13 &lt;br&gt; 2009 CV 05291 &lt;br&gt; $34,000.00" label="6230 PHEASANT HILL RD. 2  HUBER HEIGHTS $34,000.00"/>
+<marker lat="39.6848850" lng="-84.1439120" html="2012-04-13 &lt;br&gt; 2009 CV 06465 &lt;br&gt; $34,000.00" label="1313 ROCHELLE AVENUE  KETTERING $34,000.00"/>
+<marker lat="39.8343020" lng="-84.1180860" html="2012-04-13 &lt;br&gt; 2009 CV 07115 &lt;br&gt; $46,000.00" label="5542 SHADY OAK STREET  HUBER HEIGHTS $46,000.00"/>
+<marker lat="39.8301440" lng="-84.2040169" html="2012-04-13 &lt;br&gt; 2009 CV 08850 &lt;br&gt; $44,000.00" label="5716 KENDON STREET  DAYTON $44,000.00"/>
+<marker lat="39.8010577" lng="-84.2137457" html="2012-04-13 &lt;br&gt; 2009 CV 08992 &lt;br&gt; $14,000.00" label="3819 ADDISON AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.8529960" lng="-84.1335870" html="2012-04-13 &lt;br&gt; 2009 CV 09197 &lt;br&gt; $38,000.00" label="6983 ANGORA WAY  DAYTON $38,000.00"/>
+<marker lat="39.8331180" lng="-84.2612770" html="2012-04-13 &lt;br&gt; 2009 CV 09268 &lt;br&gt; $40,000.00" label="5980 ASHBROOK CIRCLE  TROTWOOD $40,000.00"/>
+<marker lat="39.7991450" lng="-84.2949500" html="2012-04-13 &lt;br&gt; 2009 CV 09472 &lt;br&gt; $28,000.00" label="100 MACGREGOR DRIVE  TROTWOOD $28,000.00"/>
+<marker lat="39.6942660" lng="-84.1398100" html="2012-04-13 &lt;br&gt; 2009 CV 09628 &lt;br&gt; $44,000.00" label="1517 BARTON AVENUE  KETTERING $44,000.00"/>
+<marker lat="39.6349860" lng="-84.3508930" html="2012-04-13 &lt;br&gt; 2009 CV 09757 &lt;br&gt; $78,000.00" label="60 NICKELL COURT  GERMANTOWN $78,000.00"/>
+<marker lat="39.6039079" lng="-84.2195490" html="2012-04-13 &lt;br&gt; 2009 CV 09766 &lt;br&gt; $86,000.00" label="2510 COLINDA CT.  MIAMISBURG $86,000.00"/>
+<marker lat="39.7467830" lng="-84.2121049" html="2012-04-13 &lt;br&gt; 2009 CV 09947 &lt;br&gt; $200.00" label="201 ORLEANS STREET  DAYTON $200.00"/>
+<marker lat="39.7791960" lng="-84.2225080" html="2012-04-13 &lt;br&gt; 2009 CV 10220 &lt;br&gt; $32,000.00" label="29 VASSAR DRIVE  DAYTON $32,000.00"/>
+<marker lat="39.6399150" lng="-84.1592900" html="2012-04-13 &lt;br&gt; 2010 CV 00313 &lt;br&gt; $86,000.00" label="41 TRANQUIL TRAIL  DAYTON $86,000.00"/>
+<marker lat="39.7398490" lng="-84.3966750" html="2012-04-13 &lt;br&gt; 2010 CV 00645 &lt;br&gt; $440,000.00" label="413 SCARBOROUGH COURT  NEW LEBANON $440,000.00"/>
+<marker lat="39.7444590" lng="-84.2413210" html="2012-04-13 &lt;br&gt; 2010 CV 00894 &lt;br&gt; $12,000.00" label="2434 GRANDVIEW AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.7759110" lng="-84.1315870" html="2012-04-13 &lt;br&gt; 2010 CV 01025 &lt;br&gt; $18,000.00" label="4532 CLAREWOOD AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.8655210" lng="-84.2000020" html="2012-04-13 &lt;br&gt; 2010 CV 01542 &lt;br&gt; $400,000.00" label="9233 N DIXIE DRIVE  VANDALIA $400,000.00"/>
+<marker lat="39.7823260" lng="-84.2411250" html="2012-04-13 &lt;br&gt; 2010 CV 01975 &lt;br&gt; $16,000.00" label="1832 KENSINGTON DRIVE  DAYTON $16,000.00"/>
+<marker lat="39.7397550" lng="-84.1182910" html="2012-04-13 &lt;br&gt; 2010 CV 02134 &lt;br&gt; $22,000.00" label="4300 BLUE ROCK ROAD  RIVERSIDE $22,000.00"/>
+<marker lat="39.7670590" lng="-84.1447350" html="2012-04-13 &lt;br&gt; 2010 CV 02348 &lt;br&gt; $6,000.00" label="3623 EAST THRID STREET  DAYTON $6,000.00"/>
+<marker lat="39.7940130" lng="-84.2634410" html="2012-04-13 &lt;br&gt; 2010 CV 02563 &lt;br&gt; $24,000.00" label="4900 COPELAND AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.8303970" lng="-84.1347160" html="2012-04-13 &lt;br&gt; 2010 CV 02702 &lt;br&gt; $36,000.00" label="5241 MONITOR DRIVE  DAYTON $36,000.00"/>
+<marker lat="39.9138260" lng="-84.3081580" html="2012-04-13 &lt;br&gt; 2010 CV 02798 &lt;br&gt; $30,000.00" label="105 TARA LANE  UNION $30,000.00"/>
+<marker lat="39.6877140" lng="-84.2176999" html="2012-04-13 &lt;br&gt; 2010 CV 02903 &lt;br&gt; $40,000.00" label="4624 PENSACOLA BOULEVARD  MORAINE $40,000.00"/>
+<marker lat="39.7727490" lng="-84.1769330" html="2012-04-13 &lt;br&gt; 2010 CV 03500 &lt;br&gt; $6,000.00" label="114 DEEDS AVENUE  DAYTON $6,000.00"/>
+<marker lat="39.6899870" lng="-84.2418000" html="2012-04-13 &lt;br&gt; 2010 CV 04038 &lt;br&gt; $26,000.00" label="3914 HERFORD TRAIL  MORAINE $26,000.00"/>
+<marker lat="39.6115030" lng="-84.4171120" html="2012-04-13 &lt;br&gt; 2010 CV 04140 &lt;br&gt; $34,000.00" label="12767 HARRIS ROAD  GERMANTOWN $34,000.00"/>
+<marker lat="39.8054252" lng="-84.2145709" html="2012-04-13 &lt;br&gt; 2010 CV 04164 &lt;br&gt; $10,000.00" label="321 CASTLEWOOD AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.7067200" lng="-84.1628099" html="2012-04-13 &lt;br&gt; 2010 CV 04242 &lt;br&gt; $82,000.00" label="437 CLARANNA AVENUE  DAYTON $82,000.00"/>
+<marker lat="39.7274856" lng="-84.2722103" html="2012-04-13 &lt;br&gt; 2010 CV 04481 &lt;br&gt; $8,000.00" label="1307 BLAIRWOOD AVENUE  DAYTON $8,000.00"/>
+<marker lat="39.6775130" lng="-84.2475089" html="2012-04-13 &lt;br&gt; 2010 CV 04574 &lt;br&gt; $46,000.00" label="517 EAST COTTAGE AVENUE  WEST CARROLLTON $46,000.00"/>
+<marker lat="39.7901880" lng="-84.2234980" html="2012-04-13 &lt;br&gt; 2010 CV 04666 &lt;br&gt; $16,000.00" label="2353 EMERSON AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.7611000" lng="-84.2553810" html="2012-04-13 &lt;br&gt; 2010 CV 04774 &lt;br&gt; $12,000.00" label="4260 HOOVER AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.8050730" lng="-84.1907109" html="2012-04-13 &lt;br&gt; 2010 CV 04863 &lt;br&gt; $26,000.00" label="2165 MOUNTVIEW CIRCEL  DAYTON $26,000.00"/>
+<marker lat="39.8522130" lng="-84.2373810" html="2012-04-13 &lt;br&gt; 2010 CV 05470 &lt;br&gt; $460,000.00" label="7240 MEEKER CREEK DR  DAYTON $460,000.00"/>
+<marker lat="39.7588719" lng="-84.1329150" html="2012-04-13 &lt;br&gt; 2010 CV 05962 &lt;br&gt; $22,000.00" label="1814 SPEICE AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.8290180" lng="-84.2927110" html="2012-04-13 &lt;br&gt; 2010 CV 06500 &lt;br&gt; $30,000.00" label="5721 SALEM BEND DRIVE  DAYTON $30,000.00"/>
+<marker lat="39.7964348" lng="-84.3167337" html="2012-04-13 &lt;br&gt; 2010 CV 06538 &lt;br&gt; $24,000.00" label="217 GRAND AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.6510750" lng="-84.2071750" html="2012-04-13 &lt;br&gt; 2010 CV 07266 &lt;br&gt; $122,000.00" label="2020 CORTINA DRIVE  DAYTON $122,000.00"/>
+<marker lat="39.7498050" lng="-84.1430950" html="2012-04-13 &lt;br&gt; 2010 CV 09211 &lt;br&gt; $16,000.00" label="1508 OHMER AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.7542520" lng="-84.1864590" html="2012-04-13 &lt;br&gt; 2011 CV 00144 &lt;br&gt; $66,000.00" label="64 GREEN STREET  DAYTON $66,000.00"/>
+<marker lat="39.6841370" lng="-84.4175379" html="2012-04-13 &lt;br&gt; 2011 CV 00960 &lt;br&gt; $48,000.00" label="316 DEAN DRIVE  FARMERSVILLE $48,000.00"/>
+<marker lat="39.6236600" lng="-84.3668900" html="2012-04-13 &lt;br&gt; 2011 CV 01118 &lt;br&gt; $40,000.00" label="229 EAST GUNCKEL STREET  GERMANTOWN $40,000.00"/>
+<marker lat="39.6299520" lng="-84.3702680" html="2012-04-13 &lt;br&gt; 2011 CV 01844 &lt;br&gt; $54,000.00" label="432 N MAIN STREET  GERMANTOWN $54,000.00"/>
+<marker lat="39.7586290" lng="-84.1651000" html="2012-04-13 &lt;br&gt; 2011 CV 01867 &lt;br&gt; $2,000.00" label="120-122 HAMILTON AVENUE  DAYTON $2,000.00"/>
+<marker lat="39.8920380" lng="-84.3233540" html="2012-04-13 &lt;br&gt; 2011 CV 02666 &lt;br&gt; $56,000.00" label="133 WARNER DRIVE  UNION $56,000.00"/>
+<marker lat="39.8498560" lng="-84.1157470" html="2012-04-13 &lt;br&gt; 2011 CV 02849 &lt;br&gt; $58,000.00" label="6424 HEMINGWAY ROAD  DAYTON $58,000.00"/>
+<marker lat="39.6843144" lng="-84.2189970" html="2012-04-13 &lt;br&gt; 2011 CV 02891 &lt;br&gt; $24,000.00" label="5017 LAUDERDALE DRIVE  MORAINE $24,000.00"/>
+<marker lat="39.8777360" lng="-84.3264230" html="2012-04-13 &lt;br&gt; 2011 CV 02979 &lt;br&gt; $164,000.00" label="508 SORNA DRIVE  ENGLEWOOD $164,000.00"/>
+<marker lat="39.7960780" lng="-84.1450650" html="2012-04-13 &lt;br&gt; 2011 CV 02983 &lt;br&gt; $16,000.00" label="641 TYRON AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.8643410" lng="-84.1046080" html="2012-04-13 &lt;br&gt; 2011 CV 03081 &lt;br&gt; $50,000.00" label="7258 SUMMERDALE DRIVE  HUBER HEIGHTS $50,000.00"/>
+<marker lat="39.8665329" lng="-84.1229479" html="2012-04-13 &lt;br&gt; 2011 CV 03084 &lt;br&gt; $44,000.00" label="6236 BUCKMAN DRIVE  HUBER HEIGHTS $44,000.00"/>
+<marker lat="39.7196230" lng="-84.1451640" html="2012-04-13 &lt;br&gt; 2011 CV 03302 &lt;br&gt; $22,000.00" label="1113 TABOR AVENUE  KETTERING $22,000.00"/>
+<marker lat="39.6506522" lng="-84.2490035" html="2012-04-13 &lt;br&gt; 2011 CV 03583 &lt;br&gt; $90,000.00" label="1315 ROBINHOOD DRIVE  WEST CARROLLTON $90,000.00"/>
+<marker lat="39.7402235" lng="-84.2018021" html="2012-04-13 &lt;br&gt; 2011 CV 03657 &lt;br&gt; $22,000.00" label="531 STEWART STREET  DAYTON $22,000.00"/>
+<marker lat="39.7522740" lng="-84.1546580" html="2012-04-13 &lt;br&gt; 2011 CV 03667 &lt;br&gt; $14,000.00" label="917 LORAIN AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.6500400" lng="-84.4535360" html="2012-04-13 &lt;br&gt; 2011 CV 03805 &lt;br&gt; $124,000.00" label="14727 BADEN ROAD  GERMANTOWN $124,000.00"/>
+<marker lat="39.6259439" lng="-84.1893910" html="2012-04-13 &lt;br&gt; 2011 CV 06473 &lt;br&gt; $46,000.00" label="1024 FOXSHIRE DRIVE  CENTERVILLE $46,000.00"/>
+<marker lat="39.6885550" lng="-84.2812910" html="2012-04-20 &lt;br&gt; 2011 CV 03901 &lt;br&gt; $20,000.00" label="5529 HEMPLE ROAD  MORAINE $20,000.00"/>
+<marker lat="39.8249810" lng="-84.2043950" html="2012-04-20 &lt;br&gt; 2011 CV 03940 &lt;br&gt; $38,000.00" label="2017 HIGH KNOLL DRIVE  DAYTON $38,000.00"/>
+<marker lat="39.7601064" lng="-84.1607985" html="2012-04-20 &lt;br&gt; 2011 CV 04299 &lt;br&gt; $10,000.00" label="220 LINDEN AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.6861710" lng="-84.2165650" html="2012-04-20 &lt;br&gt; 2011 CV 04482 &lt;br&gt; $30,000.00" label="2456 NED DRIVE  DAYTON $30,000.00"/>
+<marker lat="39.7898870" lng="-84.2239910" html="2012-04-20 &lt;br&gt; 2011 CV 04530 &lt;br&gt; $20,000.00" label="2340 RUGBY ROAD  DAYTON $20,000.00"/>
+<marker lat="39.8965490" lng="-84.1793520" html="2012-04-20 &lt;br&gt; 2011 CV 04710 &lt;br&gt; $50,000.00" label="913 BRISTOL DRIVE  VANDALIA $50,000.00"/>
+<marker lat="39.8174560" lng="-84.0977659" html="2012-04-20 &lt;br&gt; 2011 CV 04861 &lt;br&gt; $102,000.00" label="7859 WEST HYLAND AVENUE  DAYTON $102,000.00"/>
+<marker lat="39.7145330" lng="-84.1975850" html="2012-04-20 &lt;br&gt; 2011 CV 04893 &lt;br&gt; $84,000.00" label="1530 OLD LANE AVENUE  KETTERING $84,000.00"/>
+<marker lat="39.8702530" lng="-84.3023830" html="2012-04-20 &lt;br&gt; 2011 CV 05156 &lt;br&gt; $50,000.00" label="112 LODESTONE DRIVE  ENGLEWOOD $50,000.00"/>
+<marker lat="39.8609350" lng="-84.3085190" html="2012-04-20 &lt;br&gt; 2011 CV 05160 &lt;br&gt; $44,000.00" label="118 COMMONS AVENUE  ENGLEWOOD $44,000.00"/>
+<marker lat="39.8368670" lng="-84.2517690" html="2012-04-20 &lt;br&gt; 2011 CV 05182 &lt;br&gt; $56,000.00" label="449 MOOREWOOD CIRCLE  DAYTON $56,000.00"/>
+<marker lat="39.8602160" lng="-84.3002659" html="2012-04-20 &lt;br&gt; 2011 CV 05185 &lt;br&gt; $50,000.00" label="424 KATY LANE  ENGLEWOOD $50,000.00"/>
+<marker lat="39.7787590" lng="-84.1704270" html="2012-04-20 &lt;br&gt; 2011 CV 05201 &lt;br&gt; $28,000.00" label="130 BALTIMORE STREET  DAYTON $28,000.00"/>
+<marker lat="39.7688440" lng="-84.2313980" html="2012-04-20 &lt;br&gt; 2011 CV 05207 &lt;br&gt; $26,000.00" label="1132 WILSON DRIVE  DAYTON $26,000.00"/>
+<marker lat="39.8313394" lng="-84.0958289" html="2012-04-20 &lt;br&gt; 2011 CV 05256 &lt;br&gt; $124,000.00" label="6839 GREELY AVENUE  DAYTON $124,000.00"/>
+<marker lat="39.8543297" lng="-84.1346465" html="2012-04-20 &lt;br&gt; 2011 CV 05353 &lt;br&gt; $30,000.00" label="5856 TROY VILLA BOULEVARD  HUBER HEIGHTS $30,000.00"/>
+<marker lat="39.6684130" lng="-84.1192310" html="2012-04-20 &lt;br&gt; 2011 CV 05477 &lt;br&gt; $86,000.00" label="2426 SPRINGMILL ROAD  KETTERING $86,000.00"/>
+<marker lat="39.7737679" lng="-84.2228730" html="2012-04-20 &lt;br&gt; 2011 CV 05497 &lt;br&gt; $14,000.00" label="1411 CORY DRIVE  DAYTON $14,000.00"/>
+<marker lat="39.7858120" lng="-84.2183150" html="2012-04-20 &lt;br&gt; 2011 CV 05545 &lt;br&gt; $14,000.00" label="26 VALLEYVIEW DRIVE  DAYTON $14,000.00"/>
+<marker lat="39.8505619" lng="-84.2876760" html="2012-04-20 &lt;br&gt; 2011 CV 05564 &lt;br&gt; $138,000.00" label="7169 THUNDERING HERD  DAYTON $138,000.00"/>
+<marker lat="39.6459910" lng="-84.2560000" html="2012-04-20 &lt;br&gt; 2011 CV 05583 &lt;br&gt; $76,000.00" label="725 NORTH LINDSEY AVENUE  MIAMISBURG $76,000.00"/>
+<marker lat="39.8743330" lng="-84.1108560" html="2012-04-20 &lt;br&gt; 2011 CV 05664 &lt;br&gt; $80,000.00" label="6640 FLAT CREEK COURT  HUBER HEIGHTS $80,000.00"/>
+<marker lat="39.6928150" lng="-84.1193950" html="2012-04-20 &lt;br&gt; 2011 CV 05693 &lt;br&gt; $52,000.00" label="3548 BLOCKER  KETTERING $52,000.00"/>
+<marker lat="39.8021090" lng="-84.2143940" html="2012-04-20 &lt;br&gt; 2011 CV 05763 &lt;br&gt; $18,000.00" label="664 DALEVIEW AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.7284707" lng="-84.1247100" html="2012-04-20 &lt;br&gt; 2011 CV 05846 &lt;br&gt; $42,000.00" label="2533 BAUER AVENUE  DAYTON $42,000.00"/>
+<marker lat="39.8666960" lng="-84.1289630" html="2012-04-20 &lt;br&gt; 2011 CV 05886 &lt;br&gt; $30,000.00" label="8135 MOUNT HOOD  HUBER HEIGHTS $30,000.00"/>
+<marker lat="39.8088470" lng="-84.2488429" html="2012-04-20 &lt;br&gt; 2011 CV 05929 &lt;br&gt; $14,000.00" label="4238 SAYLOR STREET  DAYTON $14,000.00"/>
+<marker lat="39.9099360" lng="-84.2481300" html="2012-04-20 &lt;br&gt; 2011 CV 05975 &lt;br&gt; $80,000.00" label="2400 OLD SPRINGFIELD ROAD  VANDALIA $80,000.00"/>
+<marker lat="39.8500090" lng="-84.1085669" html="2012-04-20 &lt;br&gt; 2011 CV 06062 &lt;br&gt; $90,000.00" label="6879 JONETTA STREET  HUBER HEIGHTS $90,000.00"/>
+<marker lat="39.9124250" lng="-84.3078020" html="2012-04-20 &lt;br&gt; 2011 CV 06287 &lt;br&gt; $56,000.00" label="102 LEXINGTON FARM DRIVE  ENGLEWOOD $56,000.00"/>
+<marker lat="39.9121100" lng="-84.3144510" html="2012-04-20 &lt;br&gt; 2011 CV 06290 &lt;br&gt; $50,000.00" label="104 LYNNFIELD CIRCLE  ENGLEWOOD $50,000.00"/>
+<marker lat="39.8496130" lng="-84.1119210" html="2012-04-20 &lt;br&gt; 2011 CV 06349 &lt;br&gt; $88,000.00" label="6656 BRANDT PIKE  HUBER HEIGHTS $88,000.00"/>
+<marker lat="39.8119760" lng="-84.2535670" html="2012-04-20 &lt;br&gt; 2011 CV 06580 &lt;br&gt; $12,000.00" label="4469 THOMPSON DRIVE  DAYTON $12,000.00"/>
+<marker lat="39.7427870" lng="-84.1529690" html="2012-04-20 &lt;br&gt; 2011 CV 06585 &lt;br&gt; $36,000.00" label="1233 CARLISLE AVENUE  DAYTON $36,000.00"/>
+<marker lat="39.7313090" lng="-84.1818530" html="2012-04-20 &lt;br&gt; 2011 CV 06674 &lt;br&gt; $104,000.00" label="9 CATON DRIVE  DAYTON $104,000.00"/>
+<marker lat="39.7840830" lng="-84.2075260" html="2012-04-20 &lt;br&gt; 2011 CV 06678 &lt;br&gt; $28,000.00" label="51 EAST HUDSON AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.8143720" lng="-84.2404880" html="2012-04-20 &lt;br&gt; 2011 CV 06690 &lt;br&gt; $30,000.00" label="4581 LANSMORE DRIVE  DAYTON $30,000.00"/>
+<marker lat="39.7475440" lng="-84.1516930" html="2012-04-20 &lt;br&gt; 2011 CV 06754 &lt;br&gt; $28,000.00" label="847 HODAPP AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.8347749" lng="-84.1349293" html="2012-04-20 &lt;br&gt; 2011 CV 06771 &lt;br&gt; $52,000.00" label="4635 PRAIRIE COURT  DAYTON $52,000.00"/>
+<marker lat="39.7044750" lng="-84.1366640" html="2012-04-20 &lt;br&gt; 2011 CV 06788 &lt;br&gt; $68,000.00" label="2837 HORSTMAN DRIVE  DAYTON $68,000.00"/>
+<marker lat="39.7988170" lng="-84.2126040" html="2012-04-20 &lt;br&gt; 2011 CV 06797 &lt;br&gt; $6,000.00" label="245 SIEBENTHALER AVENUE  DAYTON $6,000.00"/>
+<marker lat="39.7839350" lng="-84.2285360" html="2012-04-20 &lt;br&gt; 2011 CV 06804 &lt;br&gt; $14,000.00" label="2226 SALEM AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.8496150" lng="-84.1050999" html="2012-04-20 &lt;br&gt; 2011 CV 06834 &lt;br&gt; $114,000.00" label="6746 EVERGREEN WOODS DRIVE  HUBER HEIGHTS $114,000.00"/>
+<marker lat="39.8263340" lng="-84.2423080" html="2012-04-20 &lt;br&gt; 2011 CV 06839 &lt;br&gt; $26,000.00" label="33 BURGESS AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.6340470" lng="-84.3525410" html="2012-04-20 &lt;br&gt; 2011 CV 06841 &lt;br&gt; $56,000.00" label="57 WORTHINGTON DRIVE  GERMANTOWN $56,000.00"/>
+<marker lat="39.8255480" lng="-84.2497890" html="2012-04-20 &lt;br&gt; 2011 CV 06853 &lt;br&gt; $60,000.00" label="127 WINDING RIDGE DRIVE  DAYTON $60,000.00"/>
+<marker lat="39.8823930" lng="-84.2017940" html="2012-04-20 &lt;br&gt; 2011 CV 06855 &lt;br&gt; $74,000.00" label="822 OLDE FARM COURT  VANDALIA $74,000.00"/>
+<marker lat="39.8617130" lng="-84.3123530" html="2012-04-20 &lt;br&gt; 2011 CV 06864 &lt;br&gt; $52,000.00" label="820 WEST WENGER ROAD  ENGLEWOOD $52,000.00"/>
+<marker lat="39.7474149" lng="-84.1652400" html="2012-04-20 &lt;br&gt; 2011 CV 06922 &lt;br&gt; $8,000.00" label="1053 WYOMING STREET  DAYTON $8,000.00"/>
+<marker lat="39.8113746" lng="-84.2595359" html="2012-04-20 &lt;br&gt; 2011 CV 06956 &lt;br&gt; $28,000.00" label="80 N MEADOW DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.7129698" lng="-84.1176745" html="2012-04-20 &lt;br&gt; 2011 CV 06957 &lt;br&gt; $42,000.00" label="2449 TALISMAN DRIVE  DAYTON $42,000.00"/>
+<marker lat="39.7133410" lng="-84.1581640" html="2012-04-20 &lt;br&gt; 2011 CV 06967 &lt;br&gt; $60,000.00" label="628 WILTSHIRE BOULEVARD  KETTERING $60,000.00"/>
+<marker lat="39.7357650" lng="-84.1504830" html="2012-04-20 &lt;br&gt; 2011 CV 06984 &lt;br&gt; $16,000.00" label="2203 REVERE AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.7172620" lng="-84.1558160" html="2012-04-20 &lt;br&gt; 2011 CV 06998 &lt;br&gt; $80,000.00" label="832 GREENMOUNT BOULEVARD  DAYTON $80,000.00"/>
+<marker lat="39.5917720" lng="-84.1957070" html="2012-04-20 &lt;br&gt; 2011 CV 07027 &lt;br&gt; $400,000.00" label="10530 FALLS CREEK LANE  CENTERVILLE $400,000.00"/>
+<marker lat="39.7835940" lng="-84.2624290" html="2012-04-20 &lt;br&gt; 2011 CV 07068 &lt;br&gt; $2,000.00" label="1905 ARLENE AVENUE  DAYTON $2,000.00"/>
+<marker lat="39.6557630" lng="-84.2645860" html="2012-04-20 &lt;br&gt; 2011 CV 07074 &lt;br&gt; $160,000.00" label="1354 SIERRA RIDGE DRIVE  MIAMISBURG $160,000.00"/>
+<marker lat="39.8201170" lng="-84.2289739" html="2012-04-20 &lt;br&gt; 2011 CV 07143 &lt;br&gt; $34,000.00" label="5549 MARKEY ROAD  DAYTON $34,000.00"/>
+<marker lat="39.7666150" lng="-84.2775190" html="2012-04-20 &lt;br&gt; 2011 CV 07164 &lt;br&gt; $24,000.00" label="5168 RUCKS ROAD  TROTWOOD $24,000.00"/>
+<marker lat="39.6002250" lng="-84.2485120" html="2012-04-20 &lt;br&gt; 2011 CV 07168 &lt;br&gt; $92,000.00" label="4105 KING BIRD LANE  MIAMISBURG $92,000.00"/>
+<marker lat="39.7608530" lng="-84.2390960" html="2012-04-20 &lt;br&gt; 2011 CV 07170 &lt;br&gt; $22,000.00" label="447 SHOOP AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.8381730" lng="-84.1117809" html="2012-04-20 &lt;br&gt; 2011 CV 07195 &lt;br&gt; $36,000.00" label="5916 BETH ROAD  HUBER HEIGHTS $36,000.00"/>
+<marker lat="39.7472960" lng="-84.1488030" html="2012-04-20 &lt;br&gt; 2011 CV 07297 &lt;br&gt; $32,000.00" label="2125 DEANWOOD AVENUE  DAYTON $32,000.00"/>
+<marker lat="39.7981800" lng="-84.1984520" html="2012-04-20 &lt;br&gt; 2011 CV 07301 &lt;br&gt; $30,000.00" label="3460 WONDERVIEW DRIVE  DAYTON $30,000.00"/>
+<marker lat="39.8617450" lng="-84.1420620" html="2012-04-20 &lt;br&gt; 2011 CV 07327 &lt;br&gt; $48,000.00" label="7340 HUNTSVIEW COURT  HUBER HEIGHTS $48,000.00"/>
+<marker lat="39.7630420" lng="-84.2473540" html="2012-04-20 &lt;br&gt; 2011 CV 07382 &lt;br&gt; $10,000.00" label="855 NORTH UPLAND AVENUE  DAYTON $10,000.00"/>
+<marker lat="39.7790400" lng="-84.2103560" html="2012-04-20 &lt;br&gt; 2011 CV 07415 &lt;br&gt; $800.00" label="932 RICHMOND AVENUE  DAYTON $800.00"/>
+<marker lat="39.6671010" lng="-84.2261660" html="2012-04-20 &lt;br&gt; 2011 CV 07441 &lt;br&gt; $60,000.00" label="3207 PALM DRIVE  DAYTON $60,000.00"/>
+<marker lat="39.7936100" lng="-84.2144260" html="2012-04-20 &lt;br&gt; 2011 CV 07445 &lt;br&gt; $32,000.00" label="18-24 FERNWOOD AVENUE  DAYTON $32,000.00"/>
+<marker lat="39.8964890" lng="-84.3184590" html="2012-04-20 &lt;br&gt; 2011 CV 07466 &lt;br&gt; $34,000.00" label="613 MORNING GLORY LANE  ENGLEWOOD $34,000.00"/>
+<marker lat="39.8471520" lng="-84.3074320" html="2012-04-20 &lt;br&gt; 2011 CV 07467 &lt;br&gt; $56,000.00" label="4840 OLD SALEM ROAD  CLAYTON $56,000.00"/>
+<marker lat="39.7879260" lng="-84.2575350" html="2012-04-20 &lt;br&gt; 2011 CV 07505 &lt;br&gt; $3,000.00" label="4504 GREENWICH VILLAGE AVENUE  DAYTON $3,000.00"/>
+<marker lat="39.7608530" lng="-84.1359860" html="2012-04-20 &lt;br&gt; 2011 CV 07514 &lt;br&gt; $24,000.00" label="435 MERTLAND AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.9199560" lng="-84.3876600" html="2012-04-20 &lt;br&gt; 2011 CV 07573 &lt;br&gt; $30,000.00" label="11992 PANSING ROAD  BROOKVILLE $30,000.00"/>
+<marker lat="39.8269350" lng="-84.1109040" html="2012-04-20 &lt;br&gt; 2011 CV 07575 &lt;br&gt; $100,000.00" label="6402 HARVEST MEADOWS DRIVE  DAYTON $100,000.00"/>
+<marker lat="39.7931150" lng="-84.3078850" html="2012-04-20 &lt;br&gt; 2011 CV 07662 &lt;br&gt; $34,000.00" label="15 NONA DRIVE  TROTWOOD $34,000.00"/>
+<marker lat="39.7420890" lng="-84.1392230" html="2012-04-20 &lt;br&gt; 2011 CV 07756 &lt;br&gt; $36,000.00" label="4025 CORINTH BLVD  DAYTON $36,000.00"/>
+<marker lat="39.6786610" lng="-84.2283370" html="2012-04-20 &lt;br&gt; 2011 CV 07839 &lt;br&gt; $56,000.00" label="3341 SHEFFIELD ROAD  WEST CARROLLTON $56,000.00"/>
+<marker lat="39.7645730" lng="-84.1108440" html="2012-04-20 &lt;br&gt; 2011 CV 07915 &lt;br&gt; $30,000.00" label="278 CHESTERFIELD CIRCLE  DAYTON $30,000.00"/>
+<marker lat="39.7366730" lng="-84.2486030" html="2012-04-27 &lt;br&gt; 2002 CV 06347 &lt;br&gt; $16,000.00" label="761 La Salle Drive  Dayton $16,000.00"/>
+<marker lat="39.8938960" lng="-84.3177300" html="2012-04-27 &lt;br&gt; 2005 CV 05122 &lt;br&gt; $104,000.00" label="128 Union Ridge Drive  Union $104,000.00"/>
+<marker lat="39.7969178" lng="-84.2248807" html="2012-04-27 &lt;br&gt; 2007 CV 08977 &lt;br&gt; $30,000.00" label="2852 Rugby Road  Dayton $30,000.00"/>
+<marker lat="39.7509180" lng="-84.2840650" html="2012-04-27 &lt;br&gt; 2007 CV 10343 &lt;br&gt; $6,000.00" label="6201 NATHANIEL STREET  TROTWOOD $6,000.00"/>
+<marker lat="39.7609360" lng="-84.1440830" html="2012-04-27 &lt;br&gt; 2008 CV 03058 &lt;br&gt; $10,000.00" label="669 Burkhardt Avenue  Dayton $10,000.00"/>
+<marker lat="39.7355148" lng="-84.2769347" html="2012-04-27 &lt;br&gt; 2009 CV 10082 &lt;br&gt; $42,000.00" label="750 ROSAMOND STREET  DAYTON $42,000.00"/>
+<marker lat="39.8347180" lng="-84.1178800" html="2012-04-27 &lt;br&gt; 2009 CV 10351 &lt;br&gt; $38,000.00" label="5601 BERGAN DRIVE  DAYTON $38,000.00"/>
+<marker lat="39.7780890" lng="-84.2338560" html="2012-04-27 &lt;br&gt; 2010 CV 01148 &lt;br&gt; $42,000.00" label="1617 BURBANK DRIVE  DAYTON $42,000.00"/>
+<marker lat="39.7004949" lng="-84.2022470" html="2012-04-27 &lt;br&gt; 2010 CV 01327 &lt;br&gt; $52,000.00" label="1769 UTICA DRIVE  KETTERING $52,000.00"/>
+<marker lat="39.7992470" lng="-84.2711150" html="2012-04-27 &lt;br&gt; 2010 CV 01826 &lt;br&gt; $38,000.00" label="4862 SHADWELL DRIVE  DAYTON $38,000.00"/>
+<marker lat="39.6921520" lng="-84.1640819" html="2012-04-27 &lt;br&gt; 2010 CV 03873 &lt;br&gt; $58,000.00" label="405 EARNSHAW DRIVE  KETTERING $58,000.00"/>
+<marker lat="39.6265865" lng="-84.1502628" html="2012-04-27 &lt;br&gt; 2010 CV 04807 &lt;br&gt; $62,000.00" label="90 SOUTH JOHANNA DRIVE  DAYTON $62,000.00"/>
+<marker lat="39.8285820" lng="-84.1130930" html="2012-04-27 &lt;br&gt; 2010 CV 05027 &lt;br&gt; $160,000.00" label="5348 HEATHER WAY  HUBER HEIGHTS $160,000.00"/>
+<marker lat="39.6625530" lng="-84.1427630" html="2012-04-27 &lt;br&gt; 2010 CV 06242 &lt;br&gt; $86,000.00" label="699 ESSEX WAY  CENTERVILLE $86,000.00"/>
+<marker lat="39.7313674" lng="-84.1576294" html="2012-04-27 &lt;br&gt; 2010 CV 06553 &lt;br&gt; $40,000.00" label="732 WILIMINGTON AVENUE  DAYTON $40,000.00"/>
+<marker lat="39.6484060" lng="-84.2363400" html="2012-04-27 &lt;br&gt; 2010 CV 06613 &lt;br&gt; $20,000.00" label="1004 LOOKOUT TRAIL  DAYTON $20,000.00"/>
+<marker lat="39.7938530" lng="-84.2262120" html="2012-04-27 &lt;br&gt; 2010 CV 07725 &lt;br&gt; $24,000.00" label="2529 CATALPA DRIVE  DAYTON $24,000.00"/>
+<marker lat="39.7325100" lng="-84.2500750" html="2012-04-27 &lt;br&gt; 2010 CV 07856 &lt;br&gt; $10,000.00" label="3421-3425 MODENA STREET  DAYTON $10,000.00"/>
+<marker lat="39.7391630" lng="-84.4031970" html="2012-04-27 &lt;br&gt; 2010 CV 08323 &lt;br&gt; $50,000.00" label="931 COLUMBUS HINES WAY  NEW LEBANON $50,000.00"/>
+<marker lat="39.7311160" lng="-84.1367220" html="2012-04-27 &lt;br&gt; 2010 CV 08673 &lt;br&gt; $24,000.00" label="1004 HIGHRIDGE AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.7312430" lng="-84.1158350" html="2012-04-27 &lt;br&gt; 2010 CV 09209 &lt;br&gt; $8,000.00" label="5328 IDLEWOOD ROAD  DAYTON $8,000.00"/>
+<marker lat="39.8254100" lng="-84.2265750" html="2012-04-27 &lt;br&gt; 2010 CV 09892 &lt;br&gt; $44,000.00" label="298 PAMELA AVENUE  DAYTON $44,000.00"/>
+<marker lat="39.6414900" lng="-84.2595220" html="2012-04-27 &lt;br&gt; 2011 CV 00341 &lt;br&gt; $96,000.00" label="1745 EAST CENTRAL AVENUE  MIAMISBURG $96,000.00"/>
+<marker lat="39.8044780" lng="-84.3054000" html="2012-04-27 &lt;br&gt; 2011 CV 00379 &lt;br&gt; $40,000.00" label="409 NORTH EPPINGTON DRIVE  DAYTON $40,000.00"/>
+<marker lat="39.7315890" lng="-84.2509920" html="2012-04-27 &lt;br&gt; 2011 CV 00689 &lt;br&gt; $16,000.00" label="3939 NICHOLAS ROAD  DAYTON $16,000.00"/>
+<marker lat="39.8005480" lng="-84.2160380" html="2012-04-27 &lt;br&gt; 2011 CV 00913 &lt;br&gt; $20,000.00" label="75 REDWOOD AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.7643870" lng="-84.1161950" html="2012-04-27 &lt;br&gt; 2011 CV 01146 &lt;br&gt; $46,000.00" label="5139 OLENTANGY DRIVE  DAYTON $46,000.00"/>
+<marker lat="39.7651130" lng="-84.2224430" html="2012-04-27 &lt;br&gt; 2011 CV 01562 &lt;br&gt; $12,000.00" label="1210 SUPERIOR AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.7404020" lng="-84.1440930" html="2012-04-27 &lt;br&gt; 2011 CV 02411 &lt;br&gt; $36,000.00" label="1821 COVENTRY ROAD  DAYTON $36,000.00"/>
+<marker lat="39.7899100" lng="-84.2260930" html="2012-04-27 &lt;br&gt; 2011 CV 02545 &lt;br&gt; $22,000.00" label="2313-2315 CATALPA DRIVE  DAYTON $22,000.00"/>
+<marker lat="39.8356820" lng="-84.1390590" html="2012-04-27 &lt;br&gt; 2011 CV 02717 &lt;br&gt; $52,000.00" label="5630 ROWELL CIRCLE  HUBER HEIGHTS $52,000.00"/>
+<marker lat="39.7581300" lng="-84.2108750" html="2012-04-27 &lt;br&gt; 2011 CV 02895 &lt;br&gt; $50,000.00" label="1138 WEST 1ST STREET  DAYTON $50,000.00"/>
+<marker lat="39.7682030" lng="-84.2219850" html="2012-04-27 &lt;br&gt; 2011 CV 02900 &lt;br&gt; $1,000.00" label="527 LEXINGTON AVENUE  DAYTON $1,000.00"/>
+<marker lat="39.8299200" lng="-84.1222980" html="2012-04-27 &lt;br&gt; 2011 CV 02951 &lt;br&gt; $38,000.00" label="5299 BRANDT PIKE  HUBER HEIGHTS $38,000.00"/>
+<marker lat="39.7246662" lng="-84.1722562" html="2012-04-27 &lt;br&gt; 2011 CV 03237 &lt;br&gt; $212,000.00" label="31 EAST DIXON AVENUE  DAYTON $212,000.00"/>
+<marker lat="39.6021360" lng="-84.1597810" html="2012-04-27 &lt;br&gt; 2011 CV 03275 &lt;br&gt; $60,000.00" label="152 QUEENS CROSSING  CENTERVILLE $60,000.00"/>
+<marker lat="39.7167109" lng="-84.1717470" html="2012-04-27 &lt;br&gt; 2011 CV 03286 &lt;br&gt; $166,000.00" label="1600 FAR HILLS  DAYTON $166,000.00"/>
+<marker lat="39.6326720" lng="-84.3501370" html="2012-04-27 &lt;br&gt; 2011 CV 03313 &lt;br&gt; $66,000.00" label="104 HAWKINS COURT  GERMANTOWN $66,000.00"/>
+<marker lat="39.7901660" lng="-84.2421260" html="2012-04-27 &lt;br&gt; 2011 CV 03391 &lt;br&gt; $22,000.00" label="2241 KENSINGTON DRIVE  DAYTON $22,000.00"/>
+<marker lat="39.7580160" lng="-84.1699320" html="2012-04-27 &lt;br&gt; 2011 CV 03733 &lt;br&gt; $2,000.00" label="41 DRUMMER AVENUE  DAYTON $2,000.00"/>
+<marker lat="39.7808430" lng="-84.1713920" html="2012-04-27 &lt;br&gt; 2011 CV 03806 &lt;br&gt; $12,000.00" label="228 NOTRE DAME  DAYTON $12,000.00"/>
+<marker lat="32.4536530" lng="-92.0864319" html="2012-04-27 &lt;br&gt; 2011 CV 04151 &lt;br&gt; $44,000.00" label="4651 RICHWOOD DRIVE  DAYTON $44,000.00"/>
+<marker lat="39.6197630" lng="-84.2169350" html="2012-04-27 &lt;br&gt; 2011 CV 04153 &lt;br&gt; $98,000.00" label="2239 FERNDOWN DRIVE  MIAMISBURG $98,000.00"/>
+<marker lat="39.5938600" lng="-84.2908110" html="2012-04-27 &lt;br&gt; 2011 CV 04231 &lt;br&gt; $32,000.00" label="6025 6TH AVENUE  MIAMISBURG $32,000.00"/>
+<marker lat="39.8314020" lng="-84.1292210" html="2012-04-27 &lt;br&gt; 2011 CV 04309 &lt;br&gt; $40,000.00" label="5415 HARSHMANVILLE ROAD  DAYTON $40,000.00"/>
+<marker lat="39.8458270" lng="-84.1241290" html="2012-04-27 &lt;br&gt; 2011 CV 04454 &lt;br&gt; $50,000.00" label="5812 CRAFTMORE DRIVE  HUBER HEIGHTS $50,000.00"/>
+<marker lat="39.7822530" lng="-84.1690530" html="2012-04-27 &lt;br&gt; 2011 CV 04458 &lt;br&gt; $14,000.00" label="1837 LEO STREET  DAYTON $14,000.00"/>
+<marker lat="39.7641820" lng="-84.1427269" html="2012-04-27 &lt;br&gt; 2011 CV 04614 &lt;br&gt; $26,000.00" label="103 SOUTH WRIGHT AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.8349430" lng="-84.1141840" html="2012-04-27 &lt;br&gt; 2011 CV 04663 &lt;br&gt; $38,000.00" label="5663 SHADY OAK STREET  DAYTON $38,000.00"/>
+<marker lat="39.7716009" lng="-84.2221409" html="2012-04-27 &lt;br&gt; 2011 CV 04686 &lt;br&gt; $18,000.00" label="1318 CORY DRIVE  DAYTON $18,000.00"/>
+<marker lat="39.8050850" lng="-84.2666360" html="2012-04-27 &lt;br&gt; 2011 CV 04807 &lt;br&gt; $16,000.00" label="3997 MAYVIEW DRIVE  DAYTON $16,000.00"/>
+<marker lat="39.8298170" lng="-84.1971949" html="2012-04-27 &lt;br&gt; 2011 CV 04879 &lt;br&gt; $30,000.00" label="2016 WILDING AVENUE  DAYTON $30,000.00"/>
+<marker lat="39.7455570" lng="-84.3569009" html="2012-04-27 &lt;br&gt; 2011 CV 05015 &lt;br&gt; $30,000.00" label="9498 WEST 3RD STREET  DAYTON $30,000.00"/>
+<marker lat="39.7755600" lng="-84.1984780" html="2012-04-27 &lt;br&gt; 2011 CV 05109 &lt;br&gt; $30,000.00" label="45 VINCENT STREET  DAYTON $30,000.00"/>
+<marker lat="39.7801914" lng="-84.2044268" html="2012-04-27 &lt;br&gt; 2011 CV 05423 &lt;br&gt; $26,000.00" label="45 MARIE AVENUE  APT #1  DAYTON $26,000.00"/>
+<marker lat="39.8843835" lng="-84.2190709" html="2012-04-27 &lt;br&gt; 2011 CV 05458 &lt;br&gt; $54,000.00" label="509 DESALES STREET  VANDALIA $54,000.00"/>
+<marker lat="39.7399640" lng="-84.1422010" html="2012-04-27 &lt;br&gt; 2011 CV 05505 &lt;br&gt; $24,000.00" label="1832 ROSEMONT BOULEVARD  DAYTON $24,000.00"/>
+<marker lat="34.5387210" lng="-82.7259840" html="2012-04-27 &lt;br&gt; 2011 CV 05680 &lt;br&gt; $98,000.00" label="2012 PENBROOK TRAIL  CENTERVILLE $98,000.00"/>
+<marker lat="39.8525209" lng="-84.3131281" html="2012-04-27 &lt;br&gt; 2011 CV 05734 &lt;br&gt; $90,000.00" label="506 RUBYTHROAT LANE  CLAYTON $90,000.00"/>
+<marker lat="39.6270169" lng="-84.3505211" html="2012-04-27 &lt;br&gt; 2011 CV 05739 &lt;br&gt; $50,000.00" label="18 KIMBERLY COURT  GERMANTOWN $50,000.00"/>
+<marker lat="39.9105250" lng="-84.3140980" html="2012-04-27 &lt;br&gt; 2011 CV 05741 &lt;br&gt; $48,000.00" label="153 LEXINGTON FARM ROAD  UNION $48,000.00"/>
+<marker lat="39.8227600" lng="-84.2171070" html="2012-04-27 &lt;br&gt; 2011 CV 05790 &lt;br&gt; $90,000.00" label="5445 ABBY LOOP WAY  DAYTON $90,000.00"/>
+<marker lat="39.6927790" lng="-84.1405160" html="2012-04-27 &lt;br&gt; 2011 CV 05812 &lt;br&gt; $40,000.00" label="3724 ROSLYN AVENUE  KETTERING $40,000.00"/>
+<marker lat="39.6953430" lng="-84.1352129" html="2012-04-27 &lt;br&gt; 2011 CV 06060 &lt;br&gt; $26,000.00" label="1725 WILLAMET DRIVE  KETTERING $26,000.00"/>
+<marker lat="39.7604360" lng="-84.3285010" html="2012-04-27 &lt;br&gt; 2011 CV 06187 &lt;br&gt; $74,000.00" label="7944 OLD DAYTON ROAD  DAYTON $74,000.00"/>
+<marker lat="39.8500860" lng="-84.0568420" html="2012-04-27 &lt;br&gt; 2011 CV 06283 &lt;br&gt; $110,000.00" label="6940 VALLEY PIKE  HUBER HEIGHTS $110,000.00"/>
+<marker lat="39.7655297" lng="-84.1454746" html="2012-04-27 &lt;br&gt; 2011 CV 06362 &lt;br&gt; $22,000.00" label="42 SOUTH GARLAND AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.7461380" lng="-84.1511490" html="2012-04-27 &lt;br&gt; 2011 CV 06370 &lt;br&gt; $22,000.00" label="2300 WYOMING STREET  DAYTON $22,000.00"/>
+<marker lat="39.8103530" lng="-84.2451820" html="2012-04-27 &lt;br&gt; 2011 CV 06465 &lt;br&gt; $34,000.00" label="4100 MEADOWDALE DRVIE  DAYTON $34,000.00"/>
+<marker lat="39.8342570" lng="-84.4222379" html="2012-04-27 &lt;br&gt; 2011 CV 06529 &lt;br&gt; $50,000.00" label="203 VILLA DRIVE  BROOKVILLE $50,000.00"/>
+<marker lat="39.8369840" lng="-84.4224349" html="2012-05-04 &lt;br&gt; 2005 CV 01111 &lt;br&gt; $58,000.00" label="127 Antwerp Avenue  Brookville $58,000.00"/>
+<marker lat="39.7831140" lng="-84.2138070" html="2012-05-04 &lt;br&gt; 2006 CV 09981 &lt;br&gt; $28,000.00" label="119 WEST HUDSON AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.6044709" lng="-84.2976530" html="2012-05-04 &lt;br&gt; 2007 CV 06782 &lt;br&gt; $100,000.00" label="9627 Chautauqua Road  Miamisburg $100,000.00"/>
+<marker lat="39.7174260" lng="-84.1348490" html="2012-05-04 &lt;br&gt; 2007 CV 10638 &lt;br&gt; $34,000.00" label="2109 Courtland Avenue  Dayton $34,000.00"/>
+<marker lat="39.7631170" lng="-84.1599630" html="2012-05-04 &lt;br&gt; 2007 CV 10721 &lt;br&gt; $2,000.00" label="62 South Garfield Street  Dayton $2,000.00"/>
+<marker lat="39.6839420" lng="-84.1506380" html="2012-05-04 &lt;br&gt; 2008 CV 02304 &lt;br&gt; $86,000.00" label="4329 RENWOOD DRIVE  KETTERING $86,000.00"/>
+<marker lat="39.5949630" lng="-84.3700310" html="2012-05-04 &lt;br&gt; 2008 CV 04289 &lt;br&gt; $86,000.00" label="10355 Eby Road  Germantown $86,000.00"/>
+<marker lat="39.6255940" lng="-84.1576140" html="2012-05-04 &lt;br&gt; 2008 CV 04327 &lt;br&gt; $40,000.00" label="38 Martha Avenue  Centerville $40,000.00"/>
+<marker lat="39.7993800" lng="-84.2730960" html="2012-05-04 &lt;br&gt; 2008 CV 07190 &lt;br&gt; $52,000.00" label="3610 DENLINGER ROAD  TROTWOOD $52,000.00"/>
+<marker lat="39.7333220" lng="-84.1149140" html="2012-05-04 &lt;br&gt; 2008 CV 07270 &lt;br&gt; $30,000.00" label="5349 ROXFORD DRIVE  DAYTON $30,000.00"/>
+<marker lat="39.7366920" lng="-84.3064680" html="2012-05-04 &lt;br&gt; 2008 CV 08650 &lt;br&gt; $92,000.00" label="640 SOUTH UNION ROAD  DAYTON $92,000.00"/>
+<marker lat="39.7673790" lng="-84.2129290" html="2012-05-04 &lt;br&gt; 2008 CV 09150 &lt;br&gt; $12,000.00" label="1001 WEST GRAND AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.6809180" lng="-84.2101880" html="2012-05-04 &lt;br&gt; 2009 CV 00314 &lt;br&gt; $44,000.00" label="4912 REXWOOD DRIVE  DAYTON $44,000.00"/>
+<marker lat="39.8056180" lng="-84.2516900" html="2012-05-04 &lt;br&gt; 2009 CV 01608 &lt;br&gt; $16,000.00" label="4048 OTIS DRIVE  DAYTON $16,000.00"/>
+<marker lat="39.8047630" lng="-84.2120620" html="2012-05-04 &lt;br&gt; 2009 CV 01662 &lt;br&gt; $24,000.00" label="4220 MERRIMAC AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.7750760" lng="-84.2434050" html="2012-05-04 &lt;br&gt; 2009 CV 01809 &lt;br&gt; $12,000.00" label="1516 WESLEYAN ROAD  DAYTON $12,000.00"/>
+<marker lat="39.6897520" lng="-84.1834650" html="2012-05-04 &lt;br&gt; 2009 CV 01951 &lt;br&gt; $68,000.00" label="4010 RIDGEWAY ROAD  DAYTON $68,000.00"/>
+<marker lat="39.7864379" lng="-84.2216679" html="2012-05-04 &lt;br&gt; 2009 CV 03271 &lt;br&gt; $38,000.00" label="2106 RUSTIC ROAD  DAYTON $38,000.00"/>
+<marker lat="39.7903160" lng="-84.1450650" html="2012-05-04 &lt;br&gt; 2009 CV 03332 &lt;br&gt; $24,000.00" label="2213 RONDOWA AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.6596470" lng="-84.2394580" html="2012-05-04 &lt;br&gt; 2009 CV 04016 &lt;br&gt; $48,000.00" label="350 FARNSWORTH DRIVE  DAYTON $48,000.00"/>
+<marker lat="39.6920240" lng="-84.1559110" html="2012-05-04 &lt;br&gt; 2009 CV 04316 &lt;br&gt; $60,000.00" label="3822 MILFORD DRIVE  KETTERING $60,000.00"/>
+<marker lat="39.6336210" lng="-84.3504560" html="2012-05-04 &lt;br&gt; 2009 CV 04554 &lt;br&gt; $84,000.00" label="147 GIBRALTAR DRIVE  GERMANTOWN $84,000.00"/>
+<marker lat="39.7604430" lng="-84.2377650" html="2012-05-04 &lt;br&gt; 2009 CV 05310 &lt;br&gt; $20,000.00" label="435 GRAMONT AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.5894400" lng="-84.1489000" html="2012-05-04 &lt;br&gt; 2009 CV 05422 &lt;br&gt; $60,000.00" label="1401 APPLEBROOK LANE  DAYTON $60,000.00"/>
+<marker lat="39.8478470" lng="-84.1035890" html="2012-05-04 &lt;br&gt; 2009 CV 05520 &lt;br&gt; $128,000.00" label="6605 WINTERGREEN PLACE  DAYTON $128,000.00"/>
+<marker lat="39.7602120" lng="-84.1230190" html="2012-05-04 &lt;br&gt; 2009 CV 05739 &lt;br&gt; $36,000.00" label="2408 EDEN LANE  DAYTON $36,000.00"/>
+<marker lat="39.7254310" lng="-84.1344330" html="2012-05-04 &lt;br&gt; 2009 CV 07606 &lt;br&gt; $42,000.00" label="1421 WATERVILET AVENUE  DAYTON $42,000.00"/>
+<marker lat="39.8571260" lng="-84.1373009" html="2012-05-04 &lt;br&gt; 2009 CV 07767 &lt;br&gt; $56,000.00" label="5570 CORFU COURT  HUBER HEIGHTS $56,000.00"/>
+<marker lat="39.7942290" lng="-84.1581600" html="2012-05-04 &lt;br&gt; 2009 CV 10124 &lt;br&gt; $34,000.00" label="144 AVONDALE DRIVE  DAYTON $34,000.00"/>
+<marker lat="39.7908110" lng="-84.2566820" html="2012-05-04 &lt;br&gt; 2010 CV 00045 &lt;br&gt; $26,000.00" label="4453 WEST HILLCREST AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.7703240" lng="-84.2146610" html="2012-05-04 &lt;br&gt; 2010 CV 00070 &lt;br&gt; $16,000.00" label="49-51 CAMBRIDGE AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.6402000" lng="-84.3049352" html="2012-05-04 &lt;br&gt; 2010 CV 00105 &lt;br&gt; $68,000.00" label="402 Overland Trail  Miamisburg $68,000.00"/>
+<marker lat="39.7877280" lng="-84.2379150" html="2012-05-04 &lt;br&gt; 2010 CV 00126 &lt;br&gt; $8,000.00" label="2110 and 2112 PARKHILL DRIVE  DAYTON $8,000.00"/>
+<marker lat="39.8062110" lng="-84.2124030" html="2012-05-04 &lt;br&gt; 2010 CV 01258 &lt;br&gt; $32,000.00" label="327 EAST NOTTINGHAM ROAD  DAYTON $32,000.00"/>
+<marker lat="39.7623760" lng="-84.2336580" html="2012-05-04 &lt;br&gt; 2010 CV 01394 &lt;br&gt; $14,000.00" label="725 MAPLEHURST AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.7220490" lng="-84.1705350" html="2012-05-04 &lt;br&gt; 2010 CV 02106 &lt;br&gt; $126,000.00" label="59 SPIREA DRIVE  DAYTON $126,000.00"/>
+<marker lat="39.8184790" lng="-84.3959730" html="2012-05-04 &lt;br&gt; 2010 CV 02119 &lt;br&gt; $8,000.00" label="11554 SOUTH WOLF CREEK PIKE  BROOKVILLE $8,000.00"/>
+<marker lat="39.7445902" lng="-84.1558163" html="2012-05-04 &lt;br&gt; 2010 CV 02292 &lt;br&gt; $26,000.00" label="1129-1131 PHILLIPS AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.7930550" lng="-84.1392250" html="2012-05-04 &lt;br&gt; 2010 CV 02458 &lt;br&gt; $24,000.00" label="2448 RONDOWA AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.8424509" lng="-84.2880340" html="2012-05-04 &lt;br&gt; 2010 CV 02461 &lt;br&gt; $66,000.00" label="4261 CROWNWOOD AVENUE  DAYTON $66,000.00"/>
+<marker lat="39.7234360" lng="-84.1338680" html="2012-05-04 &lt;br&gt; 2010 CV 02534 &lt;br&gt; $26,000.00" label="2101 PATTERSON ROAD  DAYTON $26,000.00"/>
+<marker lat="39.7770310" lng="-84.3072950" html="2012-05-04 &lt;br&gt; 2010 CV 02844 &lt;br&gt; $26,000.00" label="6741 SHADOWBROOK DRIVE  DAYTON $26,000.00"/>
+<marker lat="39.7590460" lng="-84.1571710" html="2012-05-04 &lt;br&gt; 2010 CV 02989 &lt;br&gt; $12,000.00" label="619 HUFFMAN AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.7842700" lng="-84.3064710" html="2012-05-04 &lt;br&gt; 2010 CV 03024 &lt;br&gt; $30,000.00" label="333 STUBBS DRIVE  TROTWOOD $30,000.00"/>
+<marker lat="39.7114070" lng="-84.1580760" html="2012-05-04 &lt;br&gt; 2010 CV 03113 &lt;br&gt; $56,000.00" label="630 HADLEY AVENUE  KETTERING $56,000.00"/>
+<marker lat="39.8933100" lng="-84.3111390" html="2012-05-04 &lt;br&gt; 2010 CV 03130 &lt;br&gt; $26,000.00" label="19 LAURELGROVE DRIVE  UNION $26,000.00"/>
+<marker lat="39.8790930" lng="-84.1152450" html="2012-05-04 &lt;br&gt; 2010 CV 03234 &lt;br&gt; $80,000.00" label="8760 CANNONDALE LANE  HUBER HEIGHTS $80,000.00"/>
+<marker lat="39.7570089" lng="-84.2751170" html="2012-05-04 &lt;br&gt; 2010 CV 03368 &lt;br&gt; $22,000.00" label="5208 KENTWOOD ROAD  DAYTON $22,000.00"/>
+<marker lat="39.7757290" lng="-84.3318392" html="2012-05-04 &lt;br&gt; 2010 CV 03544 &lt;br&gt; $46,000.00" label="8120 LITTLE RICHMOND ROAD  TROTWOOD $46,000.00"/>
+<marker lat="39.7410409" lng="-84.1517135" html="2012-05-04 &lt;br&gt; 2010 CV 03612 &lt;br&gt; $14,000.00" label="1328-1300 ARBOR AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.7490260" lng="-84.1515770" html="2012-05-04 &lt;br&gt; 2010 CV 03734 &lt;br&gt; $24,000.00" label="739 HODAPP AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.7179130" lng="-84.1428020" html="2012-05-04 &lt;br&gt; 2010 CV 03740 &lt;br&gt; $48,000.00" label="2101 SOUTH SMITHVILLE ROAD  DAYTON $48,000.00"/>
+<marker lat="39.7630170" lng="-84.2357280" html="2012-05-04 &lt;br&gt; 2010 CV 03800 &lt;br&gt; $26,000.00" label="547 EVERGREEN AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.6693830" lng="-84.2026470" html="2012-05-04 &lt;br&gt; 2010 CV 03804 &lt;br&gt; $120,000.00" label="1962  WEST ALEX BELL ROAD  CENTERVILLE $120,000.00"/>
+<marker lat="39.7529500" lng="-84.2223530" html="2012-05-04 &lt;br&gt; 2010 CV 04027 &lt;br&gt; $18,000.00" label="1700 WEST 5TH STREET  DAYTON $18,000.00"/>
+<marker lat="39.7243270" lng="-84.1496850" html="2012-05-04 &lt;br&gt; 2010 CV 04126 &lt;br&gt; $40,000.00" label="1065 PATTERSON ROAD  DAYTON $40,000.00"/>
+<marker lat="39.6747240" lng="-84.1735540" html="2012-05-04 &lt;br&gt; 2010 CV 04263 &lt;br&gt; $90,000.00" label="4982 MAD RIVER ROAD  KETTERING $90,000.00"/>
+<marker lat="39.8231460" lng="-84.2679910" html="2012-05-04 &lt;br&gt; 2010 CV 04454 &lt;br&gt; $50,000.00" label="4348 DROWFIELD DRIVE  DAYTON $50,000.00"/>
+<marker lat="39.8826500" lng="-84.1190680" html="2012-05-04 &lt;br&gt; 2010 CV 04527 &lt;br&gt; $92,000.00" label="8830 WATERGATE DRIVE  HUBER HEIGHTS $92,000.00"/>
+<marker lat="39.8088140" lng="-84.3229230" html="2012-05-04 &lt;br&gt; 2010 CV 04594 &lt;br&gt; $40,000.00" label="4485 SPRINGDAWN DRIVE  DAYTON $40,000.00"/>
+<marker lat="39.7302810" lng="-84.1446920" html="2012-05-04 &lt;br&gt; 2010 CV 04716 &lt;br&gt; $48,000.00" label="825 NORDALE AVENUE  DAYTON $48,000.00"/>
+<marker lat="39.7662840" lng="-84.2474850" html="2012-05-04 &lt;br&gt; 2011 CV 06579 &lt;br&gt; $16,000.00" label="3614 COURTWOOD AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.7819280" lng="-84.2228620" html="2012-05-04 &lt;br&gt; 2011 CV 06650 &lt;br&gt; $4,000.00" label="1840-1842 EMERSON AVENUE  DAYTON $4,000.00"/>
+<marker lat="39.7587220" lng="-84.2908190" html="2012-05-04 &lt;br&gt; 2011 CV 06672 &lt;br&gt; $14,000.00" label="816 OLIVE ROAD  TROTWOOD $14,000.00"/>
+<marker lat="39.7441570" lng="-84.1382810" html="2012-05-04 &lt;br&gt; 2011 CV 06691 &lt;br&gt; $12,000.00" label="1615 NELSON AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.6949070" lng="-84.1362940" html="2012-05-04 &lt;br&gt; 2011 CV 06766 &lt;br&gt; $12,000.00" label="1700 WILLAMET ROAD  DAYTON $12,000.00"/>
+<marker lat="39.8017330" lng="-84.2233250" html="2012-05-04 &lt;br&gt; 2011 CV 06919 &lt;br&gt; $44,000.00" label="127 WAVERLY AVENUE  DAYTON $44,000.00"/>
+<marker lat="39.7773880" lng="-84.3070480" html="2012-05-04 &lt;br&gt; 2011 CV 07042 &lt;br&gt; $50,000.00" label="2065 THIMBLE CREEK DRIVE  DAYTON $50,000.00"/>
+<marker lat="39.8012540" lng="-84.1966800" html="2012-05-04 &lt;br&gt; 2011 CV 07045 &lt;br&gt; $28,000.00" label="3928 RIDGE AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.6929210" lng="-84.2144430" html="2012-05-04 &lt;br&gt; 2011 CV 07062 &lt;br&gt; $40,000.00" label="4128 ELLERY AVENUE  MORAINE $40,000.00"/>
+<marker lat="39.7852990" lng="-84.2228190" html="2012-05-04 &lt;br&gt; 2011 CV 07080 &lt;br&gt; $18,000.00" label="2050 EMERSON AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.9143420" lng="-84.3099740" html="2012-05-04 &lt;br&gt; 2011 CV 07082 &lt;br&gt; $64,000.00" label="126 CONCORD FARM ROAD  UNION $64,000.00"/>
+<marker lat="39.6518700" lng="-84.2547930" html="2012-05-04 &lt;br&gt; 2011 CV 07106 &lt;br&gt; $98,000.00" label="2108 LION HEART DRIVE  MIAMISBURG $98,000.00"/>
+<marker lat="39.6105080" lng="-84.2453860" html="2012-05-04 &lt;br&gt; 2011 CV 07119 &lt;br&gt; $78,000.00" label="9376 SAWGRASS DRIVE  MIAMISBURG $78,000.00"/>
+<marker lat="39.7515930" lng="-84.1629210" html="2012-05-04 &lt;br&gt; 2011 CV 07438 &lt;br&gt; $10,000.00" label="544 SAINT PAUL STREET  DAYTON $10,000.00"/>
+<marker lat="39.7992410" lng="-84.2717090" html="2012-05-04 &lt;br&gt; 2011 CV 07465 &lt;br&gt; $40,000.00" label="3618 SONORA PLACE  DAYTON $40,000.00"/>
+<marker lat="39.7122370" lng="-84.1984724" html="2012-05-04 &lt;br&gt; 2011 CV 07730 &lt;br&gt; $36,000.00" label="1541 CARDINGTON ROAD  DAYTON $36,000.00"/>
+<marker lat="39.7898710" lng="-84.2217820" html="2012-05-04 &lt;br&gt; 2011 CV 08083 &lt;br&gt; $8,000.00" label="2350 RUSTIC ROAD  DAYTON $8,000.00"/>
+<marker lat="39.7605870" lng="-84.1651680" html="2012-05-11 &lt;br&gt; 2010 CV 04721 &lt;br&gt; $18,000.00" label="54 CENTRE STREET  DAYTON $18,000.00"/>
+<marker lat="39.7642600" lng="-84.1466130" html="2012-05-11 &lt;br&gt; 2010 CV 04914 &lt;br&gt; $18,000.00" label="110 SOUTH SPERLING AVENUE  DAYTON $18,000.00"/>
+<marker lat="39.6928310" lng="-84.3096780" html="2012-05-11 &lt;br&gt; 2010 CV 04997 &lt;br&gt; $500.00" label="3655 SOUTH UNION ROAD  DAYTON $500.00"/>
+<marker lat="39.7478430" lng="-84.2802940" html="2012-05-11 &lt;br&gt; 2010 CV 05343 &lt;br&gt; $6,000.00" label="95 HANNA AVENUE  DAYTON $6,000.00"/>
+<marker lat="39.8219560" lng="-84.2380060" html="2012-05-11 &lt;br&gt; 2010 CV 05347 &lt;br&gt; $34,000.00" label="6000 NORTH MAIN STREET  DAYTON $34,000.00"/>
+<marker lat="39.8461950" lng="-84.1507800" html="2012-05-11 &lt;br&gt; 2010 CV 05376 &lt;br&gt; $112,000.00" label="4633 HIALEAH PARK  HUBER HEIGHTS $112,000.00"/>
+<marker lat="39.6568890" lng="-84.2913240" html="2012-05-11 &lt;br&gt; 2010 CV 05403 &lt;br&gt; $80,000.00" label="897 SOLDIERS HOME ROAD  MIAMISBURG $80,000.00"/>
+<marker lat="39.7966100" lng="-84.3078030" html="2012-05-11 &lt;br&gt; 2010 CV 05602 &lt;br&gt; $36,000.00" label="8 SOUTH SUNRISE AVENUE  TROTWOOD $36,000.00"/>
+<marker lat="39.7427870" lng="-84.1648240" html="2012-05-11 &lt;br&gt; 2010 CV 06216 &lt;br&gt; $28,000.00" label="425 GUNCKEL AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.8014500" lng="-84.2143760" html="2012-05-11 &lt;br&gt; 2010 CV 06299 &lt;br&gt; $24,000.00" label="636 DALEVIEW AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.7465000" lng="-84.3311559" html="2012-05-11 &lt;br&gt; 2010 CV 06326 &lt;br&gt; $12,000.00" label="8059 WEST 3RD STREET  NEW LEBANON $12,000.00"/>
+<marker lat="39.7120681" lng="-84.1183939" html="2012-05-11 &lt;br&gt; 2010 CV 06389 &lt;br&gt; $24,000.00" label="2515 GALEWOOD STREET  KETTERING $24,000.00"/>
+<marker lat="39.6876150" lng="-84.1580730" html="2012-05-11 &lt;br&gt; 2010 CV 06461 &lt;br&gt; $56,000.00" label="4108 LEFEVRE DRIVE  KETTERING $56,000.00"/>
+<marker lat="39.7840100" lng="-84.2434310" html="2012-05-11 &lt;br&gt; 2010 CV 06623 &lt;br&gt; $18,000.00" label="1914 WESLEYAN ROAD  DAYTON $18,000.00"/>
+<marker lat="39.7378760" lng="-84.1285290" html="2012-05-11 &lt;br&gt; 2010 CV 06748 &lt;br&gt; $40,000.00" label="1500 FALKE DRIVE  RIVERSIDE $40,000.00"/>
+<marker lat="39.8011679" lng="-84.2981430" html="2012-05-11 &lt;br&gt; 2010 CV 07020 &lt;br&gt; $46,000.00" label="316 HUNTSFORD PLACE  TROTWOOD $46,000.00"/>
+<marker lat="39.6185210" lng="-84.2160770" html="2012-05-11 &lt;br&gt; 2010 CV 07273 &lt;br&gt; $106,000.00" label="2292 FERNDOWN DRIVE  MIAMISBURG $106,000.00"/>
+<marker lat="39.6800549" lng="-84.2061012" html="2012-05-11 &lt;br&gt; 2010 CV 07520 &lt;br&gt; $28,000.00" label="4927 EXCHANGE DRIVE  DAYTON $28,000.00"/>
+<marker lat="39.6769109" lng="-84.2168360" html="2012-05-11 &lt;br&gt; 2010 CV 07677 &lt;br&gt; $44,000.00" label="5691 COBBLEGATE DRIVE  DAYTON $44,000.00"/>
+<marker lat="39.7761990" lng="-84.2267040" html="2012-05-11 &lt;br&gt; 2010 CV 07695 &lt;br&gt; $14,000.00" label="1434 CORNELL DRIVE  DAYTON $14,000.00"/>
+<marker lat="39.8211980" lng="-84.2337210" html="2012-05-11 &lt;br&gt; 2010 CV 07926 &lt;br&gt; $22,000.00" label="5640 PHILADELPHIA DRIVE  DAYTON $22,000.00"/>
+<marker lat="39.7580562" lng="-84.1708333" html="2012-05-11 &lt;br&gt; 2011 CV 00063 &lt;br&gt; $14,000.00" label="35 MCCLURE STREET  DAYTON $14,000.00"/>
+<marker lat="39.7720440" lng="-84.4592310" html="2012-05-11 &lt;br&gt; 2011 CV 00178 &lt;br&gt; $74,000.00" label="1852 SULPHUR SPRINGS ROAD  WEST ALEXANDRIA $74,000.00"/>
+<marker lat="39.6224760" lng="-84.3757870" html="2012-05-11 &lt;br&gt; 2011 CV 00936 &lt;br&gt; $50,000.00" label="47 ELM STREET  GERMANTOWN $50,000.00"/>
+<marker lat="39.7908070" lng="-84.2607270" html="2012-05-11 &lt;br&gt; 2011 CV 01166 &lt;br&gt; $22,000.00" label="4643 WEST HILLCREST AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.7321856" lng="-84.1586553" html="2012-05-11 &lt;br&gt; 2011 CV 01539 &lt;br&gt; $24,000.00" label="619 WILMINGTON AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.7516240" lng="-84.1687080" html="2012-05-11 &lt;br&gt; 2011 CV 01872 &lt;br&gt; $1,600.00" label="42 FILLMORE STREET  DAYTON $1,600.00"/>
+<marker lat="39.8228330" lng="-84.2729750" html="2012-05-11 &lt;br&gt; 2011 CV 01890 &lt;br&gt; $48,000.00" label="4607 KNOLLCROFT ROAD  TROTWOOD $48,000.00"/>
+<marker lat="39.6788580" lng="-84.2091350" html="2012-05-11 &lt;br&gt; 2011 CV 01914 &lt;br&gt; $88,000.00" label="2306 POLO PARK DRIVE  DAYTON $88,000.00"/>
+<marker lat="39.8566519" lng="-84.3206180" html="2012-05-11 &lt;br&gt; 2011 CV 02326 &lt;br&gt; $78,000.00" label="1016 SUNSET DRIVE  ENGLEWOOD $78,000.00"/>
+<marker lat="39.8645610" lng="-84.2860780" html="2012-05-11 &lt;br&gt; 2011 CV 02896 &lt;br&gt; $34,000.00" label="77 DRESDEN DRIVE  ENGLEWOOD $34,000.00"/>
+<marker lat="39.8572560" lng="-84.1148539" html="2012-05-11 &lt;br&gt; 2011 CV 03249 &lt;br&gt; $46,000.00" label="6800 HIGHBURY ROAD  DAYTON $46,000.00"/>
+<marker lat="39.6320100" lng="-84.3484520" html="2012-05-11 &lt;br&gt; 2011 CV 03330 &lt;br&gt; $46,000.00" label="92 KATHIE COURT  GERMANTOWN $46,000.00"/>
+<marker lat="39.7714220" lng="-84.2012050" html="2012-05-11 &lt;br&gt; 2011 CV 03642 &lt;br&gt; $4,000.00" label="412-414 FOREST AVENUE  DAYTON $4,000.00"/>
+<marker lat="39.6380460" lng="-84.2796819" html="2012-05-11 &lt;br&gt; 2011 CV 03722 &lt;br&gt; $50,000.00" label="736 EAST LINDEN AVENUE  MIAMISBURG $50,000.00"/>
+<marker lat="39.7400510" lng="-84.3948440" html="2012-05-11 &lt;br&gt; 2011 CV 03968 &lt;br&gt; $34,000.00" label="400 SOUTH CLAYTON ROAD  NEW LEBANON $34,000.00"/>
+<marker lat="39.6696540" lng="-84.2590230" html="2012-05-11 &lt;br&gt; 2011 CV 03994 &lt;br&gt; $38,000.00" label="526 W MAIN STREET  WEST CARROLLTON $38,000.00"/>
+<marker lat="39.6979260" lng="-84.1508999" html="2012-05-11 &lt;br&gt; 2011 CV 04464 &lt;br&gt; $78,000.00" label="3325 WALTHAM AVENUE  KETTERING $78,000.00"/>
+<marker lat="39.7868700" lng="-84.2108930" html="2012-05-11 &lt;br&gt; 2011 CV 04517 &lt;br&gt; $16,000.00" label="22-24 E. PARKWOOD DRIVE  DAYTON $16,000.00"/>
+<marker lat="39.7545760" lng="-84.2384880" html="2012-05-11 &lt;br&gt; 2011 CV 04527 &lt;br&gt; $6,000.00" label="114 SHOOP AVENUE  DAYTON $6,000.00"/>
+<marker lat="39.6355480" lng="-84.4760010" html="2012-05-11 &lt;br&gt; 2011 CV 04612 &lt;br&gt; $80,000.00" label="15783 STATE ROUTE 725  GERMANTOWN $80,000.00"/>
+<marker lat="39.8666560" lng="-84.1521160" html="2012-05-11 &lt;br&gt; 2011 CV 04681 &lt;br&gt; $46,000.00" label="7830 FERNBANK COURT  HUBER HEIGHTS $46,000.00"/>
+<marker lat="39.6250510" lng="-84.1912229" html="2012-05-11 &lt;br&gt; 2011 CV 04863 &lt;br&gt; $156,000.00" label="1200 ROBBINS RUN COURT  CENTERVILLE $156,000.00"/>
+<marker lat="39.6496610" lng="-84.2723700" html="2012-05-11 &lt;br&gt; 2011 CV 04882 &lt;br&gt; $128,000.00" label="930-940 NORTH 11TH STREET  MIAMISBURG $128,000.00"/>
+<marker lat="39.8397150" lng="-84.2911290" html="2012-05-11 &lt;br&gt; 2011 CV 04924 &lt;br&gt; $74,000.00" label="4448 SATELLITE AVENUE  CLAYTON $74,000.00"/>
+<marker lat="39.8656970" lng="-84.1053979" html="2012-05-11 &lt;br&gt; 2011 CV 05074 &lt;br&gt; $74,000.00" label="7320 STONEHURST DRIVE  HUBER HEIGHTS $74,000.00"/>
+<marker lat="39.6580660" lng="-84.2094310" html="2012-05-11 &lt;br&gt; 2011 CV 05082 &lt;br&gt; $106,000.00" label="6405 SHELTERGLEN COURT  DAYTON $106,000.00"/>
+<marker lat="39.6629428" lng="-84.2181998" html="2012-05-11 &lt;br&gt; 2011 CV 05229 &lt;br&gt; $70,000.00" label="2738 SYMPHONY WAY WEST  WEST CARROLLTON $70,000.00"/>
+<marker lat="39.6256030" lng="-84.2758280" html="2012-05-11 &lt;br&gt; 2011 CV 05232 &lt;br&gt; $78,000.00" label="1134 MARSHA DRIVE  MIAMISBURG $78,000.00"/>
+<marker lat="39.7346170" lng="-84.1410870" html="2012-05-11 &lt;br&gt; 2011 CV 05306 &lt;br&gt; $30,000.00" label="2243 SOUTH SMITHVILLE ROAD  DAYTON $30,000.00"/>
+<marker lat="39.8027190" lng="-84.2746310" html="2012-05-11 &lt;br&gt; 2011 CV 05384 &lt;br&gt; $30,000.00" label="3812 STORMONT ROAD  DAYTON $30,000.00"/>
+<marker lat="39.6973690" lng="-84.1327979" html="2012-05-11 &lt;br&gt; 2011 CV 05453 &lt;br&gt; $36,000.00" label="3392 HARWOOD STREET  KETTERING $36,000.00"/>
+<marker lat="39.7347010" lng="-84.1625507" html="2012-05-11 &lt;br&gt; 2011 CV 05460 &lt;br&gt; $86,000.00" label="33 FIRWOOD DRIVE  DAYTON $86,000.00"/>
+<marker lat="39.6875100" lng="-84.1505030" html="2012-05-11 &lt;br&gt; 2011 CV 05499 &lt;br&gt; $60,000.00" label="4116 RENWOOD DRIVE  KETTERING $60,000.00"/>
+<marker lat="39.7766949" lng="-84.1760390" html="2012-05-11 &lt;br&gt; 2011 CV 06039 &lt;br&gt; $14,000.00" label="439 MARYLAND AVENUE  DAYTON $14,000.00"/>
+<marker lat="39.8490620" lng="-84.1251170" html="2012-05-11 &lt;br&gt; 2011 CV 06055 &lt;br&gt; $46,000.00" label="6570 INNSDALE PLACE  HUBER HEIGHTS $46,000.00"/>
+<marker lat="39.6568060" lng="-84.2209070" html="2012-05-11 &lt;br&gt; 2011 CV 06174 &lt;br&gt; $56,000.00" label="2831 PINEGROVE COURT  DAYTON $56,000.00"/>
+<marker lat="39.8346000" lng="-84.2830970" html="2012-05-11 &lt;br&gt; 2011 CV 06219 &lt;br&gt; $84,000.00" label="4091 COLEMERE CIRCLE  DAYTON $84,000.00"/>
+<marker lat="39.7091050" lng="-84.1170360" html="2012-05-11 &lt;br&gt; 2011 CV 06302 &lt;br&gt; $44,000.00" label="2503 SOUTH ARAGON AVENUE  KETTERING $44,000.00"/>
+<marker lat="39.7444360" lng="-84.1595260" html="2012-05-11 &lt;br&gt; 2011 CV 06325 &lt;br&gt; $16,000.00" label="1127 HIGHLAND AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.7878400" lng="-84.2191440" html="2012-05-11 &lt;br&gt; 2011 CV 06361 &lt;br&gt; $10,000.00" label="165 VALLEYVIEW DRIVE  DAYTON $10,000.00"/>
+<marker lat="39.7558980" lng="-84.2357120" html="2012-05-11 &lt;br&gt; 2011 CV 06584 &lt;br&gt; $2,000.00" label="171 LORENZ AVENUE  DAYTON $2,000.00"/>
+<marker lat="39.7571670" lng="-84.2635080" html="2012-05-11 &lt;br&gt; 2011 CV 06598 &lt;br&gt; $16,000.00" label="4622 OAKRIDGE DRIVE  DAYTON $16,000.00"/>
+<marker lat="39.7203770" lng="-84.1335010" html="2012-05-11 &lt;br&gt; 2011 CV 06603 &lt;br&gt; $28,000.00" label="1929 CULVER AVENUE  KETTERING $28,000.00"/>
+<marker lat="39.7442020" lng="-84.1644650" html="2012-05-11 &lt;br&gt; 2011 CV 06633 &lt;br&gt; $24,000.00" label="233 VOLKENAND AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.6505380" lng="-84.2350310" html="2012-05-11 &lt;br&gt; 2011 CV 06709 &lt;br&gt; $30,000.00" label="1606 THUNDERBIRD LANE #59  WEST CARROLLTON $30,000.00"/>
+<marker lat="39.7241230" lng="-84.1370770" html="2012-05-11 &lt;br&gt; 2011 CV 06756 &lt;br&gt; $24,000.00" label="2936 KINGSTON AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.8261690" lng="-84.2271290" html="2012-05-11 &lt;br&gt; 2011 CV 06842 &lt;br&gt; $36,000.00" label="256 MINTY DRIVE  DAYTON $36,000.00"/>
+<marker lat="39.8768810" lng="-84.3059830" html="2012-05-11 &lt;br&gt; 2011 CV 06869 &lt;br&gt; $48,000.00" label="614 WOLF AVENUE  ENGLEWOOD $48,000.00"/>
+<marker lat="39.7019120" lng="-84.1090229" html="2012-05-11 &lt;br&gt; 2011 CV 06902 &lt;br&gt; $48,000.00" label="2832 CHINOOK LANE  KETTERING $48,000.00"/>
+<marker lat="39.7936130" lng="-84.2138710" html="2012-05-11 &lt;br&gt; 2011 CV 06920 &lt;br&gt; $16,000.00" label="46 FERNWOOD AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.6243370" lng="-84.1529940" html="2012-05-11 &lt;br&gt; 2011 CV 06935 &lt;br&gt; $74,000.00" label="225 TUXWORTH ROAD  DAYTON $74,000.00"/>
+<marker lat="39.6897290" lng="-84.2958790" html="2012-05-11 &lt;br&gt; 2011 CV 07075 &lt;br&gt; $36,000.00" label="6340 GERMANTOWN PIKE  MORAINE $36,000.00"/>
+<marker lat="39.8014510" lng="-84.2155720" html="2012-05-11 &lt;br&gt; 2011 CV 07115 &lt;br&gt; $30,000.00" label="636 SYRACUSE AVENUE  DAYTON $30,000.00"/>
+<marker lat="39.6740495" lng="-84.2524422" html="2012-05-11 &lt;br&gt; 2011 CV 07261 &lt;br&gt; $24,000.00" label="116 EAST PEASE AVENUE  DAYTON $24,000.00"/>
+<marker lat="39.7728800" lng="-84.2257900" html="2012-05-11 &lt;br&gt; 2011 CV 07381 &lt;br&gt; $8,000.00" label="1434 PRINCETON DRIVE  DAYTON $8,000.00"/>
+<marker lat="39.7438060" lng="-84.2268310" html="2012-05-11 &lt;br&gt; 2011 CV 07411 &lt;br&gt; $2,000.00" label="728 CLEMENT AVENUE  DAYTON $2,000.00"/>
+<marker lat="39.8755310" lng="-84.1167100" html="2012-05-11 &lt;br&gt; 2011 CV 07498 &lt;br&gt; $88,000.00" label="6433 PRAIRIE CREEK COURT  HUBER HEIGHTS $88,000.00"/>
+<marker lat="39.7236056" lng="-84.1448679" html="2012-05-18 &lt;br&gt; 2007 CV 09308 &lt;br&gt; $32,000.00" label="1245 PATTERSON ROAD  DAYTON $32,000.00"/>
+<marker lat="39.8661290" lng="-84.3158220" html="2012-05-18 &lt;br&gt; 2008 CV 01268 &lt;br&gt; $110,000.00" label="300 PAULY DRIVE  CLAYTON $110,000.00"/>
+<marker lat="39.7333290" lng="-84.2728710" html="2012-05-18 &lt;br&gt; 2008 CV 07279 &lt;br&gt; $68,000.00" label="842 OLYMPIAN  DAYTON $68,000.00"/>
+<marker lat="39.7720460" lng="-84.2257360" html="2012-05-18 &lt;br&gt; 2008 CV 11123 &lt;br&gt; $14,000.00" label="1430 CHADWICK DRIVE  DAYTON $14,000.00"/>
+<marker lat="39.8016617" lng="-84.2941220" html="2012-05-18 &lt;br&gt; 2009 CV 02688 &lt;br&gt; $26,000.00" label="309 EAST EPPINGTON DRIVE  TROTWOOD $26,000.00"/>
+<marker lat="39.6474317" lng="-84.1242767" html="2012-05-18 &lt;br&gt; 2009 CV 04556 &lt;br&gt; $60,000.00" label="6677 BRIGHAM SQUARE  CENTERVILLE $60,000.00"/>
+<marker lat="39.7408151" lng="-84.1391542" html="2012-05-18 &lt;br&gt; 2009 CV 04852 &lt;br&gt; $42,000.00" label="4024 ELLIOT AVENUE  DAYTON $42,000.00"/>
+<marker lat="39.6394980" lng="-84.1507589" html="2012-05-18 &lt;br&gt; 2009 CV 06486 &lt;br&gt; $76,000.00" label="206 BLACKSTONE DRIVE  CENTERVILLE $76,000.00"/>
+<marker lat="39.6634950" lng="-84.2466870" html="2012-05-18 &lt;br&gt; 2009 CV 09491 &lt;br&gt; $48,000.00" label="1225 MAYROSE DRIVE  WEST CARROLLTON $48,000.00"/>
+<marker lat="39.8925060" lng="-84.2004490" html="2012-05-18 &lt;br&gt; 2010 CV 04651 &lt;br&gt; $36,000.00" label="61C N. DIXIE DRIVE  VANDALIA $36,000.00"/>
+<marker lat="39.8923640" lng="-84.1984260" html="2012-05-18 &lt;br&gt; 2010 CV 04651 &lt;br&gt; $56,000.00" label="59A NORTH DIXIE DRIVE  VANDALIA $56,000.00"/>
+<marker lat="39.8925060" lng="-84.2004490" html="2012-05-18 &lt;br&gt; 2010 CV 04651 &lt;br&gt; $36,000.00" label="61B N. DIXIE  VANDALIA $36,000.00"/>
+<marker lat="39.8925060" lng="-84.2004490" html="2012-05-18 &lt;br&gt; 2010 CV 04651 &lt;br&gt; $34,000.00" label="61D N. DIXIE DRIVE  VANDALIA $34,000.00"/>
+<marker lat="39.8056330" lng="-84.2372560" html="2012-05-18 &lt;br&gt; 2010 CV 04652 &lt;br&gt; $76,000.00" label="3106 HANEY ROAD  DAYTON $76,000.00"/>
+<marker lat="39.8298850" lng="-84.1931580" html="2012-05-18 &lt;br&gt; 2010 CV 04678 &lt;br&gt; $5,000.00" label="2246 WILDING AVENUE  DAYTON $5,000.00"/>
+<marker lat="39.7922910" lng="-84.2135629" html="2012-05-18 &lt;br&gt; 2010 CV 06661 &lt;br&gt; $16,000.00" label="31 EAST MAPLEWOOD AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.8532880" lng="-84.2872320" html="2012-05-18 &lt;br&gt; 2011 CV 00138 &lt;br&gt; $86,000.00" label="5588 SAVINA AVENUE  DAYTON $86,000.00"/>
+<marker lat="39.6254820" lng="-84.2723369" html="2012-05-18 &lt;br&gt; 2011 CV 00152 &lt;br&gt; $46,000.00" label="1320 MARSHA DRIVE  MIAMISBURG $46,000.00"/>
+<marker lat="39.8387990" lng="-84.2910960" html="2012-05-18 &lt;br&gt; 2011 CV 00295 &lt;br&gt; $54,000.00" label="6411 COUNTRYDALE COURT  DAYTON $54,000.00"/>
+<marker lat="39.8562330" lng="-84.3026240" html="2012-05-18 &lt;br&gt; 2011 CV 00657 &lt;br&gt; $72,000.00" label="208 BROOKWOOD DRIVE  ENGLEWOOD $72,000.00"/>
+<marker lat="39.7802530" lng="-84.2096660" html="2012-05-18 &lt;br&gt; 2011 CV 00686 &lt;br&gt; $3,000.00" label="43 VICTOR STREET  DAYTON $3,000.00"/>
+<marker lat="39.7524400" lng="-84.1613900" html="2012-05-18 &lt;br&gt; 2011 CV 00980 &lt;br&gt; $4,000.00" label="1021 CLOVER STREET  DAYTON $4,000.00"/>
+<marker lat="39.8368309" lng="-84.2281239" html="2012-05-18 &lt;br&gt; 2011 CV 01356 &lt;br&gt; $140,000.00" label="6511 RIVERBEND DRIVE  DAYTON $140,000.00"/>
+<marker lat="39.6558909" lng="-84.1228190" html="2012-05-18 &lt;br&gt; 2011 CV 01497 &lt;br&gt; $50,000.00" label="1815 PIPER LANE UNIT 205  CENTERVILLE $50,000.00"/>
+<marker lat="39.7179450" lng="-84.2823200" html="2012-05-18 &lt;br&gt; 2011 CV 01716 &lt;br&gt; $40,000.00" label="1941 INFIRMARY DRIVE  DAYTON $40,000.00"/>
+<marker lat="39.6043350" lng="-84.1769750" html="2012-05-18 &lt;br&gt; 2011 CV 02079 &lt;br&gt; $98,000.00" label="390 ISLAND LAKE COURT  DAYTON $98,000.00"/>
+<marker lat="39.8103200" lng="-84.1944539" html="2012-05-18 &lt;br&gt; 2011 CV 02541 &lt;br&gt; $48,000.00" label="2117 CORONETTE AVENUE  DAYTON $48,000.00"/>
+<marker lat="39.7354420" lng="-84.2740240" html="2012-05-18 &lt;br&gt; 2011 CV 02863 &lt;br&gt; $40,000.00" label="5289 BIRDLAND AVENUE  DAYTON $40,000.00"/>
+<marker lat="39.7999889" lng="-84.1356940" html="2012-05-18 &lt;br&gt; 2011 CV 03354 &lt;br&gt; $24,000.00" label="336 MARJORIE AVENUE  RIVERSIDE $24,000.00"/>
+<marker lat="39.7016840" lng="-84.1360950" html="2012-05-18 &lt;br&gt; 2011 CV 03855 &lt;br&gt; $42,000.00" label="1651 BEAVERTON DRIVE  KETTERING $42,000.00"/>
+<marker lat="39.4214340" lng="-85.0063340" html="2012-05-18 &lt;br&gt; 2011 CV 04890 &lt;br&gt; $56,000.00" label="625 MARKET STREET  BROOKVILLE $56,000.00"/>
+<marker lat="39.6988990" lng="-84.1493900" html="2012-05-18 &lt;br&gt; 2011 CV 05228 &lt;br&gt; $50,000.00" label="3311 OAKMONT AVENUE  KETTERING $50,000.00"/>
+<marker lat="39.6180800" lng="-84.2495129" html="2012-05-18 &lt;br&gt; 2011 CV 05347 &lt;br&gt; $86,000.00" label="1249 BONNIEBROOK DRIVE  MIAMISBURG $86,000.00"/>
+<marker lat="39.8201530" lng="-84.1102570" html="2012-05-18 &lt;br&gt; 2011 CV 05442 &lt;br&gt; $104,000.00" label="4565 FALCON DRIVE  DAYTON $104,000.00"/>
+<marker lat="39.7544060" lng="-84.1294500" html="2012-05-18 &lt;br&gt; 2011 CV 05552 &lt;br&gt; $22,000.00" label="1965 GONDERT AVE  DAYTON $22,000.00"/>
+<marker lat="39.7100040" lng="-84.1729290" html="2012-05-18 &lt;br&gt; 2011 CV 05624 &lt;br&gt; $160,000.00" label="39 ALPINE LANE  DAYTON $160,000.00"/>
+<marker lat="39.7011410" lng="-84.1525710" html="2012-05-18 &lt;br&gt; 2011 CV 05738 &lt;br&gt; $46,000.00" label="3209 CARRIER AVENUE  DAYTON $46,000.00"/>
+<marker lat="39.6794090" lng="-84.2550600" html="2012-05-18 &lt;br&gt; 2011 CV 05787 &lt;br&gt; $28,000.00" label="10 ROBERT STREET  WEST CARROLLTON $28,000.00"/>
+<marker lat="39.7840750" lng="-84.2225740" html="2012-05-18 &lt;br&gt; 2011 CV 06027 &lt;br&gt; $16,000.00" label="617 WEST NORMAN AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.7873170" lng="-84.1678270" html="2012-05-18 &lt;br&gt; 2011 CV 06059 &lt;br&gt; $20,000.00" label="27 MACREADY AVENUE  DAYTON $20,000.00"/>
+<marker lat="39.7967819" lng="-84.2224624" html="2012-05-18 &lt;br&gt; 2011 CV 06226 &lt;br&gt; $30,000.00" label="300 SAINT LOUIS AVENUE  DAYTON $30,000.00"/>
+<marker lat="39.7023480" lng="-84.1370130" html="2012-05-18 &lt;br&gt; 2011 CV 06229 &lt;br&gt; $34,000.00" label="3024 SUTTON AVENUE  DAYTON $34,000.00"/>
+<marker lat="39.7879050" lng="-84.1115410" html="2012-05-18 &lt;br&gt; 2011 CV 06231 &lt;br&gt; $30,000.00" label="1523 MCGREVEY AVENUE  DAYTON $30,000.00"/>
+<marker lat="39.7455450" lng="-84.2321452" html="2012-05-18 &lt;br&gt; 2011 CV 06410 &lt;br&gt; $16,000.00" label="364 ADELITE AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.7484830" lng="-84.2941190" html="2012-05-18 &lt;br&gt; 2011 CV 06466 &lt;br&gt; $16,000.00" label="6147 LORIMER STREET  DAYTON $16,000.00"/>
+<marker lat="39.7925270" lng="-84.1962680" html="2012-05-18 &lt;br&gt; 2011 CV 06625 &lt;br&gt; $16,000.00" label="1909 ONTARIO AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.8303080" lng="-84.2269759" html="2012-05-18 &lt;br&gt; 2011 CV 06703 &lt;br&gt; $40,000.00" label="6231 CONSTITUTION DRIVE  DAYTON $40,000.00"/>
+<marker lat="39.7041340" lng="-84.1637640" html="2012-05-18 &lt;br&gt; 2011 CV 06717 &lt;br&gt; $54,000.00" label="417 EAST DOROTHY LANE  DAYTON $54,000.00"/>
+<marker lat="39.7290730" lng="-84.1395680" html="2012-05-18 &lt;br&gt; 2011 CV 06757 &lt;br&gt; $26,000.00" label="907 WATERVILET AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.7011190" lng="-84.1147280" html="2012-05-18 &lt;br&gt; 2011 CV 06759 &lt;br&gt; $46,000.00" label="2935 CUNNINGTON LANE  KETTERING $46,000.00"/>
+<marker lat="39.7847409" lng="-84.2377980" html="2012-05-18 &lt;br&gt; 2011 CV 06774 &lt;br&gt; $8,000.00" label="1954 PARKHILL DRIVE  DAYTON $8,000.00"/>
+<marker lat="39.7528670" lng="-84.2489810" html="2012-05-18 &lt;br&gt; 2011 CV 07064 &lt;br&gt; $36,000.00" label="118 NORTH TRENTON STREET  DAYTON $36,000.00"/>
+<marker lat="39.7693170" lng="-84.2347260" html="2012-05-18 &lt;br&gt; 2011 CV 07225 &lt;br&gt; $16,000.00" label="2707 OXFORD AVE  DAYTON $16,000.00"/>
+<marker lat="39.7862320" lng="-84.2516910" html="2012-05-18 &lt;br&gt; 2011 CV 07236 &lt;br&gt; $12,000.00" label="4101 LARKSPUR AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.5907830" lng="-84.1593240" html="2012-05-18 &lt;br&gt; 2011 CV 07241 &lt;br&gt; $82,000.00" label="10520 GRAND VISTA DRIVE  DAYTON $82,000.00"/>
+<marker lat="39.6843610" lng="-84.4240109" html="2012-05-18 &lt;br&gt; 2011 CV 07250 &lt;br&gt; $38,000.00" label="333 NORTH ELM STREET  FARMERSVILLE $38,000.00"/>
+<marker lat="39.7927995" lng="-84.3114412" html="2012-05-18 &lt;br&gt; 2011 CV 07619 &lt;br&gt; $24,000.00" label="294 N. UNION ROAD  TROTWOOD $24,000.00"/>
+<marker lat="39.8868120" lng="-84.1786410" html="2012-05-18 &lt;br&gt; 2011 CV 07653 &lt;br&gt; $60,000.00" label="400 GLENROSE STREET  VANDALIA $60,000.00"/>
+<marker lat="39.8364030" lng="-84.3232290" html="2012-05-18 &lt;br&gt; 2011 CV 07728 &lt;br&gt; $90,000.00" label="607 WHITE CLOVER COURT  CLAYTON $90,000.00"/>
+<marker lat="39.8488260" lng="-84.2685290" html="2012-05-18 &lt;br&gt; 2011 CV 07731 &lt;br&gt; $30,000.00" label="8601 NORTH MAIN STREET  DAYTON $30,000.00"/>
+<marker lat="39.7982749" lng="-84.2500380" html="2012-05-18 &lt;br&gt; 2011 CV 07735 &lt;br&gt; $3,000.00" label="3661 WEST SIEBENTHALER AVENUE  DAYTON $3,000.00"/>
+<marker lat="39.8504190" lng="-84.1038970" html="2012-05-18 &lt;br&gt; 2011 CV 07793 &lt;br&gt; $118,000.00" label="6810 EVERGREEN CIRCLE  HUBER HEIGHTS $118,000.00"/>
+<marker lat="39.8418890" lng="-84.1055720" html="2012-05-18 &lt;br&gt; 2011 CV 07817 &lt;br&gt; $128,000.00" label="6163 WHITE OAK WAY  HUBER HEIGHTS $128,000.00"/>
+<marker lat="39.8373510" lng="-84.1924380" html="2012-05-18 &lt;br&gt; 2011 CV 07836 &lt;br&gt; $80,000.00" label="6201 MILLER LANE  DAYTON $80,000.00"/>
+<marker lat="39.7854820" lng="-84.2357760" html="2012-05-18 &lt;br&gt; 2011 CV 07974 &lt;br&gt; $4,000.00" label="2012 VICTORIA AVENUE  DAYTON $4,000.00"/>
+<marker lat="39.7024150" lng="-84.1670400" html="2012-05-18 &lt;br&gt; 2011 CV 07991 &lt;br&gt; $60,000.00" label="309 CUSHING AVENUE  KETTERING $60,000.00"/>
+<marker lat="39.7423011" lng="-84.0608845" html="2012-05-18 &lt;br&gt; 2011 CV 07992 &lt;br&gt; $30,000.00" label="2664 RUGBY ROAD  DAYTON $30,000.00"/>
+<marker lat="39.5962180" lng="-84.1242020" html="2012-05-18 &lt;br&gt; 2011 CV 08008 &lt;br&gt; $370,000.00" label="2450 QUORN CT  DAYTON $370,000.00"/>
+<marker lat="39.6777400" lng="-84.2439020" html="2012-05-18 &lt;br&gt; 2011 CV 08055 &lt;br&gt; $42,000.00" label="23 TERRENCE COURT  WEST CARROLLTON $42,000.00"/>
+<marker lat="39.7585610" lng="-84.2477690" html="2012-05-18 &lt;br&gt; 2011 CV 08139 &lt;br&gt; $16,000.00" label="516 CRESTMORE AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.8301690" lng="-84.2371890" html="2012-05-18 &lt;br&gt; 2011 CV 08144 &lt;br&gt; $150,000.00" label="5771 WALNUT WOOD WAY  DAYTON $150,000.00"/>
+<marker lat="39.7550170" lng="-84.1357869" html="2012-05-18 &lt;br&gt; 2011 CV 08175 &lt;br&gt; $22,000.00" label="1715 GONDERT AVENUE  DAYTON $22,000.00"/>
+<marker lat="39.8717710" lng="-84.3092050" html="2012-05-18 &lt;br&gt; 2011 CV 08231 &lt;br&gt; $100,000.00" label="373 WINTERSET DRIVE  ENGLEWOOD $100,000.00"/>
+<marker lat="39.8151020" lng="-84.2395540" html="2012-05-18 &lt;br&gt; 2011 CV 08256 &lt;br&gt; $14,000.00" label="4653 MERRICK DRIVE  DAYTON $14,000.00"/>
+<marker lat="39.7547810" lng="-84.1132230" html="2012-05-18 &lt;br&gt; 2011 CV 08513 &lt;br&gt; $36,000.00" label="5352 UNDERWOOD RD  RIVERSIDE $36,000.00"/>
+<marker lat="39.8382740" lng="-84.4150880" html="2012-05-18 &lt;br&gt; 2011 CV 08558 &lt;br&gt; $34,000.00" label="232 WALNUT STREET  BROOKVILLE $34,000.00"/>
+<marker lat="39.6783030" lng="-84.1761400" html="2012-05-18 &lt;br&gt; 2011 CV 08698 &lt;br&gt; $246,000.00" label="4712 EAGLES NEST CIRCLE  DAYTON $246,000.00"/>
+<marker lat="39.8863810" lng="-84.1793170" html="2012-05-18 &lt;br&gt; 2011 CV 08856 &lt;br&gt; $48,000.00" label="421 GLENROSE STREET  VANDALIA $48,000.00"/>
+<marker lat="39.7513710" lng="-84.1675120" html="2012-05-25 &lt;br&gt; 2011 CV 02307 &lt;br&gt; $16,000.00" label="550 STEELE AVENUE  DAYTON $16,000.00"/>
+<marker lat="39.8266160" lng="-84.2278320" html="2012-05-25 &lt;br&gt; 2011 CV 07256 &lt;br&gt; $56,000.00" label="205 MINTY DRIVE  DAYTON $56,000.00"/>
+<marker lat="39.7307160" lng="-84.1727660" html="2012-05-25 &lt;br&gt; 2011 CV 07283 &lt;br&gt; $372,000.00" label="451 SCHENCK AVENUE  DAYTON $372,000.00"/>
+<marker lat="39.8614470" lng="-84.2938290" html="2012-05-25 &lt;br&gt; 2011 CV 07315 &lt;br&gt; $68,000.00" label="201 KATY LANE  ENGLEWOOD $68,000.00"/>
+<marker lat="39.6599108" lng="-84.2449672" html="2012-05-25 &lt;br&gt; 2011 CV 07317 &lt;br&gt; $76,000.00" label="548 RIDGECREST DRIVE  DAYTON $76,000.00"/>
+<marker lat="39.7942660" lng="-84.1391189" html="2012-05-25 &lt;br&gt; 2011 CV 07408 &lt;br&gt; $26,000.00" label="2504 BUSHNELL AVENUE  DAYTON $26,000.00"/>
+<marker lat="39.7766820" lng="-84.1724690" html="2012-05-25 &lt;br&gt; 2011 CV 07426 &lt;br&gt; $12,000.00" label="43 NOTRE DAME AVENUE  DAYTON $12,000.00"/>
+<marker lat="39.6859790" lng="-84.2335210" html="2012-05-25 &lt;br&gt; 2011 CV 07597 &lt;br&gt; $26,000.00" label="3300 COZY CAMP ROAD  DAYTON $26,000.00"/>
+<marker lat="39.6530860" lng="-84.2585430" html="2012-05-25 &lt;br&gt; 2011 CV 07631 &lt;br&gt; $92,000.00" label="1207 KIRKLEY HALL DRIVE  MIAMISBURG $92,000.00"/>
+<marker lat="39.6593190" lng="-84.1256000" html="2012-05-25 &lt;br&gt; 2011 CV 07723 &lt;br&gt; $20,000.00" label="2225 COACH DRIVE  KETTERING $20,000.00"/>
+<marker lat="39.7617930" lng="-84.2404630" html="2012-05-25 &lt;br&gt; 2011 CV 07838 &lt;br&gt; $6,000.00" label="3009 HOOVER AVENUE  DAYTON $6,000.00"/>
+<marker lat="39.6688690" lng="-84.2452340" html="2012-05-25 &lt;br&gt; 2011 CV 07841 &lt;br&gt; $46,000.00" label="311 ENXING AVENUE  WEST CARROLLTON $46,000.00"/>
+<marker lat="39.5941900" lng="-84.2558190" html="2012-05-25 &lt;br&gt; 2011 CV 07845 &lt;br&gt; $130,000.00" label="5467 GREENFINCH DRIVE  MIAMISBURG $130,000.00"/>
+<marker lat="39.6433312" lng="-84.2725284" html="2012-05-25 &lt;br&gt; 2011 CV 07875 &lt;br&gt; $24,000.00" label="1114 EAST PEARL STREET  MIAMISBURG $24,000.00"/>
+<marker lat="39.6484730" lng="-84.2746230" html="2012-05-25 &lt;br&gt; 2011 CV 07881 &lt;br&gt; $42,000.00" label="808 NORTH 10TH STREET  MIAMISBURG $42,000.00"/>
+<marker lat="39.7831370" lng="-84.2430300" html="2012-05-25 &lt;br&gt; 2011 CV 07963 &lt;br&gt; $32,000.00" label="1863 KIPLING DRIVE  DAYTON $32,000.00"/>
+<marker lat="39.6315700" lng="-84.3109190" html="2012-05-25 &lt;br&gt; 2011 CV 07990 &lt;br&gt; $78,000.00" label="7095 LOWER MIAMISBURG ROAD  MIAMISBURG $78,000.00"/>
+<marker lat="39.7797940" lng="-84.2184010" html="2012-05-25 &lt;br&gt; 2011 CV 07996 &lt;br&gt; $28,000.00" label="500 NIAGARA AVENUE  DAYTON $28,000.00"/>
+<marker lat="39.6909009" lng="-84.1644390" html="2012-05-25 &lt;br&gt; 2011 CV 08086 &lt;br&gt; $64,000.00" label="400 CARRLANDS DRIVE  KETTERING $64,000.00"/>
+<marker lat="39.7810730" lng="-84.1754400" html="2012-05-25 &lt;br&gt; 2011 CV 08190 &lt;br&gt; $16,000.00" label="1329 LAMAR STREET  DAYTON $16,000.00"/>
+<marker lat="39.8970140" lng="-84.3289549" html="2012-05-25 &lt;br&gt; 2011 CV 08192 &lt;br&gt; $44,000.00" label="719 WEST MARTINDALE ROAD  UNION $44,000.00"/>
+<marker lat="39.7159500" lng="-84.1232640" html="2012-05-25 &lt;br&gt; 2011 CV 08257 &lt;br&gt; $36,000.00" label="2138 WEST BATAAN DRIVE  KETTERING $36,000.00"/>
+<marker lat="39.7652390" lng="-84.1504640" html="2012-05-25 &lt;br&gt; 2011 CV 08401 &lt;br&gt; $10,000.00" label="36 SOUTH IRWIN STREET  DAYTON $10,000.00"/>
+<marker lat="39.7810870" lng="-84.1743500" html="2012-05-25 &lt;br&gt; 2011 CV 08470 &lt;br&gt; $4,000.00" label="909 TROY STREET  DAYTON $4,000.00"/>
+<marker lat="39.7303460" lng="-84.1132110" html="2012-05-25 &lt;br&gt; 2011 CV 08500 &lt;br&gt; $26,000.00" label="5436 PLAINFIELD RD  DAYTON $26,000.00"/>
+<marker lat="39.7977260" lng="-84.2319530" html="2012-05-25 &lt;br&gt; 2011 CV 08525 &lt;br&gt; $100,000.00" label="650 WEST SIEBENTHALER AVE  DAYTON $100,000.00"/>
+<marker lat="39.7206524" lng="-84.1222915" html="2012-05-25 &lt;br&gt; 2011 CV 08533 &lt;br&gt; $40,000.00" label="1911 MALCOM DRIVE  DAYTON $40,000.00"/>
+<marker lat="39.7531380" lng="-84.1122110" html="2012-05-25 &lt;br&gt; 2011 CV 08638 &lt;br&gt; $46,000.00" label="5400 ROBINWOOD AVENUE  DAYTON $46,000.00"/>
+<marker lat="39.6467450" lng="-84.2705390" html="2012-05-25 &lt;br&gt; 2011 CV 08693 &lt;br&gt; $56,000.00" label="1152 KERCHER STREET  MIAMISBURG $56,000.00"/>
+<marker lat="39.6452650" lng="-84.2861790" html="2012-05-25 &lt;br&gt; 2011 CV 08710 &lt;br&gt; $26,000.00" label="111-115 SYCAMORE STREET  MIAMISBURG $26,000.00"/>
+<marker lat="39.7601830" lng="-84.2403889" html="2012-05-25 &lt;br&gt; 2011 CV 08764 &lt;br&gt; $10,000.00" label="523 BROOKLYN AVENUE  DAYTON $10,000.00"/>
+</markers>
