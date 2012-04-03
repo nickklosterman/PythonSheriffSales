@@ -1,0 +1,58 @@
+set style data points 
+#for currency use locale
+set decimal locale
+set format x "$%'g"
+
+set datafile separator ","
+
+#set ytics 5000
+#set yrange [0:1000000]
+#set ylabel "Price"
+
+#ATTEMPT 1
+#binwidth=250000
+#bin(x,width)=width*floor(x/width)
+#plot 'output.txt' using (bin($6,binwidth)) smooth freq with boxes title "Minimum Bid Histogram"
+
+
+#ATTEMPT 3 FROM http://www.inference.phy.cam.ac.uk/teaching/comput/C++/examples/gnuplot/index.shtml
+#WORKX!!!!!!!!!!!!
+set xrange [0:150000]
+bin_width = 5000; ## edit this 
+half_bin_width=(bin_width/2)
+bin_number(x) = floor(x/bin_width)
+rounded(x) = bin_width * ( bin_number(x) + half_bin_width )	# 
+rounded(x) = bin_width * ( bin_number(x) + 0.5 )	# orig:I don't know how to prevent the gaps from showing up between histogram bars
+#rounded(x) = bin_width * ( bin_number(x)  )	
+UNITY = 1 # <-- what is this for?
+## column number of data to be histogrammed is here assumed to be 1
+## - change $1 to another column if desired
+plot 'output.txt' u (rounded($6)):(UNITY) t 'Minimum Bid' smooth frequency w histeps 
+
+#ATTEMPT 3'S DATA DOESN'T HAVE THE GAPS
+#bin_width = 0.3; ## edit this 
+#bin_number(x) = floor(x/bin_width)
+#rounded(x) = bin_width * ( bin_number(x) + 0.5 )	# I don't know how to prevent the gaps from showing up between histogram bars
+#UNITY = 1
+#unset the set xrange from above.
+#plot 'dat' u (rounded($1)):(UNITY) t 'Minimum Bid' smooth frequency w histeps  
+
+
+#ATTEMPT 2
+#set auto x
+#set style data histogram
+#set style histogram cluster gap 25000
+#plot 'output.txt' using 6:xtic(2)
+
+#plot 'output.txt' using 6 title "Minimum Bid"
+
+#plot '< sqlite3 test.db "select timeEnter,quantity from Backcountrydeals where product like ''%Fairmont%'' "'  using (bin($1,binwidth)):(1.0) smooth freq with boxes title "Time of Deal"
+pause -1 'ready'
+
+
+
+
+#if we don't set the title in the line above then the query becomes the title :(
+set terminal png size 900,675
+set output "HistogramofMinBid.png"
+replot

@@ -1,6 +1,10 @@
 #!/usr/bin/python 
 # -*- coding: utf-8 -*-
 
+#########
+# This program takes the output and puts it in the MySQL database.
+#########
+
 import datetime
 def convertDateFormat(date):
 #    print(date,date[3:5],date[0:2],date[6:10]) #start and stop indices, not start, length indices

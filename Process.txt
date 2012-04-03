@@ -1,0 +1,6 @@
+download html file from mcohio.org/sheriff
+SheriffSalesLinkCreator.py #strip and format data
+pythongeocode2.py # get lat long
+PythonXML.py or PythonMySQL.py # output as xml or enter into mysql database
+upload XMLouput.tx as example.xml to djinnius.com
+point browser to http://www.djinnius.com/phpsqlajax_map_v3.html
