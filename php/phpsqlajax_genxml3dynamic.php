@@ -11,6 +11,13 @@ $xmlStr=str_replace("&",'&amp;',$xmlStr);
 return $xmlStr; 
 } 
 
+function parseCurrency($htmlStr) 
+{ 
+$xmlStr=str_replace('$','',$htmlStr); 
+$xmlStr=str_replace(',','',$xmlStr); 
+return $xmlStr; 
+} 
+
 // Opens a connection to a MySQL server
 $connection=mysql_connect (localhost, $username, $password);
 if (!$connection) {
@@ -22,14 +29,33 @@ $db_selected = mysql_select_db($database, $connection);
 if (!$db_selected) {
   die ('Can\'t use db : ' . mysql_error());
 }
-//Build Query from input
-$maxbid = $_GET['maxbid']
-$minbid = $_GET['minbid']
-$salestatus = $_GET['salestatus']
-$saledate = $_GET['saledate']
 
-// Select all the rows in the markers table
-$query = "SELECT * FROM Property WHERE 1";
+//Build Query from input
+$maxbid=$_GET["maxbid"];
+$minbid=$_GET["minbid"];
+$salestatus = $_GET["salestatus"];
+$saledate = $_GET["saledate"];
+  //escape user input to help prevent injection attacks
+  $maxbid = mysql_real_escape_string($maxbid);
+  $minbid = mysql_real_escape_string($minbid);
+$minbid=parseCurrency($minbid);
+$maxbid=parseCurrency($maxbid);
+  $salestatus = mysql_real_escape_string($salestatus);
+  $saledate = mysql_real_escape_string($saledate);
+
+// Select all the rows that meet our query
+$query = "SELECT * FROM Property WHERE MinBid < ";
+if (is_numeric($maxbid))
+
+  $query .="'$maxbid' and MinBid > ";
+if (is_numeric($minbid))
+  $query .="'$minbid' ";
+if ($salestatus!='*')
+  $query .=" and SaleStatus = '$salestatus' ";
+if ($saledate!='*')
+$query .=" and SaleDate = '$saledate' ";
+
+
 $result = mysql_query($query);
 if (!$result) {
   die('Invalid query: ' . mysql_error());
@@ -66,5 +92,5 @@ while ($row = @mysql_fetch_assoc($result)){
 
 // End XML file
 echo '</markers>';
-
+// http://www.tizag.com/ajaxTutorial/ajax-mysql-database.php 
 ?>
