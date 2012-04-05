@@ -22,11 +22,10 @@ var saledate = document.getElementById('saledate').value;
   //      zoom: 10,
    //     mapTypeId: 'roadmap'
     //  });
-infoWindow = new google.maps.InfoWindow;
 
  var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate;
 //var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid;
-queryString="phpsqlajax_genxml3dynamic.php?maxbid=340000&minbid=0&salestatus=*&saledate=*";
+//queryString="phpsqlajax_genxml3dynamic.php?maxbid=340000&minbid=0&salestatus=*&saledate=*";
 downloadUrl( queryString, function(data) {
         var xml = data.responseXML;
          markers = xml.documentElement.getElementsByTagName("marker");
@@ -92,7 +91,7 @@ markersArr.push(marker);
 
 function clearLocations() {
      infoWindow.close();
-     for (var i = 0; i < markers.length; i++) {
+     for (var i = 0; i < markersArr.length; i++) {
        markersArr[i].setMap(null);
      }
      markersArr.length = 0;
@@ -108,10 +107,10 @@ function clearLocations() {
 
       // Change this depending on the name of your PHP file
 //      downloadUrl("http:///www.djinnius.com/example.xml", function(data) {
-//      downloadUrl("phpsqlajax_genxml3.php", function(data) {
+      downloadUrl("phpsqlajax_genxml3.php", function(data) {
 //var queryString="phpsqlajax_genxml3dynamic.php?maxbid=340000&minbid=0&salestatus=*&saledate=*";
 //downloadUrl( queryString, function(data) {
-downloadUrl( "phpsqlajax_genxml3dynamic.php?maxbid=54,000&minbid=0&salestatus=*&saledate=*", function(data) {
+//downloadUrl( "phpsqlajax_genxml3dynamic.php?maxbid=54,000&minbid=0&salestatus=*&saledate=*", function(data) {
         var xml = data.responseXML;
         var markers = xml.documentElement.getElementsByTagName("marker");
         for (var i = 0; i < markers.length; i++) {
@@ -135,7 +134,8 @@ downloadUrl( "phpsqlajax_genxml3dynamic.php?maxbid=54,000&minbid=0&salestatus=*&
               parseFloat(markers[i].getAttribute("Longitude")));
 
           var info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-
+          var infoDetailed = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+          var infoSummary = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
           var icon = customIcons[SaleStatus] || {};
 
           var marker = new google.maps.Marker({
