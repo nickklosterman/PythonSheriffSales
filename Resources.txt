@@ -1,2 +1,67 @@
 http://geochalkboard.wordpress.com/2009/03/30/reading-xml-files-with-the-google-maps-api/
 http://econym.org.uk/gmap/
+
+Diff icon sets:
+mapicons.nicolasmollet.com/faq/
+
+map and dbase query update based on:  https://developers.google.com/maps/articles/phpsqlajax_v3 and 
+https://developers.google.com/maps/articles/phpsqlsearch_v3
+
+javascript select update based off
+http://www.hscripts.com/tutorials/javascript/dom/select-events.php
+
+
+County Maps for US
+http://www.censusfinder.com/mapin.htm indiana
+http://www.censusfinder.com/mapoh.htm ohio
+http://www.censusfinder.com/mapXX.htm XX sub in state code
+
+FORECLOSURES
+
+Montgomery County 
+http://www.mcohio.org/sheriff/
+http://www.mcohio.org/sheriff/sflistauction.cfm
+
+Greene County
+http://www.co.greene.oh.us/Sheriff/SO_Foreclosures.asp
+http://www.co.greene.oh.us/Sheriff/SO_Foreclosures_Current.htm
+http://www.co.greene.oh.us/Sheriff/SO_Foreclosures_Past.htm
+
+Hamilton County
+http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySalesDisclaimer.aspx
+http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySales.aspx
+
+Franklin County
+http://sheriff.franklincountyohio.gov/
+http://sheriff.franklincountyohio.gov/search/real-estate.cfm
+http://sheriff.franklincountyohio.gov/search/real-estate.cfm?view=all <-- possibly wget this?
+
+Warren County
+http://www.wcsooh.org/
+http://www.wcsooh.org/search/shfentry.htm
+http://www.wcsooh.org/search/slsgrid.asp
+
+Butler County
+http://www.butlersheriff.org/geninfo/gen_info_sheriff_sales.htm
+http://www.butlersheriff.org/geninfo/gen_info_sheriff_sales_listing.htm <-- scrape date links from this listing
+http://www.butlersheriff.org/geninfo/sales/sales040512.htm <-- salesMMDDYY.htm format sales on Thursdays
+
+Clinton County
+http://clintonsheriff.com/public-services/property-sales/
+
+Marion County 
+http://mcoprx.co.marion.oh.us/sheriff/index.php?option=com_content&task=view&id=93&Itemid=64
+
+INDIANA
+Clinton County
+http://www.clintoncountysheriff.com/resources/sheriff-sales/
+http://www.sri-taxsale.com/Foreclosure/Default.aspx
+
+Various Counties
+http://www.sri-taxsale.com/Foreclosure/Default.aspx
+
+Marion County
+http://www.indy.gov/eGov/County/MCSD/Services/RealEstate/Pages/home.aspx you have to pay for a list!
+
+General:
+http://sheriffsales.info/

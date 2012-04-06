@@ -40,6 +40,12 @@ $saledate = $_GET["saledate"];
   $minbid = mysql_real_escape_string($minbid);
 $minbid=parseCurrency($minbid);
 $maxbid=parseCurrency($maxbid);
+if ($minbid > $maxbid)
+  {  $temp=$maxbid;
+    $maxbid=$minbid;
+    $minbid=$temp;
+  }
+
   $salestatus = mysql_real_escape_string($salestatus);
   $saledate = mysql_real_escape_string($saledate);
 

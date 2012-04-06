@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Montgomery County Sheriff Sales</title>
+
+  </head>
+
+ <body>
+
+<!-- use a table to better organize and layout these form inputs? -->
+
+<table>
+<tr>
+<td>
+
+<form name='myForm'>
+Minimum Bid between $<input type='text' id='minbid' value='1,000' />  and
+ $<input type='text' id='maxbid' value='2,000,000' />  
+
+<br>
+Sale Status:<select id='salestatus'>
+<option value="*" selected>All</option>
+<option>Active</option>
+<option>Sold</option>
+<option>Cancelled</option>
+<option>No Bid, No Sale</option>
+</select>
+
+Sale Date:<select id='saledate'>
+<option value="*" selected>All</option>
+<option>2012-06-08</option>
+<option>2012-06-01</option>
+<option>2012-05-25</option>
+<option>2012-05-18</option>
+<option>2012-05-11</option>
+<option>2012-05-04</option>
+<option>2012-04-27</option>
+<option>2012-04-20</option>
+<option>2012-04-13</option>
+<option>2012-04-06</option>
+<option>2012-03-30</option>
+<option>2012-03-23</option>
+<option>2012-03-16</option>
+<option>2012-03-09</option>
+<option>2012-03-02</option>
+</select>
+
+Info Window:<select id='infowindow'>
+<!--   onChange="updateMap3()"> -->
+<option >Detailed</option>
+<option >Summary</option>
+<option >Detailed1</option>
+<option >Summary2</option>
+<option >Detailed2</option>
+<option >Summary1</option>
+</select>
+
+<input type='button' onclick='updateMap()' value='Update Map' />
+</form>
+<!-- -->
+<script language=javascript>
+function updateMap2()
+{
+alert("Select Option Changed");
+}
+function updateMap3()
+{
+//if (selInfoWindow.infowindow2.value="Detailed")
+if (myForm.infowindow.value="Detailed")
+{
+alert("Detailed");
+}
+else
+{
+alert("Summary");
+}
+}
+function checkMinMaxBidValues()
+{
+if (myForm.maxbid.text.value="200")
+{
+alert("yep min=200");
+}
+
+if (parseInt(myForm.minbid.text.value) > parseInt(myForm.maxbid.text.value))
+{
+alert("minbid>maxbid");
+var temp=myForm.maxbid.text.value;
+myForm.maxbid.text.value=myForm.minbid.text.value;
+myForm.minbid.text.value=temp;
+}
+}
+</script>
+<!--
+
+<form name=selInfoWindow>
+Info Window:<select id='infowindow2' onChange="updateMap3()">
+<option >Detailed</option>
+<option >Summary</option>
+</select>
+</form>
+
+<script language="javascript">
+var cbobject=document.selInfoWindow.rb1;
+</script>
+-->
+</td><td>
+
+<img src="Legend.gif" ALIGN=BOTTOM> 
+
+</td>
+</tr>
+</table>
+
+
+
+
+  </body>
+</html>

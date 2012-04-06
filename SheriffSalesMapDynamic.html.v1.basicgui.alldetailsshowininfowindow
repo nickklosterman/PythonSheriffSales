@@ -2,10 +2,8 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Montgomery County Sheriff Sales</title>
-<!--    
-
--->
-<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> 
+    <script src="http://maps.google.com/maps/api/js?sensor=false"
+            type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
 
@@ -24,8 +22,6 @@ var saledate = document.getElementById('saledate').value;
   //      zoom: 10,
    //     mapTypeId: 'roadmap'
     //  });
-
-checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
 
  var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate;
 //var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid;
@@ -54,19 +50,9 @@ clearLocations();
               parseFloat(markers[i].getAttribute("Latitude")),
               parseFloat(markers[i].getAttribute("Longitude"))
               );
-var info = "";
-if (myForm.infowindow.value=="Detailed")
-{
 
-         info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-}
-else if (myForm.infowindow.value=="Summary")
-{
+          var info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
 
-//          var infoDetailed = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-  //        var infoSummary = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-         info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-} 
           var icon = customIcons[SaleStatus] || {};
           var marker = new google.maps.Marker({
             map: map,
@@ -78,13 +64,7 @@ else if (myForm.infowindow.value=="Summary")
 markersArr.push(marker);
         }
       });
-/*
-if (myForm.infowindow.value="Summary") //Detailed")"
-{
-alert("Detailed");
-}
-else alert("Summary");     
-*/
+    
 }
 
 
@@ -153,18 +133,10 @@ function clearLocations() {
               parseFloat(markers[i].getAttribute("Latitude")),
               parseFloat(markers[i].getAttribute("Longitude")));
 
-var info = "";
-if (myForm.infowindow.value=="Detailed") //aggh the prob I was seeing is I had = not == so it would set the variable as well as evaluate the statement.
-{
-
-           info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-}
-else if (myForm.infowindow.value=="Summary")
-{
-
-          info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-} 
-         var icon = customIcons[SaleStatus] || {};
+          var info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+          var infoDetailed = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+          var infoSummary = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+          var icon = customIcons[SaleStatus] || {};
 
           var marker = new google.maps.Marker({
             map: map,
@@ -174,16 +146,8 @@ else if (myForm.infowindow.value=="Summary")
           });
           bindInfoWindow(marker, map, infoWindow, info);
 markersArr.push(marker);
-
         }
       });
-/* 
-if (myForm.infowindow.value="Summary") //Detailed")//"
-{
-alert("Detaileded");
-}
-else alert("Summarily"); 
-*/
     }
 
     function bindInfoWindow(marker, map, infoWindow, html) {
@@ -219,21 +183,11 @@ else alert("Summarily");
 <!-- option for next sale, option for all future sales, option for all past sales, possible multi-select 
  <body onload="load()">
  <body onload="updateMap()">
-<body>
 -->
  <body onload="load()">
-
-<!-- use a table to better organize and layout these form inputs? -->
-
-<table>
-<tr>
-<td>
-
 <form name='myForm'>
-Minimum Bid between $<input type='text' id='minbid' value='1,000' />  and
- $<input type='text' id='maxbid' value='2,000,000' />  
-
-<br>
+Min Bid $ :<input type='text' id='minbid' value='1,000' />  and
+ $ :<input type='text' id='maxbid' value='1,000,000' />  <br>
 Sale Status:<select id='salestatus'>
 <option value="*" selected>All</option>
 <option>Active</option>
@@ -241,7 +195,7 @@ Sale Status:<select id='salestatus'>
 <option>Cancelled</option>
 <option>No Bid, No Sale</option>
 </select>
-
+<br>
 Sale Date:<select id='saledate'>
 <option value="*" selected>All</option>
 <option>2012-06-08</option>
@@ -260,85 +214,13 @@ Sale Date:<select id='saledate'>
 <option>2012-03-09</option>
 <option>2012-03-02</option>
 </select>
-
-Info Window:<select id='infowindow'>
-<!--   onChange="updateMap3()"> -->
-<option >Detailed</option>
-<option >Summary</option>
-</select>
-
-<!-- 
-
-<input type='button' onclick='checkMinMaxBidValues()' value='Update Map' />
--->
-<input type='button' onclick='updateMap()' value='Update Map' /> 
-</form>
-<!-- -->
-<script language=javascript>
-function updateMap2()
-{
-//alert("Select Option Changed");
-//updateMap3();
-checkMinMaxBidValues();
-}
-function updateMap3()
-{
-//if (selInfoWindow.infowindow2.value="Detailed")
-if (myForm.infowindow.value=="Detailed")
-{
-alert("Detailed");
-} 
-else if (myForm.infowindow.value=="Summary")
-{
-alert("Summary");
-}
-}
-
-function checkMinMaxBidValues()
-{
-var Maxbid0=myForm.maxbid.value;
-var Maxbid=Maxbid0.replace(/,/g,"");
-var Minbid0=myForm.minbid.value;
-var Minbid=Minbid0.replace(/,/g,"");
-
-if (parseInt(Minbid) > parseInt(Maxbid)) //phail ! spaces in () statement
-if (parseInt(Minbid)>parseInt(Maxbid)) //Good. no spaces
-{
-myForm.maxbid.value=Minbid;
-//myForm.minbid.text.value=Maxbid; //doesn't work!!
-myForm.minbid.value=Maxbid;
-}
-
-/*
-if (parseInt(Minbid)<parseInt(Maxbid)) //can't be any spaces in the () of the if statement or it won't work
-{alert("copacetic");}
-*/
-}
-</script>
-<!--
-
-<form name=selInfoWindow>
-Info Window:<select id='infowindow2' onChange="updateMap3()">
-<option >Detailed</option>
-<option >Summary</option>
-</select>
+<input type='button' onclick='updateMap()' value='Update Map' />
 </form>
 
-<script language="javascript">
-var cbobject=document.selInfoWindow.rb1;
-</script>
--->
-</td><td>
-
-<img src="Legend.gif" ALIGN=BOTTOM> 
-
-</td>
-</tr>
-</table>
-
-
-
-    <div id="map" style="width: 100%; height: 85%"></div>
-<a href="mailto:maps@djinnius.com"> Questions?, comments</a>
+    <div id="map" style="width: 95%; height: 85%"></div>
   </body>
 </html>
+<!-- display data in sidebar? -->
+<!-- based on:  https://developers.google.com/maps/articles/phpsqlajax_v3 
+https://developers.google.com/maps/articles/phpsqlsearch_v3
+-->
