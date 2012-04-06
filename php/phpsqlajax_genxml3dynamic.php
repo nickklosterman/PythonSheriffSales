@@ -35,11 +35,15 @@ $maxbid=$_GET["maxbid"];
 $minbid=$_GET["minbid"];
 $salestatus = $_GET["salestatus"];
 $saledate = $_GET["saledate"];
+$pricefiltercategory=$_GET["pricefiltercategory"];
   //escape user input to help prevent injection attacks
   $maxbid = mysql_real_escape_string($maxbid);
   $minbid = mysql_real_escape_string($minbid);
 $minbid=parseCurrency($minbid);
 $maxbid=parseCurrency($maxbid);
+$pricefiltercategory=mysql_real_escape_string($pricefiltercategory);
+//$pricefiltercategory="MinBid";
+//check that minbid/maxbid are in low->high and not vice versa
 if ($minbid > $maxbid)
   {  $temp=$maxbid;
     $maxbid=$minbid;
@@ -50,10 +54,12 @@ if ($minbid > $maxbid)
   $saledate = mysql_real_escape_string($saledate);
 
 // Select all the rows that meet our query
-$query = "SELECT * FROM Property WHERE MinBid < ";
+//$query = "SELECT * FROM Property WHERE MinBid < ";
+//$query = "SELECT * FROM Property WHERE '$pricefiltercategory' < "; // <-- this won't work. we don't want to quote our column name, only values
+$query = "SELECT * FROM Property WHERE $pricefiltercategory < ";
 if (is_numeric($maxbid))
-
-  $query .="'$maxbid' and MinBid > ";
+  //  $query .="'$maxbid' and MinBid > ";
+  $query .="'$maxbid' and $pricefiltercategory >= "; //>= to capture values that are 0.
 if (is_numeric($minbid))
   $query .="'$minbid' ";
 if ($salestatus!='*')
