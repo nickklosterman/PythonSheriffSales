@@ -27,7 +27,7 @@ http://www.mctreas.org/cama.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* <--ha
 
 http://www.mctreas.org/master.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* Master Tab
 http://www.mctreas.org/cama.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* Appraisal Tab
-http://www.mctreas.org/saleshist.cfm?parid=R72%2014110%200034&taxyr=2011&own1=FINFROCK%20BONNIE%29 *BROKEN* Sales History
+http://www.mctreas.org/saleshist.cfm?parid=R72%2014110%200034&taxyr=2011&own1=FINFROCK%20BONNIE%29 *BROKEN* Sales History, appears on Master Tab page in right column if there is a recent sale 
 http://www.mctreas.org/special.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* SPecial Assessment Tab
 http://www.mctreas.org/taxes.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* Taxes Tab
 
