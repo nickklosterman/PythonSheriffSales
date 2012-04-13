@@ -32,10 +32,15 @@ def InsertIntoDB(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PI
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
 # check to see if record exists before inserting, if exists check for salestatus change, update saleamt 
-        if PID!="bob":
-            cur.execute("INSERT INTO Property(SaleDate,CaseNumber,Address,Appraisal,PID) VALUES ( %s,%s,%s,%s,%s)", (date, CaseNumber,Address,Appraisal,PID)) #even though their database types are int/float etc they are entered as strings here.... 
+
+        if Appraisal>0:
+            SaleStatus="ACTIVE"
         else:
-            cur.execute("INSERT INTO Property(SaleDate,CaseNumber,Address,Appraisal,PID) VALUES ( %s,%s,%s,%s,%s)", (date, CaseNumber,Address,Appraisal,PID)) #even though their database types are int/float etc they are entered as strings here.... 
+            SaleStatus="UNKNOWN" #set to unknown since not sure if cancelled or sold.
+            
+
+        cur.execute("INSERT INTO Property(SaleDate,CaseNumber,Address,Appraisal,PID) VALUES ( %s,%s,%s,%s,%s)", (date, CaseNumber,Address,Appraisal,PID)) #even though their database types are int/float etc they are entered as strings here.... 
+
     con.commit()
     cur.close()
     con.close()  
@@ -74,59 +79,6 @@ def QueryDatabaseIfRecordExists(date,CaseNumber,Address, Plaintiff,Defendant,Att
     con.close()  
     return int(key) #otherwise it is a long
     
-
-
-def CreateDatabase():
-    con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
-    with con:
-        cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("CREATE TABLE IF NOT EXISTS Property ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, SaleDate DATE,CaseNumber VARCHAR(13) NOT NULL, Address VARCHAR(80) NOT NULL, ZipCode INT NOT NULL,Plaintiff VARCHAR(45) NOT NULL,Defendant VARCHAR(45) NOT NULL,Attorney VARCHAR(45) NOT NULL, SoldTo VARCHAR(45) NOT NULL , PID VARCHAR(45) NOT NULL,Appraisal DECIMAL(12,2) NOT NULL, MinBid DECIMAL (12,2) NOT NULL, SaleAmt DECIMAL (12,2) , SaleStatus VARCHAR(11) NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )") #Latitude FLOAT(10,6) NOT NULL, Longitude FLOAT(10,6) NOT NULL)")
-    con.commit()
-    cur.close()
-    con.close()
-
-
-def DropTableFromDatabase():
-    con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
-    with con:
-        cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("DROP TABLE IF EXISTS Property")
-    con.commit()
-    cur.close()
-    con.close()
-
-
-def GeocodeDatabase():
-    sleep_time = 1.0
-    con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
-    with con:
-        cur = con.cursor(mdb.cursors.DictCursor)
-        curUpdate = con.cursor(mdb.cursors.DictCursor)
-        resultcount=int(cur.execute("SELECT * FROM Property WHERE Latitude is NULL"))
-        print("Need to geocode "+str(resultcount)+" addresses.")
-        rows = cur.fetchall()
-        counter=0
-        out_file_failed = 'geocode_failed.txt'
-        outf_failed = open(out_file_failed,'w')
-        
-        for row in rows:
-            counter+=1
-            print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses.")
-            if 1==1:
-                geocode_data=geocode(row["Address"])
-                if len(geocode_data)>1:
-                    lat=geocode_data['lat']
-                    lon=geocode_data['lng']
-                    curUpdate.execute("UPDATE Property SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
-                else:
-                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['code'])
-                    outf_failed.write(row["Address"]+'\n')
-                    outf_failed.flush()
-                time.sleep(sleep_time)  
-        outf_failed.close()
-    con.commit()
-    cur.close()
-    con.close()
 
 def ProcessFile(inputfilename,outputfilename):
     print("Using input:%s and output:%s" % (inputfilename,outputfilename))
@@ -191,7 +143,7 @@ def ProcessFile(inputfilename,outputfilename):
                     r=striphtml(line1.rstrip())
                     Appraisal=prepprice(r[16:])
                 if propertyRecordcounter==10:
-                    MinBidAmt=prepprice(line1)  #this is just 10% of appraisal. not minbid
+                    MinBidAmt=striphtml(line1.rstrip())
                 if propertyRecordcounter==11:
                     t=striphtml(line1) #all ready in MySQL date format
                     SaleDate=t[10:].strip() 
@@ -217,24 +169,23 @@ def ProcessFile(inputfilename,outputfilename):
                     key=QueryDatabaseIfRecordExists(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus)
                     if key==-1: # no results found, enter into database
                         print("-"),
-                        InsertIntoDB(SaleDate,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,Zipcode,Appraisal,MinBidAmt,SaleAmt,SaleStatus)
+                        #InsertIntoDB(SaleDate,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,Zipcode,Appraisal,MinBidAmt,SaleAmt,SaleStatus)
                     elif key==-2:
                         print("uhoh multiple results returned")
                     elif key==-3:
                         print(","), #record is unchanged, don't do anything
                     else:
                         print("+"), #record has changed and we are updating it using the key
+                        #we DONT want to update Franklin county records as that destroys what the appraisal amount was. As when a property is past its sale date then the appraisal value is replaced with $0.00
 
             if line.find(" <!-- InstanceEndEditable -->")!=-1: #this signals the end of the property list                                                              
                 enddataflag=1
         else:
             linecounter+=1
-
-"""
     output=open(outputfilename,"w")
     output.write(data)
     output.close()
-"""
+
 
 import datetime
 def convertDateFormat(date):
@@ -244,41 +195,13 @@ def convertDateFormat(date):
     dt=datetime.date(year,month,day)
     return dt.strftime("%Y-%m-%d")
 
-
-
-
-
-root_url = "http://maps.google.com/maps/geo?"
-return_codes = {'200':'SUCCESS',
-                '400':'BAD REQUEST',
-                '500':'SERVER ERROR',
-                '601':'MISSING QUERY',
-                '602':'UNKOWN ADDRESS',
-                '603':'UNAVAILABLE ADDRESS',
-                '604':'UNKOWN DIRECTIONS',
-                '610':'BAD KEY',
-                '620':'TOO MANY QUERIES'
-    }
-
-def geocode(addr,out_fmt='csv'):
-    #encode our dictionary of url parameters
-    values = {'q' : addr, 'output':out_fmt}
-    data = urllib.urlencode(values)
-    #set up our request
-    url = root_url+data
-    req = urllib2.Request(url)
-    #make request and read response
-    response = urllib2.urlopen(req)
-    geodat = response.read().split(',')
-    response.close()
-    #handle the data returned from google
-    code = return_codes[geodat[0]]
-    if code == 'SUCCESS':
-        code,precision,lat,lng = geodat
-        return {'code':code,'precision':precision,'lat':lat,'lng':lng}
-    else:
-        return {'code':code}
-
+def convertDateFormatMDYSlashdelimited(date):
+    datesplit=date.split("/")
+    day=int(datesplit[0])
+    month=int(datesplit[1])
+    year=int(datesplit[2])
+    dt=datetime.date(year,month,day)
+    return dt.strftime("%Y-%m-%d")
 
 
 ########### MAIN ############
@@ -299,35 +222,5 @@ if 1==1:
     else:
         outputfilename="FranklinCountyoutput.txt"
     print(inputfilename,outputfilename)
-#    CreateDatabase()
     ProcessFile(inputfilename,outputfilename)
-
-#GeocodeDatabase()
-
-
-
-
- #stupid error: you get below when the indentation isn't pure tabs. it must count tabs to determine depthof a call.           
-#TabError: inconsistent use of tabs and spaces in indentation    
-
-
-"""  Need to get debug the &nbsp <-- oiutput produced from summary view
-03/02/2012,2011 CV 03915,523 NORTH TIONDA DRIVE  VANDALIA,45377,,,&nbsp;&nbsp;
-03/09/2012,2009 CV 06467,20 N. PLUM STREET  PHILLIPSBURG,45354,,,&nbsp;&nbsp;
-03/09/2012,2010 CV 06153,209 DEAN DRIVE  FARMERSVILLE,45325,,,&nbsp;&nbsp;
-03/16/2012,2009 CV 05646,310 SAN BERNARDINO TRAIL  UNION,45322,,,&nbsp;&nbsp;
-03/23/2012,2010 CV 07089,1128 SOUTH PAUL LAURENCE DUNBAR STREET  DAYTON,45408,,,&nbsp;&nbsp;
-
-How do I make a 'not equal to' statement in MySQL? 
-   There are a number of ways to do this.                                                                 
-   Use:                                                                                                   
-   WHERE 'something' <> 'something_else'                                                                  
-   or:                                                                                                    
-   WHERE 'something' != 'something_else'                                                                  
-   As they are identical.                                                                                 
-   or you can specify a number of values you don't want to be return from your column/field               
-   (my_tablein this example) - a more efficient way of doing things if you have a lot of values:          
-   WHERE my_table NOT IN ('something', 'something_else'); 
-
-"""
 

@@ -2,7 +2,8 @@
 
 import time
 def ComputeFinishTime(sleep_time,resultcount):
-    totalseconds=sleep_time*resultcount
+    processingtime=0.25 #this may be processor/computer dependent, it took 5:10-->310s to process 300 address with a 0.75 sleep_time so 0.25 is reasonable for the dell precision 4300s 
+    totalseconds=sleep_time*resultcount+processingtime*resultcount
     now=time.time() 
     endtime=time.strftime('%H:%M:%S' , (time.localtime(now+int(totalseconds))))
 

@@ -12,3 +12,5 @@ add column in DB for the county. add/merge fields from scrape of other counties.
 upload data to djinnius instead of placing it in local dbase.
 dropdown for filtering so can select filtering on minbid or appraisal and just set strings accordingly based on the selected values.
 Only use one php script. they aren't that diff and cn initialize wth a query.
+add county column to database
+change filtering options or "normalize" filtering for the diff formats for the diff counties

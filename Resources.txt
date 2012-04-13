@@ -13,7 +13,7 @@ http://www.hscripts.com/tutorials/javascript/dom/select-events.php
 
 County Maps for US
 http://www.censusfinder.com/mapin.htm indiana
-http://www.censusfinder.com/mapoh.htm ohio
+http://www.censusfinder.com/mapoh.htm ohio   feh http://www.censusfinder.com/images/mapohsmall.gif
 http://www.censusfinder.com/mapXX.htm XX sub in state code
 
 FORECLOSURES
