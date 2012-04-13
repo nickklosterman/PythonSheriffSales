@@ -31,6 +31,7 @@ if (!$db_selected) {
 }
 
 //Build Query from input
+$table=$_GET["table"];
 $maxbid=$_GET["maxbid"];
 $minbid=$_GET["minbid"];
 $salestatus = $_GET["salestatus"];
@@ -56,7 +57,7 @@ if ($minbid > $maxbid)
 // Select all the rows that meet our query
 //$query = "SELECT * FROM Property WHERE MinBid < ";
 //$query = "SELECT * FROM Property WHERE '$pricefiltercategory' < "; // <-- this won't work. we don't want to quote our column name, only values
-$query = "SELECT * FROM Property WHERE $pricefiltercategory < ";
+$query = "SELECT * FROM $table WHERE $pricefiltercategory < ";
 if (is_numeric($maxbid))
   //  $query .="'$maxbid' and MinBid > ";
   $query .="'$maxbid' and $pricefiltercategory >= "; //>= to capture values that are 0.

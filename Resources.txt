@@ -47,7 +47,11 @@ http://www.co.greene.oh.us/Sheriff/SO_Foreclosures_Past.htm
 
 Hamilton County
 http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySalesDisclaimer.aspx
-http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySales.aspx
+http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySales.aspx Must click "agree" to see sales. Then java posts list
+http://www.courtindex.com/ <-- Cinci court report where official list is published for foreclosures
+http://www.courtclerk.org/ Cinci clerk oif courts for lien & tax info
+http://www.hamiltoncountyauditor.org/ add'l property info
+http://www.hamiltoncountyauditor.org/realestateii/ROVER30.ASP
 
 Franklin County
 http://sheriff.franklincountyohio.gov/
@@ -83,3 +87,20 @@ http://www.indy.gov/eGov/County/MCSD/Services/RealEstate/Pages/home.aspx you hav
 
 General:
 http://sheriffsales.info/
+
+PENNSYLVANIA
+Pittsburgh area is approx Allegheny, Westmoreland, Armstrong Counties
+
+Allegheny: sales on first Monday of the month
+http://classified.post-gazette.com/sheriffsales.asp Only has foreclosures on last three weeks of the month
+http://www.pittsburghlegaljournal.org/subscribe/pn_sheriffsale.php proly easiest to parse, Has current list of sales
+http://www.pittsburghlive.com/x/classifieds/sheriffsale/search.html?county=Allegheny  Has last months list of sales. harder to parse
+
+Westmoreland: sales on first monday of every other month starting in January
+http://www.co.westmoreland.pa.us/sheriff/site/default.asp
+http://www.co.westmoreland.pa.us/sheriff/cwp/view.asp?a=3&Q=616773&sheriffNav=|35185| Sheriff Sale info. Sales published in 
+http://www.pittsburghlive.com/x/classifieds/sheriffsale/search.html?county=Westmoreland
+
+Armstrong
+http://www.co.armstrong.pa.us/departments/elected-officials/sheriff Doesn't list any details about foreclosures
+it does state : Properties for sale are advertised in the Armstrong County Legal Journal and The Leader Times.  

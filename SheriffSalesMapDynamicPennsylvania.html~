@@ -27,7 +27,7 @@ var saledate = document.getElementById('saledate').value;
 
 checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
 
- var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + myForm.pricefiltercategory.value + "&table=Property"; //must have spaces in btw + "" otherwise you break it!
+ var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + myForm.pricefiltercategory.value + "&table=PennsylvaniaProperty"; //must have spaces in btw + "" otherwise you break it!
 // var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=SaleAmt";
 //var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid;
 //queryString="phpsqlajax_genxml3dynamic.php?maxbid=340000&minbid=0&salestatus=*&saledate=*";
@@ -128,7 +128,7 @@ function clearLocations() {
 
       // Change this depending on the name of your PHP file
 //      downloadUrl("http:///www.djinnius.com/example.xml", function(data) {
- var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=1000000000&minbid=-1&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=Property"; //must have spaces in btw + "" otherwise you break it!
+ var queryString = "phpsqlajax_genxml3dynamic.php?maxbid=1000000000&minbid=-1&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=PennsylvaniaProperty"; //must have spaces in btw + "" otherwise you break it!
       downloadUrl(queryString, function(data) {
 //var queryString="phpsqlajax_genxml3dynamic.php?maxbid=340000&minbid=0&salestatus=*&saledate=*";
 //downloadUrl( queryString, function(data) {

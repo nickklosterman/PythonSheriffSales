@@ -1,7 +1,7 @@
 [done] roll all into one
 [done] Some type of php to filter and deliver xml json?
 add driving directions
-allow for option to show detailed or summary infowindow view
+[done] allow for option to show detailed or summary infowindow view
 default to showing sales at next auction date
 php to autopopulate the options fields from the options available in the database
 dropdown menu so as not to take up valuable real estate
@@ -9,8 +9,12 @@ advanced filtering / search
 Hint of greyed out YYYY-MM-DD that disappears when start typing. Or calendar of dates.
 display data in sidebar like teh store locator google example?
 add column in DB for the county. add/merge fields from scrape of other counties.
+or place each county in separate DB / separated by region.
 upload data to djinnius instead of placing it in local dbase.
 dropdown for filtering so can select filtering on minbid or appraisal and just set strings accordingly based on the selected values.
-Only use one php script. they aren't that diff and cn initialize wth a query.
+[done] Only use one php script. they aren't that diff and cn initialize wth a query.
 add county column to database
 change filtering options or "normalize" filtering for the diff formats for the diff counties
+put dbinfo in secure place, or make it so that 
+Check out the javascript code that the Dayton Court Reporter uses. They have a pretty slick interface.
+hide options passed to php so as to prevent people from useing that to scrape your database
