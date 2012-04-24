@@ -8,5 +8,9 @@ point browser to http://www.djinnius.com/phpsqlajax_map_v3.html
 ---
 new proc as of 4/3/2012
 download html file from mcohio.org/sheriff (detailed view)
+dump current database for backup just incase processing screws up #dumpSherriffSalesmysql.sh <backupdump>
 SheriffSalesLinkCreator_Detailed.py #strip,format,geocode,enter into mysql data
+if processing went ok, dump new database and upload to website
+dumpSherriffSalesmysql.sh <dumpoutputfile>
+upload new database: uploadDBtoDjinnius.sh <dumpoutputfile>
 point browser to http://www.djinnius.com/SheriffSales/SheriffSalesMap.html

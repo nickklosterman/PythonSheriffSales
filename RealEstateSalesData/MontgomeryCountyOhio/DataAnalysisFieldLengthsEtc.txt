@@ -1,0 +1,5 @@
+cut -f 21 -d "," SALES_2012_RES.csv | sort | uniq | wc -l  # sale status 
+cut -f 22 -d "," SALES_2012_RES.csv | sort | uniq | wc -l  # sale validity
+cut -f 14 -d "," SALES_2012_RES.csv | sort | uniq | wc -l  # most acreage listed as 0
+cut -f 1 -d "," SALES_2012_RES.csv | sort | uniq | wc -l # 4471/5039 unique parid i.e. ~600 repeats
+wc -l SALES_2012_RES.csv  # 5039 -1 for header

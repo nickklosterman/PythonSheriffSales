@@ -32,6 +32,8 @@ http://www.mctreas.org/special.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* SP
 http://www.mctreas.org/taxes.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* Taxes Tab
 
 http://www.mcrealestate.org/Search/GenericSearch.aspx?mode=PARID Search. Shows House layout
+http://www.mcrealestate.org/Forms/Datalets.aspx?idx=1&parid=R72 14006 0019&jur=000&roll=&taxyear=2011&ownseq=1&sIndex=1 will then redirect to http://www.mcrealestate.org/Forms/Datalets.aspx?mode=PROFILEALL&taxyear=2011&ownseq=1&roll=RP_OH&jur=000&sIndex=1&idx=1&pin=&card=1&item=1&State=1&items=-1
+
 
 http://www.clerk.co.montgomery.oh.us/legal/records.cfm Legal Records Search
 http://www.clerk.co.montgomery.oh.us/legal/mortgage_foreclosures.cfm
@@ -39,6 +41,10 @@ http://www.dailycourt.com/noticeforeclosures/index IN detailed view has assessme
 http://www.dailycourt.com/noticeforeclosures/details/ref_index/5752 <-- example. Has split google maps street view/map view!
 
 http://www.mctreas.org/filedownloads.cfm Downloadable files that list property sales. Possibly Map where sales have taken place to see where people *think* it is desirable to live? Or at least where people are/aren't buying. Shouldn't be tough now that I have the framework up.
+http://www.mctreas.org/filedownloads_auditor.cfm
+http://www.mctreas.org/fdpopup.cfm?dtype=YS Yearly Sales
+http://www.mctreas.org/fdpopup.cfm?dtype=MS Monthly Sales
+http://www.mctreas.org/fdpopup.cfm?dtype=WS Weekly Sales
 
 Greene County
 http://www.co.greene.oh.us/Sheriff/SO_Foreclosures.asp
