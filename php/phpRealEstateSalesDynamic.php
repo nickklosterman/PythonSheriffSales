@@ -39,22 +39,29 @@ return $output;
 function translateSaleValidity($value)
 {
   $salevalidity=array(1=>"Valid Sale", 
-		 2=>"Not Validated",
-		 3=>"Related Individuals Or Corporations",
-		 4=>"Liquidation/Foreclosure",
-		 5=>"Not Open Market",
-		 6=>"Partial Interest",
-		 7=>"Land Contract or Unusual Financing",
-		 8=>"Excess Personal PP or Not Arms Length",
-		 9=>"Ownder Dishonesty in Description",
-		 10=>"Sale Involving Multiple Parcels",
+		      2=>"Not Validated",
+		      3=>"Related Individuals Or Corporations",
+		      4=>"Liquidation/Foreclosure",
+		      5=>"Not Open Market",
+		      6=>"Partial Interest",
+		      7=>"Land Contract or Unusual Financing",
+		      8=>"Excess Personal PP or Not Arms Length",
+		      9=>"Ownder Dishonesty in Description",
+		      10=>"Sale Involving Multiple Parcels",
+		      11=>"Invalid Date On Sale",
+		      12=>"Outlier",
+		      13=>"Property Changed After Sale",
+		      14=>"Resale w/in 3 yrs",
+		      15=>"Sale incl unlisted new const",
+		      //		      11=>"",
 		      );
   return $salevalidity[$value];
 }
 function translateSaleType($value)
 { //https://cp.server272.com/resources/sysinfo.php states that we have up to php 5.3, not 5.4 ARrays in 5.4 don't need the "array suffix and use [] instead of ()
   $saletype=array(1=>"Land and Building",
-		 2=>"Land only",
+		  2=>"Land only",
+		  3=>"Building only",
 			 );
   return $saletype[$value];
 }
@@ -133,6 +140,9 @@ while ($row = @mysql_fetch_assoc($result)){
   echo 'PRICE="' . money_format('%(#10n',$row['PRICE']) . '" ';
   echo 'SALETYPE="' . translateSaleType($row['SALETYPE']) . '" ';
   echo 'SALEVALIDITY="' . translateSaleValidity($row['SALEVALIDITY']) . '" ';
+  echo 'SALETYPEnum="' . parseToXML($row['SALETYPE']) . '" ';
+  echo 'SALEVALIDITYnum="' . parseToXML($row['SALEVALIDITY']) . '" ';
+
   echo 'Latitude="' . $row['Latitude'] . '" ';
   echo 'Longitude="' . $row['Longitude'] . '" ';
   echo '/>';

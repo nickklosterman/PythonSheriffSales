@@ -34,6 +34,82 @@ if its' from copied code that is known good then it is most likely SPELLING SPEL
 
 */
  var queryString = "phpRealEstateSalesDynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSales"; //must have spaces in btw + "" otherwise you break it!
+
+//alert (queryString)
+ //queryString = "phpRealEstateSalesDynamic.php?maxbid=100000&minbid=1&saletype=1&salevalidity=1&startdate=2012-03-01&enddate=2012-04-04&table=RealEstateSales";  //this query works
+downloadUrl( queryString, function(data) {
+        var xml = data.responseXML;
+         markers = xml.documentElement.getElementsByTagName("marker");
+clearLocations();
+        for (var i = 0; i < markers.length; i++) {
+          var SaleDate = markers[i].getAttribute("SALEDT");
+          var Address = markers[i].getAttribute("PARCELLOCATION");
+          var PID = markers[i].getAttribute("PARID");
+          var SalePrice = markers[i].getAttribute("PRICE");
+          var SaleType = markers[i].getAttribute("SALETYPE");
+          var SaleValidity = markers[i].getAttribute("SALEVALIDITY");
+          var SaleTypenum = markers[i].getAttribute("SALETYPEnum");
+          var SaleValiditynum = markers[i].getAttribute("SALEVALIDITYnum");
+
+
+          var point = new google.maps.LatLng(
+              parseFloat(markers[i].getAttribute("Latitude")),
+              parseFloat(markers[i].getAttribute("Longitude"))
+              );
+
+var info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SalePrice + "</b> <br/>Sale Date:" + SaleDate +  "<br/>Address:"+ Address + "<br/>Parcel ID:" + PID + "<br/>Sale Price:" + SalePrice + "<br/>Sale Type:" + SaleType + "<br/> Sale Validity:" + SaleValidity;
+
+          var icon = customIcons[SaleValiditynum] || {};
+
+          var marker = new google.maps.Marker({
+            map: map,
+            position: point,
+            icon: icon.icon,
+            shadow: icon.shadow
+//        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',  shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+
+          });
+          bindInfoWindow(marker, map, infoWindow, info);
+markersArr.push(marker);
+        }
+      });
+
+}
+
+
+function Mapfunction(switch_num){
+var maxbid = document.getElementById('maxbid').value;
+var minbid = document.getElementById('minbid').value;
+var saletype = document.getElementById('saletype').value;
+var salevalidity = document.getElementById('salevalidity').value;
+var startdate = document.getElementById('startdate').value;
+var enddate = document.getElementById('enddate').value;
+//alert (maxbid,minbid,saletype,salevalidity,startdate,enddate)
+checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
+/*
+debug steps:
+make sure the php is returning valid results
+make sure the database is updated to what the local one shows
+make sure all variables have been appropriately changed if you edited old code. the yellow highlighting makes this tricky and non obvious source of errors (php)
+make sure all variables have been appropriately changed if you edited old code. the yellow highlighting makes this tricky and non obvious source of errors (js)
+validate the update function with a static query that you know works and delivers good php
+if its' from copied code that is known good then it is most likely SPELLING SPELLING SPELLING of variables or files.
+
+*/
+if (switch_num == 0)
+{
+ map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(39.7620028,-84.3542049),
+        zoom: 10,
+        mapTypeId: 'roadmap'
+      });
+      infoWindow = new google.maps.InfoWindow;
+ var queryString = "phpRealEstateSalesDynamic.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2012-01-01&enddate=2012-04-04&table=RealEstateSales";  //this query works
+}
+else
+{
+ var queryString = "phpRealEstateSalesDynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSales"; //must have spaces in btw + "" otherwise you break it!
+}
 alert (queryString)
  //queryString = "phpRealEstateSalesDynamic.php?maxbid=100000&minbid=1&saletype=1&salevalidity=1&startdate=2012-03-01&enddate=2012-04-04&table=RealEstateSales";  //this query works
 downloadUrl( queryString, function(data) {
@@ -47,6 +123,8 @@ clearLocations();
           var SalePrice = markers[i].getAttribute("PRICE");
           var SaleType = markers[i].getAttribute("SALETYPE");
           var SaleValidity = markers[i].getAttribute("SALEVALIDITY");
+          var SaleTypenum = markers[i].getAttribute("SALETYPEnum");
+          var SaleValiditynum = markers[i].getAttribute("SALEVALIDITYnum");
 
 
           var point = new google.maps.LatLng(
@@ -56,14 +134,14 @@ clearLocations();
 
 var info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SalePrice + "</b> <br/>Sale Date:" + SaleDate +  "<br/>Address:"+ Address + "<br/>Parcel ID:" + PID + "<br/>Sale Price:" + SalePrice + "<br/>Sale Type:" + SaleType + "<br/> Sale Validity:" + SaleValidity;
 
-//          var icon = customIcons[SaleType] || {};
+          var icon = customIcons[SaleValiditynum] || {};
 
           var marker = new google.maps.Marker({
             map: map,
             position: point,
-  //          icon: icon.icon,
-    //        shadow: icon.shadow
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',  shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+            icon: icon.icon,
+            shadow: icon.shadow
+//        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',  shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
 
           });
           bindInfoWindow(marker, map, infoWindow, info);
@@ -72,6 +150,28 @@ markersArr.push(marker);
       });
 
 }
+
+
+
+
+    var customIcons = {
+      1: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      2: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_black.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      3: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      4: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      }
+    };
 
 
 
@@ -90,7 +190,7 @@ function clearLocations() {
         mapTypeId: 'roadmap'
       });
       infoWindow = new google.maps.InfoWindow;
-
+alert("Make me one function and pass in 1 or 0 and based on that pass premade query or construct query")
  var queryString = "phpRealEstateSalesDynamic.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2012-01-01&enddate=2012-04-04&table=RealEstateSales";  //this query works
       downloadUrl(queryString, function(data) {
         var xml = data.responseXML;
@@ -102,6 +202,8 @@ function clearLocations() {
           var SalePrice = markers[i].getAttribute("PRICE");
           var SaleType = markers[i].getAttribute("SALETYPE");
           var SaleValidity = markers[i].getAttribute("SALEVALIDITY");
+          var SaleTypenum = markers[i].getAttribute("SALETYPEnum");
+          var SaleValiditynum = markers[i].getAttribute("SALEVALIDITYnum");
 
           var point = new google.maps.LatLng(
               parseFloat(markers[i].getAttribute("Latitude")),
@@ -109,15 +211,15 @@ function clearLocations() {
 
 var info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SalePrice + "</b> <br/>Sale Date:" + SaleDate +  "<br/>Address:"+ Address + "<br/>Parcel ID:" + PID + "<br/>Sale Price:" + SalePrice + "<br/>Sale Type:" + SaleType + "<br/> Sale Validity:" + SaleValidity;
 
-//         var icon = customIcons[SaleValidity] || {};          var icon = customIcons[3] || {};
+         var icon = customIcons[SaleValiditynum] || {};          var icon = customIcons[3] || {};
 
           var marker = new google.maps.Marker({
             map: map,
             position: point,
 
-   //         icon: icon.icon,
-     //       shadow: icon.shadow
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+            icon: icon.icon,
+            shadow: icon.shadow
+//        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
 
           });
           bindInfoWindow(marker, map, infoWindow, info);
@@ -125,7 +227,8 @@ markersArr.push(marker);
 
         }
       });
-/* 
+/*
+doesn't this screw stuff up as I need == not =? 
 if (myForm.infowindow.value="Summary") //Detailed")//"
 {
 alert("Detaileded");
@@ -167,9 +270,11 @@ else alert("Summarily");
 <!-- option for next sale, option for all future sales, option for all past sales, possible multi-select 
  <body onload="load()">
  <body onload="updateMap()">
+ <body onload="Mapfunction(0)">
+ <body onload="Mapfunction(1)">
 <body>
 -->
- <body onload="load()">
+ <body onload="Mapfunction(0)">
 
 
 
@@ -206,9 +311,10 @@ Sale Type:<select id='saletype'>
 Sale Date between<input type='text' id='startdate' value='2012-01-01' />  and
 <input type='text' id='enddate' value='2012-04-23' />  
 
-<input type='button' onclick='updateMap()' value='Update Map' /> 
+<input type='button' onclick='Mapfunction(1)' value='Update Map' /> 
+
 </form>
-<!-- -->
+<!--<input type='button' onclick='updateMap()' value='Update Map' />  -->
 <script language=javascript>
 
 function checkMinMaxBidValues()
