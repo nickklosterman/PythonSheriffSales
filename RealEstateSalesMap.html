@@ -94,6 +94,7 @@ make sure all variables have been appropriately changed if you edited old code. 
 make sure all variables have been appropriately changed if you edited old code. the yellow highlighting makes this tricky and non obvious source of errors (js)
 validate the update function with a static query that you know works and delivers good php
 if its' from copied code that is known good then it is most likely SPELLING SPELLING SPELLING of variables or files.
+when assigning variables there must be a space between the operator and the names of variables: i.e. bob=88 fails but bob = 88 works
 
 */
 if (switch_num == 0)
@@ -110,8 +111,7 @@ else
 {
  var queryString = "phpRealEstateSalesDynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSales"; //must have spaces in btw + "" otherwise you break it!
 }
-alert (queryString)
- //queryString = "phpRealEstateSalesDynamic.php?maxbid=100000&minbid=1&saletype=1&salevalidity=1&startdate=2012-03-01&enddate=2012-04-04&table=RealEstateSales";  //this query works
+//alert (queryString)
 downloadUrl( queryString, function(data) {
         var xml = data.responseXML;
          markers = xml.documentElement.getElementsByTagName("marker");
@@ -125,7 +125,7 @@ clearLocations();
           var SaleValidity = markers[i].getAttribute("SALEVALIDITY");
           var SaleTypenum = markers[i].getAttribute("SALETYPEnum");
           var SaleValiditynum = markers[i].getAttribute("SALEVALIDITYnum");
-
+          var SalePricenum = markers[i].getAttribute("PRICEnum");
 
           var point = new google.maps.LatLng(
               parseFloat(markers[i].getAttribute("Latitude")),
@@ -134,13 +134,16 @@ clearLocations();
 
 var info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SalePrice + "</b> <br/>Sale Date:" + SaleDate +  "<br/>Address:"+ Address + "<br/>Parcel ID:" + PID + "<br/>Sale Price:" + SalePrice + "<br/>Sale Type:" + SaleType + "<br/> Sale Validity:" + SaleValidity;
 
-          var icon = customIcons[SaleValiditynum] || {};
+//           var icon = customIcons[SaleValiditynum] || {};
+          var iconC = IconCreator(SalePricenum,33,56);
 
           var marker = new google.maps.Marker({
             map: map,
             position: point,
-            icon: icon.icon,
-            shadow: icon.shadow
+  //          icon: icon.icon,
+icon: iconC,
+shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+//            shadow: icon.shadow
 //        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',  shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
 
           });
@@ -151,12 +154,25 @@ markersArr.push(marker);
 
 }
 
-
-
-
+/**/
+function IconCreator(text,bgcolor,textcolor)
+{ 
+//var RE = new RegExp("\$","");
+//var modifiedtext = RE.exec(text);
+var modifiedtext = text/1000; //need to ermove anything after a period
+textcolor = "000000";
+//textcolor = "ffffff";
+bgcolor = "56fffc";
+bgcolor = "00ff00";
+//var iconname = "http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=" + modifiedtext + "-=-" + text + "|" + bgcolor + "|" + textcolor + "&.png%3f";
+var iconname = 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + modifiedtext + '|' + bgcolor + '|' + textcolor + '&.png%3f';
+//alert(iconname);
+return iconname;
+}
+/**/
     var customIcons = {
       1: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',
+        icon: 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=250|5600FC|000000&.png%3f', // http://labs.google.com/ridefinder/images/mm_20_green.png',
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
       },
       2: {
@@ -168,6 +184,55 @@ markersArr.push(marker);
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
       },
       4: {
+
+        icon: 'http://maps.google.com/mapfiles/ms/icons/lightblue.png', //http://labs.google.com/ridefinder/images/mm_20_lightblue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      5: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_orange.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      6: {
+        icon: 'http://maps.google.com/mapfiles/ms/icons/pink.png', //http://labs.google.com/ridefinder/images/mm_20_pink.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      7: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_purple.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      8: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_yellow.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      9: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      10: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      }, 
+      11: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      12: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      13: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      14: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      15: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+      },
+      16: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
       }

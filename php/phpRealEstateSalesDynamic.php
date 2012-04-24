@@ -142,7 +142,7 @@ while ($row = @mysql_fetch_assoc($result)){
   echo 'SALEVALIDITY="' . translateSaleValidity($row['SALEVALIDITY']) . '" ';
   echo 'SALETYPEnum="' . parseToXML($row['SALETYPE']) . '" ';
   echo 'SALEVALIDITYnum="' . parseToXML($row['SALEVALIDITY']) . '" ';
-
+  echo 'PRICEnum="' . parseToXML($row['PRICE']) . '" ';
   echo 'Latitude="' . $row['Latitude'] . '" ';
   echo 'Longitude="' . $row['Longitude'] . '" ';
   echo '/>';
