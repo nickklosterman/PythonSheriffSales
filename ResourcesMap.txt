@@ -1,0 +1,22 @@
+---javascript date picker
+https://www.google.com/search?hl=en&client=firefox-a&rls=org.mozilla%3Aen-US%3Aofficial&sclient=psy-ab&q=javascript+calendar+date+picker&btnG=
+http://www.openjs.com/scripts/ui/calendar/
+http://www.softcomplex.com/products/tigra_calendar/ nice and simple. configure via css and js files
+http://javascriptcalendar.org/javascript-date-picker.php another nice one. 
+http://www.openjs.com/scripts/ui/calendar/ I wish I could get this one to work but it required some other files that I couldn't figuer out and wasn't sure how to configure or if they'd screw other stuff up. I liked that inside the calendar there were dropdowns for the M and Y so you could much more quickly move fwd and bwd in time
+http://nogray.com/calendar.php haven't tried it but looks like it could be a standin for the one above. also has M and Y dropdowns for faster navigation
+http://dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml another possible candidate that allows dimming of dates etc 
+http://dev.base86.com/scripts/mootools_javascript_datepicker_calendar_eightysix.html#examples has nice features which include two fields where the second field always has to be one day after teh one selected in the previous field.
+
+https://www.google.com/search?hl=en&client=firefox-a&rls=org.mozilla%3Aen-US%3Aofficial&sclient=psy-ab&q=javascript+calendar+date+picker&btnG=
+
+
+----GOOGLE MAPS MARKER OPTIONS
+http://mapicons.nicolasmollet.com/about/other-resources/ letters, markers, POI
+http://mapicons.nicolasmollet.com/
+http://code.google.com/p/google-maps-icons/wiki/NumericIcons original marker ref for thdyzik
+http://thydzik.com/dynamic-google-maps-markersicons-with-php/ dynamic marker making which is actually then done using google charts api
+https://developers.google.com/chart/infographics/docs/dynamic_icons#pins  google charts api doc page
+http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker google charts api example
+https://developers.google.com/maps/documentation/javascript/reference#MarkerImage more google charts api options
+http://gmaps-utility-library-dev.googlecode.com/svn/tags/mapiconmaker/1.1/examples/ gmaps mapiconmaker (no letters inside marker)

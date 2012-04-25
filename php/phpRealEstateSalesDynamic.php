@@ -116,7 +116,7 @@ if ($saletype!='*')
   $query .=" and SALETYPE = '$saletype' ";
 if ($salevalidity!='*')
   $query .=" and SALEVALIDITY = '$salevalidity' ";
-$query .=" and SALEDT > '$startdate' and SALEDT < '$enddate'";
+$query .=" and SALEDT >= '$startdate' and SALEDT <= '$enddate'"; //>= and <= bc i think this is the expected behavior to include the chosen dates
 
 $result = mysql_query($query);
 if (!$result) {
