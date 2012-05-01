@@ -9,9 +9,9 @@ def ComputeFinishTime(sleep_time,resultcount):
 
     print("This geocoding operation will take approximately %i seconds and complete at around %s." % (totalseconds,endtime))
 
-def GeocodeDatabase():
+def GeocodeDatabase(user,password):
     sleep_time = 0.75
-    con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
+    con = mdb.connect('localhost', user, password, 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
         curUpdate = con.cursor(mdb.cursors.DictCursor)
@@ -73,7 +73,11 @@ def geocode(addr,out_fmt='csv'):
     else:
         return {'code':code}
 
-
+def getUsernamePassword(file):
+    import linecache
+    username=linecache.getline(file,1) #username on 1st line
+    password=linecache.getline(file,2) #password on 2nd line
+    return username.strip(),password.strip()  #remove the CRLF   
 
 ########### MAIN ############
 
@@ -83,17 +87,18 @@ import urllib,urllib2,time
 
 #check if argv[1]!=null and assign to 
 #if sys.argv[#
-if 1==0:
-    if len(sys.argv)>1 and  sys.argv[1]!="":
-        inputfilename=sys.argv[1]
-    else:
-        inputfilename="FranklinCountyOhio.real-estate.cfm.html"
-    if len(sys.argv)>2 and sys.argv[2]!="":
-        outputfilename=sys.argv[2]
-    else:
-        outputfilename="FranklinCountyoutput.txt"
-    print(inputfilename,outputfilename)
-#    CreateDatabase()
-    ProcessFile(inputfilename,outputfilename)
 
-GeocodeDatabase()
+inputfilename="/home/nicolae/.mysqllogin"
+if len(sys.argv)>1 and  sys.argv[1]!="":
+    inputfilename=sys.argv[1]
+else:
+    print("No login file: GeocodeDatabase.py loginfile")
+    print("using default file of %s" % (inputfilename))
+
+user,password=getUsernamePassword(inputfilename)
+GeocodeDatabase(user,password)
+
+
+
+
+

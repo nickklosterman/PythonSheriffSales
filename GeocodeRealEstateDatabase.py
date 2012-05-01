@@ -1,5 +1,13 @@
 #this program geocodes a database
 
+
+
+def getUsernamePassword(file):
+    import linecache 
+    username=linecache.getline(file,1) #username on 1st line
+    password=linecache.getline(file,2) #password on 2nd line
+    return username.strip(),password.strip()  #remove the CRLF
+
 import time
 def ComputeFinishTime(sleep_time,resultcount):
     processingtime=0.25 #this may be processor/computer dependent, it took 5:10-->310s to process 300 address with a 0.75 sleep_time so 0.25 is reasonable for the dell precision 4300s 
@@ -9,9 +17,10 @@ def ComputeFinishTime(sleep_time,resultcount):
 
     print("This geocoding operation will take approximately %i seconds and complete at around %s." % (totalseconds,endtime))
 
-def GeocodeDatabase():
-    sleep_time = 0.25 #was 0.5 0.75
-    con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
+
+def GeocodeDatabase(user,password):
+    sleep_time = 0.25
+    con = mdb.connect('localhost', user, password, 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
         curUpdate = con.cursor(mdb.cursors.DictCursor)
@@ -77,11 +86,16 @@ def geocode(addr,out_fmt='csv'):
 
 
 ########### MAIN ############
-
 import sys
 import MySQLdb as mdb
 import urllib,urllib2,time
 
+inputfilename="/home/nicolae/.mysqllogin"
+if len(sys.argv)>1 and  sys.argv[1]!="":
+    inputfilename=sys.argv[1]
+else:
+    print("No login file: GeocodeRealEstateDatabase.py loginfile")
+    print("using default file of %s" % (inputfilename))
 
-
-GeocodeDatabase()
+user,password=getUsernamePassword(inputfilename)
+GeocodeDatabase(user,password)

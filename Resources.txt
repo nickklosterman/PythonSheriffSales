@@ -16,6 +16,10 @@ http://www.censusfinder.com/mapin.htm indiana
 http://www.censusfinder.com/mapoh.htm ohio   feh http://www.censusfinder.com/images/mapohsmall.gif
 http://www.censusfinder.com/mapXX.htm XX sub in state code
 
+HUD Houses &tc
+see /home/nicolae/Documents/RealEstate/PropertiesToWatch.txt
+
+
 FORECLOSURES
 
 Montgomery County 

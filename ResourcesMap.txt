@@ -20,3 +20,13 @@ https://developers.google.com/chart/infographics/docs/dynamic_icons#pins  google
 http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker google charts api example
 https://developers.google.com/maps/documentation/javascript/reference#MarkerImage more google charts api options
 http://gmaps-utility-library-dev.googlecode.com/svn/tags/mapiconmaker/1.1/examples/ gmaps mapiconmaker (no letters inside marker)
+
+------Zip Code Finder
+http://www.usnaviguide.com/zip.htm google mape that allows you to enter a zipcode and its shape is displayed on the map
+http://maps.huge.info/zip.htm is the same as above. 
+
+-----Map Boundary Files
+Check out the drop down menus on the census pages for other data.
+http://www.census.gov/geo/www/tiger/index.html
+http://www.census.gov/geo/ZCTA/zcta.html Zip Code Tabulation Areas  
+http://www.census.gov/geo/www/tiger/tgrshp2010/tgrshp2010.html Zip Code Shape Files
