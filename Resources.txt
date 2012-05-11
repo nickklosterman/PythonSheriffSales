@@ -29,6 +29,8 @@ http://www.mctreas.org/ <--real estate tax info, has house info under Appraisal 
 http://www.mctreas.org/cama.cfm?parid=N64%2000203%200106&taxyr=2011&own1=WAGNER%20ANDREA%20M%20AND <--query output
 http://www.mctreas.org/cama.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* <--hack the query! parid=XXX XXXXXXX XXXX must spec taxyr and must specify owner just spoof with *
 
+
+
 http://www.mctreas.org/master.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* Master Tab
 http://www.mctreas.org/cama.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* Appraisal Tab
 http://www.mctreas.org/saleshist.cfm?parid=R72%2014110%200034&taxyr=2011&own1=FINFROCK%20BONNIE%29 *BROKEN* Sales History, appears on Master Tab page in right column if there is a recent sale 
@@ -43,6 +45,7 @@ http://www.clerk.co.montgomery.oh.us/legal/records.cfm Legal Records Search
 http://www.clerk.co.montgomery.oh.us/legal/mortgage_foreclosures.cfm
 http://www.dailycourt.com/noticeforeclosures/index IN detailed view has assessment and bed/bath info in tabs.
 http://www.dailycourt.com/noticeforeclosures/details/ref_index/5752 <-- example. Has split google maps street view/map view!
+http://classifieds.daytondailynews.com/legals/sheriff-sales/?&source=dayton_daily_news  <-- grab/scrape this for a picture of the property
 
 http://www.mctreas.org/filedownloads.cfm Downloadable files that list property sales. Possibly Map where sales have taken place to see where people *think* it is desirable to live? Or at least where people are/aren't buying. Shouldn't be tough now that I have the framework up.
 http://www.mctreas.org/filedownloads_auditor.cfm

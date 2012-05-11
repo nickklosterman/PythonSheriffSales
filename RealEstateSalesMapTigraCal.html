@@ -11,72 +11,47 @@
     <script type="text/javascript">
     //<![CDATA[
 
+//from http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
+Number.prototype.formatMoney = function(c, d, t){
+var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+function formatMoney2(num, c, d, t){
+var n = num, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
+Number.prototype.toMoney2 = function(decimals, decimal_sep, thousands_sep)
+{ 
+   var n = this,
+   c = isNaN(decimals) ? 2 : Math.abs(decimals), //if decimal is zero we must take it, it means user does not want to show any decimal
+   d = decimal_sep || ',', //if no decimal separetor is passed we use the comma as default decimal separator (we MUST use a decimal separator)
+
+   /*
+   according to [http://stackoverflow.com/questions/411352/how-best-to-determine-if-an-argument-is-not-sent-to-the-javascript-function]
+   the fastest way to check for not defined parameter is to use typeof value === 'undefined' 
+   rather than doing value === undefined.
+   */   
+   t = (typeof thousands_sep === 'undefined') ? '.' : thousands_sep, //if you don't want ot use a thousands separator you can pass empty string as thousands_sep value
+
+   sign = (n < 0) ? '-' : '',
+
+   //extracting the absolute value of the integer part of the number and converting to string
+   i = parseInt(n = Math.abs(n).toFixed(c)) + '', 
+
+   j = ((j = i.length) > 3) ? j % 3 : 0; 
+   return sign + (j ? i.substr(0, j) + t : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : ''); 
+};
+
+
 
 var markersArr = [];
 var map;
 var infoWindow;
-
-function updateMap(){
-var maxbid = document.getElementById('maxbid').value;
-var minbid = document.getElementById('minbid').value;
-var saletype = document.getElementById('saletype').value;
-var salevalidity = document.getElementById('salevalidity').value;
-var startdate = document.getElementById('startdate').value;
-var enddate = document.getElementById('enddate').value;
-//alert (maxbid,minbid,saletype,salevalidity,startdate,enddate)
-checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
-/*
-debug steps:
-make sure the php is returning valid results
-make sure the database is updated to what the local one shows
-make sure all variables have been appropriately changed if you edited old code. the yellow highlighting makes this tricky and non obvious source of errors (php)
-make sure all variables have been appropriately changed if you edited old code. the yellow highlighting makes this tricky and non obvious source of errors (js)
-validate the update function with a static query that you know works and delivers good php
-if its' from copied code that is known good then it is most likely SPELLING SPELLING SPELLING of variables or files.
-
-*/
- var queryString = "phpRealEstateSalesDynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSales"; //must have spaces in btw + "" otherwise you break it!
-
-//alert (queryString)
- //queryString = "phpRealEstateSalesDynamic.php?maxbid=100000&minbid=1&saletype=1&salevalidity=1&startdate=2012-03-01&enddate=2012-04-04&table=RealEstateSales";  //this query works
-downloadUrl( queryString, function(data) {
-        var xml = data.responseXML;
-         markers = xml.documentElement.getElementsByTagName("marker");
-clearLocations();
-        for (var i = 0; i < markers.length; i++) {
-          var SaleDate = markers[i].getAttribute("SALEDT");
-          var Address = markers[i].getAttribute("PARCELLOCATION");
-          var PID = markers[i].getAttribute("PARID");
-          var SalePrice = markers[i].getAttribute("PRICE");
-          var SaleType = markers[i].getAttribute("SALETYPE");
-          var SaleValidity = markers[i].getAttribute("SALEVALIDITY");
-          var SaleTypenum = markers[i].getAttribute("SALETYPEnum");
-          var SaleValiditynum = markers[i].getAttribute("SALEVALIDITYnum");
-
-
-          var point = new google.maps.LatLng(
-              parseFloat(markers[i].getAttribute("Latitude")),
-              parseFloat(markers[i].getAttribute("Longitude"))
-              );
-
-var info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SalePrice + "</b> <br/>Sale Date:" + SaleDate +  "<br/>Address:"+ Address + "<br/>Parcel ID:" + PID + "<br/>Sale Price:" + SalePrice + "<br/>Sale Type:" + SaleType + "<br/> Sale Validity:" + SaleValidity;
-
-          var icon = customIcons[SaleValiditynum] || {};
-
-          var marker = new google.maps.Marker({
-            map: map,
-            position: point,
-            icon: icon.icon,
-            shadow: icon.shadow
-//        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',  shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
-
-          });
-          bindInfoWindow(marker, map, infoWindow, info);
-markersArr.push(marker);
-        }
-      });
-
-}
+//var textcolors = new Array("000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff");
+//var bgcolors = new Array("00ff00", "ff0000", "0000ff", "888800", "008888", "bb11bb", "ff00ff", "ffff00", "00ffff", "770000", "007700", "000077", "777700", "770077", "007777", "000000", "ffffff");
+var textcolors = [ "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff", "000000", "ffffff" ];
+var bgcolors = [ "00ff00", "ff0000", "0000ff", "888800", "008888", "bb11bb", "ff00ff", "ffff00", "00ffff", "770000", "007700", "000077", "777700", "770077", "007777", "000000", "ffffff" ];
 
 
 function Mapfunction(switch_num){
@@ -107,13 +82,28 @@ if (switch_num == 0)
         mapTypeId: 'roadmap'
       });
       infoWindow = new google.maps.InfoWindow;
- var queryString = "phpRealEstateSalesDynamic.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2012-01-01&enddate=2012-04-04&table=RealEstateSales";  //this query works
+// var queryString = "phpRealEstateSalesDynamic.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2012-05-01&enddate=2012-05-10&table=RealEstateSales";  //this query works
+ var queryString = "phpRealEstateSalesDynamic.php?maxbid=86000&minbid=84100&saletype=*&salevalidity=*&startdate=2012-05-01&enddate=2012-05-10&table=RealEstateSales";  //this query works
 }
 else
 {
  var queryString = "phpRealEstateSalesDynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSales"; //must have spaces in btw + "" otherwise you break it!
+alert(queryString)
 }
-//alert (queryString)
+
+/*
+var bob=1200.54;
+var bobo=1,200.54;
+
+alert(formatMoney2(89,7907,3656,345.5453, 2, '.' , ',')); 
+alert(formatMoney2(bob, 2, '.' , ',')); 
+alert(formatMoney2(bobo, 2, '.' , ',')); 
+alert(formatMoney2(8979073656345.5453, 2, '.' , ',')); //this works, not sure why I can't pass it a variable though
+alert(14321.54356.formatMoney2(maxbid,2, '.' , ',')); //works
+alert(1234678990.12347890541234.toMoney2()); //works
+alert (queryString)
+*/
+
 downloadUrl( queryString, function(data) {
         var xml = data.responseXML;
          markers = xml.documentElement.getElementsByTagName("marker");
@@ -136,18 +126,24 @@ clearLocations();
 
 var info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SalePrice + "</b> <br/>Sale Date:" + SaleDate +  "<br/>Address:"+ Address + "<br/>Parcel ID:" + PID + "<br/>Sale Price:" + SalePrice + "<br/>Sale Type:" + SaleType + "<br/> Sale Validity:" + SaleValidity;
 
-//           var icon = customIcons[SaleValiditynum] || {};
-          var iconC = IconCreator(SalePricenum,33,56);
+/*
+           var icon = customIcons[SaleValiditynum] || {};
+          var iconC = IconCreator(SalePricenum,33 ,56);
+
+alert(bgcolors[SaleValiditynum] ,textcolors[SaleValiditynum]);
+*/
+          var iconC = IconCreator(SalePricenum,bgcolors[SaleValiditynum] ,textcolors[SaleValiditynum]);
 
           var marker = new google.maps.Marker({
             map: map,
             position: point,
-  //          icon: icon.icon,
-icon: iconC,
-//shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png' // we don't really want a shadow as it actually isn't placed correctly. it is  little to the left
-//            shadow: icon.shadow
-//        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',  shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+icon: iconC // ,<--add the trailing , if you're going to add a shadow
+  /*          icon: icon.icon,
 
+shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png' // we don't really want a shadow as it actually isn't placed correctly. it is  little to the left
+            shadow: icon.shadow
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',  shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+*/
           });
           bindInfoWindow(marker, map, infoWindow, info);
 markersArr.push(marker);
@@ -159,13 +155,21 @@ markersArr.push(marker);
 /**/
 function IconCreator(text,bgcolor,textcolor)
 { 
-//var RE = new RegExp("\$","");
-//var modifiedtext = RE.exec(text);
-var modifiedtext = text/1000; //need to ermove anything after a period
-textcolor = "000000";
+/*var RE = new RegExp("\$","");
+var modifiedtext = RE.exec(text);
+var RE = new RegExp("\\..*","");  //in JS need to escape the escape character
+var modtext = RE.exec(text);
+*/
+//var modifiedtext = text/1000-(text/1000)%1000; //need to remove anything after a period. I wanted to do it with regex but this works. This produces the desired results of b0b: echo "b0b.00" | sed 's/\..*//' so I'm missing something on how RE works in JS
+
+var modifiedtext = (text/1000)|0; //casts string as int
+
+//http://www.merlyn.demon.co.uk/js-logic.htm 
+//http://www.javascriptkit.com/jsref/index.shtml
+//textcolor = "000000";
 //textcolor = "ffffff";
-bgcolor = "56fffc";
-bgcolor = "00ff00";
+//bgcolor = "56fffc";
+//bgcolor = "00ff00";
 //var iconname = "http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=" + modifiedtext + "-=-" + text + "|" + bgcolor + "|" + textcolor + "&.png%3f";
 var iconname = 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + modifiedtext + '|' + bgcolor + '|' + textcolor + '&.png%3f';
 //alert(iconname);
@@ -250,60 +254,7 @@ function clearLocations() {
      markersArr.length = 0;
 }
 
-    function load() {
-       map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(39.7620028,-84.3542049),
-        zoom: 10,
-        mapTypeId: 'roadmap'
-      });
-      infoWindow = new google.maps.InfoWindow;
-alert("Make me one function and pass in 1 or 0 and based on that pass premade query or construct query")
- var queryString = "phpRealEstateSalesDynamic.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2012-01-01&enddate=2012-04-04&table=RealEstateSales";  //this query works
-      downloadUrl(queryString, function(data) {
-        var xml = data.responseXML;
-        var markers = xml.documentElement.getElementsByTagName("marker");
-        for (var i = 0; i < markers.length; i++) {
-          var SaleDate = markers[i].getAttribute("SALEDT");
-          var Address = markers[i].getAttribute("PARCELLOCATION");
-          var PID = markers[i].getAttribute("PARID");
-          var SalePrice = markers[i].getAttribute("PRICE");
-          var SaleType = markers[i].getAttribute("SALETYPE");
-          var SaleValidity = markers[i].getAttribute("SALEVALIDITY");
-          var SaleTypenum = markers[i].getAttribute("SALETYPEnum");
-          var SaleValiditynum = markers[i].getAttribute("SALEVALIDITYnum");
-
-          var point = new google.maps.LatLng(
-              parseFloat(markers[i].getAttribute("Latitude")),
-              parseFloat(markers[i].getAttribute("Longitude")));
-
-var info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SalePrice + "</b> <br/>Sale Date:" + SaleDate +  "<br/>Address:"+ Address + "<br/>Parcel ID:" + PID + "<br/>Sale Price:" + SalePrice + "<br/>Sale Type:" + SaleType + "<br/> Sale Validity:" + SaleValidity;
-
-         var icon = customIcons[SaleValiditynum] || {};          var icon = customIcons[3] || {};
-
-          var marker = new google.maps.Marker({
-            map: map,
-            position: point,
-
-            icon: icon.icon,
-            shadow: icon.shadow
-//        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
-
-          });
-          bindInfoWindow(marker, map, infoWindow, info);
-markersArr.push(marker);
-
-        }
-      });
-/*
-doesn't this screw stuff up as I need == not =? 
-if (myForm.infowindow.value="Summary") //Detailed")//"
-{
-alert("Detaileded");
-}
-else alert("Summarily"); 
-*/
-    }
-
+ 
     function bindInfoWindow(marker, map, infoWindow, html) {
       google.maps.event.addListener(marker, 'click', function() {
         infoWindow.setContent(html);

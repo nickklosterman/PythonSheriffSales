@@ -14,3 +14,13 @@ if processing went ok, dump new database and upload to website
 dumpSherriffSalesmysql.sh <dumpoutputfile>
 upload new database: uploadDBtoDjinnius.sh <dumpoutputfile>
 point browser to http://www.djinnius.com/SheriffSales/SheriffSalesMap.html
+
+----
+download latest real estate sales data for Montg Cty. There is a script in the data folder to download and extract the Residential data.
+Then run:
+ProcessRealEstateSalesMontgomeryCountyOhio.py to add the data to the database
+GeocodeRealEstateDatabase.py to geocode the data
+
+now that the data is in the database we need to update the remote database on djinnius
+then run:
+dumpSheriffSalesDBAndUploadtoDjinniusLocalDatabase.sh

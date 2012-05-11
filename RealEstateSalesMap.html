@@ -159,7 +159,7 @@ function IconCreator(text,bgcolor,textcolor)
 { 
 //var RE = new RegExp("\$","");
 //var modifiedtext = RE.exec(text);
-var modifiedtext = text/1000; //need to ermove anything after a period
+var modifiedtext = (text/1000)|0; //need to ermove anything after a period
 textcolor = "000000";
 //textcolor = "ffffff";
 bgcolor = "56fffc";
