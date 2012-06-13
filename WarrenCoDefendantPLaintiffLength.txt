@@ -1,1 +1,0 @@
-I need to change the database for Warren County to have varchar(255) for defendant and plaintiff as this appears to be the max length displayed
