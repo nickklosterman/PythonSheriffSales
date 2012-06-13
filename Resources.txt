@@ -61,6 +61,7 @@ http://www.co.greene.oh.us/Sheriff/SO_Foreclosures_Past.htm
 Hamilton County
 http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySalesDisclaimer.aspx
 http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySales.aspx Must click "agree" to see sales. Then java posts list
+http://www.hcso.org/PublicServices/ExecutionSales/SoldProperty.aspx There is a link on the ExecPropertySales.aspx page at the very top that takes you here.
 http://www.courtindex.com/ <-- Cinci court report where official list is published for foreclosures
 http://www.courtclerk.org/ Cinci clerk oif courts for lien & tax info
 http://www.hamiltoncountyauditor.org/ add'l property info
@@ -86,6 +87,19 @@ http://clintonsheriff.com/public-services/property-sales/
 
 Marion County 
 http://mcoprx.co.marion.oh.us/sheriff/index.php?option=com_content&task=view&id=93&Itemid=64
+
+KENTUCKY
+Kenton Cty
+http://www.kentoncountysheriff.org/index.htm neither have foreclosure lists
+http://www.kentoncounty.org/
+
+Boone Cty
+http://www.boonecountyky.org/
+http://www.boonecountyky.org/SO/DelinquentTaxes.aspx old data?
+
+Campbell Cty
+http://campbellcountysheriffky.org/
+http://www.campbellcountyky.org/
 
 INDIANA
 Clinton County

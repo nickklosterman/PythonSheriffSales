@@ -10,6 +10,9 @@ http://dev.base86.com/scripts/mootools_javascript_datepicker_calendar_eightysix.
 
 https://www.google.com/search?hl=en&client=firefox-a&rls=org.mozilla%3Aen-US%3Aofficial&sclient=psy-ab&q=javascript+calendar+date+picker&btnG=
 
+----Different Google Maps display modes
+http://www.goopal.org/Google-Sites-Embed/google-code---custom-maps/google-maps-street-view shows w streetview below reg view etc.
+
 
 ----GOOGLE MAPS MARKER OPTIONS
 http://mapicons.nicolasmollet.com/about/other-resources/ letters, markers, POI
