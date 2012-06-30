@@ -26,6 +26,7 @@ Montgomery County
 http://www.mcohio.org/sheriff/
 http://www.mcohio.org/sheriff/sflistauction.cfm
 http://www.mctreas.org/ <--real estate tax info, has house info under Appraisal tab
+http://www.mctreas.org/search.cfm <--search for info
 http://www.mctreas.org/cama.cfm?parid=N64%2000203%200106&taxyr=2011&own1=WAGNER%20ANDREA%20M%20AND <--query output
 http://www.mctreas.org/cama.cfm?parid=R72%2014110%200034&taxyr=2011&own1=* <--hack the query! parid=XXX XXXXXXX XXXX must spec taxyr and must specify owner just spoof with *
 

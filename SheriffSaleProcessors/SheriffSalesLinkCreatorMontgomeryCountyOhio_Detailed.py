@@ -20,6 +20,9 @@ def prepprice(data):
     temp3=temp2.strip() #remove whitespace
     p = re.compile(r',') #remove comma in price since that'll screw things up as far as outputting to csv.
     return p.sub('',temp3)
+def validatezipcode(data):
+    p = re.compile(r'[^0-9]') #[^0-9]{5} match strings of five chars that aren't digits
+    return p.sub('',data)
 def UpdateRecordInDatabase(SaleDate,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,Zipcode,Appraisal,MinBidAmt,SaleAmt,SaleStatus,key):
     con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
     with con:
@@ -253,11 +256,11 @@ def ProcessFile(inputfilename,outputfilename):
                 else:
                     if Zipcode[0:2]=="OH":
                         if len(Zipcode)>7:
-                            zipcode=int(Zipcode[3:])
+                            zipcode=int(validatezipcode(Zipcode[3:])) # for "OH 45419"
                         else:
                             zipcode=0
                     else:
-                        zipcode=int(Zipcode)
+                        zipcode=int(validatezipcode(Zipcode))
 
                 date=convertDateFormat(SaleDate)
                 
@@ -364,6 +367,7 @@ if 1==1:
 GeocodeDatabase()
 
 
+#30-06-2012 added validation check for zipcode.
 
 
  #stupid error: you get below when the indentation isn't pure tabs. it must count tabs to determine depthof a call.           
