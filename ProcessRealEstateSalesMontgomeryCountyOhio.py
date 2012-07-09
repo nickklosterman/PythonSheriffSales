@@ -60,7 +60,7 @@ def convert3LetterMonthToNumber(month):
 def convertSALETYPEToChar(type):
     uppertype=type.upper()
 #month_dict = {"Jan":1,"Feb":2,"Mar":3,"Apr":4, "May":5, "Jun":6,       "Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12} #http://mail.python.org/pipermail/python-list/2010-January/1231526.html
-    type_dict = {     "LAND AND BUILDING":1,  "LAND ONLY":2}
+    type_dict = {     "LAND AND BUILDING":1,  "LAND ONLY":2, "BUILDING ONLY":3}
     return type_dict[uppertype]
 
 def convertSALEVALIDITYToChar(validity):
