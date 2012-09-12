@@ -217,6 +217,6 @@ print(inputfilename,outputfilename,loginfile)
 #DropTableFromDatabase(loginfile)
 CreateDatabase(loginfile)
 CSVProcessFile(inputfilename,outputfilename,loginfile)
-
+print("You now need to geocode the database!!!")
 
 #http://docs.python.org/library/getopt.html

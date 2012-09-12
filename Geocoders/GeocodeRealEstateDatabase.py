@@ -10,7 +10,7 @@ def getUsernamePassword(file):
 
 import time
 def ComputeFinishTime(sleep_time,resultcount):
-    processingtime=0.25 #this may be processor/computer dependent, it took 5:10-->310s to process 300 address with a 0.75 sleep_time so 0.25 is reasonable for the dell precision 4300s 
+    processingtime=0.15 #this may be processor/computer dependent, it took 5:10-->310s to process 300 address with a 0.75 sleep_time so 0.25 is reasonable for the dell precision 4300s 
     totalseconds=sleep_time*resultcount+processingtime*resultcount
     now=time.time() 
     endtime=time.strftime('%H:%M:%S' , (time.localtime(now+int(totalseconds))))
@@ -19,7 +19,7 @@ def ComputeFinishTime(sleep_time,resultcount):
 
 
 def GeocodeDatabase(user,password):
-    sleep_time = 0.25
+    sleep_time = 0.15
     con = mdb.connect('localhost', user, password, 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)

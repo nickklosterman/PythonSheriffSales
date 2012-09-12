@@ -39,6 +39,7 @@ def translatetownship(name):
         "MONTGOMERY":"Montgomery",
         "MT HEALTHY":"Mount Healthy",
         "N C H":"North College Hill",
+        "NCH":"North College Hill",
         "NEWTOWN":"Newtown",
         "NORTH BEND":"North Bend",
         "NORWOOD":"Norwood",
