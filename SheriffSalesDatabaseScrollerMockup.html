@@ -1,0 +1,110 @@
+<html>
+<head>
+head
+
+<script type="text/javascript" src="Sandbox/JS/jQuery/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+function getvalues(){
+offset = parseInt(document.getElementById('txta_offset').value); //wo the parseInt wrapper the value is interpreted as text
++offset; //this is supposed to turn offset into a number
+recordstodisplay = parseInt(document.getElementById('txta_recordstodisplay').value);
++recordstodisplay;
+};
+
+//var offset = new Number(0),recordstodisplay = new Number(30), curr_record = new Number(0) // 0
+var offset 
+var recordstodisplay 
+var curr_record =0
+
+function writeout()
+{
+$("#output").html(curr_record);
+};
+
+$("#incrementOffset").click(function()
+{
+getvalues();
+writeout();
+curr_record += offset; // + recordstodisplay;
+//alert(curr_record ); //, " ", offset, recordstodisplay);
+$("#dec").show();
+});
+
+$("#decrementOffset").click(function()
+{
+getvalues();
+writeout();
+curr_record -= offset; // - recordstodisplay;
+//alert(curr_record);
+if ( curr_record < 0.1 )
+	      {
+	      curr_record = 0 ;
+	      alert("too low");
+	      $("#dec").hide();
+	      }
+});
+
+
+  $("#Hide").click(function(){
+	      alert("hide");
+    $("p").hide();
+  });
+  $("#Show").click(function(){
+alert("show");
+    $("p").show();
+  });
+
+$("#Toggle").click(function()
+{
+$("#disclaimer").toggle();
+});
+
+
+});
+
+
+</script>
+
+</head>
+
+  <body>
+
+<p>
+hide/show
+</p>
+<span id="dec">
+<button id="decrementOffset"> <- </button> 
+</span>
+
+<span id="inc">
+<button id="incrementOffset"> -> </button>
+</span>
+
+<p>
+<button id="Hide"> Hide </button> 
+<button id="Show"> Show </button> 
+<button id="Toggle"> Toggle </button> 
+</p>
+
+<p>
+Offset
+<textarea name="offset" id="txta_offset" rows="1" cols="15">12</textarea>
+Records To Display
+<textarea name="recordstodisplay" id="txta_recordstodisplay" rows="1" cols="15">22</textarea>
+
+</p>
+<div id="output">
+</div>
+
+<div id="disclaimer">
+Don't be stupid and pay attention
+
+</div>
+
+
+  </body>
+</html>
+
+
