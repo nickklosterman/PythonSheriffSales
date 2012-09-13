@@ -61,7 +61,7 @@ then #old method of preventing filename collisions
 fi
 
 echo "Writing database dump to $outputfilename"
-if [ 0 -eq 1 ]
+if [ 1 -eq 1 ]
 then
 echo "Logging into the local database as $dbuserLocal."
 mysqldump -u "$dbuserLocal" -p SheriffSales > "$outputfilename"

@@ -111,6 +111,8 @@ def ProcessFile(inputfilename,outputfilename):
     SaleStatus=""
     enddataflag=0
     data=""
+    startTDflag=false
+    endTDflag=false
 #create property record object. initialize with these extracted values
 #geocode Property Record, check if record present. update with new data (sold info->soldto,saleprice)
 
@@ -121,10 +123,17 @@ def ProcessFile(inputfilename,outputfilename):
             line1=line.strip()
             linelower=line.lower()
             if linelower.find("<tr class=\"")!=-1: # align=\"center\" valign=\"top\"")!=-1:
-                propertyRecordcounter=0
+                propertyRecordcounter=0  #this signals beginning of a record set.
+            if linelower.find("<td>")!=-1:
+                startTDflag=true
+            if linelower.find("</td>")!=-1:
+                endTDflag=true
+                #if the record is alll on one line then they 
+        
                 
             if propertyRecordcounter==10:
                 SaleDate=striphtml(line1.rstrip())
+                print(SaleDate)
 #could be done in a switch statement but python doesn't implement them and for simplicity sake I'm not going the dictionary lookup route.
             if propertyRecordcounter==4:
                 CaseNumber=striphtml(line1.rstrip())
@@ -181,6 +190,8 @@ def ProcessFile(inputfilename,outputfilename):
                 elif MinBidAmt=="SEE ENTRY":
                     minbid=0.0
                 elif MinBidAmt=="SEE ENTRY FOR AMOUNTS":
+                    minbid=0.0
+                elif MinBidAmt=="SEE WRIT OF PARTITION":
                     minbid=0.0
                 else:
                     minbid=float(MinBidAmt)
@@ -261,7 +272,7 @@ import urllib,urllib2,time
 #check if argv[1]!=null and assign to 
 #if sys.argv[#
 if 1==1:
-    if len(sys.argv)>1 and  sys.argv[1]!="":
+     if len(sys.argv)>1 and  sys.argv[1]!="":
         inputfilename=sys.argv[1]
     else:
         inputfilename="WarrenCountyOhio.slsgrid.asp.html"

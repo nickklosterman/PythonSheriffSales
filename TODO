@@ -18,3 +18,6 @@ change filtering options or "normalize" filtering for the diff formats for the d
 put dbinfo in secure place, or make it so that 
 Check out the javascript code that the Dayton Court Reporter uses. They have a pretty slick interface.
 hide options passed to php so as to prevent people from useing that to scrape your database
+Allow for restricting the number of records displayed on the screen.
+-sort the displayed records by newest added
+-allow the user to scroll through the records only displaying X records at a time. 

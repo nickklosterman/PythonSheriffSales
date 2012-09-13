@@ -1,14 +1,18 @@
 #!/bin/bash
-zipfilename="data\\Yearly\\SALES_2012.zip" SALES_2012_RES.csv
+zipfilename="data\\Yearly\\SALES_2012.zip" 
 csvfilename="SALES_2012_RES.csv"
-if [ -e $zipfilename ]
+if [ -e "$zipfilename" ]
 then
-rm $zipfilename
+    rm "$zipfilename"
+else
+echo "nope"
 fi
 
-if [ -e $csvfilename ]
+if [ -e "$csvfilename" ]
 then
-rm $csvfilename 
+    rm "$csvfilename"
+else
+echo "nope2"
 fi
 
 

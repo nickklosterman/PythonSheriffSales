@@ -24,7 +24,7 @@ $arr=split("-",$date); // splitting the array
 $yy=$arr[0]; // first element of the array is month
 $mm=$arr[1]; // second element is date
 $dd=$arr[2]; // third element is year
-If(!checkdate($mm,$dd,$yy))
+if(!checkdate($mm,$dd,$yy))
 {
   //echo "invalid date";
   $output="2012-01-01";
