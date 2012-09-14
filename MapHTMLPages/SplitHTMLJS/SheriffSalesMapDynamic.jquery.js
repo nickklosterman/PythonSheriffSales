@@ -1,61 +1,50 @@
-var offset, recordstodisplay, curr_record =0;
+var offset=0, recordstodisplay, curr_record =0;
 
 $(document).ready(function(){
-		      $("#incrementOffset").click(function(){
+		      load();
+//		      $("#dec").hide(); //initially we want to not allow the user to
+ 		      $("#incrementOffset").click(function(){
 						      getRecordsValues();
-						      curr_record += offset + recordstodisplay;
-						      if (curr_record > recordCount)
+						      curr_record +=  recordstodisplay;
+						      console.log("curr_record:",curr_record,"recordCount:",recordCount);
+						      if (curr_record+recordstodisplay > recordCount)
 						      {
-							  curr_record = recordCount;
-							  $("#inc").hide();
+							  curr_record = recordCount-recordstodisplay;
+							  //$("#inc").hide();
 						      }
 
-						      //						      alert(curr_record ); //, " ", offset, recordstodisplay);
 						      writeout();
-						      writeValuesToFormVariables();
+						      
 						      $("#dec").show();
 						      updateMap( );
+						      offset = curr_record ;
 						  });
 		      
 		      $("#decrementOffset").click(function(){
 						      getRecordsValues();
-						      curr_record -= (offset + recordstodisplay) ; 
+						      curr_record -= (recordstodisplay) ; 
 						      writeout();
-						      writeValuesToFormVariables();
-						      //						      alert(curr_record);
-						      if ( curr_record < 0.1 )
+						      
+						      if ( curr_record-recordstodisplay < 0.1 )
 						      {
 							  curr_record = 0 ;
-							  alert("too low");
-							  $("#dec").hide();
+							  console.log("too low");
+							 // $("#dec").hide();
 						      }
 						      $("#inc").show();
 						      updateMap();
+						      offset = curr_record ;
 						  });
-
 		  });
 
 function writeout(){
     var rangelo = (curr_record+1);
     var rangehi = (curr_record+recordstodisplay);
-    $("#currentrecord").html( rangelo.toString()+"-"+rangehi.toString()); //curr_record);
-};
-
-function writeValuesToFormVariables(){
-    getRecordsValues();
-
-    //set the form values (since we change it outside the form)
-    $("#_recordstodisplay").value = recordstodisplay ;
-    $("#_recordsoffset").value = curr_record ;//offset;
-
-
+    $("#CurrentRecordsDisplayed").val( rangelo.toString()+"-"+rangehi.toString()); 
 };
 
 function getRecordsValues(){
-    offset = parseInt(document.getElementById('recordsoffset').value); //wo the parseInt wrapper the value is interpreted as text
-    //alert(offset);
-    //offset = 0;
     recordstodisplay = parseInt(document.getElementById('recordstodisplay').value);
-    //alert(recordstodisplay);
-
+    console.log("offset:",offset,"recordstodisplay:",recordstodisplay);
 };
+

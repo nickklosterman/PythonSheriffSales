@@ -53,7 +53,7 @@ function downloadUrl(url, callback) {
 
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
-            request.onreadystatechange = doNothing;
+//            request.onreadystatechange = doNothing;
             callback(request, request.status);
         }
     };
@@ -62,27 +62,6 @@ function downloadUrl(url, callback) {
     request.send(null);
 }
 
-function doNothing() {}
-
-
-function updateMap2()
-{
-    //alert("Select Option Changed");
-    //updateMap3();
-    checkMinMaxBidValues();
-}
-function updateMap3()
-{
-    //if (selInfoWindow.infowindow2.value="Detailed")
-    if ($("#infowindow").value=="Detailed")
-    {
-	alert("Detailed");
-    } 
-    else if ($("#infowindow").value=="Summary")
-    {
-	alert("Summary");
-    }
-}
 
 function checkMinMaxBidValues()
 {
@@ -98,18 +77,15 @@ function checkMinMaxBidValues()
 	if (parseInt(Minbid)>parseInt(Maxbid)) //Good. no spaces
     {
 	$("#maxbid").value=Minbid;
-	//myForm.minbid.text.value=Maxbid; //doesn't work!!
 	$("#minbid").value=Maxbid;
     }
 
-    /*
-     if (parseInt(Minbid)<parseInt(Maxbid)) //can't be any spaces in the () of the if statement or it won't work
-     {alert("copacetic");}
-     */
+
 }
 
 
 function load() {
+    console.log("load()");
     var queryString, xml, markers, SaleDate, CaseNumber, Address, ZipCode, Plaintiff, Defendant, Attorney, SoldTo, PID, Appraisal, MinBid, SaleAmt, SaleStatus, point, info, icon, marker;
     map = new google.maps.Map(document.getElementById("map"), {
 				  center: new google.maps.LatLng(39.7620028,-84.3542049),
@@ -118,15 +94,10 @@ function load() {
 			      });
     infoWindow = new google.maps.InfoWindow;
 
-
-    getRecordsValues();
-    writeout();
-
-    //    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpsqlajax_genxml3dynamic.php?maxbid=1000000000&minbid=-1&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=Property"; //must have spaces in btw + "" otherwise you break it!
     queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=1000000000&minbid=-1&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=Property&recordsoffset=0&recordstodisplay=50"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
 
-    $("#debug").html(queryString);
-
+    console.log("load:",queryString);
+    getRecordCountOfQuery(queryString);
     downloadUrl(queryString, function(data) {
 		    xml = data.responseXML;
 		    markers = xml.documentElement.getElementsByTagName("marker");
@@ -178,6 +149,7 @@ function load() {
 
 
 function updateMap() {
+    console.log("updateMap()");
     var maxbid, minbid, salestatus, saledate, queryString, xml, markers, i, SaleDate, CaseNumber, Address, ZipCode, Plaintiff, Defendant, Attorney, SoldTo, PID, Appraisal, MinBid, SaleAmt, SaleStatus, point, info, icon, marker;
 var pricefiltercategory,recordsoffset,recordstodisplay
 
@@ -189,21 +161,21 @@ var pricefiltercategory,recordsoffset,recordstodisplay
   
 //    recordsoffset = 0; //document.getElementById('recordsoffset').value;
     recordstodisplay = document.getElementById('recordstodisplay').value;
-    alert(recordstodisplay);
+    console.log("recordstodisplay:",recordstodisplay);
+    console.log("recordsoffset:",recordsoffset)
 
-    //attempt to get the query recordstodisplay and recordsoffset values 
-    writeValuesToFormVariables();
 
     getRecordsValues();
     writeout();
+    //need to check here so that can switch the values around in the html
     checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
-    
-    //    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + myForm.pricefiltercategory.value + "&table=Property"; //must have spaces in btw + "" otherwise you break it!
+    console.log("offset:",offset);
+    recordsoffset = offset;
     queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&table=Property&recordsoffset=" + recordsoffset+ "&recordstodisplay=" + recordstodisplay; //must have spaces in btw + "" otherwise you break it!
 
-getRecordCountOfQuery(queryString);
+    getRecordCountOfQuery(queryString);
 
-    $("#debug").html(queryString);
+    console.log("updatemap:",queryString);
 
     downloadUrl( queryString, function(data) {
 		     xml = data.responseXML;
@@ -230,17 +202,19 @@ getRecordCountOfQuery(queryString);
 			     parseFloat(markers[i].getAttribute("Longitude"))
 			 );
 
-			 if ($("#infowindow").value=="Detailed")
+			 //if ($("#infowindow").value=="Detailed") //for some reason this method to access the value no longer works. Ahh cuz prev it was in a form and now its a input field.
+			 if(document.getElementById("infowindow").value=="Detailed")
 			 {
 			     info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
 			 }
-			 else if ($("#infowindow").value=="Summary")
+			 else if (document.getElementById("infowindow").value=="Summary")
 			 {
-
-			     //          var infoDetailed = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-			     //        var infoSummary = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
 			     info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
 			 } 
+			 else
+			 {
+			     console.log(document.getElementById("infowindow").value)
+			 }
 			 icon = customIcons[SaleStatus] || {};
 			 marker = new google.maps.Marker({
 							     map: map,
@@ -255,32 +229,13 @@ getRecordCountOfQuery(queryString);
 }
 
 
-function updates(q)
-{
-    updateMap();
-    getRecordCountOfQuery(q);
-}
-
 function getRecordCountOfQuery(oldQueryString) {
     var xml, record ;
-    //put queryString through regex to change phpdatabasequery.php to phpgetrecordcount.php
     var queryString = oldQueryString.replace(/phpdatabasequery/g, "phpgetrecordcount")
-//    queryString = oldQueryString;
-//alert(queryString+" "+oldQueryString);
-//queryString = "http://djinnius.com/SheriffSales/Sandbox/phpgetrecordcount.php?maxbid=200,000&minbid=1,000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=Property&recordsoffset=2000&recordstodisplay=500"
-//queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=200,000&minbid=1,000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=Property&recordsoffset=2000&recordstodisplay=500"
-//oldQueryString works and returns a '[object Document]'  but queryString returns null despite valid results being returned when I use wget to send th query
-//FML it was a XML error. I had <item="stuff"> instead of <item data="stuff">
     downloadUrl( queryString,function(data)
     {
-	xml = data.responseXML; ///why are you coming back as null????
-	//alert(xml);
-	//set global variable
+	xml = data.responseXML; 
 	record = xml.documentElement.getElementsByTagName("data");
-	//alert(record);
 	recordCount = record[0].getAttribute("recordCount");
-	//alert(recordCount);
-	//	return recordCount;
-	
     });
 }

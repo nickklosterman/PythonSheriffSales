@@ -8,163 +8,108 @@
     <script src="SheriffSalesMapDynamic.js"></script>
     <script src="SheriffSalesMapDynamic.jquery.js"></script>
   </head>
-  <!-- use this load() function to init,  updateMap to update -->
-  <!-- auto populate select from database, I htink I have this done in a backcountry script -->
-  <!-- option for next sale, option for all future sales, option for all past sales, possible multi-select 
-       <body onload="load()">
-       <body onload="updateMap()">
-       <body>
-	 -->
-  <body onload="load()">
+  <body>
+    <div id="select-column">
+      <div id="select-row">
+	<select onchange="updateMap()" id='pricefiltercategory'>
+	  <option value="MinBid">Minimum Bid</option>
+	  <option value="Appraisal">Appraisal Amount</option>
+	  <option value="SaleAmt">Sale Amount</option>
+	</select>
+	<!--
+	    http://www.skytopia.com/project/articles/compsci/form.html how to dynamically execute according to which list/dropdown/radio is selected.
+	    Minimum Bid 
+	  -->
+      </div>
+      <div id="select-row">
+	between $<input type='text' onchange="updateMap()" id='minbid' value='1,000' /> 
+      </div>
+      <div id="select-row">
+	and $<input type='text' onchange="updateMap()" id='maxbid' value='2,000,000' />  
+      </div>
+    </div>
 
-    <!-- use a table to better organize and layout these form inputs? -->
+    <div id="select-column">
+      <div id="select-row">
+	Sale Status:<select onchange="updateMap()" id='salestatus'>
+	  <option value="*" selected>All</option>
+	  <option>Active</option>
+	  <option>Sold</option>
+	  <option>Cancelled</option>
+	  <option>No Bid, No Sale</option>
+	</select>
+	<div id="select-row">
+	  Sale Date:<select onchange="updateMap()" id='saledate'>
+	    <option value="*" selected>All</option>
+	    <option>2012-07-13</option>
+	    <option>2012-07-06</option>
+	    <option>2012-06-29</option>
+	    <option>2012-06-22</option>
+	    <option>2012-06-15</option>
+	    <option>2012-06-08</option>
+	    <option>2012-06-01</option>
+	    <option>2012-05-25</option>
+	    <option>2012-05-18</option>
+	    <option>2012-05-11</option>
+	    <option>2012-05-04</option>
+	    <option>2012-04-27</option>
+	    <option>2012-04-20</option>
+	    <option>2012-04-13</option>
+	    <option>2012-04-06</option>
+	    <option>2012-03-30</option>
+	    <option>2012-03-23</option>
+	    <option>2012-03-16</option>
+	    <option>2012-03-09</option>
+	    <option>2012-03-02</option>
 
-    <table>
-      <tr>
-	<td>
+	  </select>
+	</div>
+	<div id="select-row">
+	  Info Window:<select onchange="updateMap()" id='infowindow'>
+	    <!--   onChange="updateMap3()"> -->
+	    <option >Detailed</option>
+	    <option >Summary</option>
+	  </select>
+	</div>
+      </div>
 
-<!--	  <form name='myForm'> -->
-	    <select onchange="updateMap()" id='pricefiltercategory'>
-	      <option value="MinBid">Minimum Bid</option>
-	      <option value="Appraisal">Appraisal Amount</option>
-	      <option value="SaleAmt">Sale Amount</option>
-	    </select>
-	    <!--
-http://www.skytopia.com/project/articles/compsci/form.html how to dynamically execute according to which list/dropdown/radio is selected.
-		Minimum Bid 
-	      -->
-	    between $<input type='text' onchange="updateMap()" id='minbid' value='1,000' />  and
-	    $<input type='text' onchange="updateMap()" id='maxbid' value='2,000,000' />  
+    <div id="select-column">
+      <div id="select-row">
+	Number of Records To Display:<select onchange="updateMap()" id="recordstodisplay">
+	  <option>10</option>
+	  <option selected>25</option>
+	  <option>50</option>
+	  <option>75</option>
+	  <option>100</option>
+	  <option>150</option>
+	  <option>200</option>
+	  <option>250</option>
+	  <option>500</option>
+	</select>
+      </div>
+      
+      <!-- I could add an image here. there are multiple options now: css,svg,canvas
+	   http://www.scriptol.com/html5/button.php
+	   http://croczilla.com/bits_and_pieces/svg/samples/-->
+      <div id="select-row">
+	<div id="dec">
+	  <button id="decrementOffset"> <- </button>
+					   </div>	
+      </div>
+      <div id="select-row">
+	<div id="inc">
+	  <button id="incrementOffset"> -> </button>
+	</div>
+      </div>
+    </div>
+	<!--      <input type='button' onClick='iterate()' > -->
+Current Recordsd Displayed      <input type='text' id="CurrentRecordsDisplayed" value='0'>
+out of X records
+Revers order button to sort by asc or desc date.
 
-	    <br>
-	    Sale Status:<select onchange="updateMap()" id='salestatus'>
-	      <option value="*" selected>All</option>
-	      <option>Active</option>
-	      <option>Sold</option>
-	      <option>Cancelled</option>
-	      <option>No Bid, No Sale</option>
-	    </select>
+      <!--	  <img src="Legend.gif" ALIGN=BOTTOM>  -->
 
-	    Sale Date:<select onchange="updateMap()" id='saledate'>
-	      <option value="*" selected>All</option>
-	      <option>2012-07-13</option>
-	      <option>2012-07-06</option>
-	      <option>2012-06-29</option>
-	      <option>2012-06-22</option>
-	      <option>2012-06-15</option>
-	      <option>2012-06-08</option>
-	      <option>2012-06-01</option>
-	      <option>2012-05-25</option>
-	      <option>2012-05-18</option>
-	      <option>2012-05-11</option>
-	      <option>2012-05-04</option>
-	      <option>2012-04-27</option>
-	      <option>2012-04-20</option>
-	      <option>2012-04-13</option>
-	      <option>2012-04-06</option>
-	      <option>2012-03-30</option>
-	      <option>2012-03-23</option>
-	      <option>2012-03-16</option>
-	      <option>2012-03-09</option>
-	      <option>2012-03-02</option>
-
-	    </select>
-
-	    Info Window:<select onchange="updateMap()" id='infowindow'>
-	      <!--   onChange="updateMap3()"> -->
-	      <option >Detailed</option>
-	      <option >Summary</option>
-	    </select>
-
-
-	    <!-- 		 <input type='button' onclick='checkMinMaxBidValues()' value='Update Map' /> 		 
-
-	    <input type="hidden" id='_recordstodisplay' />  
-	    <input type="hidden" id='_recordsoffset' />  
-
-	    <input type='button' onclick='updateMap()' value='Update Map' /> 
-	  </form>
--->
-
-<!-- I had to place these outside the form otherwise whenever I hit the <- or -> button the whole page reloads and any changes to 'selected' fields are then reset to the 'selected' fields. -->
-Number of Records To Display:<select onchange="updateMap()" id="recordstodisplay">
-<option>10</option>
-<option selected>25</option>
-<option>50</option>
-<option>75</option>
-<option>100</option>
-<option>150</option>
-<option>200</option>
-<option>250</option>
-<option>500</option>
-
-</select>
-
-Offset:<select onchange="updateMap()" id="recordsoffset" >
-<option selected>0</option>
-<option>25</option>
-<option>50</option>
-<option>75</option>
-<option>100</option>
-<option>125</option>
-<option>150</option>
-</select>
-
-<!-- this shoudl be autofilled with increments of 50 up to the # of records returned.-->
-
-<!-- I could add an image here. there are multiple options now: css,svg,canvas
-http://www.scriptol.com/html5/button.php
-http://croczilla.com/bits_and_pieces/svg/samples/-->
-<span id="dec">
-<button id="decrementOffset"> <- </button>
-</span>
-
-<span id="inc">
-<button id="incrementOffset"> -> </button>
-</span>
-<br><br>
-Current Records Displayed:<textarea id="currentrecord" rows="1" cols="10" ></textarea>
-<!--
-<p>
-Offset
-<textarea name="offset" id="txta_offset" rows="1" cols="15">12</textarea>
-Records To Display
-<textarea name="recordstodisplay" id="txta_recordstodisplay" rows="1" cols="15">22</textarea>
-</p>
--->
-
-
-
-	  <!-- -->
-	 	  <!--
-
-	      <form name=selInfoWindow>
-		Info Window:<select id='infowindow2' onChange="updateMap3()">
-		  <option >Detailed</option>
-		  <option >Summary</option>
-		</select>
-	      </form>
-
-	      <script language="javascript">
-		var cbobject=document.selInfoWindow.rb1;
-	      </script>
-	      -->
-	</td><td>
-
-<!--	  <img src="Legend.gif" ALIGN=BOTTOM>  -->
-
-	</td>
-      </tr>
-    </table>
-<div id="debug">
-</div>
-
-
-<h5>
-need to reest curr_record when we change sale_status etc etc. 
-</h5>
-
-    <div id="map" style="width: 100%; height: 85%"></div>
-    <a href="mailto:maps@djinnius.com"> Questions?, comments</a>
+      <div id="map" style="width: 100%; height: 85%"></div>
+      <a href="mailto:maps@djinnius.com"> Questions?, comments</a>
   </body>
 </html>
