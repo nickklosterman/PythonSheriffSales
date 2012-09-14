@@ -23,7 +23,7 @@
       <tr>
 	<td>
 
-	  <form name='myForm'>
+<!--	  <form name='myForm'> -->
 	    <select onchange="updateMap()" id='pricefiltercategory'>
 	      <option value="MinBid">Minimum Bid</option>
 	      <option value="Appraisal">Appraisal Amount</option>
@@ -77,13 +77,14 @@ http://www.skytopia.com/project/articles/compsci/form.html how to dynamically ex
 	    </select>
 
 
-	    <!-- 		 <input type='button' onclick='checkMinMaxBidValues()' value='Update Map' /> 		 -->
+	    <!-- 		 <input type='button' onclick='checkMinMaxBidValues()' value='Update Map' /> 		 
 
 	    <input type="hidden" id='_recordstodisplay' />  
 	    <input type="hidden" id='_recordsoffset' />  
 
 	    <input type='button' onclick='updateMap()' value='Update Map' /> 
 	  </form>
+-->
 
 <!-- I had to place these outside the form otherwise whenever I hit the <- or -> button the whole page reloads and any changes to 'selected' fields are then reset to the 'selected' fields. -->
 Number of Records To Display:<select onchange="updateMap()" id="recordstodisplay">
@@ -99,7 +100,7 @@ Number of Records To Display:<select onchange="updateMap()" id="recordstodisplay
 
 </select>
 
-Offset:<select onchange="updateMap()" id="recordsoffset">
+Offset:<select onchange="updateMap()" id="recordsoffset" >
 <option selected>0</option>
 <option>25</option>
 <option>50</option>
@@ -108,6 +109,7 @@ Offset:<select onchange="updateMap()" id="recordsoffset">
 <option>125</option>
 <option>150</option>
 </select>
+
 <!-- this shoudl be autofilled with increments of 50 up to the # of records returned.-->
 
 <!-- I could add an image here. there are multiple options now: css,svg,canvas
@@ -121,7 +123,7 @@ http://croczilla.com/bits_and_pieces/svg/samples/-->
 <button id="incrementOffset"> -> </button>
 </span>
 <br><br>
-Current Records Displayed:<textarea id="currentrecord" rows="1" cols="10"></textarea>
+Current Records Displayed:<textarea id="currentrecord" rows="1" cols="10" ></textarea>
 <!--
 <p>
 Offset
@@ -158,9 +160,9 @@ Records To Display
 </div>
 
 
-<h1>
+<h5>
 need to reest curr_record when we change sale_status etc etc. 
-</h1>
+</h5>
 
     <div id="map" style="width: 100%; height: 85%"></div>
     <a href="mailto:maps@djinnius.com"> Questions?, comments</a>

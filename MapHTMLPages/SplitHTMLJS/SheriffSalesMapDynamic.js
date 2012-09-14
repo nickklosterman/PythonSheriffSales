@@ -74,11 +74,11 @@ function updateMap2()
 function updateMap3()
 {
     //if (selInfoWindow.infowindow2.value="Detailed")
-    if (myForm.infowindow.value=="Detailed")
+    if ($("#infowindow").value=="Detailed")
     {
 	alert("Detailed");
     } 
-    else if (myForm.infowindow.value=="Summary")
+    else if ($("#infowindow").value=="Summary")
     {
 	alert("Summary");
     }
@@ -88,18 +88,18 @@ function checkMinMaxBidValues()
 {
     var Maxbid0, Maxbid, Minbid0, Minbid;
 
+    Maxbid0 = document.getElementById('maxbid').value;
+    Minbid0 = document.getElementById('minbid').value;
 
-    Maxbid0=myForm.maxbid.value;
     Maxbid=Maxbid0.replace(/,/g,"");
-    Minbid0=myForm.minbid.value;
     Minbid=Minbid0.replace(/,/g,"");
 
     if (parseInt(Minbid) > parseInt(Maxbid)) //phail ! spaces in () statement
 	if (parseInt(Minbid)>parseInt(Maxbid)) //Good. no spaces
     {
-	myForm.maxbid.value=Minbid;
+	$("#maxbid").value=Minbid;
 	//myForm.minbid.text.value=Maxbid; //doesn't work!!
-	myForm.minbid.value=Maxbid;
+	$("#minbid").value=Maxbid;
     }
 
     /*
@@ -151,12 +151,12 @@ function load() {
 			    parseFloat(markers[i].getAttribute("Longitude")));
 
 			info = "";
-			if (myForm.infowindow.value=="Detailed") //aggh the prob I was seeing is I had = not == so it would set the variable as well as evaluate the statement.
+			if ($("#infowindow").value =="Detailed") //aggh the prob I was seeing is I had = not == so it would set the variable as well as evaluate the statement.
 			{
 
 			    info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
 			}
-			else if (myForm.infowindow.value=="Summary")
+			else if ( $("#infowindow").value=="Summary")
 			{
 
 			    info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
@@ -179,22 +179,27 @@ function load() {
 
 function updateMap() {
     var maxbid, minbid, salestatus, saledate, queryString, xml, markers, i, SaleDate, CaseNumber, Address, ZipCode, Plaintiff, Defendant, Attorney, SoldTo, PID, Appraisal, MinBid, SaleAmt, SaleStatus, point, info, icon, marker;
+var pricefiltercategory,recordsoffset,recordstodisplay
+
     maxbid = document.getElementById('maxbid').value;
     minbid = document.getElementById('minbid').value;
     salestatus = document.getElementById('salestatus').value;
     saledate = document.getElementById('saledate').value;
+    pricefiltercategory = document.getElementById('pricefiltercategory').value;
+  
+//    recordsoffset = 0; //document.getElementById('recordsoffset').value;
+    recordstodisplay = document.getElementById('recordstodisplay').value;
+    alert(recordstodisplay);
 
     //attempt to get the query recordstodisplay and recordsoffset values 
     writeValuesToFormVariables();
 
     getRecordsValues();
     writeout();
-
-
     checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
     
     //    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + myForm.pricefiltercategory.value + "&table=Property"; //must have spaces in btw + "" otherwise you break it!
-    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + myForm.pricefiltercategory.value + "&table=Property&recordsoffset=" + document.myForm._recordsoffset.value + "&recordstodisplay=" + document.myForm._recordstodisplay.value; //must have spaces in btw + "" otherwise you break it!
+    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&table=Property&recordsoffset=" + recordsoffset+ "&recordstodisplay=" + recordstodisplay; //must have spaces in btw + "" otherwise you break it!
 
 getRecordCountOfQuery(queryString);
 
@@ -225,11 +230,11 @@ getRecordCountOfQuery(queryString);
 			     parseFloat(markers[i].getAttribute("Longitude"))
 			 );
 
-			 if (myForm.infowindow.value=="Detailed")
+			 if ($("#infowindow").value=="Detailed")
 			 {
 			     info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
 			 }
-			 else if (myForm.infowindow.value=="Summary")
+			 else if ($("#infowindow").value=="Summary")
 			 {
 
 			     //          var infoDetailed = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
@@ -269,11 +274,12 @@ function getRecordCountOfQuery(oldQueryString) {
     downloadUrl( queryString,function(data)
     {
 	xml = data.responseXML; ///why are you coming back as null????
-alert(xml);
+	//alert(xml);
 	//set global variable
 	record = xml.documentElement.getElementsByTagName("data");
-//alert(record);
+	//alert(record);
 	recordCount = record[0].getAttribute("recordCount");
+	//alert(recordCount);
 	//	return recordCount;
 	
     });
