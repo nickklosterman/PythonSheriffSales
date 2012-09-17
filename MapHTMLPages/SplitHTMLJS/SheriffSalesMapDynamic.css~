@@ -1,0 +1,14 @@
+div.select-column{
+display: inline-block;
+}
+
+div.select-row{
+display: block;
+align: right;
+label {
+display: inline-block;
+vertical-align: middle;
+text-align: right;
+width: 100px;
+}
+}

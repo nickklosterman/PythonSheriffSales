@@ -5,6 +5,7 @@ var markersArr = [];
 var map;
 var infoWindow;
 var recordCount = 0;
+var firstRun = true;
 
 var customIcons = {
     ACTIVE: {
@@ -29,13 +30,23 @@ var customIcons = {
 
 
 function clearLocations() {
-    var i; 
-    infoWindow.close();
-    for (i = 0; i < markersArr.length; i++) {
-	markersArr[i].setMap(null);
+    console.log("firstRun b:",firstRun);
+    if (firstRun === false)
+    {
+	var i; 
+	infoWindow.close();
+	for (i = 0; i < markersArr.length; i++) {
+	    markersArr[i].setMap(null);
+	}
+	markersArr.length = 0;
     }
-    markersArr.length = 0;
+    else 
+    {
+	firstRun = false;
+    }
+    console.log("firstRun e:",firstRun);
 }
+
 
 
 function bindInfoWindow(marker, map, infoWindow, html) {
@@ -53,7 +64,7 @@ function downloadUrl(url, callback) {
 
     request.onreadystatechange = function() {
         if (request.readyState == 4) {
-//            request.onreadystatechange = doNothing;
+	    //            request.onreadystatechange = doNothing;
             callback(request, request.status);
         }
     };
@@ -94,8 +105,9 @@ function load() {
 			      });
     infoWindow = new google.maps.InfoWindow;
 
-    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=1000000000&minbid=-1&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=Property&recordsoffset=0&recordstodisplay=50"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
-
+    //    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=Property&recordsoffset=0&recordstodisplay=50"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
+    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=Property&recordsoffset=0&recordstodisplay=50"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
+    console.log("this query isn't pulling the variables from the inputs, its just hardcoded. this is one reason I wanna use updateMap() solely");
     console.log("load:",queryString);
     getRecordCountOfQuery(queryString);
     downloadUrl(queryString, function(data) {
@@ -122,16 +134,20 @@ function load() {
 			    parseFloat(markers[i].getAttribute("Longitude")));
 
 			info = "";
-			if ($("#infowindow").value =="Detailed") //aggh the prob I was seeing is I had = not == so it would set the variable as well as evaluate the statement.
+			//if ($("#infowindow").value=="Detailed") //for some reason this method to access the value no longer works. Ahh cuz prev it was in a form and now its a input field.
+			if(document.getElementById("infowindow").value=="Detailed")
 			{
-
 			    info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
 			}
-			else if ( $("#infowindow").value=="Summary")
+			else if (document.getElementById("infowindow").value=="Summary")
 			{
-
 			    info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
 			} 
+			else
+			{
+			    console.log(document.getElementById("infowindow").value)
+			}
+
 			icon = customIcons[SaleStatus] || {};
 
 			marker = new google.maps.Marker({
@@ -145,24 +161,23 @@ function load() {
 
 		    }
 		});
+    console.log("I would really like to figure out how to use clearLocations() without it barfing when markersArr isn't populated. That way I can get rid of load() and just use updateMap().");
 }
 
 
 function updateMap() {
     console.log("updateMap()");
     var maxbid, minbid, salestatus, saledate, queryString, xml, markers, i, SaleDate, CaseNumber, Address, ZipCode, Plaintiff, Defendant, Attorney, SoldTo, PID, Appraisal, MinBid, SaleAmt, SaleStatus, point, info, icon, marker;
-var pricefiltercategory,recordsoffset,recordstodisplay
+    var pricefiltercategory,recordsoffset,recordstodisplay
 
     maxbid = document.getElementById('maxbid').value;
     minbid = document.getElementById('minbid').value;
     salestatus = document.getElementById('salestatus').value;
     saledate = document.getElementById('saledate').value;
     pricefiltercategory = document.getElementById('pricefiltercategory').value;
-  
-//    recordsoffset = 0; //document.getElementById('recordsoffset').value;
+    
     recordstodisplay = document.getElementById('recordstodisplay').value;
     console.log("recordstodisplay:",recordstodisplay);
-    console.log("recordsoffset:",recordsoffset)
 
 
     getRecordsValues();
@@ -180,7 +195,8 @@ var pricefiltercategory,recordsoffset,recordstodisplay
     downloadUrl( queryString, function(data) {
 		     xml = data.responseXML;
 		     markers = xml.documentElement.getElementsByTagName("marker");
-		     clearLocations();
+		     clearLocations(); // if I could figure out how to 
+		     //		     markersArr= new Array();
 		     for ( i = 0; i < markers.length; i++) {
 			 SaleDate = markers[i].getAttribute("SaleDate");
 			 CaseNumber = markers[i].getAttribute("CaseNumber");
@@ -201,7 +217,6 @@ var pricefiltercategory,recordsoffset,recordstodisplay
 			     parseFloat(markers[i].getAttribute("Latitude")),
 			     parseFloat(markers[i].getAttribute("Longitude"))
 			 );
-
 			 //if ($("#infowindow").value=="Detailed") //for some reason this method to access the value no longer works. Ahh cuz prev it was in a form and now its a input field.
 			 if(document.getElementById("infowindow").value=="Detailed")
 			 {
@@ -215,6 +230,7 @@ var pricefiltercategory,recordsoffset,recordstodisplay
 			 {
 			     console.log(document.getElementById("infowindow").value)
 			 }
+
 			 icon = customIcons[SaleStatus] || {};
 			 marker = new google.maps.Marker({
 							     map: map,
@@ -232,10 +248,14 @@ var pricefiltercategory,recordsoffset,recordstodisplay
 function getRecordCountOfQuery(oldQueryString) {
     var xml, record ;
     var queryString = oldQueryString.replace(/phpdatabasequery/g, "phpgetrecordcount")
+    console.log("getRecordCountOfQuery:",queryString);
     downloadUrl( queryString,function(data)
-    {
-	xml = data.responseXML; 
-	record = xml.documentElement.getElementsByTagName("data");
-	recordCount = record[0].getAttribute("recordCount");
-    });
+		 {
+		     xml = data.responseXML; 
+		     record = xml.documentElement.getElementsByTagName("data");
+		     console.log("record",record);
+		     recordCount = record[0].getAttribute("recordCount");
+		 });
+    console.log("from what I can debug, it's a problem with the JS and not php as the php returns a valid xml item with a value. I do need to look into the diff btw what the mydql workbench is returning and the +1 value php is returning. I think it is because I'm using <= and >=. Yeah that appears to be it.")
+    console.log("recordCount:",recordCount);
 }
