@@ -29,17 +29,12 @@ var customIcons = {
 
 
 function clearLocations() {
-    console.log("firstRun b:", firstRun);
-    if (firstRun === false) {
         var i;
         infoWindow.close();
         for (i = 0; i < markersArr.length; i++) {
             markersArr[i].setMap(null);
         }
         markersArr.length = 0;
-    } else {
-        firstRun = false;
-    }
     console.log("firstRun e:", firstRun);
 }
 
@@ -183,9 +178,7 @@ function updateMap() {
     recordstodisplay = document.getElementById('recordstodisplay')
         .value;
     console.log("recordstodisplay:", recordstodisplay);
-
-
-    getRecordsValues();
+//    getRecordsValues(); //redundant
     writeout();
     //need to check here so that can switch the values around in the html
     checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
@@ -196,20 +189,10 @@ function updateMap() {
     getRecordCountOfQuery(queryString);
 
     console.log("updatemap:", queryString);
-
+    clearLocations();
     downloadUrl(queryString, function (data) {
         xml = data.responseXML;
         markers = xml.documentElement.getElementsByTagName("marker");
-        if (firstRun !== true) {
-
-
-            clearLocations(); // if I could figure out how to 
-
-            //		     markersArr= new Array();
-        } else {
-
-            console.log("firstRun :", firstRun);
-        }
         for (i = 0; i < markers.length; i++) {
             SaleDate = markers[i].getAttribute("SaleDate");
             CaseNumber = markers[i].getAttribute("CaseNumber");
@@ -252,7 +235,7 @@ function updateMap() {
             markersArr.push(marker);
         }
     });
-    firstRun = false;
+
 }
 
 

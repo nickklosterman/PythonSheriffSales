@@ -1,11 +1,11 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+6~<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Montgomery County Sheriff Sales</title>
-<!--    
+<!--
 
 -->
-<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> 
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
 
@@ -67,7 +67,7 @@ else if (myForm.infowindow.value=="Summary")
 //          var infoDetailed = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
   //        var infoSummary = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
          info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-} 
+}
           var icon = customIcons[SaleStatus] || {};
           var marker = new google.maps.Marker({
             map: map,
@@ -84,7 +84,7 @@ if (myForm.infowindow.value="Summary") //Detailed")"
 {
 alert("Detailed");
 }
-else alert("Summary");     
+else alert("Summary");
 */
 }
 
@@ -165,7 +165,7 @@ else if (myForm.infowindow.value=="Summary")
 {
 
           info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
-} 
+}
          var icon = customIcons[SaleStatus] || {};
 
           var marker = new google.maps.Marker({
@@ -179,12 +179,12 @@ markersArr.push(marker);
 
         }
       });
-/* 
+/*
 if (myForm.infowindow.value="Summary") //Detailed")//"
 {
 alert("Detaileded");
 }
-else alert("Summarily"); 
+else alert("Summarily");
 */
     }
 
@@ -218,11 +218,11 @@ else alert("Summarily");
   </head>
 <!-- use this load() function to init,  updateMap to update -->
 <!-- auto populate select from database, I htink I have this done in a backcountry script -->
-<!-- option for next sale, option for all future sales, option for all past sales, possible multi-select 
+<!-- option for next sale, option for all future sales, option for all past sales, possible multi-select
  <body onload="load()">
  <body onload="updateMap()">
 <body>
--->
+B-->
  <body onload="load()">
 
 <!-- use a table to better organize and layout these form inputs? -->
@@ -238,10 +238,10 @@ else alert("Summarily");
 <option value="SaleAmt">Sale Amount</option>
 </select>
 <!--
-Minimum Bid 
+Minimum Bid
 -->
 between $<input type='text' id='minbid' value='1,000' />  and
- $<input type='text' id='maxbid' value='2,000,000' />  
+ $<input type='text' id='maxbid' value='2,000,000' />
 
 <br>
 Sale Status:<select id='salestatus'>
@@ -250,6 +250,32 @@ Sale Status:<select id='salestatus'>
 <option>Sold</option>
 <option>Cancelled</option>
 <option>No Bid, No Sale</option>
+
+<?php
+//specifies username,password,database, and table
+require("dbinfo_user.php");
+
+// Opens a connection to a MySQL server
+   $connection=mysql_connect (localhost, $username, $password);
+   if (!$connection) {
+   die('Not connected : ' . mysql_error());
+   }
+
+// Set the active MySQL database
+   $db_selected = mysql_select_db($database, $connection);
+//could I possibly have a diff dbinfo_user.php that specifies the table to use? YES!!
+   if (!$db_selected) {
+   die ('Can\'t use db : ' . mysql_error());
+		  }
+     $sql="select distinct(SaleStatus) from Property order by SaleStatus desc"; //
+     echo $sql;
+     $rs=mysql_query($sql);
+     while($row = mysql_fetch_array($rs))
+     {
+     echo "<option>".$row['SaleStatus']."</option>\n";
+     }
+?>
+
 </select>
 
 Sale Date:<select id='saledate'>
@@ -265,7 +291,7 @@ require("dbinfo_user.php");
    }
 
 // Set the active MySQL database
-   $db_selected = mysql_select_db($database, $connection); 
+   $db_selected = mysql_select_db($database, $connection);
 //could I possibly have a diff dbinfo_user.php that specifies the table to use? YES!!
    if (!$db_selected) {
    die ('Can\'t use db : ' . mysql_error());
@@ -288,11 +314,11 @@ Info Window:<select id='infowindow'>
 <option >Summary</option>
 </select>
 
-<!-- 
+<!--
 
 <input type='button' onclick='checkMinMaxBidValues()' value='Update Map' />
 -->
-<input type='button' onclick='updateMap()' value='Update Map' /> 
+<input type='button' onclick='updateMap()' value='Update Map' />
 </form>
 <!-- -->
 <script language=javascript>
@@ -308,7 +334,7 @@ function updateMap3()
 if (myForm.infowindow.value=="Detailed")
 {
 alert("Detailed");
-} 
+}
 else if (myForm.infowindow.value=="Summary")
 {
 alert("Summary");
@@ -351,7 +377,7 @@ var cbobject=document.selInfoWindow.rb1;
 -->
 </td><td>
 
-<img src="Legend.gif" ALIGN=BOTTOM> 
+<img src="Legend.gif" ALIGN=BOTTOM>
 
 </td>
 </tr>
