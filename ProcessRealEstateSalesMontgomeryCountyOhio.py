@@ -218,5 +218,5 @@ print(inputfilename,outputfilename,loginfile)
 CreateDatabase(loginfile)
 CSVProcessFile(inputfilename,outputfilename,loginfile)
 print("You now need to geocode the database!!!")
-
+print("print out status of the records being processed. get # of lines and show how many have gone through. X of Y processed.")
 #http://docs.python.org/library/getopt.html

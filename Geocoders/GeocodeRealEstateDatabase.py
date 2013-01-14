@@ -22,9 +22,13 @@ def GeocodeDatabase(user,password):
     sleep_time = 0.15
     con = mdb.connect('localhost', user, password, 'SheriffSales')
     with con:
+        databasename='RealEstateSalesMontgomeryCountyOhio2013'
         cur = con.cursor(mdb.cursors.DictCursor)
         curUpdate = con.cursor(mdb.cursors.DictCursor)
-        resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM RealEstateSales WHERE Latitude is NULL"))
+#        resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM RealEstateSales WHERE Latitude is NULL"))
+#        print("SELECT id,PARCELLOCATION FROM %s WHERE Latitude is NULL",(databasename))
+#        resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM %s WHERE Latitude is NULL",(databasename)))
+        resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM RealEstateSalesMontgomeryCountyOhio2013 WHERE Latitude is NULL"))
         print("Need to geocode "+str(resultcount)+" addresses.")
         rows = cur.fetchall()
         counter=0
@@ -41,7 +45,8 @@ def GeocodeDatabase(user,password):
                 if len(geocode_data)>1:
                     lat=geocode_data['lat']
                     lon=geocode_data['lng']
-                    curUpdate.execute("UPDATE RealEstateSales SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
+#                    curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s", (databasename,lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
+                    curUpdate.execute("UPDATE RealEstateSalesMontgomeryCountyOhio2013 SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
                 else:
                     print("Geocoding of '"+row["PARCELLOCATION"]+"' failed with error code "+geocode_data['code'])
                     outf_failed.write(row["PARCELLOCATION"]+'\n')
@@ -94,7 +99,7 @@ inputfilename="/home/nicolae/.mysqllogin"
 if len(sys.argv)>1 and  sys.argv[1]!="":
     inputfilename=sys.argv[1]
 else:
-    print("No login file: GeocodeRealEstateDatabase.py loginfile")
+    print("No login file specified: GeocodeRealEstateDatabase.py loginfile")
     print("using default file of %s" % (inputfilename))
 
 user,password=getUsernamePassword(inputfilename)

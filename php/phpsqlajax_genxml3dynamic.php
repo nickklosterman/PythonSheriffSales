@@ -81,26 +81,30 @@ header("Content-type: text/xml");
 // Start XML file, echo parent node
 echo '<markers>';
 
+//output recordcount header
+$num_rows=mysql_num_rows($result); //will this break the following use of $result
+echo '<marker recordCount="'. parseToXML($num_rows) . '" />' . PHP_EOL;
+
 // Iterate through the rows, printing XML nodes for each
 while ($row = @mysql_fetch_assoc($result)){
   // ADD TO XML DOCUMENT NODE
-  echo '<marker ';
-  echo 'SaleDate="' . parseToXML($row['SaleDate']) . '" ';
-  echo 'CaseNumber="' . parseToXML($row['CaseNumber']) . '" ';
-  echo 'Address="' . parseToXML($row['Address']) . '" ';
-  echo 'ZipCode="' . $row['ZipCode'] . '" ';
-  echo 'Plaintiff="' . parseToXML($row['Plaintiff']) . '" ';
-  echo 'Defendant="' . parseToXML($row['Defendant']) . '" ';
-  echo 'Attorney="' . parseToXML($row['Attorney']) . '" ';
-  echo 'SoldTo="' . parseToXML($row['SoldTo']) . '" ';
-  echo 'PID="' . parseToXML($row['PID']) . '" ';
-  echo 'Appraisal="' . money_format('%(#10n',$row['Appraisal']) . '" ';  
-  echo 'MinBid="' . money_format('%(#10n',$row['MinBid']) . '" ';
-  echo 'SaleAmt="' . money_format('%(#10n',$row['SaleAmt']) . '" ';
-  echo 'SaleStatus="' . parseToXML($row['SaleStatus']) . '" ';
-  echo 'Latitude="' . $row['Latitude'] . '" ';
-  echo 'Longitude="' . $row['Longitude'] . '" ';
-  echo '/>';
+  echo '<marker ' . PHP_EOL;
+  echo 'SaleDate="' . parseToXML($row['SaleDate']) . '" ' . PHP_EOL;
+  echo 'CaseNumber="' . parseToXML($row['CaseNumber']) . '" ' . PHP_EOL;
+  echo 'Address="' . parseToXML($row['Address']) . '" ' . PHP_EOL;
+  echo 'ZipCode="' . $row['ZipCode'] . '" ' . PHP_EOL;
+  echo 'Plaintiff="' . parseToXML($row['Plaintiff']) . '" ' . PHP_EOL;
+  echo 'Defendant="' . parseToXML($row['Defendant']) . '" ' . PHP_EOL;
+  echo 'Attorney="' . parseToXML($row['Attorney']) . '" ' . PHP_EOL;
+  echo 'SoldTo="' . parseToXML($row['SoldTo']) . '" ' . PHP_EOL;
+  echo 'PID="' . parseToXML($row['PID']) . '" ' . PHP_EOL;
+  echo 'Appraisal="' . money_format('%(#10n',$row['Appraisal']) . '" ' . PHP_EOL;  
+  echo 'MinBid="' . money_format('%(#10n',$row['MinBid']) . '" ' . PHP_EOL;
+  echo 'SaleAmt="' . money_format('%(#10n',$row['SaleAmt']) . '" ' . PHP_EOL;
+  echo 'SaleStatus="' . parseToXML($row['SaleStatus']) . '" ' . PHP_EOL;
+  echo 'Latitude="' . $row['Latitude'] . '" ' . PHP_EOL;
+  echo 'Longitude="' . $row['Longitude'] . '" ' . PHP_EOL;
+  echo '/>' . PHP_EOL;
 }
 
 // End XML file

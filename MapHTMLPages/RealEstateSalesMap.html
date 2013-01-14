@@ -2,10 +2,10 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title>Montgomery County Real Estate Sales</title>
-<!--    
+<!--
 
 -->
-<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> 
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
 
@@ -153,10 +153,46 @@ markersArr.push(marker);
       });
 
 }
+function zeropad(number)
+{
+    if (number.length==1)
+    {
+        number="0"+number;
+    }
+    return number;
+
+}
+
+function colormapper(price)
+{
+div=1; //increase this value to make colors be more distinct over a shorter range. i.e. increaseing the value maps the colors to a narrower value range.
+offset=5*div; //offset is the dollar offset in $1000s of dollars i.e. 41 ->$41,000 is bottom of color bar and 509+41->$550,000 is top (if div=1)
+divisor=1000/div; //make the divisor smaller to make details pop out. 500 seems to work well.
+    half=255;
+    thousands=price/divisor-offset;
+if (thousands<0) {thousands=0}
+    if (thousands>half)
+    {
+        if (thousands>509)
+        {
+            color="ff0000"    ;
+        }
+        else{
+            thousands=255-(thousands-255);
+            color="ff00"+zeropad(thousands.toString(16));
+        }
+    }
+else
+    {
+        color=zeropad(thousands.toString(16))+"00ff";
+    }
+    return color;
+}
+
 
 /**/
 function IconCreator(text,bgcolor,textcolor)
-{ 
+{
 //var RE = new RegExp("\$","");
 //var modifiedtext = RE.exec(text);
 var modifiedtext = (text/1000)|0; //need to ermove anything after a period
@@ -164,6 +200,8 @@ textcolor = "000000";
 //textcolor = "ffffff";
 bgcolor = "56fffc";
 bgcolor = "00ff00";
+bgcolor = colormapper(text);
+//bgcolor = colormapper2(text);
 //var iconname = "http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=" + modifiedtext + "-=-" + text + "|" + bgcolor + "|" + textcolor + "&.png%3f";
 var iconname = 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=' + modifiedtext + '|' + bgcolor + '|' + textcolor + '&.png%3f';
 //alert(iconname);
@@ -211,7 +249,7 @@ return iconname;
       10: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
-      }, 
+      },
       11: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
@@ -293,12 +331,12 @@ markersArr.push(marker);
         }
       });
 /*
-doesn't this screw stuff up as I need == not =? 
+doesn't this screw stuff up as I need == not =?
 if (myForm.infowindow.value="Summary") //Detailed")//"
 {
 alert("Detaileded");
 }
-else alert("Summarily"); 
+else alert("Summarily");
 */
     }
 
@@ -332,7 +370,7 @@ else alert("Summarily");
   </head>
 <!-- use this load() function to init,  updateMap to update -->
 <!-- auto populate select from database, I htink I have this done in a backcountry script -->
-<!-- option for next sale, option for all future sales, option for all past sales, possible multi-select 
+<!-- option for next sale, option for all future sales, option for all past sales, possible multi-select
  <body onload="load()">
  <body onload="updateMap()">
  <body onload="Mapfunction(0)">
@@ -349,12 +387,12 @@ else alert("Summarily");
 
 <form name='myForm'>
 Sale Amount between $<input type='text' id='minbid' value='1,000' />  and
- $<input type='text' id='maxbid' value='2,000,000' />  
+ $<input type='text' id='maxbid' value='2,000,000' />
 
 <br>
 Sale Validity:<select id='salevalidity'>
 <option value="*" selected>All</option>
-<option value='1'>Valid Sale</option> 
+<option value='1'>Valid Sale</option>
 <option value='2'>Not Validated</option>
 <option value='3'>Related Individual or Corporations</option>
 <option value='4'>Liquidation or Foreclosure</option>
@@ -374,9 +412,9 @@ Sale Type:<select id='saletype'>
 </select>
 
 Sale Date between<input type='text' id='startdate' value='2012-01-01' />  and
-<input type='text' id='enddate' value='2012-04-23' />  
+<input type='text' id='enddate' value='2012-04-23' />
 
-<input type='button' onclick='Mapfunction(1)' value='Update Map' /> 
+<input type='button' onclick='Mapfunction(1)' value='Update Map' />
 
 </form>
 <!--<input type='button' onclick='updateMap()' value='Update Map' />  -->
@@ -402,7 +440,7 @@ myForm.minbid.value=Maxbid;
 
 </td><td>
 
-<img src="Legend.gif" ALIGN=BOTTOM> 
+<img src="Legend.gif" ALIGN=BOTTOM>
 
 </td>
 </tr>

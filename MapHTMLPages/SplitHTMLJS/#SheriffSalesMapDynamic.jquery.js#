@@ -1,0 +1,3 @@
+Usage: jsbeautify.py [options] [file || URL]
+
+jsbeautify.py: error: no such option: --stdin

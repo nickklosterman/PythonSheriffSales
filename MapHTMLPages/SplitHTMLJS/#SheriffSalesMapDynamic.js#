@@ -1,0 +1,285 @@
+//need space between , and the next variable declaration. 
+
+"use strict";
+var markersArr = [];
+var map;
+var infoWindow;
+var recordCount = 0;
+
+var customIcons = {
+    ACTIVE: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_green.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+    },
+    CANCELLED: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_black.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+    },
+    NOBIDNOSALE: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+    },
+    SOLD: {
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png',
+        shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
+    }
+};
+
+
+
+
+function clearLocations() {
+    var i; 
+    infoWindow.close();
+    for (i = 0; i < markersArr.length; i++) {
+	markersArr[i].setMap(null);
+    }
+    markersArr.length = 0;
+}
+
+
+function bindInfoWindow(marker, map, infoWindow, html) {
+    google.maps.event.addListener(marker, 'click', function() {
+				      infoWindow.setContent(html);
+				      infoWindow.open(map, marker);
+				  });
+}
+
+function downloadUrl(url, callback) {
+    var request;
+    request = window.ActiveXObject ?
+        new ActiveXObject('Microsoft.XMLHTTP') :
+        new XMLHttpRequest;
+
+    request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+        }
+    };
+
+    request.open('GET', url, true);
+    request.send(null);
+}
+
+function doNothing() {}
+
+
+function updateMap2()
+{
+    //alert("Select Option Changed");
+    //updateMap3();
+    checkMinMaxBidValues();
+}
+function updateMap3()
+{
+    //if (selInfoWindow.infowindow2.value="Detailed")
+    if ($("#infowindow").value=="Detailed")
+    {
+	alert("Detailed");
+    } 
+    else if ($("#infowindow").value=="Summary")
+    {
+	alert("Summary");
+    }
+}
+
+function checkMinMaxBidValues()
+{
+    var Maxbid0, Maxbid, Minbid0, Minbid;
+
+    Maxbid0 = document.getElementById('maxbid').value;
+    Minbid0 = document.getElementById('minbid').value;
+
+    Maxbid=Maxbid0.replace(/,/g,"");
+    Minbid=Minbid0.replace(/,/g,"");
+
+    if (parseInt(Minbid) > parseInt(Maxbid)) //phail ! spaces in () statement
+	if (parseInt(Minbid)>parseInt(Maxbid)) //Good. no spaces
+    {
+	$("#maxbid").value=Minbid;
+	$("#minbid").value=Maxbid;
+    }
+
+    /*
+     if (parseInt(Minbid)<parseInt(Maxbid)) //can't be any spaces in the () of the if statement or it won't work
+     {alert("copacetic");}
+     */
+}
+
+
+function load() {
+    var queryString, xml, markers, SaleDate, CaseNumber, Address, ZipCode, Plaintiff, Defendant, Attorney, SoldTo, PID, Appraisal, MinBid, SaleAmt, SaleStatus, point, info, icon, marker;
+    map = new google.maps.Map(document.getElementById("map"), {
+				  center: new google.maps.LatLng(39.7620028,-84.3542049),
+				  zoom: 10,
+				  mapTypeId: 'roadmap'
+			      });
+    infoWindow = new google.maps.InfoWindow;
+
+
+    getRecordsValues();
+    writeout();
+
+    //    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpsqlajax_genxml3dynamic.php?maxbid=1000000000&minbid=-1&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=Property"; //must have spaces in btw + "" otherwise you break it!
+    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=1000000000&minbid=-1&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=Property&recordsoffset=0&recordstodisplay=50"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
+
+    $("#debug").html(queryString);
+
+    downloadUrl(queryString, function(data) {
+		    xml = data.responseXML;
+		    markers = xml.documentElement.getElementsByTagName("marker");
+		    for (var i = 0; i < markers.length; i++) {
+			SaleDate = markers[i].getAttribute("SaleDate");
+			CaseNumber = markers[i].getAttribute("CaseNumber");
+			Address = markers[i].getAttribute("Address");
+			ZipCode = markers[i].getAttribute("ZipCode");
+			Plaintiff = markers[i].getAttribute("Plaintiff");
+			Defendant = markers[i].getAttribute("Defendant");
+			Attorney = markers[i].getAttribute("Attorney");
+			SoldTo = markers[i].getAttribute("SoldTo");
+			PID = markers[i].getAttribute("PID");
+			Appraisal = markers[i].getAttribute("Appraisal");
+			MinBid = markers[i].getAttribute("MinBid");
+			SaleAmt = markers[i].getAttribute("SaleAmt");
+			SaleStatus = markers[i].getAttribute("SaleStatus");
+
+
+			point = new google.maps.LatLng(
+			    parseFloat(markers[i].getAttribute("Latitude")),
+			    parseFloat(markers[i].getAttribute("Longitude")));
+
+			info = "";
+			if ($("#infowindow").value =="Detailed") //aggh the prob I was seeing is I had = not == so it would set the variable as well as evaluate the statement.
+			{
+
+			    info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+			}
+			else if ( $("#infowindow").value=="Summary")
+			{
+
+			    info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+			} 
+			icon = customIcons[SaleStatus] || {};
+
+			marker = new google.maps.Marker({
+							    map: map,
+							    position: point,
+							    icon: icon.icon,
+							    shadow: icon.shadow
+							});
+			bindInfoWindow(marker, map, infoWindow, info);
+			markersArr.push(marker);
+
+		    }
+		});
+}
+
+
+function updateMap() {
+    var maxbid, minbid, salestatus, saledate, queryString, xml, markers, i, SaleDate, CaseNumber, Address, ZipCode, Plaintiff, Defendant, Attorney, SoldTo, PID, Appraisal, MinBid, SaleAmt, SaleStatus, point, info, icon, marker;
+var pricefiltercategory,recordsoffset,recordstodisplay
+
+    maxbid = document.getElementById('maxbid').value;
+    minbid = document.getElementById('minbid').value;
+    salestatus = document.getElementById('salestatus').value;
+    saledate = document.getElementById('saledate').value;
+    pricefiltercategory = document.getElementById('pricefiltercategory').value;
+  
+//    recordsoffset = 0; //document.getElementById('recordsoffset').value;
+    recordstodisplay = document.getElementById('recordstodisplay').value;
+    alert(recordstodisplay);
+
+    //attempt to get the query recordstodisplay and recordsoffset values 
+    writeValuesToFormVariables();
+
+    getRecordsValues();
+    writeout();
+    checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
+    
+    //    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpsqlajax_genxml3dynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + myForm.pricefiltercategory.value + "&table=Property"; //must have spaces in btw + "" otherwise you break it!
+    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&table=Property&recordsoffset=" + recordsoffset+ "&recordstodisplay=" + recordstodisplay; //must have spaces in btw + "" otherwise you break it!
+
+getRecordCountOfQuery(queryString);
+
+    $("#debug").html(queryString);
+
+    downloadUrl( queryString, function(data) {
+		     xml = data.responseXML;
+		     markers = xml.documentElement.getElementsByTagName("marker");
+		     clearLocations();
+		     for ( i = 0; i < markers.length; i++) {
+			 SaleDate = markers[i].getAttribute("SaleDate");
+			 CaseNumber = markers[i].getAttribute("CaseNumber");
+			 Address = markers[i].getAttribute("Address");
+			 ZipCode = markers[i].getAttribute("ZipCode");
+			 Plaintiff = markers[i].getAttribute("Plaintiff");
+			 Defendant = markers[i].getAttribute("Defendant");
+			 Attorney = markers[i].getAttribute("Attorney");
+			 SoldTo = markers[i].getAttribute("SoldTo");
+			 PID = markers[i].getAttribute("PID");
+			 Appraisal = markers[i].getAttribute("Appraisal");
+			 MinBid = markers[i].getAttribute("MinBid");
+			 SaleAmt = markers[i].getAttribute("SaleAmt");
+			 SaleStatus = markers[i].getAttribute("SaleStatus");
+
+
+			 point = new google.maps.LatLng(
+			     parseFloat(markers[i].getAttribute("Latitude")),
+			     parseFloat(markers[i].getAttribute("Longitude"))
+			 );
+
+			 if ($("#infowindow").value=="Detailed")
+			 {
+			     info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+			 }
+			 else if ($("#infowindow").value=="Summary")
+			 {
+
+			     //          var infoDetailed = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+ "<br/>Case Number:"+ CaseNumber+ "<br/>Address:"+ Address+ "<br/>Zipcode:"+ ZipCode+ "<br/>Plaintiff:"+ Plaintiff+ "<br/>Defendant:"+ Defendant+ "<br/>Attorney:"+ Attorney+ "<br/>Sold to:"+ SoldTo+ "<br/>Parcel ID:"+ PID+ "<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+			     //        var infoSummary = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+			     info = "<b>Sale Date:" + SaleDate +"<br/>Address:"+ Address+"<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate+"<br/>Appraisal:"+ Appraisal+ "<br/>Minimum bid:"+ MinBid+ "<br/>Sale amount:"+ SaleAmt+ "<br/> Sale status:"+ SaleStatus;
+			 } 
+			 icon = customIcons[SaleStatus] || {};
+			 marker = new google.maps.Marker({
+							     map: map,
+							     position: point,
+							     icon: icon.icon,
+							     shadow: icon.shadow
+							 });
+			 bindInfoWindow(marker, map, infoWindow, info);
+			 markersArr.push(marker);
+		     }
+		 });
+}
+
+
+function updates(q)
+{
+    updateMap();
+    getRecordCountOfQuery(q);
+}
+
+function getRecordCountOfQuery(oldQueryString) {
+    var xml, record ;
+    //put queryString through regex to change phpdatabasequery.php to phpgetrecordcount.php
+    var queryString = oldQueryString.replace(/phpdatabasequery/g, "phpgetrecordcount")
+//    queryString = oldQueryString;
+//alert(queryString+" "+oldQueryString);
+//queryString = "http://djinnius.com/SheriffSales/Sandbox/phpgetrecordcount.php?maxbid=200,000&minbid=1,000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=Property&recordsoffset=2000&recordstodisplay=500"
+//queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=200,000&minbid=1,000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=Property&recordsoffset=2000&recordstodisplay=500"
+//oldQueryString works and returns a '[object Document]'  but queryString returns null despite valid results being returned when I use wget to send th query
+//FML it was a XML error. I had <item="stuff"> instead of <item data="stuff">
+    downloadUrl( queryString,function(data)
+    {
+	xml = data.responseXML; ///why are you coming back as null????
+	//alert(xml);
+	//set global variable
+	record = xml.documentElement.getElementsByTagName("data");
+	//alert(record);
+	recordCount = record[0].getAttribute("recordCount");
+	//alert(recordCount);
+	//	return recordCount;
+	
+    });
+}
