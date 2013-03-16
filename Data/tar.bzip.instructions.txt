@@ -1,0 +1,64 @@
+
+/// the important bits are at the end.
+The bzip2 Command
+
+
+
+
+
+
+ The bzip2 command is used for compressing and decompressing files. 
+
+Data compression, also referred to as just compression, is the process of encoding data using fewer bits. Data decompression, or just decompression, is the process of restoring compressed data back into a form in which it is again useful.
+ 
+bzip2 features a high rate of compression together with reasonably fast speed. Most files can be compressed to a smaller file size than is possible with the more traditional gzip and zip programs. Moreover, like those programs, the compression is lossless, meaning that no data is lost during compression and thus the original files can be exactly regenerated. The only disadvantage of bzip2 is that it is somewhat slower than gzip and zip.
+ 
+This performance has been made possible through the use of the Burrows-Wheeler transform (BWT). First published by Michael Burrows and David Wheeler in 1994, BWT is not by itself a data compression algorithm; rather, it converts blocks of data into a format that is extremely well suited for compression. In addition, it is reversible, which means that the original data can be easily regenerated.
+ 
+bzip2's syntax is 
+
+
+bzip2 [option(s)] file_name(s) 
+
+bzip2 is commonly used without any options. Any number of files can be compressed simultaneously by merely listing their names as arguments (i.e., inputs). Thus, for example, the following would compress the three files named file1, file2 and file3:
+ 
+
+bzip2 file1 file2 file3 
+
+If no problems are encountered, by default no confirmation is provided. However, if some problem is encountered, an error message is returned for each file for which there is a problem. Should confirmation and data on the degree of compression be desired, then bzip2 can be used with its -v (i.e., verbose) option, such as
+ 
+
+bzip2 -v file1 file2 file3 
+
+Each file is replaced by a compressed version of itself, with the extension .bz2 appended to its name. Thus, in the case of the above example, the three input files would be replaced by files named file1.bz2, file2.bz2 and file3.bz2. This can be easily confirmed with the ls (i.e., list) command, and the sizes of the new files can be viewed by using ls together with its -s (i.e., size) option. The original files can be retained by using the -k (i.e., keep) option.
+ 
+Each compressed file retains to the extent possible the same metadata (i.e., modification date, access permissions and ownership) as the corresponding original file, so that this data can be correctly restored at decompression time.
+ 
+Compression is performed even if the compressed file is larger than the original. This situation can occur in the case of very small files, because the compression mechanism has a fixed overhead of about 50 bytes.
+ 
+The -s (i.e., small) option reduces memory usage for compression, decompression and testing, which is useful for computers with very small memories (e.g., 8MB or less). Files are decompressed and tested using a modified algorithm that only requires 2.5 bytes per block, although this results in a reduction in speed by about half.
+ 
+The -t (i.e., test) option tells bzip2 to check the integrity of the specified file(s) by performing a trial decompression and discarding the result. There is no effect on the specified files.
+ 
+As a safety measure, by default bzip2 will not overwrite existing files with the same names (inclusive of extensions) as its output files or break hard links (i.e., alternative names for a single file). However, the -f option forces the overwriting of existing files and also instructs bzip2 to break hard links to files.
+ 
+The -d option tells bzip2 to decompress the specified files. It is the same as the bunzip2 command. Files that were not created by bzip2 will be detected and ignored, and a warning will be issued. An attempt is made to guess the original name for each file being decompressed; however, if the compressed version does not end in one of the recognized extensions (i.e., .bz2, .bz, .tbz2 or .tbz), then bzip2 will complain that it cannot guess the name of the original file and will use the name of the compressed version with the .out extension appended to it.
+ 
+It is often convenient to store a number of files in a compressed archive, which is a single file that contains any number of individual files plus information to allow them to be restored to their original form by one or more extraction programs. This can be accomplished by first combining the uncompressed files using the tar command together with its -c and -f options and then using bzip2 on the combined file. The -c option instructs tar to combine the files, and the -f option tells it to use the argument that follows as the name of the new file. For example, the following commands would combine three files named file4, file5 and file6 into a single archive named file7.tar and then compress that archive into a compressed file named file7.tar.bz2:
+ 
+
+tar -cf file7.tar file4 file5 file6 
+
+bzip2 file7.tar 
+
+Alternatively, this can all be accomplished in a single step by merely adding the -j option to tar, which tells tar to compress the archive that it creates with bzip2. Thus, the above example would be simplified to:
+ 
+
+tar -cjf file7.tar.bz2 file4 file5 file6 
+
+
+List the contents of a tar.bz2 file
+
+To list the contents of a tar.bz2 file use GNU tar command as follows:
+tar -jtvf {file-name.tar.bz2}
+tar -jtvf file-name.tar.bz2 | less
