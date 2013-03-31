@@ -1,5 +1,5 @@
 #this program geocodes a database
-
+import geocodeV2
 
 
 def getUsernamePassword(file):
@@ -41,7 +41,7 @@ def GeocodeDatabase(user,password):
 
             if 1==1:
                 addr=row["PARCELLOCATION"]+"DAYTON OHIO"
-                geocode_data=geocodeV2(addr)
+                geocode_data=geocodeV2(addr)  #I wrote a geocodeV2 module that is in the SheriffSaleProcessors directory that could be used here
                 #if len(geocode_data)>1:
                 if geocode_data['status']=="OK":
                     lat=geocode_data['lat']

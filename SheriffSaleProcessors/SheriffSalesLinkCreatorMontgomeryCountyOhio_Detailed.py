@@ -1,6 +1,6 @@
 #this program takes as input a saved search from the Montgomery County Sheriff sales site
 #the input should be the detailed view listing of properties
-
+import geocodeV2
 import re
 def striphtml(data):
     p = re.compile(r'<.*?>')
@@ -151,13 +151,16 @@ def GeocodeDatabase():
             counter+=1
             print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses.")
             if 1==1:
-                geocode_data=geocode(row["Address"])
-                if len(geocode_data)>1:
+#                geocode_data=geocode(row["Address"])
+                geocode_data=geocodeV2.geocodeV2(row["Address"]) #http://stackoverflow.com/questions/5514573/python-error-typeerror-module-object-is-not-callable-for-headfirst-python-co  for modulename.functionname. The module creates a namespace 
+#                if len(geocode_data)>1:
+                if geocode_data['status']=='OK':
                     lat=geocode_data['lat']
                     lon=geocode_data['lng']
                     curUpdate.execute("UPDATE Property SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
                 else:
-                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['code'])
+#                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['code'])
+                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['status'])
                     outf_failed.write(row["Address"]+'\n')
                     outf_failed.flush()
                 time.sleep(sleep_time)  
@@ -310,36 +313,36 @@ def convertDateFormat(date):
 
 
 
-root_url = "http://maps.google.com/maps/geo?"
-return_codes = {'200':'SUCCESS',
-                '400':'BAD REQUEST',
-                '500':'SERVER ERROR',
-                '601':'MISSING QUERY',
-                '602':'UNKOWN ADDRESS',
-                '603':'UNAVAILABLE ADDRESS',
-                '604':'UNKOWN DIRECTIONS',
-                '610':'BAD KEY',
-                '620':'TOO MANY QUERIES'
-    }
+# root_url = "http://maps.google.com/maps/geo?"
+# return_codes = {'200':'SUCCESS',
+#                 '400':'BAD REQUEST',
+#                 '500':'SERVER ERROR',
+#                 '601':'MISSING QUERY',
+#                 '602':'UNKOWN ADDRESS',
+#                 '603':'UNAVAILABLE ADDRESS',
+#                 '604':'UNKOWN DIRECTIONS',
+#                 '610':'BAD KEY',
+#                 '620':'TOO MANY QUERIES'
+#     }
 
-def geocode(addr,out_fmt='csv'):
-    #encode our dictionary of url parameters
-    values = {'q' : addr, 'output':out_fmt}
-    data = urllib.urlencode(values)
-    #set up our request
-    url = root_url+data
-    req = urllib2.Request(url)
-    #make request and read response
-    response = urllib2.urlopen(req)
-    geodat = response.read().split(',')
-    response.close()
-    #handle the data returned from google
-    code = return_codes[geodat[0]]
-    if code == 'SUCCESS':
-        code,precision,lat,lng = geodat
-        return {'code':code,'precision':precision,'lat':lat,'lng':lng}
-    else:
-        return {'code':code}
+# def geocode(addr,out_fmt='csv'):
+#     #encode our dictionary of url parameters
+#     values = {'q' : addr, 'output':out_fmt}
+#     data = urllib.urlencode(values)
+#     #set up our request
+#     url = root_url+data
+#     req = urllib2.Request(url)
+#     #make request and read response
+#     response = urllib2.urlopen(req)
+#     geodat = response.read().split(',')
+#     response.close()
+#     #handle the data returned from google
+#     code = return_codes[geodat[0]]
+#     if code == 'SUCCESS':
+#         code,precision,lat,lng = geodat
+#         return {'code':code,'precision':precision,'lat':lat,'lng':lng}
+#     else:
+#         return {'code':code}
 
 
 
