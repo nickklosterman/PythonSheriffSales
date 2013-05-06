@@ -73,7 +73,7 @@ def UpdateRecordInDatabase(row,loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        print("UPDATE RealEstateSalesMontgomeryCountyOhio2013 SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
+        print("U") #PDATE RealEstateSalesMontgomeryCountyOhio2013 SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
         cur.execute("UPDATE RealEstateSalesMontgomeryCountyOhio2013 SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s", (SoldTo,SaleAmt,SaleStatus,key)) 
     con.commit()
     cur.close()
@@ -123,7 +123,7 @@ def QueryDatabaseIfRecordExists(row,loginfile):
         if resultcount==1:
             row=cur.fetchone()
             key=int(row['id'])
-            print("+++++++++++++++++++++++++match SALEDT=%s and PARID=%s and PARCELLOCATION=%s " % (date, parid,parcellocation)) 
+            #print("+++++++++++++++++++++++++match SALEDT=%s and PARID=%s and PARCELLOCATION=%s " % (date, parid,parcellocation)) 
         elif resultcount>1:
             print("multiple results:%i",resultcount)
             key=-2
@@ -166,15 +166,15 @@ def CSVProcessFile(inputfilename,outputfilename,loginfile):
             if 1==1:
                 key=QueryDatabaseIfRecordExists(row,loginfile)
                 if key==-1: # no results found, enter into database
-                    print("-"),
+                    print("C"),
                         #InsertUpdateIfExistsIntoDB(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus)
                     InsertIntoDB(row,loginfile) 
                 elif key==-2:
                     print("uhoh multiple results returned")
                 elif key==-3:
-                    print(","), #record is unchanged, don't do anything
+                    print("-"), #record is unchanged, don't do anything
                 else:
-                    print("+"), #record present, for real estate sales nothing changes so we don't need to update
+                    print("U"), #record present, for real estate sales nothing changes so we don't need to update
 
 #["SALEDTE"] ["PARID"] ["PRICE"] ["ACRES"] ["SALETYPE"] ["SALEVALIDITY"]
     finally: 

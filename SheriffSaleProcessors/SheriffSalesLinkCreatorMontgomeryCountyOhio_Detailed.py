@@ -27,7 +27,7 @@ def UpdateRecordInDatabase(SaleDate,CaseNumber,Address, Plaintiff,Defendant,Atto
     con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        print("UPDATE Property SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
+        #print("UPDATE Property SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
         cur.execute("UPDATE Property SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s", (SoldTo,SaleAmt,SaleStatus,key)) 
     con.commit()
     cur.close()
@@ -90,9 +90,10 @@ def QueryDatabaseIfRecordExists(date,CaseNumber,Address, Plaintiff,Defendant,Att
             print("multiple results:%i",resultcount)
             key=-2
             #rows=cur.fetchall()
-        else:
-            print("no results found"),
-            print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID))  
+#I commented out the following as I think printing this stuff out was killing the processor and at this point i think I have the process down such that i don't need the debug info
+        #else:
+            #print("no results found"),
+            #print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID))  
 #            print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s and SaleStatus!=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID,SaleStatus))  # look for match on all fields except those that would've been update after teh property was sold
     cur.close()
     con.close()  
@@ -272,16 +273,17 @@ def ProcessFile(inputfilename,outputfilename):
 
                 if 1==1:
                     key=QueryDatabaseIfRecordExists(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus)
+#I changed the following symbols to characters such that they are aligned with CRUD
                     if key==-1: # no results found, enter into database
-                        print("-"),
+                        print("C"),
                         #InsertUpdateIfExistsIntoDB(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus)
                         InsertIntoDB(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus)
                     elif key==-2:
                         print("uhoh multiple results returned")
                     elif key==-3:
-                        print(","), #record is unchanged, don't do anything
+                        print("-"), #record is unchanged, don't do anything
                     else:
-                        print("+"), #record has changed and we are updating it using the key
+                        print("U"), #record has changed and we are updating it using the key
                         UpdateRecordInDatabase(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus,key)
 
                 else:
