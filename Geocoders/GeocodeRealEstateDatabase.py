@@ -1,5 +1,5 @@
 #this program geocodes a database
-
+import geocodeV2
 
 
 def getUsernamePassword(file):
@@ -41,14 +41,15 @@ def GeocodeDatabase(user,password):
 
             if 1==1:
                 addr=row["PARCELLOCATION"]+"DAYTON OHIO"
-                geocode_data=geocode(addr)
-                if len(geocode_data)>1:
+                geocode_data=geocodeV2(addr)  #I wrote a geocodeV2 module that is in the SheriffSaleProcessors directory that could be used here
+                #if len(geocode_data)>1:
+                if geocode_data['status']=="OK":
                     lat=geocode_data['lat']
                     lon=geocode_data['lng']
 #                    curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s", (databasename,lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
                     curUpdate.execute("UPDATE RealEstateSalesMontgomeryCountyOhio2013 SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
                 else:
-                    print("Geocoding of '"+row["PARCELLOCATION"]+"' failed with error code "+geocode_data['code'])
+                    print("Geocoding of '"+row["PARCELLOCATION"]+"' failed with error code "+geocode_data['status'])
                     outf_failed.write(row["PARCELLOCATION"]+'\n')
                     outf_failed.flush()
                 time.sleep(sleep_time)  
@@ -57,7 +58,9 @@ def GeocodeDatabase(user,password):
     cur.close()
     con.close()
 
-root_url = "http://maps.google.com/maps/geo?"
+#root_url = "http://maps.google.com/maps/geo?"
+root_url="http://maps.googleapis.com/maps/api/geocode/json?&address="
+sensor_suffix="&sensor=false"
 return_codes = {'200':'SUCCESS',
                 '400':'BAD REQUEST',
                 '500':'SERVER ERROR',
@@ -74,26 +77,42 @@ def geocode(addr,out_fmt='csv'):
     values = {'q' : addr, 'output':out_fmt}
     data = urllib.urlencode(values)
     #set up our request
-    url = root_url+data
+    url = root_url+data+sensor_suffix
     req = urllib2.Request(url)
     #make request and read response
     response = urllib2.urlopen(req)
-    geodat = response.read().split(',')
+    geodat = response.read().split(',') #it appears that prior to ~March 2013 that geocoded data had a diff data format.
     response.close()
     #handle the data returned from google
     code = return_codes[geodat[0]]
     if code == 'SUCCESS':
         code,precision,lat,lng = geodat
-        return {'code':code,'precision':precision,'lat':lat,'lng':lng}
+#        return {'code':code,'precision':precision,'lat':lat,'lng':lng}
+        return {'status':code,'precision':precision,'lat':lat,'lng':lng}
     else:
         return {'code':code}
 
+def geocodeV2(addr):
+    values = {'address':addr,'sensor':'false'}
+#py3    data = urllib.parse.urlencode(values)
+    data = urllib.urlencode(values)
+    root_url="http://maps.googleapis.com/maps/api/geocode/json?"
+#py3    result=urllib.request.urlopen(root_url+data)
+    result=urllib2.urlopen(urllib2.Request(root_url+data))
+
+    content=result.read()
+    decodedjson=json.loads(content.decode('utf-8'))
+    code=decodedjson['status']
+    
+    outputlist = [s['geometry']['location'] for s in decodedjson['results']]
+    first= outputlist[0]
+    return { 'status':code,'lat':first['lat'],'lng':first['lng'] }
 
 
 ########### MAIN ############
 import sys
-import MySQLdb as mdb
-import urllib,urllib2,time
+import MySQLdb as mdb #this module doesn't look like it'll ever be ported to py3, other modules available.
+import urllib,urllib2,time,json
 
 inputfilename="/home/nicolae/.mysqllogin"
 if len(sys.argv)>1 and  sys.argv[1]!="":

@@ -1,6 +1,6 @@
 #this program takes as input a saved search from the Montgomery County Sheriff sales site
 #the input should be the detailed view listing of properties
-
+import geocodeV2
 import re
 def striphtml(data):
     p = re.compile(r'<.*?>')
@@ -27,7 +27,7 @@ def UpdateRecordInDatabase(SaleDate,CaseNumber,Address, Plaintiff,Defendant,Atto
     con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        print("UPDATE Property SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
+        #print("UPDATE Property SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
         cur.execute("UPDATE Property SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s", (SoldTo,SaleAmt,SaleStatus,key)) 
     con.commit()
     cur.close()
@@ -90,9 +90,10 @@ def QueryDatabaseIfRecordExists(date,CaseNumber,Address, Plaintiff,Defendant,Att
             print("multiple results:%i",resultcount)
             key=-2
             #rows=cur.fetchall()
-        else:
-            print("no results found"),
-            print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID))  
+#I commented out the following as I think printing this stuff out was killing the processor and at this point i think I have the process down such that i don't need the debug info
+        #else:
+            #print("no results found"),
+            #print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID))  
 #            print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s and SaleStatus!=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID,SaleStatus))  # look for match on all fields except those that would've been update after teh property was sold
     cur.close()
     con.close()  
@@ -151,13 +152,16 @@ def GeocodeDatabase():
             counter+=1
             print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses.")
             if 1==1:
-                geocode_data=geocode(row["Address"])
-                if len(geocode_data)>1:
+#                geocode_data=geocode(row["Address"])
+                geocode_data=geocodeV2.geocodeV2(row["Address"]) #http://stackoverflow.com/questions/5514573/python-error-typeerror-module-object-is-not-callable-for-headfirst-python-co  for modulename.functionname. The module creates a namespace 
+#                if len(geocode_data)>1:
+                if geocode_data['status']=='OK':
                     lat=geocode_data['lat']
                     lon=geocode_data['lng']
                     curUpdate.execute("UPDATE Property SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
                 else:
-                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['code'])
+#                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['code'])
+                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['status'])
                     outf_failed.write(row["Address"]+'\n')
                     outf_failed.flush()
                 time.sleep(sleep_time)  
@@ -269,16 +273,17 @@ def ProcessFile(inputfilename,outputfilename):
 
                 if 1==1:
                     key=QueryDatabaseIfRecordExists(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus)
+#I changed the following symbols to characters such that they are aligned with CRUD
                     if key==-1: # no results found, enter into database
-                        print("-"),
+                        print("C"),
                         #InsertUpdateIfExistsIntoDB(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus)
                         InsertIntoDB(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus)
                     elif key==-2:
                         print("uhoh multiple results returned")
                     elif key==-3:
-                        print(","), #record is unchanged, don't do anything
+                        print("-"), #record is unchanged, don't do anything
                     else:
-                        print("+"), #record has changed and we are updating it using the key
+                        print("U"), #record has changed and we are updating it using the key
                         UpdateRecordInDatabase(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PID,zipcode,appraisal,minbid,saleamt,salestatus,key)
 
                 else:
@@ -310,36 +315,36 @@ def convertDateFormat(date):
 
 
 
-root_url = "http://maps.google.com/maps/geo?"
-return_codes = {'200':'SUCCESS',
-                '400':'BAD REQUEST',
-                '500':'SERVER ERROR',
-                '601':'MISSING QUERY',
-                '602':'UNKOWN ADDRESS',
-                '603':'UNAVAILABLE ADDRESS',
-                '604':'UNKOWN DIRECTIONS',
-                '610':'BAD KEY',
-                '620':'TOO MANY QUERIES'
-    }
+# root_url = "http://maps.google.com/maps/geo?"
+# return_codes = {'200':'SUCCESS',
+#                 '400':'BAD REQUEST',
+#                 '500':'SERVER ERROR',
+#                 '601':'MISSING QUERY',
+#                 '602':'UNKOWN ADDRESS',
+#                 '603':'UNAVAILABLE ADDRESS',
+#                 '604':'UNKOWN DIRECTIONS',
+#                 '610':'BAD KEY',
+#                 '620':'TOO MANY QUERIES'
+#     }
 
-def geocode(addr,out_fmt='csv'):
-    #encode our dictionary of url parameters
-    values = {'q' : addr, 'output':out_fmt}
-    data = urllib.urlencode(values)
-    #set up our request
-    url = root_url+data
-    req = urllib2.Request(url)
-    #make request and read response
-    response = urllib2.urlopen(req)
-    geodat = response.read().split(',')
-    response.close()
-    #handle the data returned from google
-    code = return_codes[geodat[0]]
-    if code == 'SUCCESS':
-        code,precision,lat,lng = geodat
-        return {'code':code,'precision':precision,'lat':lat,'lng':lng}
-    else:
-        return {'code':code}
+# def geocode(addr,out_fmt='csv'):
+#     #encode our dictionary of url parameters
+#     values = {'q' : addr, 'output':out_fmt}
+#     data = urllib.urlencode(values)
+#     #set up our request
+#     url = root_url+data
+#     req = urllib2.Request(url)
+#     #make request and read response
+#     response = urllib2.urlopen(req)
+#     geodat = response.read().split(',')
+#     response.close()
+#     #handle the data returned from google
+#     code = return_codes[geodat[0]]
+#     if code == 'SUCCESS':
+#         code,precision,lat,lng = geodat
+#         return {'code':code,'precision':precision,'lat':lat,'lng':lng}
+#     else:
+#         return {'code':code}
 
 
 
