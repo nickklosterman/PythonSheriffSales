@@ -26,56 +26,56 @@ $mm=$arr[1]; // second element is date
 $dd=$arr[2]; // third element is year
 if(!checkdate($mm,$dd,$yy))
 {
-  //echo "invalid date";
-  $output="2012-01-01";
+//echo "invalid date";
+$output="2012-01-01";
 }
 else {
-  //echo "Entry date is correct";
-  $output=$date;
+//echo "Entry date is correct";
+$output=$date;
 } 
 return $output;
 }
- 
+
 function translateSaleValidity($value)
 {
-  $salevalidity=array(1=>"Valid Sale", 
-		      2=>"Not Validated",
-		      3=>"Related Individuals Or Corporations",
-		      4=>"Liquidation/Foreclosure",
-		      5=>"Not Open Market",
-		      6=>"Partial Interest",
-		      7=>"Land Contract or Unusual Financing",
-		      8=>"Excess Personal PP or Not Arms Length",
-		      9=>"Ownder Dishonesty in Description",
-		      10=>"Sale Involving Multiple Parcels",
-		      11=>"Invalid Date On Sale",
-		      12=>"Outlier",
-		      13=>"Property Changed After Sale",
-		      14=>"Resale w/in 3 yrs",
-		      15=>"Sale incl unlisted new const",
-		      //		      11=>"",
-		      );
-  return $salevalidity[$value];
+$salevalidity=array(1=>"Valid Sale", 
+2=>"Not Validated",
+3=>"Related Individuals Or Corporations",
+4=>"Liquidation/Foreclosure",
+5=>"Not Open Market",
+6=>"Partial Interest",
+7=>"Land Contract or Unusual Financing",
+8=>"Excess Personal PP or Not Arms Length",
+9=>"Ownder Dishonesty in Description",
+10=>"Sale Involving Multiple Parcels",
+11=>"Invalid Date On Sale",
+12=>"Outlier",
+13=>"Property Changed After Sale",
+14=>"Resale w/in 3 yrs",
+15=>"Sale incl unlisted new const",
+//		      11=>"",
+);
+return $salevalidity[$value];
 }
 function translateSaleType($value)
 { //https://cp.server272.com/resources/sysinfo.php states that we have up to php 5.3, not 5.4 ARrays in 5.4 don't need the "array suffix and use [] instead of ()
-  $saletype=array(1=>"Land and Building",
-		  2=>"Land only",
-		  3=>"Building only",
-			 );
-  return $saletype[$value];
+$saletype=array(1=>"Land and Building",
+2=>"Land only",
+3=>"Building only",
+);
+return $saletype[$value];
 }
 
 // Opens a connection to a MySQL server
 $connection=mysql_connect (localhost, $username, $password);
 if (!$connection) {
-  die('Not connected : ' . mysql_error());
+die('Not connected : ' . mysql_error());
 }
 
 // Set the active MySQL database
 $db_selected = mysql_select_db($database, $connection);
 if (!$db_selected) {
-  die ('Can\'t use db : ' . mysql_error());
+die ('Can\'t use db : ' . mysql_error());
 }
 
 //Build Query from input
@@ -86,9 +86,9 @@ $saletype = $_GET["saletype"];
 $salevalidity = $_GET["salevalidity"];
 $startdate=$_GET["startdate"];
 $enddate=$_GET["enddate"];
-  //escape user input to help prevent injection attacks
-  $maxbid = mysql_real_escape_string($maxbid);
-  $minbid = mysql_real_escape_string($minbid);
+//escape user input to help prevent injection attacks
+$maxbid = mysql_real_escape_string($maxbid);
+$minbid = mysql_real_escape_string($minbid);
 $minbid=parseCurrency($minbid);
 $maxbid=parseCurrency($maxbid);
 
@@ -97,30 +97,30 @@ $enddate=validateDate($enddate);
 
 //check that minbid/maxbid are in low->high order and not vice versa
 if ($minbid > $maxbid)
-  {  $temp=$maxbid;
-    $maxbid=$minbid;
-    $minbid=$temp;
-  }
+{  $temp=$maxbid;
+$maxbid=$minbid;
+$minbid=$temp;
+}
 
 
-  $salestatus = mysql_real_escape_string($salestatus);
-  $saledate = mysql_real_escape_string($saledate);
+$salestatus = mysql_real_escape_string($salestatus);
+$saledate = mysql_real_escape_string($saledate);
 
 // quote only values, not column name
 $query = "SELECT * FROM $table WHERE PRICE < ";
 if (is_numeric($maxbid))
-  $query .="'$maxbid' and PRICE >= "; //>= to capture values that are 0.
+$query .="'$maxbid' and PRICE >= "; //>= to capture values that are 0.
 if (is_numeric($minbid))
-  $query .="'$minbid' ";
+$query .="'$minbid' ";
 if ($saletype!='*')
-  $query .=" and SALETYPE = '$saletype' ";
+$query .=" and SALETYPE = '$saletype' ";
 if ($salevalidity!='*')
-  $query .=" and SALEVALIDITY = '$salevalidity' ";
+$query .=" and SALEVALIDITY = '$salevalidity' ";
 $query .=" and SALEDT >= '$startdate' and SALEDT <= '$enddate'"; //>= and <= bc i think this is the expected behavior to include the chosen dates
 
 $result = mysql_query($query);
 if (!$result) {
-  die('Invalid query: ' . mysql_error());
+die('Invalid query: ' . mysql_error());
 }
 
 setlocale(LC_MONETARY, 'en_US');
@@ -132,20 +132,20 @@ echo '<markers>';
 
 // Iterate through the rows, printing XML nodes for each
 while ($row = @mysql_fetch_assoc($result)){
-  // ADD TO XML DOCUMENT NODE
-  echo '<marker ';
-  echo 'SALEDT="' . parseToXML($row['SALEDT']) . '" ';
-  echo 'PARCELLOCATION="' . parseToXML($row['PARCELLOCATION']) . '" ';
-  echo 'PARID="' . parseToXML($row['PARID']) . '" ';
-  echo 'PRICE="' . money_format('%(#10n',$row['PRICE']) . '" ';
-  echo 'SALETYPE="' . translateSaleType($row['SALETYPE']) . '" ';
-  echo 'SALEVALIDITY="' . translateSaleValidity($row['SALEVALIDITY']) . '" ';
-  echo 'SALETYPEnum="' . parseToXML($row['SALETYPE']) . '" ';
-  echo 'SALEVALIDITYnum="' . parseToXML($row['SALEVALIDITY']) . '" ';
-  echo 'PRICEnum="' . parseToXML($row['PRICE']) . '" ';
-  echo 'Latitude="' . $row['Latitude'] . '" ';
-  echo 'Longitude="' . $row['Longitude'] . '" ';
-  echo '/>';
+// ADD TO XML DOCUMENT NODE
+echo '<marker ';
+echo 'SALEDT="' . parseToXML($row['SALEDT']) . '" ';
+echo 'PARCELLOCATION="' . parseToXML($row['PARCELLOCATION']) . '" ';
+echo 'PARID="' . parseToXML($row['PARID']) . '" ';
+echo 'PRICE="' . money_format('%(#10n',$row['PRICE']) . '" ';
+echo 'SALETYPE="' . translateSaleType($row['SALETYPE']) . '" ';
+echo 'SALEVALIDITY="' . translateSaleValidity($row['SALEVALIDITY']) . '" ';
+echo 'SALETYPEnum="' . parseToXML($row['SALETYPE']) . '" ';
+echo 'SALEVALIDITYnum="' . parseToXML($row['SALEVALIDITY']) . '" ';
+echo 'PRICEnum="' . parseToXML($row['PRICE']) . '" ';
+echo 'Latitude="' . $row['Latitude'] . '" ';
+echo 'Longitude="' . $row['Longitude'] . '" ';
+echo '/>';
 }
 
 // End XML file

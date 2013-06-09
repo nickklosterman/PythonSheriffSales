@@ -21,6 +21,9 @@ see /home/nicolae/Documents/RealEstate/PropertiesToWatch.txt
 
 
 FORECLOSURES
+http://reo.wellsfargo.com
+http://foreclosures.bankofamerica.com
+http://realtytrac.com is kind of a dick tease as far as foreclosures go bc it is a pay site, but it does have a foreclosure heat map.
 
 Montgomery County 
 http://www.mcohio.org/sheriff/
