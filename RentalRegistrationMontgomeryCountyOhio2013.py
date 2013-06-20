@@ -12,13 +12,33 @@ def getUsernamePassword(file):
     password=linecache.getline(file,2) #password on 2nd line
     return username.strip(),password.strip()  #remove the CRLF   
 
-def GetConnection(uri,loginfile,database):
+def getMySQLDetails(file):
+    import linecache
+    username=linecache.getline(file,1) #username on 1st line
+    password=linecache.getline(file,2) #password on 2nd line
+    host=linecache.getline(file,3) 
+    port=linecache.getline(file,4) 
+    database=linecache.getline(file,5) 
+    table=linecache.getline(file,6) 
+
+    return username.strip(),password.strip(),host.strip(),int(port.strip()),database.strip(),table.strip()  #remove the CRLF   
+
+def GetConnectionOrig(uri,loginfile,database):
     username,password=getUsernamePassword(loginfile)    
     connection=GetMySQLConnection(uri,username,password,database)
     return connection
 
-def GetMySQLConnection(uri,user,password,database):
+def GetConnection(uri,loginfile,database_): #uri,database_ are discarded
+    username,password,host,port,database,table=getMySQLDetails(loginfile)    
+    connection=GetMySQLConnection(host,port,username,password,database)
+    return connection
+
+def GetMySQLConnectionOrig(uri,user,password,database):
     connection=mdb.connect(uri,user,password,database)
+    return connection
+
+def GetMySQLConnection(uri,dbport,username,password,database):
+    connection=mdb.connect(host=uri,port=dbport,user=username,passwd=password,db=database)
     return connection
 
 def InsertIntoDBOrig(row,cur):
@@ -29,12 +49,28 @@ def InsertIntoDB(row):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-#        cur.execute("INSERT INTO %s (TAX_DISTRICT, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( %s,%s,%s,%s)" % (_Table, row['TAX DISTRICT'], row['PARCEL'],row['LOCATION'],row['NUMBER UNITS'])) #even though their database types are int/float etc they are entered as strings here.... 
-        print("INSERT INTO %s ( PARCEL, LOCATION ) VALUES ( \"%s\",\"%s\")" % (_Table, row['PARCEL'],row['LOCATION']))
-        cur.execute("INSERT INTO %s ( PARCEL, LOCATION ) VALUES (\" %s \",\"%s\")" % (_Table, row['PARCEL'],row['LOCATION'])) #even though their database types are int/float etc they are entered as strings here.... 
-        con.commit()
-        cur.close()
-        con.close()  
+        #the tax district is encoded in the parcel as the first character set
+        print("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%i)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))) 
+        querystring=print("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( (%s),(%s),%i)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))) 
+#        print(querystring)
+#        cur.execute(querystring)
+        values = (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))
+        cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
+#        cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % values) # ----> I work!!!
+#        cur.execute("INSERT INTO RentalRegistrationMontgomeryCountyOhio2013 ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( 'bob','bill', 2)")
+
+        # cur.execute("SELECT * FROM RentalRegistrationMontgomeryCountyOhio2013")
+        # for r in cur.fetchall():
+        #     print(r)
+    
+ #       print("INSERT INTO %s ( PARCEL, LOCATION ) VALUES ( \"%s\",\"%s\")" % (_Table, row['PARCEL'],row['LOCATION']))
+#        cur.execute("INSERT INTO %s ( PARCEL, LOCATION ) VALUES (\" %s \",\"%s\")" % (_Table, row['PARCEL'],row['LOCATION'])) #even though their database types are int/float etc they are entered as strings here.... 
+        #con.commit()
+ #       cur.close()
+ #       con.close()  
+
+
+
 
 def CreateDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
@@ -105,8 +141,10 @@ import pymysql as mdb #  git clone https://github.com/petehunt/PyMySQL.git ; ./b
 import getopt
 import glob # flro globbing csv files in the input directory
 
+import os
+
 inputdirectory="RentalRegistration/MontgomeryCountyOhio/"
-loginfile="/home/nicolae/.mysqllogin"
+loginfile=os.path.expanduser("~/.mysqllogin")
 
 try:
     options, remainder = getopt.gnu_getopt(sys.argv[1:], 'i:l:', ['--input=',
@@ -127,8 +165,9 @@ for opt, arg in options:
         version = arg
 
 print(inputdirectory,loginfile)
-print("Dropping and then creating the database.")
+print("Dropping  the database.")
 DropTableFromDatabase(loginfile)
+print("(re)Creating the database.")
 CreateDatabase(loginfile)
 
 filelist = getFileList(inputdirectory) 
