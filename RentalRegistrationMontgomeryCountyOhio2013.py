@@ -21,14 +21,26 @@ def GetMySQLConnection(uri,user,password,database):
     connection=mdb.connect(uri,user,password,database)
     return connection
 
-def InsertIntoDB(row,cur):
+def InsertIntoDBOrig(row,cur):
     cur.execute("INSERT INTO %s (TAX_DISTRICT, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( %s,%s,%s,%s)", (_Table, row['TAX DISTRICT'], row['PARCEL'],row['LOCATION'],row['NUMBER UNITS'])) #even though their database types are int/float etc they are entered as strings here.... 
+
+
+def InsertIntoDB(row):
+    con =GetConnection(_URI,loginfile,_Database)
+    with con:
+        cur = con.cursor(mdb.cursors.DictCursor)
+#        cur.execute("INSERT INTO %s (TAX_DISTRICT, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( %s,%s,%s,%s)" % (_Table, row['TAX DISTRICT'], row['PARCEL'],row['LOCATION'],row['NUMBER UNITS'])) #even though their database types are int/float etc they are entered as strings here.... 
+        print("INSERT INTO %s ( PARCEL, LOCATION ) VALUES ( \"%s\",\"%s\")" % (_Table, row['PARCEL'],row['LOCATION']))
+        cur.execute("INSERT INTO %s ( PARCEL, LOCATION ) VALUES (\" %s \",\"%s\")" % (_Table, row['PARCEL'],row['LOCATION'])) #even though their database types are int/float etc they are entered as strings here.... 
+        con.commit()
+        cur.close()
+        con.close()  
 
 def CreateDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("CREATE TABLE IF NOT EXISTS %s ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, TAX_DISTRICT VARCHAR(20), PARCEL VARCHAR(18), LOCATION VARCHAR(45) NOT NULL, NUMBER_OF_UNITS INT NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )",(_Table)) 
+        cur.execute("CREATE TABLE IF NOT EXISTS %s ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, TAX_DISTRICT VARCHAR(20), PARCEL VARCHAR(18), LOCATION VARCHAR(45) NOT NULL, NUMBER_OF_UNITS INT NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )"%(_Table)) 
     con.commit()
     cur.close()
     con.close()
@@ -38,29 +50,48 @@ def DropTableFromDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("DROP TABLE IF EXISTS %s", (_Table))
+        cur.execute("DROP TABLE IF EXISTS %s" % (_Table) )
     con.commit()
     cur.close()
     con.close()
 
-def CSVProcessFile(inputfilename,outputfilename,loginfile):
-    print("Using input:%s and output:%s" % (inputfilename,outputfilename))
+def CSVProcessFile(inputfilename,loginfile):
+    print("Using input:%s " % (inputfilename))
+    csvfile=open(inputfilename,'rt')
+    try:
+#        reader=csv.DictReader(csvfile) #the dictreader method is superior to plain indexing. If the columns move but are still called the same things then our code won't break, whereas addressing by index will
+        reader=csv.DictReader(csvfile) 
+        print(reader.fieldnames)
+        try:
+            for row in reader:
+#                print(row)
+                InsertIntoDB(row) 
+        except csv.Error as e:
+            sys.exit(e)
+
+    except csv.Error as e:
+        print("something went wrong in CSVProcessFile for"+inputfilename+" "+e)
+    finally: 
+            csvfile.close()
+    
+def CSVProcessFileOrig(inputfilename,loginfile):
+    print("Using input:%s " % (inputfilename))
     csvfile=open(inputfilename,'rb')
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-
         try:
             reader=csv.DictReader(csvfile) #the dictreader method is superior to plain indexing. If the columns move but are still called the same things then our code won't break, whereas addressing by index will
             reader.next()  #skip over the first line which holds a header
             for row in reader:
                 InsertIntoDB(row,cur) 
-    con.commit()
-    cur.close()
-    con.close()  
-                
-    finally: 
-        csvfile.close()
+        except:
+            print("something went wrong in CSVProcessFile for"+inputfilename)
+        finally: 
+            csvfile.close()
+            con.commit()
+            cur.close()
+            con.close()  
     
 def getFileList(directory):
     filelist= glob.glob(directory+'rentalreg_*.csv')
@@ -88,9 +119,7 @@ except getopt.GetoptError as err:
     sys.exit(2)
 
 for opt, arg in options:
-    if opt in ('-o', '--output'):
-        outputfilename = arg
-    elif opt in ('-i', '--input'):
+    if opt in ('-i', '--input'):
         inputfilename = arg
     elif opt in ('-l', '--loginfile'):
         loginfile = arg
@@ -99,13 +128,13 @@ for opt, arg in options:
 
 print(inputdirectory,loginfile)
 print("Dropping and then creating the database.")
-#DropTableFromDatabase(loginfile)
-#CreateDatabase(loginfile)
+DropTableFromDatabase(loginfile)
+CreateDatabase(loginfile)
 
 filelist = getFileList(inputdirectory) 
 for item in filelist:
     print("processing "+item) 
-    #CSVProcessFile(inputfilename,outputfilename,loginfile)
+    CSVProcessFile(item,loginfile)
 print("You now need to geocode the database!!!")
 print("print out status of the records being processed. get # of lines and show how many have gone through. X of Y processed.")
 #http://docs.python.org/library/getopt.html
