@@ -23,26 +23,15 @@ def getMySQLDetails(file):
 
     return username.strip(),password.strip(),host.strip(),int(port.strip()),database.strip(),table.strip()  #remove the CRLF   
 
-def GetConnectionOrig(uri,loginfile,database):
-    username,password=getUsernamePassword(loginfile)    
-    connection=GetMySQLConnection(uri,username,password,database)
-    return connection
 
 def GetConnection(uri,loginfile,database_): #uri,database_ are discarded
     username,password,host,port,database,table=getMySQLDetails(loginfile)    
     connection=GetMySQLConnection(host,port,username,password,database)
     return connection
 
-def GetMySQLConnectionOrig(uri,user,password,database):
-    connection=mdb.connect(uri,user,password,database)
-    return connection
-
 def GetMySQLConnection(uri,dbport,username,password,database):
     connection=mdb.connect(host=uri,port=dbport,user=username,passwd=password,db=database)
     return connection
-
-def InsertIntoDBOrig(row,cur):
-    cur.execute("INSERT INTO %s (TAX_DISTRICT, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( %s,%s,%s,%s)", (_Table, row['TAX DISTRICT'], row['PARCEL'],row['LOCATION'],row['NUMBER UNITS'])) #even though their database types are int/float etc they are entered as strings here.... 
 
 
 def InsertIntoDB(row):
@@ -50,25 +39,15 @@ def InsertIntoDB(row):
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
         #the tax district is encoded in the parcel as the first character set
-        print("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%i)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))) 
-        querystring=print("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( (%s),(%s),%i)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))) 
-#        print(querystring)
-#        cur.execute(querystring)
+#        print("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%i)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))) 
         values = (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))
         cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
-#        cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % values) # ----> I work!!!
-#        cur.execute("INSERT INTO RentalRegistrationMontgomeryCountyOhio2013 ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( 'bob','bill', 2)")
+    con.commit()
+    cur.close()
+    con.close()  
 
-        # cur.execute("SELECT * FROM RentalRegistrationMontgomeryCountyOhio2013")
-        # for r in cur.fetchall():
-        #     print(r)
-    
- #       print("INSERT INTO %s ( PARCEL, LOCATION ) VALUES ( \"%s\",\"%s\")" % (_Table, row['PARCEL'],row['LOCATION']))
-#        cur.execute("INSERT INTO %s ( PARCEL, LOCATION ) VALUES (\" %s \",\"%s\")" % (_Table, row['PARCEL'],row['LOCATION'])) #even though their database types are int/float etc they are entered as strings here.... 
-        #con.commit()
- #       cur.close()
- #       con.close()  
-
+def InsertIntoDB2(row,cur):  #this guy needs to be tested to see if it speeds things up
+    cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int
 
 
 
@@ -76,7 +55,7 @@ def CreateDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("CREATE TABLE IF NOT EXISTS %s ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, TAX_DISTRICT VARCHAR(20), PARCEL VARCHAR(18), LOCATION VARCHAR(45) NOT NULL, NUMBER_OF_UNITS INT NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )"%(_Table)) 
+        cur.execute("CREATE TABLE IF NOT EXISTS %s ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, PARCEL VARCHAR(18), LOCATION VARCHAR(45) NOT NULL, NUMBER_OF_UNITS INT NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )"%(_Table)) 
     con.commit()
     cur.close()
     con.close()
@@ -176,4 +155,4 @@ for item in filelist:
     CSVProcessFile(item,loginfile)
 print("You now need to geocode the database!!!")
 print("print out status of the records being processed. get # of lines and show how many have gone through. X of Y processed.")
-#http://docs.python.org/library/getopt.html
+print("test the insert function that reuses the cursor")
