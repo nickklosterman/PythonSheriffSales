@@ -47,7 +47,7 @@ def InsertIntoDB(row):
     con.close()  
 
 def InsertIntoDB2(row,cur):  #this guy needs to be tested to see if it speeds things up
-    cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int
+    cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int))
 
 
 
@@ -123,7 +123,7 @@ import glob # flro globbing csv files in the input directory
 import os
 
 inputdirectory="RentalRegistration/MontgomeryCountyOhio/"
-loginfile=os.path.expanduser("~/.mysqllogin")
+loginfile=os.path.expanduser("~/.mysqllogin_rentalreg")
 
 try:
     options, remainder = getopt.gnu_getopt(sys.argv[1:], 'i:l:', ['--input=',
