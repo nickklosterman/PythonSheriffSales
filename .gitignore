@@ -1,4 +1,5 @@
 *.*~
 *.*#
 *.out
-rentalreg_*csv
+rentalreg*.csv
+

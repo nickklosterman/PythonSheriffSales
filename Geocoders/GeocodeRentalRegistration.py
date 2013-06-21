@@ -28,15 +28,15 @@ def GeocodeDatabase(user,password):
     #the following line will need to change 
     con = mdb.connect('localhost', user, password, 'SheriffSales')
     with con:
-        databasename=_Database
+        databasename=_Table
         cur = con.cursor(mdb.cursors.DictCursor)
         curUpdate = con.cursor(mdb.cursors.DictCursor)
         #for this database all records will need to be geocoded
-        resultcount=int(cur.execute("SELECT id,LOCATION FROM %s",_Table))
+        resultcount=int(cur.execute("SELECT id,LOCATION FROM %s WHERE Latitude is NULL"% (_Table)))
         print("Need to geocode "+str(resultcount)+" addresses.")
         rows = cur.fetchall()
         counter=0
-        out_file_failed = _OutFile
+        out_file_failed = _Outfile
         outf_failed = open(out_file_failed,'w')
         ComputeFinishTime(sleep_time,resultcount)        
         for row in rows:
@@ -47,7 +47,7 @@ def GeocodeDatabase(user,password):
             if geocode_data['status']=="OK":
                 lat=geocode_data['lat']
                 lon=geocode_data['lng']
-                curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s", (_Table,lat,lon,row["id"]))  
+                curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s" % (_Table,lat,lon,row["id"]))  
             else:
                 print("Geocoding of '"+row["LOCATION"]+"' failed with error code "+geocode_data['status'])
                 outf_failed.write(row["LOCATION"]+'\n')
@@ -94,26 +94,27 @@ return_codes = {'200':'SUCCESS',
 #     else:
 #         return {'code':code}
 
-# def geocodeV2(addr):
-#     values = {'address':addr,'sensor':'false'}
-# #py3    data = urllib.parse.urlencode(values)
-#     data = urllib.urlencode(values)
-#     root_url="http://maps.googleapis.com/maps/api/geocode/json?"
-# #py3    result=urllib.request.urlopen(root_url+data)
-#     result=urllib2.urlopen(urllib2.Request(root_url+data))
+def geocodeV2(addr):
+    values = {'address':addr,'sensor':'false'}
+#py3    data = urllib.parse.urlencode(values)
+    data = urllib.urlencode(values)
+    root_url="http://maps.googleapis.com/maps/api/geocode/json?"
+#py3    result=urllib.request.urlopen(root_url+data)
+    result=urllib2.urlopen(urllib2.Request(root_url+data))
 
-#     content=result.read()
-#     decodedjson=json.loads(content.decode('utf-8'))
-#     code=decodedjson['status']
+    content=result.read()
+    decodedjson=json.loads(content.decode('utf-8'))
+    code=decodedjson['status']
     
-#     outputlist = [s['geometry']['location'] for s in decodedjson['results']]
-#     first= outputlist[0]
-#     return { 'status':code,'lat':first['lat'],'lng':first['lng'] }
+    outputlist = [s['geometry']['location'] for s in decodedjson['results']]
+    first= outputlist[0]
+    return { 'status':code,'lat':first['lat'],'lng':first['lng'] }
 
 
 ########### MAIN ############
 import sys
 import MySQLdb as mdb #this module doesn't look like it'll ever be ported to py3, other modules available.
+#import pymysql as mdb
 import urllib,urllib2,time,json
 
 inputfilename="/home/nicolae/.mysqllogin"
