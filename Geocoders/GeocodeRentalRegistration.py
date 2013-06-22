@@ -25,6 +25,7 @@ def ComputeFinishTime(sleep_time,resultcount):
 
 def GeocodeDatabase(user,password):
     sleep_time = 0.15
+    OverQueryLimitFlag = 0
     #the following line will need to change 
     con = mdb.connect('localhost', user, password, 'SheriffSales')
     with con:
@@ -43,22 +44,31 @@ def GeocodeDatabase(user,password):
             counter+=1
             print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses.")
             addr=row["LOCATION"]+"DAYTON OHIO"
-            geocode_data=geocodeV2(addr) 
-            if geocode_data['status']=="OK":
-                lat=geocode_data['lat']
-                lon=geocode_data['lng']
-                curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s" % (_Table,lat,lon,row["id"]))  
+            if OverQueryLimitFlag == 0:
+                geocode_data=geocodeV2(addr) 
+                if geocode_data['status']=="OK":
+                    print(geocode_data)
+                    lat=geocode_data['lat']
+                    lon=geocode_data['lng']
+                    curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s" % (_Table,lat,lon,row["id"]))  
+                elif geocode_data['status']=="OVER_QUERY_LIMIT":
+                    print("Over Query Limit Notification Received") 
+                    OverQueryLimitFlag = 1
+                else:
+                    print("Geocoding of '"+row["LOCATION"]+"' failed with error code "+geocode_data['status'])
+                    outf_failed.write(row["LOCATION"]+'\n')
+                    outf_failed.flush()
             else:
-                print("Geocoding of '"+row["LOCATION"]+"' failed with error code "+geocode_data['status'])
-                outf_failed.write(row["LOCATION"]+'\n')
-                outf_failed.flush()
+                break
             time.sleep(sleep_time)  
         outf_failed.close()
     con.commit()
     cur.close()
     con.close()
 
+#https://developers.google.com/maps/documentation/geocoding/
 #root_url = "http://maps.google.com/maps/geo?"
+
 root_url="http://maps.googleapis.com/maps/api/geocode/json?&address="
 sensor_suffix="&sensor=false"
 return_codes = {'200':'SUCCESS',
@@ -104,11 +114,15 @@ def geocodeV2(addr):
 
     content=result.read()
     decodedjson=json.loads(content.decode('utf-8'))
+#    print(decodedjson)
     code=decodedjson['status']
-    
-    outputlist = [s['geometry']['location'] for s in decodedjson['results']]
-    first= outputlist[0]
-    return { 'status':code,'lat':first['lat'],'lng':first['lng'] }
+    if code=="OK": #"SUCCESS": this changed from success to ok 
+        outputlist = [s['geometry']['location'] for s in decodedjson['results']]
+        #print(outputlist)
+        first= outputlist[0]
+        return { 'status':code,'lat':first['lat'],'lng':first['lng'] }
+    else:
+        return {'status':code}
 
 
 ########### MAIN ############
