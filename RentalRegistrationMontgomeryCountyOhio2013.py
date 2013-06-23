@@ -52,6 +52,7 @@ def InsertIntoDB2(row,cur):  #this guy needs to be tested to see if it speeds th
 
 
 
+
 def CreateDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
@@ -175,7 +176,7 @@ import glob # flro globbing csv files in the input directory
 import os
 
 inputdirectory="RentalRegistration/MontgomeryCountyOhio/"
-loginfile=os.path.expanduser("~/.mysqllogin")
+loginfile=os.path.expanduser("~/.mysqllogin_rentalreg")
 
 try:
     options, remainder = getopt.gnu_getopt(sys.argv[1:], 'i:l:', ['--input=',

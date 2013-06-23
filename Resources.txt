@@ -57,6 +57,8 @@ http://www.mctreas.org/fdpopup.cfm?dtype=YS Yearly Sales
 http://www.mctreas.org/fdpopup.cfm?dtype=MS Monthly Sales
 http://www.mctreas.org/fdpopup.cfm?dtype=WS Weekly Sales
 
+http://www.mcohio.org/government/auditor/rental_registration.html Rental Registration
+
 Greene County
 http://www.co.greene.oh.us/Sheriff/SO_Foreclosures.asp
 http://www.co.greene.oh.us/Sheriff/SO_Foreclosures_Current.htm
@@ -70,6 +72,8 @@ http://www.courtindex.com/ <-- Cinci court report where official list is publish
 http://www.courtclerk.org/ Cinci clerk oif courts for lien & tax info
 http://www.hamiltoncountyauditor.org/ add'l property info
 http://www.hamiltoncountyauditor.org/realestateii/ROVER30.ASP
+
+http://www.hamiltoncountyauditor.org/revalue.asp -> click on the folder in the upper right "Rental Registration Export"
 
 Franklin County
 http://sheriff.franklincountyohio.gov/
