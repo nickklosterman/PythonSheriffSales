@@ -117,6 +117,16 @@ def QueryDatabaseIfRecordExists(con,Parcel,Location,NumberOfUnits): #I could pro
 #         key=-2
 #     return int(key) #without the cast it is of type long
 
+def QueryDatabaseIfRecordExists(cur,Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
+key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
+    resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL=%s and LOCATION=%s and NUMBER_OF_UNITS=%s", (_Table,Parcel,Location,NumberOfUnits));  # look for match on all fields except those that would've been update after teh property was sold
+    if resultcount==1:
+        row=cur.fetchone()
+        key=int(row['id'])
+    elif resultcount>1:
+        print("multiple results:%i",resultcount)
+        key=-2
+    return int(key) #without the cast it is of type long
 
 
 def CSVProcessFile(inputfilename,loginfile):
