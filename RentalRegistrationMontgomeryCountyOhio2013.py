@@ -5,6 +5,8 @@
 _URI="localhost"
 _Database="SheriffSales"
 _Table="RentalRegistrationMontgomeryCountyOhio2013"
+_INSERT=0
+_UPDATE=1
 
 def getUsernamePassword(file):
     import linecache
@@ -39,15 +41,14 @@ def InsertIntoDB(row):
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
         #the tax district is encoded in the parcel as the first character set
-#        print("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%i)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))) 
-        values = (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']))
-        cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
+#        cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
+        cur.execute("INSERT INTO %s ( TAX_DISTRICT, DISTRICT_NAME, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s','%s','%s',%s)" % (_Table, row['TAX_DISTRICT'], row['DISTRICT_NAME'], row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
     con.commit()
     cur.close()
     con.close()  
 
 def InsertIntoDB2(row,cur):  #this guy needs to be tested to see if it speeds things up
-    cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int
+    cur.execute("INSERT INTO %s ( TAX_DISTRICT, DISTRICT_NAME, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s','%s','%s',%s)" % (_Table, row['TAX_DISTRICT'], row['DISTRICT_NAME'], row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
 
 
 
@@ -55,11 +56,10 @@ def CreateDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("CREATE TABLE IF NOT EXISTS %s ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, PARCEL VARCHAR(18), LOCATION VARCHAR(45) NOT NULL, NUMBER_OF_UNITS INT NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )"%(_Table)) 
+        cur.execute("CREATE TABLE IF NOT EXISTS %s ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,TAX_DISTRICT VARCHAR(5), DISTRICT_NAME VARCHAR(45), PARCEL VARCHAR(18), LOCATION VARCHAR(45) NOT NULL, NUMBER_OF_UNITS INT NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )"%(_Table)) 
     con.commit()
     cur.close()
     con.close()
-
 
 def DropTableFromDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
@@ -69,6 +69,53 @@ def DropTableFromDatabase(loginfile):
     con.commit()
     cur.close()
     con.close()
+
+
+# def UpdateRecordInDatabase(cur,key,TaxDistrict,DistrictName):
+#     con =GetConnection(_URI,loginfile,_Database)
+#     with con:
+#         cur = con.cursor(mdb.cursors.DictCursor)
+#         print("U") 
+#         cur.execute("UPDATE %s SET TAX_DISTRICT=%s, DISTRICT_NAME=%s WHERE id=%s", (_Table,TaxDistrict,DistrictName,key)) 
+#     con.commit()
+#     cur.close()
+#     con.close()
+
+def UpdateRecordInDatabase(cur,key,TaxDistrict,DistrictName):
+    cur.execute("UPDATE %s SET TAX_DISTRICT=%s, DISTRICT_NAME=%s WHERE id=%s", (_Table,TaxDistrict,DistrictName,key)) 
+
+
+
+
+# def QueryDatabaseIfRecordExists(Parcel,Location,NumberOfUnits); #I could proly query on lat and long since they are pretty unique themselves.
+#     key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
+#     con = GetConnection(_URI,loginfile,_Database)
+#     with con:
+#         cur = con.cursor(mdb.cursors.DictCursor)
+#         resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL=%s and LOCATION=%s and NUMBER_OF_UNITS=%s", (_Table,Parcel,Location,NumberOfUnits));  # look for match on all fields except those that would've been update after teh property was sold
+#         if resultcount==1:
+#             row=cur.fetchone()
+#             key=int(row['id'])
+#         elif resultcount>1:
+#             print("multiple results:%i",resultcount)
+#             key=-2
+#     cur.close()
+#     con.close()  
+#     return int(key) #without the cast it is of type long
+
+
+def QueryDatabaseIfRecordExists(cur,Parcel,Location,NumberOfUnits); #I could proly query on lat and long since they are pretty unique themselves.
+    key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
+    resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL=%s and LOCATION=%s and NUMBER_OF_UNITS=%s", (_Table,Parcel,Location,NumberOfUnits));  # look for match on all fields except those that would've been update after teh property was sold
+    if resultcount==1:
+        row=cur.fetchone()
+        key=int(row['id'])
+    elif resultcount>1:
+        print("multiple results:%i",resultcount)
+        key=-2
+    return int(key) #without the cast it is of type long
+
+
 
 def CSVProcessFile(inputfilename,loginfile):
     print("Using input:%s " % (inputfilename))
@@ -80,7 +127,12 @@ def CSVProcessFile(inputfilename,loginfile):
         try:
             for row in reader:
 #                print(row)
-                InsertIntoDB(row) 
+                if _INSERT == 1:
+                    InsertIntoDB(row) 
+                if _UPDATE == 1:
+                    returnkey=QueryDatabaseIfRecordExists(cur,row['PARCEL'],row['LOCATION'],row['NUMBER_OF_UNITS']);
+                    if returnkey > 0 :
+                        UpdateRecordInDatabase(cur,returnkey,row['TAX_DISTRICT'],row['DISTRICT_NAME']))                        
         except csv.Error as e:
             sys.exit(e)
 
@@ -144,10 +196,11 @@ for opt, arg in options:
         version = arg
 
 print(inputdirectory,loginfile)
-print("Dropping  the database.")
-DropTableFromDatabase(loginfile)
-print("(re)Creating the database.")
-CreateDatabase(loginfile)
+#with ~25000 records to geocode that takes ~10 days due to google limits
+#print("Dropping  the database.")
+#DropTableFromDatabase(loginfile)
+#print("(re)Creating the database.")
+#CreateDatabase(loginfile)
 
 filelist = getFileList(inputdirectory) 
 for item in filelist:
