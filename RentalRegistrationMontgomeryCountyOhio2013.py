@@ -35,7 +35,6 @@ def GetMySQLConnection(uri,dbport,username,password,database):
     connection=mdb.connect(host=uri,port=dbport,user=username,passwd=password,db=database)
     return connection
 
-
 def InsertIntoDB(row):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
@@ -49,9 +48,6 @@ def InsertIntoDB(row):
 
 def InsertIntoDB2(row,cur):  #this guy needs to be tested to see if it speeds things up
     cur.execute("INSERT INTO %s ( TAX_DISTRICT, DISTRICT_NAME, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s','%s','%s',%s)" % (_Table, row['TAX_DISTRICT'], row['DISTRICT_NAME'], row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
-
-
-
 
 def CreateDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
@@ -72,36 +68,45 @@ def DropTableFromDatabase(loginfile):
     con.close()
 
 
+def UpdateRecordInDatabase(key,TaxDistrict,DistrictName):
+    con =GetConnection(_URI,loginfile,_Database)
+    with con:
+        cur = con.cursor(mdb.cursors.DictCursor)
+        print("U") 
+        cur.execute("UPDATE %s SET TAX_DISTRICT='%s', DISTRICT_NAME='%s' WHERE id=%s" % (_Table,TaxDistrict,DistrictName,key)) 
+    con.commit()
+    cur.close()
+    con.close()
+
 # def UpdateRecordInDatabase(cur,key,TaxDistrict,DistrictName):
-#     con =GetConnection(_URI,loginfile,_Database)
-#     with con:
-#         cur = con.cursor(mdb.cursors.DictCursor)
-#         print("U") 
-#         cur.execute("UPDATE %s SET TAX_DISTRICT=%s, DISTRICT_NAME=%s WHERE id=%s", (_Table,TaxDistrict,DistrictName,key)) 
-#     con.commit()
-#     cur.close()
-#     con.close()
+#    cur.execute("UPDATE %s SET TAX_DISTRICT=%s, DISTRICT_NAME=%s WHERE id=%s" % (_Table,TaxDistrict,DistrictName,key)) 
 
-def UpdateRecordInDatabase(cur,key,TaxDistrict,DistrictName):
-    cur.execute("UPDATE %s SET TAX_DISTRICT=%s, DISTRICT_NAME=%s WHERE id=%s", (_Table,TaxDistrict,DistrictName,key)) 
+def QueryDatabaseIfRecordExists(Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
+    key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
+    con = GetConnection(_URI,loginfile,_Database)
+    with con:
+        cur = con.cursor(mdb.cursors.DictCursor)
+        resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL='%s' and LOCATION='%s' and NUMBER_OF_UNITS=%s" % (_Table,Parcel,Location,NumberOfUnits)))  # look for match on all fields except those that would've been update after teh property was sold
+        if resultcount == 1 :
+            row=cur.fetchone()
+            key=int(row['id'])
+        elif resultcount>1:
+            print("multiple results:%i",resultcount)
+            key=-2
+    cur.close()
+    con.close()  
+    return int(key) #without the cast it is of type long
 
 
-
-
-# def QueryDatabaseIfRecordExists(Parcel,Location,NumberOfUnits); #I could proly query on lat and long since they are pretty unique themselves.
+# def QueryDatabaseIfRecordExists(cur,Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
 #     key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
-#     con = GetConnection(_URI,loginfile,_Database)
-#     with con:
-#         cur = con.cursor(mdb.cursors.DictCursor)
-#         resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL=%s and LOCATION=%s and NUMBER_OF_UNITS=%s", (_Table,Parcel,Location,NumberOfUnits));  # look for match on all fields except those that would've been update after teh property was sold
-#         if resultcount==1:
-#             row=cur.fetchone()
-#             key=int(row['id'])
-#         elif resultcount>1:
-#             print("multiple results:%i",resultcount)
-#             key=-2
-#     cur.close()
-#     con.close()  
+#     resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL=%s and LOCATION=%s and NUMBER_OF_UNITS=%s" % (_Table,Parcel,Location,NumberOfUnits)))  # look for match on all fields except those that would've been update after teh property was sold
+#     if resultcount == 1 :
+#         row=cur.fetchone()
+#         key=int(row['id'])
+#     elif resultcount>1:
+#         print("multiple results:%i",resultcount)
+#         key=-2
 #     return int(key) #without the cast it is of type long
 
 def QueryDatabaseIfRecordExists(cur,Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
@@ -114,7 +119,6 @@ key=-1 #primary keys aren't negative as far as I know. This is the sentinel valu
         print("multiple results:%i",resultcount)
         key=-2
     return int(key) #without the cast it is of type long
-
 
 
 def CSVProcessFile(inputfilename,loginfile):
@@ -130,9 +134,14 @@ def CSVProcessFile(inputfilename,loginfile):
                 if _INSERT == 1:
                     InsertIntoDB(row) 
                 if _UPDATE == 1:
-                    returnkey=QueryDatabaseIfRecordExists(cur,row['PARCEL'],row['LOCATION'],row['NUMBER_OF_UNITS']);
+                    returnkey=QueryDatabaseIfRecordExists(row['PARCEL'],row['LOCATION'],row['NUMBER UNITS']);
                     if returnkey > 0 :
-                        UpdateRecordInDatabase(cur,returnkey,row['TAX_DISTRICT'],row['DISTRICT_NAME']))                        
+                        if 'TAX DISTRICT' in row:
+                            UpdateRecordInDatabase(returnkey,row['TAX DISTRICT'],row['DISTRICT NAME'])
+                        elif 'TAX_DISTRICT' in row:
+                            UpdateRecordInDatabase(returnkey,row['TAX_DISTRICT'],row['DISTRICT NAME'])
+                        else :
+                            print("uh oh not updating")
         except csv.Error as e:
             sys.exit(e)
 
