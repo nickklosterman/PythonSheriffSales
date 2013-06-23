@@ -68,33 +68,41 @@ def DropTableFromDatabase(loginfile):
     con.close()
 
 
-def UpdateRecordInDatabase(key,TaxDistrict,DistrictName):
-    con =GetConnection(_URI,loginfile,_Database)
+def UpdateRecordInDatabase(con,key,TaxDistrict,DistrictName):
+ #   con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        print("U") 
+        print("U", end="") 
+        querystring=("UPDATE %s SET TAX_DISTRICT='%s', DISTRICT_NAME='%s' WHERE id=%s" % (_Table,TaxDistrict,DistrictName,key)) 
+#        print(querystring)
         cur.execute("UPDATE %s SET TAX_DISTRICT='%s', DISTRICT_NAME='%s' WHERE id=%s" % (_Table,TaxDistrict,DistrictName,key)) 
     con.commit()
     cur.close()
-    con.close()
+#    con.close()
 
 # def UpdateRecordInDatabase(cur,key,TaxDistrict,DistrictName):
 #    cur.execute("UPDATE %s SET TAX_DISTRICT=%s, DISTRICT_NAME=%s WHERE id=%s" % (_Table,TaxDistrict,DistrictName,key)) 
 
-def QueryDatabaseIfRecordExists(Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
+def QueryDatabaseIfRecordExists(con,Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
     key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
-    con = GetConnection(_URI,loginfile,_Database)
+#    con = GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL='%s' and LOCATION='%s' and NUMBER_OF_UNITS=%s" % (_Table,Parcel,Location,NumberOfUnits)))  # look for match on all fields except those that would've been update after teh property was sold
+        querystring=("SELECT * FROM %s WHERE PARCEL='%s' and LOCATION='%s' and NUMBER_OF_UNITS=%s and ISNULL(TAX_DISTRICT)" % (_Table,Parcel,Location,NumberOfUnits))  # look for match on all fields except those that would've been update after teh property was sold
+        print(querystring)
+        resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL='%s' and LOCATION='%s' and NUMBER_OF_UNITS=%s and ISNULL(TAX_DISTRICT)" % (_Table,Parcel,Location,NumberOfUnits)))  # look for match on all fields except those that would've been update after teh property was sold
+        print("resultcount:"+str(resultcount))
         if resultcount == 1 :
+            print("I think you are failing here")
             row=cur.fetchone()
+            print("do we get here")
             key=int(row['id'])
         elif resultcount>1:
             print("multiple results:%i",resultcount)
             key=-2
     cur.close()
-    con.close()  
+    print("is the prob here")
+#    con.close()  
     return int(key) #without the cast it is of type long
 
 
@@ -117,19 +125,25 @@ def CSVProcessFile(inputfilename,loginfile):
     try:
 #        reader=csv.DictReader(csvfile) #the dictreader method is superior to plain indexing. If the columns move but are still called the same things then our code won't break, whereas addressing by index will
         reader=csv.DictReader(csvfile) 
-        print(reader.fieldnames)
+#        print(reader.fieldnames)
+        con =GetConnection(_URI,loginfile,_Database)
         try:
             for row in reader:
 #                print(row)
                 if _INSERT == 1:
                     InsertIntoDB(row) 
                 if _UPDATE == 1:
-                    returnkey=QueryDatabaseIfRecordExists(row['PARCEL'],row['LOCATION'],row['NUMBER UNITS']);
+
+                    returnkey=QueryDatabaseIfRecordExists(con,row['PARCEL'],row['LOCATION'],row['NUMBER UNITS']);
                     if returnkey > 0 :
                         if 'TAX DISTRICT' in row:
-                            UpdateRecordInDatabase(returnkey,row['TAX DISTRICT'],row['DISTRICT NAME'])
+                            UpdateRecordInDatabase(con,returnkey,row['TAX DISTRICT'],row['DISTRICT NAME'])
+                            con.close()
                         elif 'TAX_DISTRICT' in row:
-                            UpdateRecordInDatabase(returnkey,row['TAX_DISTRICT'],row['DISTRICT NAME'])
+                            print("----------------tax_district----------------")
+                            print(returnkey,row['TAX_DISTRICT'],row['DISTRICT NAME'])
+                            UpdateRecordInDatabase(con,returnkey,row['TAX_DISTRICT'],row['DISTRICT NAME'])
+#                            con.close()
                         else :
                             print("uh oh not updating")
         except csv.Error as e:
@@ -160,7 +174,7 @@ def CSVProcessFileOrig(inputfilename,loginfile):
             con.close()  
     
 def getFileList(directory):
-    filelist= glob.glob(directory+'rentalreg_*.csv')
+    filelist= sorted(glob.glob(directory+'rentalreg_*.csv'))
     return filelist
 
 ########### MAIN ############
@@ -169,7 +183,7 @@ import sys
 #import MySQLdb as mdb # no workie for python3 
 import pymysql as mdb #  git clone https://github.com/petehunt/PyMySQL.git ; ./build-py3k.sh  ; cd py3k; sudo python setup.py install ; and that should install it
 import getopt
-import glob # flro globbing csv files in the input directory
+import glob # for globbing csv files in the input directory
 
 import os
 
