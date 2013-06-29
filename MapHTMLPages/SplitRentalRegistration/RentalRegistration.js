@@ -11,10 +11,10 @@ var customIcons = {
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
     },
     2: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_black.png',
+        icon: 'http://labs.google.com/ridefinder/images/mm_20_yellow.png',
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
     },
-    NOBIDNOSALE: {
+    4: {
         icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png',
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
     },
@@ -63,7 +63,7 @@ function load() {
         mapTypeId: 'roadmap'
     });
     infoWindow = new google.maps.InfoWindow;
-    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpRentalRegistration.php?table=RentalRegistrationMontgomeryCountyOhio2013&recordsoffset=0&recordstodisplay=25";
+    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpRentalRegistration.php?table=RentalRegistrationMontgomeryCountyOhio2013&recordsoffset=0&recordstodisplay=25&districtname=*&numberofunits=*";
     getRecordCountOfQuery(queryString);
     console.log("updatemap:", queryString);
     downloadUrl(queryString, function (data) {
@@ -95,9 +95,11 @@ function updateMap() {
     var  Parcel,Location,NumberOfUnits,  queryString, xml, markers, i, point, info, icon, marker;
     var pricefiltercategory, recordsoffset, recordstodisplay
     recordstodisplay = document.getElementById('recordstodisplay').value;
+    districtname = document.getElementById('districtname').value;
+    numberofunits = document.getElementById('numberofunits').value;
     writeout();
     recordsoffset = offset;
-    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpRentalRegistration.php?table=RentalRegistrationMontgomeryCountyOhio2013&recordsoffset=" + recordsoffset + "&recordstodisplay=" + recordstodisplay; //must have spaces in btw + "" otherwise you break it!
+    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpRentalRegistration.php?table=RentalRegistrationMontgomeryCountyOhio2013&recordsoffset=" + recordsoffset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
     getRecordCountOfQuery(queryString);
     console.log("updatemap:", queryString);
     clearLocations();
@@ -111,7 +113,7 @@ function updateMap() {
             point = new google.maps.LatLng(
             parseFloat(markers[i].getAttribute("Latitude")),
             parseFloat(markers[i].getAttribute("Longitude")));
-            info = "<br/>Parcel:" + Parcel + "<br/>Location:" + Location + "</br>Number Of Units" + NumberOfUnits;
+            info = "Parcel:" + Parcel + "<br/>Location:" + Location + "</br>Number Of Units:" + NumberOfUnits;
             icon = customIcons[NumberOfUnits] || {};
             marker = new google.maps.Marker({
                 map: map,
@@ -138,3 +140,9 @@ function getRecordCountOfQuery(oldQueryString) {
     });
 
 }
+/*
+restrict the available number of units to search to only the distinct number of units seen in that district
+fix the record count in the window to reflect the # for the query selected
+center view on average of the lat long of the records displayed
+how would I translate this to routes? seems like just the query as one route and thats really it.
+*/

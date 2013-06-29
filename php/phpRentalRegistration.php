@@ -27,8 +27,22 @@ die ('Can\'t use db : ' . mysql_error());
 $table=$_GET["table"];
 $recordstodisplay=$_GET["recordstodisplay"];
 $recordsoffset=$_GET["recordsoffset"];
+$districtname=$_GET["districtname"];
+$numberofunits=$_GET["numberofunits"];
 
-$query = "SELECT * FROM $table ";
+$query = "SELECT PARCEL,LOCATION,NUMBER_OF_UNITS,Latitude,Longitude FROM $table ";
+if ( $districtname!='*' )
+{ 
+$query .=" WHERE DISTRICT_NAME = '$districtname'";
+if ( $numberofunits!='*')
+$query .=" AND NUMBER_OF_UNITS = '$numberofunits'";
+}
+else
+{
+if ( $numberofunits!='*')
+$query .=" WHERE NUMBER_OF_UNITS = '$numberofunits'";
+}
+
 if ( is_numeric($recordstodisplay) && is_numeric($recordsoffset) )
 {
  if ( $recordsoffset >= 0 )

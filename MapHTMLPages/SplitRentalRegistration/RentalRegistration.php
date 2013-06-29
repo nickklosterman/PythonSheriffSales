@@ -13,7 +13,7 @@
       <div id="select-column">
   <div id="select-row">
           <label>District:</label>
-          <select onchange="updateMap()" id='taxdistrict'>
+          <select onchange="updateMap()" id='districtname'>
             <option value="*" selected>All</option>
         <?php
              //specifies username,password,database, and table
@@ -43,7 +43,7 @@
 
   <div id="select-row">
           <label>Units:</label>
-          <select onchange="updateMap()" id='taxdistrict'>
+          <select onchange="updateMap()" id='numberofunits'>
             <option value="*" selected>All</option>
         <?php
              //specifies username,password,database, and table
@@ -85,6 +85,7 @@
 	    <option>200</option>
 	    <option>250</option>
 	    <option>500</option>
+	    <option value='*'>All</option>
 	  </select>
 	</div>
 
