@@ -7,6 +7,7 @@ _Database="SheriffSales"
 _Table="RentalRegistrationMontgomeryCountyOhio2013"
 _INSERT=0
 _UPDATE=1
+_INSERTS=0
 
 def getUsernamePassword(file):
     import linecache
@@ -36,18 +37,20 @@ def GetMySQLConnection(uri,dbport,username,password,database):
     return connection
 
 def InsertIntoDB(row):
+#    _INSERTS=_INSERTS+1
+    print(row)
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        #the tax district is encoded in the parcel as the first character set
-#        cur.execute("INSERT INTO %s ( PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s',%s)" % (_Table,  row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
-        cur.execute("INSERT INTO %s ( TAX_DISTRICT, DISTRICT_NAME, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s','%s','%s',%s)" % (_Table, row['TAX_DISTRICT'], row['DISTRICT_NAME'], row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
+        print("I", end="") 
+        #need to handle the two ways that "TAX DISTRICT" is written in the files and access the dict properly for the row.
+        if 'TAX DISTRICT' in row:
+            cur.execute("INSERT INTO %s ( TAX_DISTRICT, DISTRICT_NAME, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s','%s','%s',%s)" % (_Table, row['TAX DISTRICT'], row['DISTRICT NAME'], row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
+        if 'TAX_DISTRICT' in row:
+            cur.execute("INSERT INTO %s ( TAX_DISTRICT, DISTRICT_NAME, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s','%s','%s',%s)" % (_Table, row['TAX_DISTRICT'], row['DISTRICT_NAME'], row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
     con.commit()
     cur.close()
     con.close()  
-
-def InsertIntoDB2(row,cur):  #this guy needs to be tested to see if it speeds things up
-    cur.execute("INSERT INTO %s ( TAX_DISTRICT, DISTRICT_NAME, PARCEL, LOCATION, NUMBER_OF_UNITS ) VALUES ( '%s','%s','%s','%s',%s)" % (_Table, row['TAX_DISTRICT'], row['DISTRICT_NAME'], row['PARCEL'],row['LOCATION'],int(row['NUMBER UNITS']),)) #even though their database types are int/float etc they are entered as strings here.... 
 
 def CreateDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
@@ -67,55 +70,45 @@ def DropTableFromDatabase(loginfile):
     cur.close()
     con.close()
 
-
 def UpdateRecordInDatabase(con,key,TaxDistrict,DistrictName):
- #   con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
         print("U", end="") 
-        querystring=("UPDATE %s SET TAX_DISTRICT='%s', DISTRICT_NAME='%s' WHERE id=%s" % (_Table,TaxDistrict,DistrictName,key)) 
-#        print(querystring)
         cur.execute("UPDATE %s SET TAX_DISTRICT='%s', DISTRICT_NAME='%s' WHERE id=%s" % (_Table,TaxDistrict,DistrictName,key)) 
     con.commit()
     cur.close()
-#    con.close()
 
-# def UpdateRecordInDatabase(cur,key,TaxDistrict,DistrictName):
-#    cur.execute("UPDATE %s SET TAX_DISTRICT=%s, DISTRICT_NAME=%s WHERE id=%s" % (_Table,TaxDistrict,DistrictName,key)) 
-
-def QueryDatabaseIfRecordExists(con,Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
-    key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
-#    con = GetConnection(_URI,loginfile,_Database)
+def UpdateRecordDateInDatabase(con,key,Date):
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        querystring=("SELECT * FROM %s WHERE PARCEL='%s' and LOCATION='%s' and NUMBER_OF_UNITS=%s and ISNULL(TAX_DISTRICT)" % (_Table,Parcel,Location,NumberOfUnits))  # look for match on all fields except those that would've been update after teh property was sold
-        print(querystring)
-        resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL='%s' and LOCATION='%s' and NUMBER_OF_UNITS=%s and ISNULL(TAX_DISTRICT)" % (_Table,Parcel,Location,NumberOfUnits)))  # look for match on all fields except those that would've been update after teh property was sold
-        print("resultcount:"+str(resultcount))
+        print("D", end="") 
+        cur.execute("UPDATE %s SET DATE_LAST_SEEN='%s' WHERE id=%s" % (_Table,Date,key)) 
+    con.commit()
+    cur.close()
+
+#will return the key if the record exists and needs to be updated
+def QueryDatabaseIfRecordExists(con,Parcel,Location,NumberOfUnits,Date): #I could proly query on lat and long since they are pretty unique themselves.
+    key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
+    with con:
+        cur = con.cursor(mdb.cursors.DictCursor)
+        resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL='%s' and LOCATION='%s' and NUMBER_OF_UNITS=%s " % (_Table,Parcel,Location,NumberOfUnits)))  # look for match on all fields except those that would've been update after teh property was sold
+  #      print("resultcount:"+str(resultcount))
         if resultcount == 1 :
-            print("I think you are failing here")
+#            print("I think you are failing here")
             row=cur.fetchone()
-            print("do we get here")
-            key=int(row['id'])
+            if (Date!=str(row['DATE_LAST_SEEN'])):
+                #           print("do we get here")
+#                print( "%s!=%s" % (Date,row['DATE_LAST_SEEN']))
+                key=int(row['id'])
+            else:
+                key=-3
         elif resultcount>1:
             print("multiple results:%i",resultcount)
             key=-2
     cur.close()
-    print("is the prob here")
+  #  print("is the prob here")
 #    con.close()  
     return int(key) #without the cast it is of type long
-
-
-# def QueryDatabaseIfRecordExists(cur,Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
-#     key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
-#     resultcount=int(cur.execute("SELECT * FROM %s WHERE PARCEL=%s and LOCATION=%s and NUMBER_OF_UNITS=%s" % (_Table,Parcel,Location,NumberOfUnits)))  # look for match on all fields except those that would've been update after teh property was sold
-#     if resultcount == 1 :
-#         row=cur.fetchone()
-#         key=int(row['id'])
-#     elif resultcount>1:
-#         print("multiple results:%i",resultcount)
-#         key=-2
-#     return int(key) #without the cast it is of type long
 
 def QueryDatabaseIfRecordExists2(cur,Parcel,Location,NumberOfUnits): #I could proly query on lat and long since they are pretty unique themselves.
     key=-1 #primary keys aren't negative as far as I know. This is the sentinel value
@@ -124,12 +117,12 @@ def QueryDatabaseIfRecordExists2(cur,Parcel,Location,NumberOfUnits): #I could pr
         row=cur.fetchone()
         key=int(row['id'])
     elif resultcount>1:
-        print("multiple results:%i",resultcount)
+        print("multiple results: %i" % resultcount)
         key=-2
     return int(key) #without the cast it is of type long
 
 
-def CSVProcessFile(inputfilename,loginfile):
+def CSVProcessFile(inputfilename,loginfile,date_last_seen):
     print("Using input:%s " % (inputfilename))
     csvfile=open(inputfilename,'rt')
     try:
@@ -143,19 +136,24 @@ def CSVProcessFile(inputfilename,loginfile):
                 if _INSERT == 1:
                     InsertIntoDB(row) 
                 if _UPDATE == 1:
-
-                    returnkey=QueryDatabaseIfRecordExists(con,row['PARCEL'],row['LOCATION'],row['NUMBER UNITS'])
+                    returnkey=QueryDatabaseIfRecordExists(con,row['PARCEL'],row['LOCATION'],row['NUMBER UNITS'],date_last_seen)
                     if returnkey > 0 :
-                        if 'TAX DISTRICT' in row:
-                            UpdateRecordInDatabase(con,returnkey,row['TAX DISTRICT'],row['DISTRICT NAME'])
+                        UpdateRecordDateInDatabase(con,returnkey,date_last_seen)
+#                         this block code was a hack for the first time through when I found out that some files have TAX_DISTRICT and some have TAX DISTRICT as a header.
+#                         if 'TAX DISTRICT' in row:
+#                             UpdateRecordInDatabase(con,returnkey,row['TAX DISTRICT'],row['DISTRICT NAME'])
+# #                            con.close()
+#                         elif 'TAX_DISTRICT' in row:
+#                             print("----------------tax_district----------------")
+#                             print(returnkey,row['TAX_DISTRICT'],row['DISTRICT NAME'])
+#                             UpdateRecordInDatabase(con,returnkey,row['TAX_DISTRICT'],row['DISTRICT NAME'])
 #                            con.close()
-                        elif 'TAX_DISTRICT' in row:
-                            print("----------------tax_district----------------")
-                            print(returnkey,row['TAX_DISTRICT'],row['DISTRICT NAME'])
-                            UpdateRecordInDatabase(con,returnkey,row['TAX_DISTRICT'],row['DISTRICT NAME'])
-#                            con.close()
-                        else :
-                            print("uh oh not updating")
+#                         else :
+#                             print("uh oh not updating")
+                    if returnkey==-3: #else:
+                        print("N", end="")                     
+                    if returnkey==-1: #else:
+                        InsertIntoDB(row)
         except csv.Error as e:
             sys.exit(e)
 
@@ -199,10 +197,11 @@ import os
 
 inputdirectory="RentalRegistration/MontgomeryCountyOhio/"
 loginfile=os.path.expanduser("~/.mysqllogin_rentalreg")
-
+date_last_seen="1970-01-01"
 try:
-    options, remainder = getopt.gnu_getopt(sys.argv[1:], 'i:l:', ['--input=',
+    options, remainder = getopt.gnu_getopt(sys.argv[1:], 'i:l:d:', ['--input=',
                                                                     '--loginfile=',
+                                                                    '--date=',
                                                                     ])
 except getopt.GetoptError as err:
         # print help information and exit:
@@ -215,20 +214,26 @@ for opt, arg in options:
         inputfilename = arg
     elif opt in ('-l', '--loginfile'):
         loginfile = arg
+    elif opt in ('-d', '--date'):
+        date_last_seen = arg
     elif opt == '--version':
         version = arg
 
-print(inputdirectory,loginfile)
+print(inputdirectory,loginfile,date_last_seen)
 #with ~25000 records to geocode that takes ~10 days due to google limits
 #print("Dropping  the database.")
 #DropTableFromDatabase(loginfile)
 #print("(re)Creating the database.")
 #CreateDatabase(loginfile)
 
+#_INSERTS=0
+
 filelist = getFileList(inputdirectory) 
 for item in filelist:
     print("processing "+item) 
-    CSVProcessFile(item,loginfile)
+    CSVProcessFile(item,loginfile,date_last_seen)
 print("You now need to geocode the database!!!")
 print("print out status of the records being processed. get # of lines and show how many have gone through. X of Y processed.")
 print("test the insert function that reuses the cursor")
+print("There were %s newly inserted records" % _INSERTS )#I really want a tally of new records but haven't figured out this global variable yet.
+#I need to go through and remove duplicate entries in the database. I doubt the numbers wil be 100% true, but getting rid of duplicates or records with null values should help 
