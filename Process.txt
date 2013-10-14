@@ -1,4 +1,5 @@
-download html file from mcohio.org/sheriff
+download html file from mcohio.org/sheriff --> curl -d "idate1=09%2F20%2F0013&idate2=12%2F06%2F0013&iSUMDET=DET" http://www.mcohio.org/sheriff/sflistauctiondo.cfm > sheriffsale.html
+
 SheriffSalesLinkCreator.py #strip and format data
 pythongeocode2.py # get lat long
 PythonXML.py or PythonMySQL.py # output as xml or enter into mysql database
