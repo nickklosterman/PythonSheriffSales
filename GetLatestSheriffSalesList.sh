@@ -29,6 +29,7 @@ function createUniqueFilenameWithDates()
     temp=$filenamebase${startDate}${endDate}.$filenameextension
     number=0
     
+    filename=${filenamebase}${startDate}${endDate}.${filenameextension} 
     while [[ -e "$filename" ]]
     do
         let 'number+=1'
@@ -40,22 +41,23 @@ function createUniqueFilenameWithDates()
 }
 
 
-wget http://www.mcohio.org/sheriff/sflistauction.cfm -o /tmp/sflistauction.cfm
+wget http://www.mcohio.org/sheriff/sflistauction.cfm -O /tmp/sflistauction.cfm
 
 startdate=`grep idate2 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//'`
-enddate=`grep idate2 sflistauction.cfm | sed -e 's/^.*value="//;s/".*//'`
+enddate=`grep idate2 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//'`
 
-startdate=`grep idate1 sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\//%2F/g'` #remove / and replace with %2F for 
-enddate=`grep idate2 sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\//%2F/g'` #remove / and replace with %2F for 
+startdate=`grep idate1 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\//%2F/g'` #remove / and replace with %2F for 
+enddate=`grep idate2 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\//%2F/g'` #remove / and replace with %2F for 
 
-startdateForFilename=`grep idate1 sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\///g'` # remove / and replace w nothing
-enddateForFilename=`grep idate2 sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\///g'` # remove / and replace w nothing
+startdateForFilename=`grep idate1 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\///g'` # remove / and replace w nothing
+enddateForFilename=`grep idate2 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\///g'` # remove / and replace w nothing
 
 filename="Sheriff Sales List.htm"
 filename="Sheriff_Sales_List.htm"
 
 outputFileName=$(createUniqueFilenameWithDates "${filename}" ${startdateForFilename} ${enddateForFilename})
 
+echo "$outputFileName"
 
 curl -d "idate1=${startdate}&idate2=${enddate}&iSUMDET=DET" http://www.mcohio.org/sheriff/sflistauctiondo.cfm > "${outputFileName}"
 
