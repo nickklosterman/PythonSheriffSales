@@ -15,7 +15,7 @@ function getFileExtension()
 function getFileName()
 {
     filename=${1%.*}
-    filename=`basename -s .htm ${1}`
+    filename=`basename  ${1} .htm`
     echo "$filename"
 }
 
@@ -57,7 +57,10 @@ filename="Sheriff_Sales_List.htm"
 
 outputFileName=$(createUniqueFilenameWithDates "${filename}" ${startdateForFilename} ${enddateForFilename})
 
+
 echo "$outputFileName"
 
 curl -d "idate1=${startdate}&idate2=${enddate}&iSUMDET=DET" http://www.mcohio.org/sheriff/sflistauctiondo.cfm > "${outputFileName}"
 
+
+bash SheriffSaleProcessors/SheriffSalesLinkCreatorMontgomeryCountyOhio_Detailed.py "${otputFileName}"
