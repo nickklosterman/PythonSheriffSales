@@ -11,68 +11,64 @@
   <body>
     <div id="Menu">
       <div id="select-column">
-  <div id="select-row">
+	<div id="select-row">
           <label>District:</label>
           <select onchange="updateMap()" id='districtname'>
             <option value="*" selected>All</option>
-        <?php
-             //specifies username,password,database, and table
-             require("../dbinfo_user.php");
-             // Opens a connection to a MySQL server
-             $connection=mysql_connect (localhost, $username, $password);
-             if (!$connection) {
-             die('Not connected : ' . mysql_error());
-             }
-             // Set the active MySQL database
-             $db_selected = mysql_select_db($database, $connection);
-             //could I possibly have a diff dbinfo_user.php that specifies the table to use? YES!!
-             if (!$db_selected) {
-             die ('Can\'t use db : ' . mysql_error());
-             }
-             $sql="select distinct(DISTRICT_NAME) from RentalRegistrationMontgomeryCountyOhio2013 order by DISTRICT_NAME asc"; //
-//             echo $sql;
-             $rs=mysql_query($sql);
-             while($row = mysql_fetch_array($rs))
-             {
-             echo "<option value=\"".$row['DISTRICT_NAME']."\">".$row['DISTRICT_NAME']."</option>\n  ";
-             }
-             ?>
+            <?php
+               //specifies username,password,database, and table
+               require("../dbinfo_user.php");
+               // Opens a connection to a MySQL server
+               $connection=mysql_connect (localhost, $username, $password);
+               if (!$connection) {
+               die('Not connected : ' . mysql_error());
+               }
+               // Set the active MySQL database
+               $db_selected = mysql_select_db($database, $connection);
+               //could I possibly have a diff dbinfo_user.php that specifies the table to use? YES!!
+               if (!$db_selected) {
+               die ('Can\'t use db : ' . mysql_error());
+               }
+               $sql="select distinct(DISTRICT_NAME) from RentalRegistrationMontgomeryCountyOhio2013 order by DISTRICT_NAME asc"; //
+	       //             echo $sql;
+               $rs=mysql_query($sql);
+               while($row = mysql_fetch_array($rs))
+               {
+               echo "<option value=\"".$row['DISTRICT_NAME']."\">".$row['DISTRICT_NAME']."</option>\n  ";
+               }
+               ?>
 
           </select>
         </div>
 
-  <div id="select-row">
+	<div id="select-row">
           <label>Units:</label>
           <select onchange="updateMap()" id='numberofunits'>
             <option value="*" selected>All</option>
-        <?php
-             //specifies username,password,database, and table
-             require("../dbinfo_user.php");
-             // Opens a connection to a MySQL server
-             $connection=mysql_connect (localhost, $username, $password);
-             if (!$connection) {
-             die('Not connected : ' . mysql_error());
-             }
-             // Set the active MySQL database
-             $db_selected = mysql_select_db($database, $connection);
-             //could I possibly have a diff dbinfo_user.php that specifies the table to use? YES!!
-             if (!$db_selected) {
-             die ('Can\'t use db : ' . mysql_error());
-             }
-             $sql="select distinct(NUMBER_OF_UNITS) from RentalRegistrationMontgomeryCountyOhio2013 order by NUMBER_OF_UNITS asc"; //
-//             echo $sql;
-             $rs=mysql_query($sql);
-             while($row = mysql_fetch_array($rs))
-             {
-             echo "<option value=\"".$row['NUMBER_OF_UNITS']."\">".$row['NUMBER_OF_UNITS']."</option>\n  ";
-             }
-             ?>
-
+            <?php
+               //specifies username,password,database, and table
+               require("../dbinfo_user.php");
+               // Opens a connection to a MySQL server
+               $connection=mysql_connect (localhost, $username, $password);
+               if (!$connection) {
+               die('Not connected : ' . mysql_error());
+               }
+               // Set the active MySQL database
+               $db_selected = mysql_select_db($database, $connection);
+               //could I possibly have a diff dbinfo_user.php that specifies the table to use? YES!!
+               if (!$db_selected) {
+               die ('Can\'t use db : ' . mysql_error());
+               }
+               $sql="select distinct(NUMBER_OF_UNITS) from RentalRegistrationMontgomeryCountyOhio2013 order by NUMBER_OF_UNITS asc"; //
+	       //             echo $sql;
+               $rs=mysql_query($sql);
+               while($row = mysql_fetch_array($rs))
+               {
+               echo "<option value=\"".$row['NUMBER_OF_UNITS']."\">".$row['NUMBER_OF_UNITS']."</option>\n  ";
+               }
+               ?>
           </select>
         </div>
-
-
-
 	<div id="select-row">
 	  <label> Number of Records To Display:</label>
 	  <select onchange="updateMap()" id="recordstodisplay">

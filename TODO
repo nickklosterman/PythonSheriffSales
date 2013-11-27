@@ -21,3 +21,6 @@ hide options passed to php so as to prevent people from useing that to scrape yo
 Allow for restricting the number of records displayed on the screen.
 -sort the displayed records by newest added
 -allow the user to scroll through the records only displaying X records at a time. 
+
+Mon Nov  4 22:08:21 EST 2013
+use 'wc -l' as a crude gauge as to how many records you need to go through. 

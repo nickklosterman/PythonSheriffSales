@@ -1,0 +1,2 @@
+can filter the data on district R72 etc from the parcel id. 
+could also allow querying based on two lat lons. 
