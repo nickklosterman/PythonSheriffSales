@@ -1,0 +1,2 @@
+update RentalRegistrationMontgomeryCountyOhio2013 t2013, RentalRegistrationMontgomeryCountyOhio2014 t2014 set t2014.Latitude = t2013.Latitude, t2014.Longitude = t2013.Longitude where t2014.PARCEL = t2013.PARCEL and t2014.LOCATION = t2013.LOCATION and t2013.TAX_DISTRICT = t2014.TAX_DISTRICT AND t2013.NUMBER_OF_UNITS = t2014.NUMBER_OF_UNITS;
+#this took 100 minutes to complete on nicolae 

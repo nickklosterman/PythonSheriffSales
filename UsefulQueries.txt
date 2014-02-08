@@ -1,0 +1,5 @@
+ select count(*) from RealEstateSalesMontgomeryCountyOhio2013 where saledt < "2013-04-31" and saledt > "2013-03-30";
+ select count(*) from RealEstateSalesMontgomeryCountyOhio2013 where saledt < "2013-05-31" and saledt > "2013-04-30";
+ select count(*) from RealEstateSalesMontgomeryCountyOhio2013 where saledt < "2013-06-31" and saledt > "2013-05-30";
+ select count(*) from RealEstateSalesMontgomeryCountyOhio2013 where saledt < "2013-07-31" and saledt > "2013-06-30";
+
