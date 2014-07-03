@@ -3,3 +3,13 @@
  select count(*) from RealEstateSalesMontgomeryCountyOhio2013 where saledt < "2013-06-31" and saledt > "2013-05-30";
  select count(*) from RealEstateSalesMontgomeryCountyOhio2013 where saledt < "2013-07-31" and saledt > "2013-06-30";
 
+
+Mon May 12 17:25:29 EDT 2014
+
+select distinct(soldto) from property where plaintiff not like soldto;
+select count(*) from property where plaintiff not like soldto;    individual investors but w some banks whose names were off
+select count(*) from property where plaintiff like soldto;      most likely banks buying it back
+
+
+
+
