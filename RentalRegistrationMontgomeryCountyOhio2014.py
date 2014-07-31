@@ -188,8 +188,13 @@ def getFileList(directory):
 ########### MAIN ############
 import csv
 import sys
-#import MySQLdb as mdb # no workie for python3 
-import pymysql as mdb #  git clone https://github.com/petehunt/PyMySQL.git ; ./build-py3k.sh  ; cd py3k; sudo python setup.py install ; and that should install it
+try:
+    import pymysql as mdb #  git clone https://github.com/petehunt/PyMySQL.git ; ./build-py3k.sh  ; cd py3k; sudo python setup.py install ; and that should install it
+except ImportError:
+    print("Module pymysql not found.")
+    print("To install :git clone https://github.com/petehunt/PyMySQL.git; cd PyMySQL; sudo python setup.py install ;")
+    print("Exiting.")
+    sys.exit(1)
 import getopt
 import glob # for globbing csv files in the input directory
 

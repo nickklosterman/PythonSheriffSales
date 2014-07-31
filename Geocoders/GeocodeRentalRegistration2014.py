@@ -127,7 +127,13 @@ def geocodeV2(addr):
 
 ########### MAIN ############
 import sys
-import MySQLdb as mdb #this module doesn't look like it'll ever be ported to py3, other modules available. sudo pacman -S mysql-python
+try:
+    import MySQLdb as mdb #this module doesn't look like it'll ever be ported to py3, other modules available.  sudo pacman -S mysql-python
+except ImportError:
+    print("Module MySQLdb not found.")
+    print("To install on Arch: sudo pacman -S mysql-python")
+    print("Exiting.")
+    sys.exit(1)
 import urllib,urllib2,time,json
 
 inputfilename=os.path.expanduser("~/.mysqllogin_rentalreg")
