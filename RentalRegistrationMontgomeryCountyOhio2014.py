@@ -219,21 +219,26 @@ for opt, arg in options:
     elif opt == '--version':
         version = arg
 
-print(inputdirectory,loginfile,date_last_seen)
-#with ~25000 records to geocode that takes ~10 days due to google limits
-#print("Dropping  the database.")
-#DropTableFromDatabase(loginfile)
-print("(re)Creating the database.")
-CreateDatabase(loginfile)
-
-#_INSERTS=0
-
-filelist = getFileList(inputdirectory) 
-for item in filelist:
-    print("processing "+item) 
-    CSVProcessFile(item,loginfile,date_last_seen)
-print("You now need to geocode the database!!!")
-print("print out status of the records being processed. get # of lines and show how many have gone through. X of Y processed.")
-print("test the insert function that reuses the cursor")
-print("There were %s newly inserted records" % _INSERTS )#I really want a tally of new records but haven't figured out this global variable yet.
-#I need to go through and remove duplicate entries in the database. I doubt the numbers wil be 100% true, but getting rid of duplicates or records with null values should help 
+import os.path
+if (not os.path.isfile(loginfile)):
+    print("A valid loginfile was not provided.")
+    print("Exiting.")
+else:
+    print(inputdirectory,loginfile,date_last_seen)
+    #with ~25000 records to geocode that takes ~10 days due to google limits
+    #print("Dropping  the database.")
+    #DropTableFromDatabase(loginfile)
+    print("(re)Creating the database.")
+    CreateDatabase(loginfile)
+    
+    #_INSERTS=0
+    
+    filelist = getFileList(inputdirectory) 
+    for item in filelist:
+        print("processing "+item) 
+        CSVProcessFile(item,loginfile,date_last_seen)
+    print("You now need to geocode the database!!!")
+    print("print out status of the records being processed. get # of lines and show how many have gone through. X of Y processed.")
+    print("test the insert function that reuses the cursor")
+    print("There were %s newly inserted records" % _INSERTS )#I really want a tally of new records but haven't figured out this global variable yet.
+    #I need to go through and remove duplicate entries in the database. I doubt the numbers wil be 100% true, but getting rid of duplicates or records with null values should help 

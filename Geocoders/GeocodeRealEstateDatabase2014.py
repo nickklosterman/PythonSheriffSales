@@ -110,16 +110,19 @@ def geocodeV2(addr):
 
 
 ########### MAIN ############
-import sys
-import MySQLdb as mdb #this module doesn't look like it'll ever be ported to py3, other modules available.
+import sys, os
+import MySQLdb as mdb #this module doesn't look like it'll ever be ported to py3, other modules available.  sudo pacman -S mysql-python
 import urllib,urllib2,time,json
 
-inputfilename="/home/nicolae/.mysqllogin"
+inputfilename=os.path.expanduser("~/.mysqllogin_rentalreg")
 if len(sys.argv)>1 and  sys.argv[1]!="":
     inputfilename=sys.argv[1]
 else:
     print("No login file specified: GeocodeRealEstateDatabase.py loginfile")
     print("using default file of %s" % (inputfilename))
-
-user,password=getUsernamePassword(inputfilename)
-GeocodeDatabase(user,password)
+if (not os.path.isfile(loginfile)):
+    print("A valid loginfile was not provided.")
+    print("Exiting.")
+else:
+    user,password=getUsernamePassword(inputfilename)
+    GeocodeDatabase(user,password)

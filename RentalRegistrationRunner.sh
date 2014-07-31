@@ -5,4 +5,4 @@ bash Get2013UnzipRentalRegistration.sh #the data on the website seems to be year
 cd ../../
 python3 RentalRegistrationMontgomeryCountyOhio2014.py
 cd Geocoders
-python GeocodeRentalRegistration2014.py
+python2 GeocodeRentalRegistration2014.py

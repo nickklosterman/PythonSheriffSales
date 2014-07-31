@@ -63,7 +63,5 @@ echo "$outputFileName"
 curl -d "idate1=${startdate}&idate2=${enddate}&iSUMDET=DET" http://www.mcohio.org/sheriff/sflistauctiondo.cfm > "${outputFileName}"
 
 
-python SheriffSaleProcessors/SheriffSalesLinkCreatorMontgomeryCountyOhio_Detailed.py "${outputFileName}"
-
-#python Geocoders/GeocodeDatabase.py
+python2 SheriffSaleProcessors/SheriffSalesLinkCreatorMontgomeryCountyOhio_Detailed.py "${outputFileName}"
 

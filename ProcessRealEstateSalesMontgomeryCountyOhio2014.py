@@ -60,20 +60,26 @@ def convert3LetterMonthToNumber(month):
 def convertSALETYPEToChar(type):
     uppertype=type.upper()
 #month_dict = {"Jan":1,"Feb":2,"Mar":3,"Apr":4, "May":5, "Jun":6,       "Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12} #http://mail.python.org/pipermail/python-list/2010-January/1231526.html
-    type_dict = {     "LAND AND BUILDING":1,  "LAND ONLY":2, "BUILDING ONLY":3}
-    return type_dict[uppertype]
+    type_dict = {     "LAND AND BUILDING":1,  "LAND ONLY":2, "BUILDING ONLY":3, "MOBILE HOME":4}
+    try:
+        return type_dict[uppertype]
+    except KeyError:
+        print("KeyError for '%s'",uppertype)
 
 def convertSALEVALIDITYToChar(validity):
     uppervalidity=validity.upper()
     validity_dict = {     "VALID SALE":1,    "NOT VALIDATED":2,    "RELATED INDIVIDUALS OR CORPORATIONS":3,     "LIQUIDATION/FORECLOSURE":4,       "NOT OPEN MARKET":5,       "PARTIAL  INTEREST":6,       "LAND CONTRACT OR UNUSUAL FINANCING":7,"EXCESS PERSONAL PP/NOT ARMS LENGTH":8,       "OWNER DISHONESTY IN DESCRIPTION":9,     "SALE INVOLVING MULTIPLE PARCELS":10, "INVALID DATE ON SALE":11, "OUTLIER":12,"PROPERTY CHANGED AFTER SALE":13,"RESALE W/IN 3 YRS":14,
 "SALE INCL UNLISTED NEW CONST":15, "DESIGNATED":16}
-    return validity_dict[uppervalidity]
+    try:
+        return validity_dict[uppervalidity]
+    except KeyError:
+        print("KeyError for '%s'",uppervalidity)
 
 def UpdateRecordInDatabase(row,loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        print("U") #PDATE RealEstateSalesMontgomeryCountyOhio2014 SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
+        print("U") 
         cur.execute("UPDATE RealEstateSalesMontgomeryCountyOhio2014 SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s", (SoldTo,SaleAmt,SaleStatus,key)) 
     con.commit()
     cur.close()
@@ -94,14 +100,13 @@ def InsertIntoDB(row,loginfile): #PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY):
     con.close()  
 
 
-def InsertUpdateIfExistsIntoDB(row,loginfile): #date,row): #PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY,PRICE):
+def InsertUpdateIfExistsIntoDB(row,loginfile): 
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
         date=convertDateFormat(row["SALEDTE"])
         saletype=convertSALETYPEToChar(row['SALETYPE'])
         salevalidity=convertSALEVALIDITYToChar(row['SALEVALIDITY'])
-#        cur.execute("INSERT INTO RealEstateSalesMontgomeryCountyOhio2014(SALEDT,PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY) VALUES ( %s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE PRICE=%s", (date, PARID,PARCELLOCATION,saletype,salevalidity,PRICE)) #even though their database types are int/float etc they are entered as strings here.... 
         cur.execute("INSERT INTO RealEstateSalesMontgomeryCountyOhio2014(SALEDT,PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY) VALUES ( %s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE PRICE=%s", (date, row['PARID'],row['PARCELLOCATION'],saletype,salevalidity,row['PRICE'])) #even though their database types are int/float etc they are entered as strings here.... 
 
     con.commit()
@@ -140,7 +145,7 @@ def CreateDatabase(loginfile):
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
         cur.execute("CREATE TABLE IF NOT EXISTS RealEstateSalesMontgomeryCountyOhio2014 ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, PARID VARCHAR(20), CONVNUM INT, SALEDT DATE, PRICE INT, OLDOWN VARCHAR(33), OWNERNAME1 VARCHAR(33), PARCELLOCATION VARCHAR(45) NOT NULL, MAILINGNAME1 VARCHAR(45), MAILINGNAME2 VARCHAR(45), PADDR1 VARCHAR(45), PADDR2 VARCHAR(45), PADDR3 VARCHAR(45), CLASS CHAR, ACRES FLOAT(8,6), TAXABLELAND INT, TAXABLEBLDG INT, TAXABLETOTAL INT, ASMTLAND INT, ASMTBLDG INT, ASMTTOTAL INT, SALETYPE CHAR, SALEVALIDITY CHAR, DYTNCRDT CHAR,Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )") 
-# TIme vs space tradeoff. Not doing mapping/coding of 1->Bob 2->Rob etc will save time (no conversion) but eats up space. However, the same amount of data is transmitted regardless. If you had the client instead of the mysql server do the conversion less data is transmitted but then the processing is done by the client. So hopefully they have a faster comp than the server. This may or may not be the case but it also frees up the server for doing more requests
+# Time vs space tradeoff. Not doing mapping/coding of 1->Bob 2->Rob etc will save time (no conversion) but eats up space. However, the same amount of data is transmitted regardless. If you had the client instead of the mysql server do the conversion less data is transmitted but then the processing is done by the client. So hopefully they have a faster comp than the server. This may or may not be the case but it also frees up the server for doing more requests
     con.commit()
     cur.close()
     con.close()
@@ -161,7 +166,7 @@ def CSVProcessFile(inputfilename,outputfilename,loginfile):
 #http://www.doughellmann.com/PyMOTW/csv/index.html 
     csvfile=open(inputfilename,'rb')
     try:
-        reader=csv.DictReader(csvfile) #the dictreader method is superior to plain indexing. If the columns move but are still called the same things then our code won't break, whereas addressing by index will
+        reader=csv.DictReader(csvfile) #the dictreader method is superior to plain indexing. If the columns move but are still name the same things then our code won't break, whereas addressing by index will
         for row in reader:
             if 1==1:
                 key=QueryDatabaseIfRecordExists(row,loginfile)
@@ -187,12 +192,12 @@ import csv
 import sys
 import MySQLdb as mdb
 import getopt
-
+import os
 
 inputfilename="RealEstateSalesData/MontgomeryCountyOhio/temp.csv" 
 inputfilename="RealEstateSalesData/MontgomeryCountyOhio/SALES_2014_RES.csv"
 outputfilename="RealEstateSalesMontgomeryCtyOhiooutput.txt"
-loginfile="/home/nicolae/.mysqllogin"
+loginfile=os.path.expanduser("~/.mysqllogin_rentalreg")
 try:
     options, remainder = getopt.gnu_getopt(sys.argv[1:], 'i:o:l:', ['--input=',
                                                                     '--output=', 
@@ -213,11 +218,12 @@ for opt, arg in options:
         loginfile = arg
     elif opt == '--version':
         version = arg
+if (not os.path.isfile(loginfile)):
+    print("A valid loginfile was not provided.")
+    print("Exiting.")
+else:
+    print(inputfilename,outputfilename,loginfile)
+    CreateDatabase(loginfile)
+    CSVProcessFile(inputfilename,outputfilename,loginfile)
 
-print(inputfilename,outputfilename,loginfile)
-#DropTableFromDatabase(loginfile)
-CreateDatabase(loginfile)
-CSVProcessFile(inputfilename,outputfilename,loginfile)
-print("You now need to geocode the database!!!")
-print("print out status of the records being processed. get # of lines and show how many have gone through. X of Y processed.")
 #http://docs.python.org/library/getopt.html
