@@ -4,7 +4,8 @@
     <title>Montgomery County Real Estate Sales</title>
     <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="RealEstateSalesMap2013jQuery.js"></script>
+    <!-- <script type="text/javascript" src="Unified.jQuery.js"></script> -->
+    <script type="text/javascript" src="Unified.js"></script>
     <style>
       #SheriffSales { display:inline}
       #RealEstateSales { display:none }
@@ -13,7 +14,7 @@
 
   </head>
 
-  <body onload="Mapfunction(0)">
+  <body onload="Mapfunction('RealEstateSales',false)">
 
     <div id="radio">
       <input id="radio1" type="radio" name="radio"><label for="radio1">Sheriff Sales</label>
@@ -47,7 +48,7 @@
       <div id="select-column">
 	<div id="select-row">
 	  <label>Sale Status:</label>
-	  <select onchange="updateMap()" id='salestatus'>
+	  <select onchange="Mapfunction('SheriffSales',true)" id='salestatus'>
 	    <option value="*" selected>All</option>
 	    <option>Active</option>
 	    <option>Sold</option>
@@ -57,11 +58,12 @@
 	</div>
 	<div id="select-row">
 	  <label>Sale Date:</label>
-	  <select onchange="updateMap()" id='saledate'>
+	  <select onchange="Mapfunction('SheriffSales',true)" id='saledate'>
 	    <option value="*" selected>All</option>
         <?php
              //specifies username,password,database, and table
-             require("../dbinfo_user.php");
+           require("../dbinfo_user.php");
+	   //require("../php/dbinfo_local.php");
              // Opens a connection to a MySQL server
              $connection=mysql_connect (localhost, $username, $password);
              if (!$connection) {
@@ -73,7 +75,7 @@
              if (!$db_selected) {
              die ('Can\'t use db : ' . mysql_error());
              }
-             $sql="select distinct(SaleDate) from Property where not zipcode=0 order by SaleDate desc"; //
+             $sql="select distinct(SaleDate) from PropertyMontgomeryCountyOhio where not zipcode=0 order by SaleDate desc"; //
 //             echo $sql;
              $rs=mysql_query($sql);
              while($row = mysql_fetch_array($rs))
@@ -87,7 +89,7 @@
 	</div>
 	<div id="select-row">
 	  <label>Info Window:</label>
-	  <select onchange="updateMap()" id='infowindow'>
+	  <select onchange="Mapfunction('SheriffSales',true)" id='infowindow'>
 	    <!--   onChange="updateMap3()"> -->
 	    <option >Detailed</option>
 	    <option >Summary</option>
@@ -98,7 +100,7 @@
       <div id="select-column">
 	<div id="select-row">
 	  <label> Number of Records To Display:</label>
-	  <select onchange="updateMap()" id="recordstodisplay">
+	  <select onchange="Mapfunction('RealEstateSales',true)" id="recordstodisplay">
 	    <option>10</option>
 	    <option selected>25</option>
 	    <option>50</option>
@@ -142,8 +144,8 @@
 	  <td>
 
 	    <form name='myForm'>
-	      Sale Amount between $<input type='text' id='minbid' value='1,000' />  and
-	      $<input type='text' id='maxbid' value='2,000,000' />
+	      Sale Amount between $<input type='text' id='minsale' value='1,000' />  and
+	      $<input type='text' id='maxsale' value='2,000,000' />
 
 	      <br>
 	      Sale Validity:<select id='salevalidity'>
@@ -167,10 +169,10 @@
 
 	      </select>
 
-	      Sale Date between<input type='text' id='startdate' value='2013-01-01' />  and
-	      <input type='text' id='enddate' value='2013-04-23' />
+	      Sale Date between<input type='text' id='startdate' value='2014-01-01' />  and
+	      <input type='text' id='enddate' value='2014-04-23' />
 
-	      <input type='button' onclick='Mapfunction(1)' value='Update Map' />
+	      <input type='button' onclick='Mapfunction("RealEstateSales",true)' value='Update Map' />
 
 	    </form>
 	  </td><td>
@@ -185,11 +187,12 @@
 	<div id="select-column">
 	  <div id="select-row">
             <label>District:</label>
-            <select onchange="updateMap()" id='districtname'>
+            <select onchange="Mapfunction('RealEstateSales',0)" id='districtname'>
               <option value="*" selected>All</option>
               <?php
 		 //specifies username,password,database, and table
 		 require("../dbinfo_user.php");
+		 //require("../php/dbinfo_local.php");
 		 // Opens a connection to a MySQL server
 		 $connection=mysql_connect (localhost, $username, $password);
 		 if (!$connection) {
@@ -201,7 +204,7 @@
 		 if (!$db_selected) {
 		 die ('Can\'t use db : ' . mysql_error());
 		 }
-		 $sql="select distinct(DISTRICT_NAME) from RentalRegistrationMontgomeryCountyOhio2013 order by DISTRICT_NAME asc"; //
+		 $sql="select distinct(DISTRICT_NAME) from RentalRegistrationMontgomeryCountyOhio order by DISTRICT_NAME asc"; //
 		 //             echo $sql;
 		 $rs=mysql_query($sql);
 		 while($row = mysql_fetch_array($rs))
@@ -215,11 +218,13 @@
 
 	  <div id="select-row">
             <label>Units:</label>
-            <select onchange="updateMap()" id='numberofunits'>
+            <select onchange="Mapfunction('RentalRegistration',false)" id='numberofunits'>
               <option value="*" selected>All</option>
               <?php
 		 //specifies username,password,database, and table
 		 require("../dbinfo_user.php");
+		 //require("../php/dbinfo_local.php");
+
 		 // Opens a connection to a MySQL server
 		 $connection=mysql_connect (localhost, $username, $password);
 		 if (!$connection) {
@@ -231,7 +236,7 @@
 		 if (!$db_selected) {
 		 die ('Can\'t use db : ' . mysql_error());
 		 }
-		 $sql="select distinct(NUMBER_OF_UNITS) from RentalRegistrationMontgomeryCountyOhio2013 order by NUMBER_OF_UNITS asc"; //
+		 $sql="select distinct(NUMBER_OF_UNITS) from RentalRegistrationMontgomeryCountyOhio order by NUMBER_OF_UNITS asc"; //
 		 //             echo $sql;
 		 $rs=mysql_query($sql);
 		 while($row = mysql_fetch_array($rs))
@@ -243,7 +248,7 @@
           </div>
 	  <div id="select-row">
 	    <label> Number of Records To Display:</label>
-	    <select onchange="updateMap()" id="recordstodisplay">
+	    <select onchange="Mapfunction('RentalRegistration',false)" id="recordstodisplay">
 	      <option>10</option>
 	      <option selected>25</option>
 	      <option>50</option>
