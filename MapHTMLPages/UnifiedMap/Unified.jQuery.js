@@ -1,8 +1,8 @@
 var offset = 0,
-    recordstodisplay, curr_record = 0;
+recordstodisplay, curr_record = 0;
 
 $(document).ready(function () {
-    load();
+    Mapfunction("SheriffSales",false);//load();
     $("#incrementOffset").click(function () {
         console.log("--------------------------------INC------------------------");
         getRecordsValues();
@@ -20,10 +20,10 @@ $(document).ready(function () {
         offset = curr_record;
         writeout();
 
-//        if (curr_record + recordstodisplay < recordCount && !changeflag) {
-if(curr_record!=temp_curr_record)
-{
-            updateMap();
+	//        if (curr_record + recordstodisplay < recordCount && !changeflag) {
+	if(curr_record!=temp_curr_record)
+	{
+	    Mapfunction("SheriffSales",true);//            updateMap();
         }
     });
 
@@ -31,7 +31,7 @@ if(curr_record!=temp_curr_record)
         console.log("--------------------------------DEC------------------------");
         //don't do anything if we try to decrement the records yet are all ready viewing the first record count.
         if (curr_record != 0) {
-            updateMap();
+	    Mapfunction("SheriffSales",true);//            updateMap();
         }
         getRecordsValues();
         curr_record -= (recordstodisplay);
@@ -43,11 +43,11 @@ if(curr_record!=temp_curr_record)
         writeout();
     });
     $("#maxbid").change(function () {
-        updateMap();
+	Mapfunction("SheriffSales",true);//            updateMap();        updateMap();
     });
 
     $("#minbid").change(function () {
-        updateMap();
+	Mapfunction("SheriffSales",true);//            updateMap();        updateMap();
     });
 });
 
