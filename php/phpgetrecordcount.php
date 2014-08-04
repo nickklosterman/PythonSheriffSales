@@ -1,5 +1,7 @@
 <?php
+//I believe that we obtain the username, password adn database from this file
 require("dbinfo_user.php");
+
 
 function parseToXML($htmlStr) 
 { 
@@ -18,7 +20,6 @@ $xmlStr=str_replace(',','',$xmlStr);
 return $xmlStr; 
 } 
 
-
 // Opens a connection to a MySQL server
 $connection=mysql_connect (localhost, $username, $password);
 if (!$connection) {
@@ -33,6 +34,18 @@ die ('Can\'t use db : ' . mysql_error());
 
 //Build Query from input
 $table=$_GET["table"];
+
+switch ($table) {
+case  "RentalRegistrationMontgomeryCountyOhio":
+$districtname=$_GET["districtname"];
+$numberofunits=$_GET["numberofunits"];
+
+$query = "SELECT count(*) AS num FROM $table WHERE DISTRICT_NAME = '$districtname' and NUMBER_OF_UNITS = ";
+if (is_numeric($numberofunits))
+$query .="'$numberofunits' ";
+
+break;
+case  "SheriffSalesMontgomeryCountyOhio":
 $maxbid=$_GET["maxbid"];
 $minbid=$_GET["minbid"];
 $salestatus = $_GET["salestatus"];
@@ -60,7 +73,6 @@ $minbid=$temp;
 $salestatus = mysql_real_escape_string($salestatus);
 $saledate = mysql_real_escape_string($saledate);
 
-
 //alias the count as a num so we can grab it 
 $query = "SELECT count(*) AS num FROM $table WHERE $pricefiltercategory < ";
 if (is_numeric($maxbid))
@@ -71,10 +83,11 @@ if ($salestatus!='*')
 $query .=" and SaleStatus = '$salestatus' ";
 if ($saledate!='*')
 $query .=" and SaleDate = '$saledate' ";
+break;
+case  "RealEstateSalesMontgomeryCountyOhio":
+break;
 
-
-
-
+}
 
 
 //debug statements

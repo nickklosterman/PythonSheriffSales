@@ -5,7 +5,7 @@ PASSWORD="UioP\$56&"
 ftp -in $HOST <<'EOF'
 user Split UioP$56&
 binary
-mput Map.php Unified.js Unified.jQuery.js 
+mput Map.php Unified.js Unified.jQuery.js Unified.php
 quit
 EOF
 echo "done"

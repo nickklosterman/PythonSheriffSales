@@ -51,7 +51,7 @@ var SheriffSaleStatusIcons = {
 
 var RentalRegistrationNumberOfUnitsIcons = {
     1: {
-        icon: 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=250|5600FC|000000&.png%3f', 
+        icon: 'http://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=|5600FC|000000&.png%3f', 
         shadow: 'http://labs.google.com/ridefinder/images/mm_20_shadow.png'
     },
     2: {
@@ -118,38 +118,37 @@ var RentalRegistrationNumberOfUnitsIcons = {
 };
 
 function getQueryString(database,isUpdate){ 
-    var queryString ; 
+    var queryString, recordstodisplay; 
     if (isUpdate === false) {
 	switch(database) {
 	case "RealEstateSales":
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/phpRealEstateSalesDynamic.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2014-01-01&enddate=2014-09-09&table=RealEstateSalesMontgomeryCountyOhio&recordstodisplay=25";  //this query works
+	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2014-01-01&enddate=2014-09-09&table=RealEstateSalesMontgomeryCountyOhio&recordstodisplay=25";  //this query works
 	    break;
 	case "RentalRegistration":
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/phpRentalRegistration.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25&districtname=*&numberofunits=*";
+	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25&districtname=*&numberofunits=*";
 	    break;
 	case "SheriffSales":
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=SheriffSalesMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
+	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=SheriffSalesMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
 	    break;
 	}
     } else { 
+	recordstodisplay = $("#SheriffSales #recordstodisplay").val();
 	switch(database) {
-
 	case "RealEstateSales":
-	    maxbid = $("#RealEstateSales #maxbid").val();
-	    minbid = $("#RealEstateSales #minbid").val();
+	    maxbid = $("#RealEstateSales #maxsale").val();
+	    minbid = $("#RealEstateSales #minsale").val();
 	    saletype = $("#RealEstateSales #saletype").val();
 	    salevalidity = $("#RealEstateSales #salevalidity").val();
 	    startdate = $("#RealEstateSales #startdate").val();
 	    enddate = $("#RealEstateSales #enddate").val(); 
 
 	    checkMinMaxBidValues(); 
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/phpRealEstateSalesDynamic.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSalesMontgomeryCountyOhio"; //must have spaces in btw + "" otherwise you break it!
+	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSalesMontgomeryCountyOhio"; //must have spaces in btw + "" otherwise you break it!
 	    break;
 	case "RentalRegistration":
 	    numberofunits = $("#RentalRegistration #numberofunits").val();
-	    recordstodisplay = $("#RentalRegistration #minbid").val();
 	    districtname = $("#RentalRegistration #districtname").val();
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/phpRentalRegistration.php?table=RentalRegistrationMontgomeryCountyOhio2013&recordsoffset=" + offset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
+	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=" + offset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
 	    break;
 	case "SheriffSales":
 	    maxbid = $("#SheriffSales #maxbid").val();
@@ -158,7 +157,7 @@ function getQueryString(database,isUpdate){
 	    saledate = $("#SheriffSales #saledate").val();
 	    pricefiltercategory = $("#SheriffSales #pricefiltercategory").val();
 	    checkMinMaxBidValues(); 
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?table=SheriffSalesMontgomeryCountyOhio&recordsoffset=" + offset + "&maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory; 
+	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=SheriffSalesMontgomeryCountyOhio&recordsoffset=" + offset + "&maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&recordstodisplay=" + recordstodisplay; 
 	    break;
 	}
     }
@@ -168,46 +167,50 @@ function getQueryString(database,isUpdate){
 
 function Mapfunction(database,isUpdate){
     var maxbid 
-    , minbid 
-    , saletype 
-    , salevalidity 
-    , startdate
-    , enddate
-    , pricefiltercategory
-    , numberofunits
-    , recordstodisplay
-    , recordsoffset 
+    // , minbid 
+    // , saletype 
+    // , salevalidity 
+    // , startdate
+    // , enddate
+    // , pricefiltercategory
+    // , numberofunits
+    // , recordstodisplay
+    // , recordsoffset 
     , queryString;
+
     //    alert (maxbid,minbid,saletype,salevalidity,startdate,enddate)
-    switch(database){
-    case "SheriffSales":
+    // switch(database){
+    // case "SheriffSales":
+    // 	recordstodisplay = $("#SheriffSales #recordstodisplay").val();
+    // 	maxbid = $("#SheriffSales #maxbid").val();
+    // 	minbid = $("#SheriffSales #minbid").val();
+    // 	salestatus = $("#SheriffSales #salestatus").val();
+    // 	saledate = $("#SheriffSales #saledate").val();
+    // 	pricefiltercategory = $("#SheriffSales #pricefiltercategory").val();
+    // 	recordsoffset=offset;
 
-	maxbid = $("#SheriffSales #maxbid").val();
-	minbid = $("#SheriffSales #minbid").val();
-	salestatus = $("#SheriffSales #salestatus").val();
-	saledate = $("#SheriffSales #saledate").val();
-	pricefiltercategory = $("#SheriffSales #pricefiltercategory").val();
-	recordsoffset=offset;
+    // 	checkMinMaxBidValues(); 
+    // 	break;
+    // case "RentalRegistration":
+    // 	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
+    // 	numberofunits = $("#RentalRegistration #numberofunits").val();
+    // 	recordstodisplay = $("#RentalRegistration #minbid").val();
+    // 	districtname = $("#RentalRegistration #districtname").val();
+    // 	recordsoffset=offset;
+    // 	break;
+    // case "RealEstateSales": 
+    // 	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
+    // 	maxbid = $("#RealEstateSales #maxsale").val();
+    // 	minbid = $("#RealEstateSales #minsale").val();
+    // 	saletype = $("#RealEstateSales #saletype").val();
+    // 	salevalidity = $("#RealEstateSales #salevalidity").val();
+    // 	startdate = $("#RealEstateSales #startdate").val();
+    // 	enddate = $("#RealEstateSales #enddate").val(); 
 
-	checkMinMaxBidValues(); 
-	break;
-    case "RentalRegistration":
-	numberofunits = $("#RentalRegistration #numberofunits").val();
-	recordstodisplay = $("#RentalRegistration #minbid").val();
-	districtname = $("#RentalRegistration #districtname").val();
-	recordsoffset=offset;
-	break;
-    case "RealEstateSales": 
-	maxbid = $("#RealEstateSales #maxsale").val();
-	minbid = $("#RealEstateSales #minsale").val();
-	saletype = $("#RealEstateSales #saletype").val();
-	salevalidity = $("#RealEstateSales #salevalidity").val();
-	startdate = $("#RealEstateSales #startdate").val();
-	enddate = $("#RealEstateSales #enddate").val(); 
+    // 	checkMinMaxBidValues(); 
+    // 	break;
+    // }
 
-	checkMinMaxBidValues(); 
-	break;
-    }
     /*
       debug steps:
       make sure the php is returning valid results
@@ -233,7 +236,7 @@ function Mapfunction(database,isUpdate){
     }
     queryString=getQueryString(database,isUpdate);
     //alert (queryString)
-
+    getRecordCountOfQuery(queryString);
     downloadUrl( queryString, function(data) {
 	processMarkers(database,data);
     });
@@ -481,15 +484,18 @@ function checkMinMaxBidValues() {
 
 function getRecordCountOfQuery(oldQueryString) {
     var xml, record;
-    var queryString = oldQueryString.replace(/phpdatabasequery/g, "phpgetrecordcount")
-    console.log("getRecordCountOfQuery:"+queryString);
+    var queryString;
+
+//var queryString_ = oldQueryString.replace(/phpdatabasequery'g, "getrecordcount")
+var queryString_ = oldQueryString.replace(/Unified/g, "phpgetrecordcount")
     downloadUrl(queryString, function (data) {
-	debugger;      xml = data.responseXML;
-	if (typeof xml !== 'undefined' ) {
+	//debugger;
+	xml = data.responseXML;
+	if (typeof xml !== 'undefined' && xml !== null ) {
             record = xml.documentElement.getElementsByTagName("data");
-	    //        console.log("record", record);
+	            console.log("record", record);
             recordCount = record[0].getAttribute("recordCount");
-	    //        console.log("recordCount in downloadUrl:", recordCount);
+	            console.log("recordCount in downloadUrl:", recordCount);
             writeout();
 	}
     });

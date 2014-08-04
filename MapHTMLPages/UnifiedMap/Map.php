@@ -14,8 +14,8 @@
 
   </head>
 
-  <body onload="Mapfunction('SheriffSales',false)">
-
+  <!-- <body onload="Mapfunction('SheriffSales',false)"> I think this was making the double call -->
+<body>
     <div id="radio">
       <input id="radio1" type="radio" name="radio" checked="checked"><label for="radio1">Sheriff Sales</label>
       <input id="radio2" type="radio" name="radio"><label for="radio2">Real Estate Sales</label>
@@ -48,7 +48,7 @@
 	    <label>Sale Date:</label>
 	    <select onchange="Mapfunction('SheriffSales',true)" id='saledate'>
 	      <option value="*" selected>All</option>
-              <?php
+              <?php  //For these php sections to work, you have to have the file named .php, not .html etc.
 		 //specifies username,password,database, and table
 		 require("../dbinfo_user.php");
 		 // Opens a connection to a MySQL server
@@ -150,6 +150,21 @@
 	    </form>
 	  </td><td>
 	    <!-- 	    <img src="Legend.gif" ALIGN=BOTTOM> -->
+	  <div id="select-row">
+	    <label> Number of Records To Display:</label>
+	    <select onchange="Mapfunction('RealEstateSales',true)" id="recordstodisplay">
+	      <option>10</option>
+	      <option selected>25</option>
+	      <option>50</option>
+	      <option>75</option>
+	      <option>100</option>
+	      <option>150</option>
+	      <option>200</option>
+	      <option>250</option>
+	      <option>500</option>
+	      <option value='*'>All</option>
+	    </select>
+	  </div>
 
 	  </td>
 	</tr>
@@ -160,7 +175,7 @@
 	<div id="select-column">
 
             <label>District:</label>
-            <select onchange="Mapfunction('RentalRegistration',false)" id='districtname'>
+            <select onchange="Mapfunction('RentalRegistration',true)" id='districtname'>
               <option value="*" selected>All</option>
               <?php
 	      	 //specifies username,password,database, and table
@@ -188,7 +203,7 @@
             </select>
 
             <label>Units:</label>
-            <select onchange="Mapfunction('RentalRegistration',false)" id='numberofunits'>
+            <select onchange="Mapfunction('RentalRegistration',true)" id='numberofunits'>
               <option value="*" selected>All</option>
               <?php
 	      	 //specifies username,password,database, and table
@@ -216,7 +231,7 @@
           </div>
 	  <div id="select-row">
 	    <label> Number of Records To Display:</label>
-	    <select onchange="Mapfunction('RentalRegistration',false)" id="recordstodisplay">
+	    <select onchange="Mapfunction('RentalRegistration',true)" id="recordstodisplay">
 	      <option>10</option>
 	      <option selected>25</option>
 	      <option>50</option>
@@ -252,7 +267,7 @@
       $("#SheriffSales").css("display","inline"); 
       $("#RealEstateSales").css("display","none");
       $("#RentalRegistration").css("display","none");
-      Mapfunction("SheriffSales",false);
+      Mapfunction("SheriffSales",false); //this will be the initial call so use 'false'
       });
 
       $( "#radio2" ).click( function() 
