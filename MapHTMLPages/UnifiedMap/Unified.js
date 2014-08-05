@@ -6,7 +6,15 @@
 var markersArr = [];
 var map;
 var infoWindow;
-var query, maxbid , minbid ,  saletype ,  salevalidity ,  startdate ,  enddate ;
+
+// var query
+// , maxbid 
+// , minbid 
+// ,  saletype 
+// ,  salevalidity 
+// ,  startdate 
+// ,  enddate 
+// , salestatus ;
 
 var recordCount = 0;
 var firstRun = true;
@@ -132,7 +140,11 @@ function getQueryString(database,isUpdate){
 	    break;
 	}
     } else { 
-	recordstodisplay = $("#SheriffSales #recordstodisplay").val();
+
+	var maxbid, minbid, saletype,salevalidity, startdate,enddate;
+	var numberofunits,districtname;
+	var salestatus , saledate,   pricefiltercategory ;
+	
 	switch(database) {
 	case "RealEstateSales":
 	    maxbid = $("#RealEstateSales #maxsale").val();
@@ -146,11 +158,15 @@ function getQueryString(database,isUpdate){
 	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSalesMontgomeryCountyOhio"; //must have spaces in btw + "" otherwise you break it!
 	    break;
 	case "RentalRegistration":
+	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
+	    console.log(recordstodisplay);
 	    numberofunits = $("#RentalRegistration #numberofunits").val();
 	    districtname = $("#RentalRegistration #districtname").val();
 	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=" + offset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
+	    console.log(queryString);
 	    break;
 	case "SheriffSales":
+	    recordstodisplay = $("#SheriffSales #recordstodisplay").val();
 	    maxbid = $("#SheriffSales #maxbid").val();
 	    minbid = $("#SheriffSales #minbid").val();
 	    salestatus = $("#SheriffSales #salestatus").val();
@@ -484,10 +500,9 @@ function checkMinMaxBidValues() {
 
 function getRecordCountOfQuery(oldQueryString) {
     var xml, record;
-    var queryString;
 
-//var queryString_ = oldQueryString.replace(/phpdatabasequery'g, "getrecordcount")
-var queryString_ = oldQueryString.replace(/Unified/g, "phpgetrecordcount")
+    var queryString = oldQueryString.replace(/Unified/g, "../phpgetrecordcount")
+//    console.log(queryString);
     downloadUrl(queryString, function (data) {
 	//debugger;
 	xml = data.responseXML;

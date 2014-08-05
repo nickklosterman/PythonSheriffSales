@@ -248,7 +248,7 @@
 	  <div id="select-row">
 	    <span id="dec">
 	      <button id="decrementOffset">  <-= </button>
-						 </span>
+            <OB/span>
 	    <span id="inc">
 	      <button id="incrementOffset"> =->   </button>
 	    </span>
