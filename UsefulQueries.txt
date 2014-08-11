@@ -10,6 +10,15 @@ select distinct(soldto) from property where plaintiff not like soldto;
 select count(*) from property where plaintiff not like soldto;    individual investors but w some banks whose names were off
 select count(*) from property where plaintiff like soldto;      most likely banks buying it back
 
+Fri Aug  1 10:56:33 EDT 2014
+select distinct(soldto) from Property where soldto!=plaintiff and plaintiff != "" and soldto != "";
+select * from Property where soldto!=plaintiff and plaintiff != "" and soldto != "";
+select * from Property where soldto=plaintiff;
+
+#create a table from two separate tables that have the same column names
+create table RealEstateSalesMontgomeryCountyOhio select * from RealEstateSalesMontgomeryCountyOhio2014 union select * from RealEstateSalesMontgomeryCountyOhio2013
+create table RentalRegistrationMontgomeryCountyOhio select * from RentalRegistrationMontgomeryCountyOhio2014 union select * from RentalRegistrationMontgomeryCountyOhio2013;
+
 
 
 

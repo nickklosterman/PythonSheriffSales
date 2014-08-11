@@ -1,6 +1,7 @@
 #this program geocodes a database
 import geocodeV2
 
+_OverQueryLimitFlag = False
 
 def getUsernamePassword(file):
     import linecache 
@@ -39,7 +40,9 @@ def GeocodeDatabase(user,password):
             counter+=1
             print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses.")
 
-            if 1==1:
+            if _OverQueryLimitFlag==True:
+                break
+            else:
                 addr=row["PARCELLOCATION"]+"DAYTON OHIO"
                 geocode_data=geocodeV2(addr)  #I wrote a geocodeV2 module that is in the SheriffSaleProcessors directory that could be used here
                 #if len(geocode_data)>1:
@@ -72,25 +75,6 @@ return_codes = {'200':'SUCCESS',
                 '620':'TOO MANY QUERIES'
     }
 
-def geocode(addr,out_fmt='csv'):
-    #encode our dictionary of url parameters
-    values = {'q' : addr, 'output':out_fmt}
-    data = urllib.urlencode(values)
-    #set up our request
-    url = root_url+data+sensor_suffix
-    req = urllib2.Request(url)
-    #make request and read response
-    response = urllib2.urlopen(req)
-    geodat = response.read().split(',') #it appears that prior to ~March 2013 that geocoded data had a diff data format.
-    response.close()
-    #handle the data returned from google
-    code = return_codes[geodat[0]]
-    if code == 'SUCCESS':
-        code,precision,lat,lng = geodat
-#        return {'code':code,'precision':precision,'lat':lat,'lng':lng}
-        return {'status':code,'precision':precision,'lat':lat,'lng':lng}
-    else:
-        return {'code':code}
 
 def geocodeV2(addr):
     values = {'address':addr,'sensor':'false'}
@@ -103,10 +87,15 @@ def geocodeV2(addr):
     content=result.read()
     decodedjson=json.loads(content.decode('utf-8'))
     code=decodedjson['status']
-    
-    outputlist = [s['geometry']['location'] for s in decodedjson['results']]
-    first= outputlist[0]
-    return { 'status':code,'lat':first['lat'],'lng':first['lng'] }
+    if code=="OK": #"SUCCESS": this changed from success to ok 
+        outputlist = [s['geometry']['location'] for s in decodedjson['results']]
+        #print(outputlist)
+        first= outputlist[0]
+        return { 'status':code,'lat':first['lat'],'lng':first['lng'] }
+    else:
+        if code=="OVER_QUERY_LIMIT":
+            _OverQueryLimitFlag=True
+        return {'status':code}
 
 
 ########### MAIN ############
@@ -120,15 +109,16 @@ except ImportError:
     sys.exit(1)
 import urllib,urllib2,time,json
 
-inputfilename=os.path.expanduser("~/.mysqllogin_rentalreg")
+loginfile=os.path.expanduser("~/.mysqllogin_rentalreg")
 if len(sys.argv)>1 and  sys.argv[1]!="":
-    inputfilename=sys.argv[1]
+    loginfile=sys.argv[1]
 else:
-    print("No login file specified: GeocodeRealEstateDatabase.py loginfile")
-    print("using default file of %s" % (inputfilename))
+    print("No login file specified: %s loginfile" % sys.argv[0])
+    print("using default file of %s" % (loginfile))
+
 if (not os.path.isfile(loginfile)):
     print("A valid loginfile was not provided.")
     print("Exiting.")
 else:
-    user,password=getUsernamePassword(inputfilename)
+    user,password=getUsernamePassword(loginfile)
     GeocodeDatabase(user,password)

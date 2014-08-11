@@ -82,27 +82,6 @@ return_codes = {'200':'SUCCESS',
                 '620':'TOO MANY QUERIES'
     }
 
-#These should be deletable since we are pulling from the external geocodeV2 that we are importing
-
-# def geocode(addr,out_fmt='csv'):
-#     #encode our dictionary of url parameters
-#     values = {'q' : addr, 'output':out_fmt}
-#     data = urllib.urlencode(values)
-#     #set up our request
-#     url = root_url+data+sensor_suffix
-#     req = urllib2.Request(url)
-#     #make request and read response
-#     response = urllib2.urlopen(req)
-#     geodat = response.read().split(',') #it appears that prior to ~March 2013 that geocoded data had a diff data format.
-#     response.close()
-#     #handle the data returned from google
-#     code = return_codes[geodat[0]]
-#     if code == 'SUCCESS':
-#         code,precision,lat,lng = geodat
-# #        return {'code':code,'precision':precision,'lat':lat,'lng':lng}
-#         return {'status':code,'precision':precision,'lat':lat,'lng':lng}
-#     else:
-#         return {'code':code}
 
 def geocodeV2(addr):
     values = {'address':addr,'sensor':'false'}
