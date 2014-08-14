@@ -196,7 +196,9 @@ header("Content-type: text/xml");
 
 // Start XML file, echo parent node
 echo '<markers>';
-
+//echo '<query>' . $query . '</query>' . PHP_EOL; //this was breaking the responseXML element as it wasn't valid xml
+//echo '<query QUERY="' . $query . '" />' .PHP_EOL;  //hmm this doesn't work either :(
+echo '<!-- Query="' . $query . '" -->' .PHP_EOL;  //hmm this doesn't work either :(
 // Iterate through the rows, printing XML nodes for each
 while ($row = @mysql_fetch_assoc($result)){
 

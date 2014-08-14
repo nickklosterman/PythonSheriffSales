@@ -1,5 +1,6 @@
 var offset = 0,
-recordstodisplay, curr_record = 0;
+recordstodisplay = 25 ,
+curr_record = 0;
 
 $(document).ready(function () {
     Mapfunction("SheriffSales",false);//load();
@@ -108,7 +109,7 @@ break;
     if (rangehi > recordCount) {
         rangehi = recordCount;
     }
-    if (recordCount > 0) {
+    if (recordstodisplay && recordCount > 0  ) {
         if (recordstodisplay < recordCount) {
             console.log("recordstodisplay:", recordstodisplay, " recordCount:", recordCount, " curr_record", curr_record);
             $("#CurrentRecordsDisplayed").html("Displaying " + rangelo.toString() + "-" + rangehi.toString() + " of " + recordCount + " matching records.");
