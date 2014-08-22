@@ -189,6 +189,7 @@ function getQueryString(database,isUpdate){
 }
 
 function Mapfunction(database,isUpdate){
+console.log(database,isUpdate);
     var maxbid 
     // , minbid 
     // , saletype 
@@ -261,7 +262,9 @@ function Mapfunction(database,isUpdate){
     //alert (queryString)
     getRecordCountOfQuery(queryString);
     downloadUrl( queryString, function(data) {
+//if (data !== null){
 	processMarkers(database,data);
+//} else { alert('bork');  }
     });
 }
 
@@ -293,12 +296,15 @@ function processMarkers(database,data) {
     icon ,
     iconC ,
     marker ;
-    
 
-    var xml = data.responseXML;
+    console.log(data);
+    var xml = data.responseXML;// responseXML will be null but responseText and response will be populated if the returned result isn't xml
+    console.log("xml"+xml);
     if (xml !== null) {
         var markers = xml.documentElement.getElementsByTagName("marker");
+//        var markers = xml.getElementsByTagName("marker");
 	clearLocations();
+	console.log("processing Markers:"+database)
 	switch(database){
 	case "SheriffSales":
 	    for (i = 0; i < markers.length; i++) {

@@ -196,7 +196,9 @@
 	      	 $rs=mysql_query($sql);
 	      	 while($row = mysql_fetch_array($rs))
 	      	 {
-	      	 echo "<option value=\"".$row['DISTRICT_NAME']."\">".$row['DISTRICT_NAME']."</option>\n  ";
+		 $queryParamSafeString=str_replace(' ','+',$row['DISTRICT_NAME']);
+		 // echo "<option value=\"".$row['DISTRICT_NAME']."\">".$row['DISTRICT_NAME']."</option>\n  ";
+		 echo "<option value=\"".$queryParamSafeString."\">".$row['DISTRICT_NAME']."</option>\n  ";
 	      	 }
 	      	 ?>
 
