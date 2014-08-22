@@ -1,0 +1,797 @@
+sudo pacman -Syu mariadb
+
+installed without issue
+
+sudo systemctl start mysqld.service
+-this command took a long time and exited giving this message:
+Job for mysqld.service failed. See 'systemctl status mysqld.service' and 'journalctl -xn' for details.
+[arch-nicky@arch-bitches ~]$
+[arch-nicky@arch-bitches ~]$ sudo systemctl status mysqld.service
+● mysqld.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled)
+   Active: activating (start-post) (Result: exit-code) since Thu 2014-07-31 09:55:16 EDT; 16s ago
+  Process: 15650 ExecStart=/usr/bin/mysqld --pid-file=/run/mysqld/mysqld.pid (code=exited, status=1/FAILURE)
+ Main PID: 15650 (code=exited, status=1/FAILURE);         : 15651 (mysqld-post)
+   CGroup: /system.slice/mysqld.service
+           └─control
+             ├─15651 /bin/sh /usr/bin/mysqld-post
+             └─15813 sleep 1
+
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] mysqld: Got error 'Size of control file is smaller than expected' wh...control'
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Plugin 'Aria' init function returned error.
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Plugin 'Aria' registration as a STORAGE ENGINE failed.
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [Note] Plugin 'FEEDBACK' is disabled.
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Unknown/unsupported storage engine: InnoDB
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Aborting
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [Note] /usr/bin/mysqld: Shutdown complete
+Jul 31 09:55:17 arch-bitches systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE
+Hint: Some lines were ellipsized, use -l to show in full.
+[arch-nicky@arch-bitches ~]$ journalctl -xn
+-- Logs begin at Wed 2014-07-23 10:55:05 EDT, end at Thu 2014-07-31 09:55:35 EDT. --
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Plugin 'Aria' registration as a STORAGE ENGINE failed.
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [Note] Plugin 'FEEDBACK' is disabled.
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Unknown/unsupported storage engine: InnoDB
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [ERROR] Aborting
+Jul 31 09:55:17 arch-bitches mysqld[15650]: 140731  9:55:17 [Note] /usr/bin/mysqld: Shutdown complete
+Jul 31 09:55:17 arch-bitches systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE
+Jul 31 09:55:33 arch-bitches sudo[15805]: arch-nicky : TTY=pts/10 ; PWD=/home/arch-nicky ; USER=root ; COMMAND=/usr/bin/systemctl status mysqld.ser
+Jul 31 09:55:33 arch-bitches sudo[15805]: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jul 31 09:55:35 arch-bitches sudo[15805]: pam_unix(sudo:session): session closed for user root
+[arch-nicky@arch-bitches ~]$ mysql_upgrade
+Version check failed. Got the following error when calling the 'mysql' command line client
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+FATAL ERROR: Upgrade failed
+
+[arch-nicky@arch-bitches ~]$ sudo ls /var/lib/mysql/
+aria_log_control  ibdata1  ib_logfile1  ib_logfile101  mysql  mysql-bin.index  test
+[arch-nicky@arch-bitches ~]$ sudo ls /var/lib/mysql/ -alch
+total 82M
+drwx------  4 mysql mysql 4.0K Jul 31 10:01 .
+drwxr-xr-x 16 root  root  4.0K Jul 31 09:47 ..
+-rw-rw----  1 mysql mysql    0 Jul 31 09:47 aria_log_control
+-rw-rw----  1 mysql mysql  12M Jul 31 09:47 ibdata1
+-rw-rw----  1 mysql mysql  22M Jul 31 09:47 ib_logfile1
+-rw-rw----  1 mysql mysql  48M Jul 31 09:47 ib_logfile101
+drwx------  2 mysql mysql 4.0K Jul 31 09:47 mysql
+-rw-rw----  1 mysql mysql    0 Jul 31 09:47 mysql-bin.index
+drwx------  2 mysql mysql 4.0K Jul 31 09:47 test
+[arch-nicky@arch-bitches ~]$ sudo ls /var/lib/mysql/mysql -alch
+total 8.0K
+drwx------ 2 mysql mysql 4.0K Jul 31 09:47 .
+drwx------ 4 mysql mysql 4.0K Jul 31 10:01 ..
+[arch-nicky@arch-bitches ~]$ cp /etc/mysql/my.cnf /etc/my.cnf
+cp: cannot create regular file ‘/etc/my.cnf’: Permission denied
+[arch-nicky@arch-bitches ~]$ sudo cp /etc/mysql/my.cnf /etc/my.cnf
+
+
+[arch-nicky@arch-bitches ~]$ sudo mysqld_safe --datadir=/var/lib/mysql/
+140731 10:05:09 mysqld_safe Logging to '/var/lib/mysql//arch-bitches.err'.
+140731 10:05:09 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql/
+140731 10:05:09 mysqld_safe mysqld from pid file /var/lib/mysql//arch-bitches.pid ended
+[arch-nicky@arch-bitches ~]$ sudo mysql_upgrade -u root -p
+Enter password:
+Version check failed. Got the following error when calling the 'mysql' command line client
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+FATAL ERROR: Upgrade failed
+
+[arch-nicky@arch-bitches ~]$ sudo  mysqlcheck -A --auto-repair -u root -p
+Enter password:
+mysqlcheck: Got error: 2002: Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory") when trying to connect
+
+[arch-nicky@arch-bitches ~]$ sudo systemctl status mysqld.service
+● mysqld.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled)
+   Active: activating (start-post) (Result: exit-code) since Thu 2014-07-31 10:08:51 EDT; 54s ago
+  Process: 23148 ExecStart=/usr/bin/mysqld --pid-file=/run/mysqld/mysqld.pid (code=exited, status=1/FAILURE)
+ Main PID: 23148 (code=exited, status=1/FAILURE);         : 23149 (mysqld-post)
+   CGroup: /system.slice/mysqld.service
+           └─control
+             ├─23149 /bin/sh /usr/bin/mysqld-post
+             └─23743 sleep 1
+
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [ERROR] mysqld: Got error 'Size of control file is smaller than expected' wh...control'
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [ERROR] Plugin 'Aria' init function returned error.
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [ERROR] Plugin 'Aria' registration as a STORAGE ENGINE failed.
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [Note] Plugin 'FEEDBACK' is disabled.
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [ERROR] Unknown/unsupported storage engine: InnoDB
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [ERROR] Aborting
+Jul 31 10:08:51 arch-bitches mysqld[23148]: 140731 10:08:51 [Note] /usr/bin/mysqld: Shutdown complete
+Jul 31 10:08:51 arch-bitches systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE
+Hint: Some lines were ellipsized, use -l to show in full.
+[arch-nicky@arch-bitches ~]$ journalctl -xn
+-- Logs begin at Wed 2014-07-23 10:55:05 EDT, end at Thu 2014-07-31 10:10:22 EDT. --
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [ERROR] mysqld: Got error 'Size of control file is smaller than expected' when trying t
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [ERROR] Plugin 'Aria' init function returned error.
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [ERROR] Plugin 'Aria' registration as a STORAGE ENGINE failed.
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [Note] Plugin 'FEEDBACK' is disabled.
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [ERROR] Unknown/unsupported storage engine: InnoDB
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [ERROR] Aborting
+Jul 31 10:10:22 arch-bitches mysqld[24056]: 140731 10:10:22 [Note] /usr/bin/mysqld: Shutdown complete
+Jul 31 10:10:22 arch-bitches systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE
+[arch-nicky@arch-bitches ~]$ pacmanclean
+Packages to keep:
+  All locally installed packages
+
+Cache directory: /var/cache/pacman/pkg/
+:: Do you want to remove all other packages from cache? [Y/n]
+removing old packages from cache...
+
+Database directory: /var/lib/pacman/
+:: Do you want to remove unused repositories? [Y/n]
+removing unused sync repositories...
+[arch-nicky@arch-bitches ~]$ df
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1       4.5G  3.9G  424M  91% /
+dev             624M     0  624M   0% /dev
+run             626M  468K  626M   1% /run
+tmpfs           626M     0  626M   0% /dev/shm
+tmpfs           626M     0  626M   0% /sys/fs/cgroup
+tmpfs           626M  2.2M  624M   1% /tmp
+/dev/sda5        32G   28G  3.9G  88% /home
+tmpfs           126M  8.0K  126M   1% /run/user/1000
+[arch-nicky@arch-bitches ~]$ sudo systemctl status mysqld.service
+● mysqld.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled)
+   Active: activating (start-post) (Result: exit-code) since Thu 2014-07-31 10:13:22 EDT; 27s ago
+  Process: 25638 ExecStart=/usr/bin/mysqld --pid-file=/run/mysqld/mysqld.pid (code=exited, status=1/FAILURE)
+ Main PID: 25638 (code=exited, status=1/FAILURE);         : 25639 (mysqld-post)
+   CGroup: /system.slice/mysqld.service
+           └─control
+             ├─25639 /bin/sh /usr/bin/mysqld-post
+             └─25888 sleep 1
+
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [ERROR] mysqld: Got error 'Size of control file is smaller than expected' wh...control'
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [ERROR] Plugin 'Aria' init function returned error.
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [ERROR] Plugin 'Aria' registration as a STORAGE ENGINE failed.
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [Note] Plugin 'FEEDBACK' is disabled.
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [ERROR] Unknown/unsupported storage engine: InnoDB
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [ERROR] Aborting
+Jul 31 10:13:23 arch-bitches mysqld[25638]: 140731 10:13:23 [Note] /usr/bin/mysqld: Shutdown complete
+Jul 31 10:13:23 arch-bitches systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE
+Hint: Some lines were ellipsized, use -l to show in full.
+[arch-nicky@arch-bitches ~]$ sudo systemctl start mysqld.service
+Job for mysqld.service failed. See 'systemctl status mysqld.service' and 'journalctl -xn' for details.
+[arch-nicky@arch-bitches ~]$
+[arch-nicky@arch-bitches ~]$
+[arch-nicky@arch-bitches ~]$ sudo rm /var/lib/mysql/{ib_logfile0,ib_logfile1,aria_log_control}
+rm: cannot remove ‘/var/lib/mysql/ib_logfile0’: No such file or directory
+[arch-nicky@arch-bitches ~]$ sudo systemctl start mysqld.service
+Job for mysqld.service failed. See 'systemctl status mysqld.service' and 'journalctl -xn' for details.
+
+At this point I restarted the PC, sudo shutdown -r now
+
+and still received the failure messages. 
+
+[arch-nicky@arch-bitches ~]$ sudo rm /var/lib/mysql/{ib_logfile0,ib_logfile1,aria_log_control}
+rm: cannot remove ‘/var/lib/mysql/ib_logfile0’: No such file or directory
+
+[arch-nicky@arch-bitches ~]$ sudo systemctl status mysqld.service -l
+● mysqld.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled)
+   Active: activating (start-post) (Result: exit-code) since Thu 2014-07-31 10:29:41 EDT; 26s ago
+  Process: 2796 ExecStart=/usr/bin/mysqld --pid-file=/run/mysqld/mysqld.pid (code=exited, status=1/FAILURE)
+ Main PID: 2796 (code=exited, status=1/FAILURE);         : 2797 (mysqld-post)
+   CGroup: /system.slice/mysqld.service
+           └─control
+             ├─2797 /bin/sh /usr/bin/mysqld-post
+             └─3044 sleep 1
+
+Jul 31 10:29:41 arch-bitches mysqld[2796]: 140731 10:29:41 [ERROR] InnoDB: space header page consists of zero bytes in data file ./ibdata1
+Jul 31 10:29:41 arch-bitches mysqld[2796]: 140731 10:29:41 [ERROR] InnoDB: Could not open or create the system tablespace. If you tried to add new data files to the system tablespace, and it failed here, you should now edit innodb_data_file_path in my.cnf back to what it was, and remove the new ibdata files InnoDB created in this failed attempt. InnoDB only wrote those files full of zeros, but did not yet use them in any way. But be careful: do not remove old data files which contain your precious data!
+Jul 31 10:29:41 arch-bitches mysqld[2796]: 140731 10:29:41 [ERROR] Plugin 'InnoDB' init function returned error.
+Jul 31 10:29:41 arch-bitches mysqld[2796]: 140731 10:29:41 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+Jul 31 10:29:41 arch-bitches mysqld[2796]: 140731 10:29:41 [Note] Plugin 'FEEDBACK' is disabled.
+Jul 31 10:29:41 arch-bitches mysqld[2796]: 140731 10:29:41 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+Jul 31 10:29:41 arch-bitches mysqld[2796]: 140731 10:29:41 [ERROR] Unknown/unsupported storage engine: InnoDB
+Jul 31 10:29:41 arch-bitches mysqld[2796]: 140731 10:29:41 [ERROR] Aborting
+[arch-nicky@arch-bitches ~]$ mysqld[2796]: 140731 10:29:41 [Note] /usr/bin/mysqld: Shutdown complete
+Jul 31 10:29:41 arch-bitcm': sudo rm /var/lib/mysql/{ib_logfile0,ib_logfile1,aria_log_control}tus=1/FAILURE
+rm: cannot remove ‘/var/lib/mysql/ib_logfile0’: No such file or directorye1,aria_
+rm: cannot remove ‘/var/lib/mysql/systemctl start mysqld.service
+Job for mysqld.service failed. Seesystemctl status mysqld.service -llctl -xn' for details.
+● mysqld.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled)
+   Active: activating (start-post) (Result: exit-code) since Thu 2014-07-31 10:31:11 EDT; 19s ago
+  Process: 3590 ExecStart=/usr/bin/mysqld --pid-file=/run/mysqld/mysqld.pid (code=exited, status=1/FAILURE)
+ Main PID: 3590 (code=exited, status=1/FAILURE);         : 3591 (mysqld-post)
+   CGroup: /system.slice/mysqld.service
+           └─control
+             ├─3591 /bin/sh /usr/bin/mysqld-post
+             └─3778 sleep 1
+
+Jul 31 10:31:11 arch-bitches mysqld[3590]: 140731 10:31:11 [Warning] InnoDB: Doublewrite does not have page_no=0 of space: 0
+Jul 31 10:31:11 arch-bitches mysqld[3590]: 140731 10:31:11 [ERROR] InnoDB: space header page consists of zero bytes in data file ./ibdata1
+Jul 31 10:31:11 arch-bitches mysqld[3590]: 140731 10:31:11 [ERROR] InnoDB: Could not open or create the system tablespace. If you tried to add new data files to the system tablespace, and it failed here, you should now edit innodb_data_file_path in my.cnf back to what it was, and remove the new ibdata files InnoDB created in this failed attempt. InnoDB only wrote those files full of zeros, but did not yet use them in any way. But be careful: do not remove old data files which contain your precious data!
+Jul 31 10:31:11 arch-bitches mysqld[3590]: 140731 10:31:11 [ERROR] Plugin 'InnoDB' init function returned error.
+Jul 31 10:31:11 arch-bitches mysqld[3590]: 140731 10:31:11 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+Jul 31 10:31:11 arch-bitches mysqld[3590]: 140731 10:31:11 [Note] Plugin 'FEEDBACK' is disabled.
+Jul 31 10:31:11 arch-bitches mysqld[3590]: 140731 10:31:11 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+Jul 31 10:31:12 arch-bitches mysqld[3590]: 140731 10:31:12 [ERROR] Unknown/unsupported storage engine: InnoDB
+Jul 31 10:31:12 arch-bitches mysqld[3590]: 140731 10:31:12 [ERROR] Aborting
+Jul 31 10:31:12 arch-bitches mysqld[3590]: 140731 10:31:12 [Note] /usr/bin/mysqld: Shutdown complete
+Jul 31 10:31:12 arch-bitches systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE
+[arch-nicky@arch-bitches ~]$ df
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1       4.5G  3.8G  453M  90% /
+dev             624M     0  624M   0% /dev
+run             626M  468K  626M   1% /run
+tmpfs           626M     0  626M   0% /dev/shm
+tmpfs           626M     0  626M   0% /sys/fs/cgroup
+tmpfs           626M  2.1M  624M   1% /tmp
+/dev/sda5        32G   28G  3.9G  88% /home
+tmpfs           126M  8.0K  126M   1% /run/user/1000
+[arch-nicky@arch-bitches ~]$ sudo systemctl start mysqld.service
+Job for mysqld.service failed. See 'systemctl status mysqld.service' and 'journalctl -xn' for details.
+[arch-nicky@arch-bitches ~]$ sudo pacman -Sc
+Packages to keep:
+  All locally installed packages
+
+Cache directory: /var/cache/pacman/pkg/
+:: Do you want to remove all other packages from cache? [Y/n]
+removing old packages from cache...
+
+Database directory: /var/lib/pacman/
+:: Do you want to remove unused repositories? [Y/n]
+removing unused sync repositories...
+[arch-nicky@arch-bitches ~]$ sudo mysql_upgrade -u root -p
+Enter password:
+Version check failed. Got the following error when calling the 'mysql' command line client
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+FATAL ERROR: Upgrade failed
+[arch-nicky@arch-bitches ~]$ mysqlcheck -A
+mysqlcheck: Got error: 2002: Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory") when trying to connect
+a_log_control}ch-bitches ~]$ sudo rm /var/lib/mysql/{ib_logfile0,ib_logfile1,aria
+rm: cannot remove ‘/var/lib/mysql/ib_logfile0’: No such file or directory
+rm: cannot remove ‘/var/lib/msudo mysql_upgrade -u root -p
+Enter password:
+Version check failed. Got the following error when calling the 'mysql' command line client
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+FATAL ERROR: Upgrade failed
+[arch-nicky@arch-bitches ~]$ mysql_upgrade -u root -p
+Enter password:
+Version check failed. Got the following error when calling the 'mysql' command line client
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+FATAL ERROR: Upgrade failed
+
+
+es ~]$ sudo mysql_install_db --user=mysql --ldata=/var/lib/
+Installing MariaDB/MySQL system tables in '/var/lib/mysql/' ...
+140731 10:40:31 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+140731 10:40:31 [Note] InnoDB: The InnoDB memory heap is disabled
+140731 10:40:31 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+140731 10:40:31 [Note] InnoDB: Compressed tables use zlib 1.2.8
+140731 10:40:31 [Note] InnoDB: Using Linux native AIO
+140731 10:40:31 [Note] InnoDB: Not using CPU crc32 instructions
+140731 10:40:31 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+140731 10:40:31 [Note] InnoDB: Completed initialization of buffer pool
+140731 10:40:31 [Note] InnoDB: Restoring page 0 of tablespace 0
+140731 10:40:31 [Warning] InnoDB: Doublewrite does not have page_no=0 of space: 0
+140731 10:40:31 [ERROR] InnoDB: space header page consists of zero bytes in data file ./ibdata1
+140731 10:40:31 [ERROR] InnoDB: Could not open or create the system tablespace. If you tried to add new data files to the system tablespace, and it failed here, you should now edit innodb_data_file_path in my.cnf back to what it was, and remove the new ibdata files InnoDB created in this failed attempt. InnoDB only wrote those files full of zeros, but did not yet use them in any way. But be careful: do not remove old data files which contain your precious data!
+140731 10:40:31 [ERROR] Plugin 'InnoDB' init function returned error.
+140731 10:40:31 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+140731 10:40:31 [ERROR] Unknown/unsupported storage engine: InnoDB
+140731 10:40:31 [ERROR] Aborting
+
+140731 10:40:32 [Note] /usr/sbin/mysqld: Shutdown complete
+
+
+Installation of system tables failed!  Examine the logs in
+/var/lib/mysql/ for more information.
+
+The problem could be conflicting information in an external
+my.cnf files. You can ignore these by doing:
+
+    shell> /usr/scripts/scripts/mysql_install_db --defaults-file=~/.my.cnf
+
+You can also try to start the mysqld daemon with:
+
+    shell> /usr/sbin/mysqld --skip-grant --general-log &
+
+and use the command line tool /usr/bin/mysql
+to connect to the mysql database and look at the grant tables:
+
+    shell> /usr/bin/mysql -u root mysql
+    mysql> show tables;
+
+Try 'mysqld --help' if you have problems with paths.  Using
+--general-log gives you a log in /var/lib/mysql/ that may be helpful.
+
+The latest information about mysql_install_db is available at
+https://mariadb.com/kb/en/installing-system-tables-mysql_install_db
+MariaDB is hosted on launchpad; You can find the latest source and
+email lists at http://launchpad.net/maria
+
+Please check all of the above before submitting a bug report
+at http://mariadb.org/jira
+
+---I attempted to remove the package but received this message:
+
+Total Removed Size:   102.06 MiB
+
+:: Do you want to remove these packages? [Y/n]
+(1/1) removing mariadb                                                                   [###################################################] 100%
+userdel: user mysql is currently used by process 10259
+groupdel: cannot remove the primary group of user 'mysql'
+error: command failed to execute correctly
+[arch-nicky@arch-bitches ~]$ ps aux | grep mysql
+mysql    10259  0.1  0.2   5336  2716 ?        Ss   10:43   0:00 /bin/sh /usr/bin/mysqld-post
+mysql    10681  0.0  0.0   3832   560 ?        S    10:44   0:00 sleep 1
+arch-ni+ 10683  0.0  0.1   4676  2336 pts/8    S+   10:44   0:00 grep mysql
+[arch-nicky@arch-bitches ~]$ mysql_secure_installation
+-bash: mysql_secure_installation: command not found
+[arch-nicky@arch-bitches ~]$ sudo pacman -S mariadb
+resolving dependencies...
+looking for inter-conflicts...
+
+Packages (1): mariadb-10.0.12-2
+
+Total Installed Size:   102.06 MiB
+
+:: Proceed with installation? [Y/n]
+(1/1) checking keys in keyring                                                           [###################################################] 100%
+(1/1) checking package integrity                                                         [###################################################] 100%
+(1/1) loading package files                                                              [###################################################] 100%
+(1/1) checking for file conflicts                                                        [###################################################] 100%
+(1/1) checking available disk space                                                      [###################################################] 100%
+(1/1) installing mariadb                                                                 [###################################################] 100%
+Optional dependencies for mariadb
+    perl-dbd-mysql: for mysqlhotcopy, mysql_convert_table_format and mysql_setpermission
+[arch-nicky@arch-bitches ~]$ mysql_secure_installation
+/usr/bin/mysql_secure_installation: line 379: find_mysql_client: command not found
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/run/mysqld/mysqld.sock' (2 "No such file or directory")
+Enter current password for root (enter for none):
+Aborting!
+
+Cleaning up...
+[arch-nicky@arch-bitches ~]$ sudo systemctl start mysqld.service
+Job for mysqld.service failed. See 'systemctl status mysqld.service' and 'journalctl -xn' for details.
+[arch-nicky@arch-bitches ~]$ which mysql
+/usr/bin/mysql
+[arch-nicky@arch-bitches ~]$ mysql_secure_installation
+/usr/bin/mysql_secure_installation: line 379: find_mysql_client: command not found
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+Aborting!
+
+Cleaning up...
+[arch-nicky@arch-bitches ~]$ chown mysql:mysql /var/lib/mysql -R
+chown: cannot read directory ‘/var/lib/mysql’: Permission denied
+[arch-nicky@arch-bitches ~]$ sudo chown mysql:mysql /var/lib/mysql -R
+[arch-nicky@arch-bitches ~]$ sudo systemctl start mysqld.service
+Job for mysqld.service failed. See 'systemctl status mysqld.service' and 'journalctl -xn' for details.
+
+
+
+
+[arch-nicky@arch-bitches ~]$ sudo systemctl start mysqld.service
+Job for mysqld.service failed. See 'systemctl status mysqld.service' and 'journalctl -xn' for details.
+[arch-nicky@arch-bitches ~]$ which mysql
+/usr/bin/mysql
+[arch-nicky@arch-bitches ~]$ mysql_secure_installation
+/usr/bin/mysql_secure_installation: line 379: find_mysql_client: command not found
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+Aborting!
+
+Cleaning up...
+[arch-nicky@arch-bitches ~]$ chown mysql:mysql /var/lib/mysql -R
+chown: cannot read directory ‘/var/lib/mysql’: Permission denied
+[arch-nicky@arch-bitches ~]$ sudo chown mysql:mysql /var/lib/mysql -R
+[arch-nicky@arch-bitches ~]$ sudo systemctl start mysqld.service
+Job for mysqld.service failed. See 'systemctl status mysqld.service' and 'journalctl -xn' for details.
+[arch-nicky@arch-bitches ~]$ sudo emacs /etc/my
+my.cnf  mysql/
+[arch-nicky@arch-bitches ~]$ sudo emacs /etc/mysql/my.cnf
+[arch-nicky@arch-bitches ~]$ sudo systemctl status -l mysqld
+[sudo] password for arch-nicky:
+● mysqld.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled)
+   Active: activating (start-post) (Result: exit-code) since Thu 2014-07-31 10:53:49 EDT; 11s ago
+  Process: 16051 ExecStart=/usr/bin/mysqld --pid-file=/run/mysqld/mysqld.pid (code=exited, status=1/FAILURE)
+ Main PID: 16051 (code=exited, status=1/FAILURE);         : 16052 (mysqld-post)
+   CGroup: /system.slice/mysqld.service
+           └─control
+             ├─16052 /bin/sh /usr/bin/mysqld-post
+             └─16162 sleep 1
+
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [ERROR] InnoDB: space header page consists of zero bytes in data file ./ibdata1
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [ERROR] InnoDB: Could not open or create the system tablespace. If you tried to add new
+ data files to the system tablespace, and it failed here, you should now edit innodb_data_file_path in my.cnf back to what it was, and remove the n
+ew ibdata files InnoDB created in this failed attempt. InnoDB only wrote those files full of zeros, but did not yet use them in any way. But be car
+eful: do not remove old data files which contain your precious data!
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [ERROR] Plugin 'InnoDB' init function returned error.
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [Note] Plugin 'FEEDBACK' is disabled.
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [ERROR] Unknown/unsupported storage engine: InnoDB
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [ERROR] Aborting
+Jul 31 10:53:49 arch-bitches mysqld[16051]: 140731 10:53:49 [Note] /usr/bin/mysqld: Shutdown complete
+Jul 31 10:53:49 arch-bitches systemd[1]: mysqld.service: main process exited, code=exited, status=1/FAILURE
+[arch-nicky@arch-bitches ~]$ ps aux | grep mysql
+mysql    16052  0.1  0.2   5336  2780 ?        Ss   10:53   0:00 /bin/sh /usr/bin/mysqld-post
+mysql    16307  0.0  0.0   38mysqld_safe --datadir=/var/lib/mysql
+140731 10:55:57 mysqld_safe Logging to '/var/lib/mysql/arch-bitches.err'.
+touch: cannot touch ‘/var/lib/mysql/arch-bitches.err’: Permission deniedstart mys
+chmod: cannot access ‘/var/lib/mysql/arch-bitches.err’: Permission denied
+140731 10:55:57 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+/usr/bin/mysqld_safe: line 138: /var/lib/mysql/arch-bitches.err: Permission denied
+rm: cannot remove ‘/var/lib/mysql/arch-bitches.pid’: Permission denied
+/usr/bin/mysqld_safe: line 182: /var/lib/mysql/arch-bitches.err: Permission denied
+touch: cannot touch ‘/var/lib/mysql/arch-bitches.err’: Permission denied
+chown: cannot access ‘/var/lib/mysql/arch-bitches.err’: Permission denied
+chmod: cannot access ‘/var/lib/mysql/arch-bitches.err’: Permission denied
+140731 10:55:57 mysqld_safe mysqld from pid file /var/lib/mysql/arch-bitches.pid ended
+/usr/bin/mysqld_safe: line 138: /var/lib/mysql/arch-bitches.err: Permission denied
+[arch-nicky@arch-bitches ~]$ sudo mysqld_safe --datadir=/var/lib/mysql
+140731 10:56:03 mysqld_safe Logging to '/var/lib/mysql/arch-bitches.err'.
+140731 10:56:03 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+140731 10:56:04 mysqld_safe mysqld from pid file /var/lib/mysql/arch-bitches.pid ended
+[arch-nicky@arch-bitches ~]$ ps aux | grep mysql
+mysql    17976  0.1  0.2   5336  2880 ?        Ss   10:56   0:00 /bin/sh /usr/bin/mysqld-post
+mysql    18808  0.0  0.0   3832   576 ?        S    10:57   0:00 sleep 1
+arch-ni+ 18810  0.0  0.1   4672  2156 pts/8    S+   10:57   0:00 grep mysql
+[arch-nicky@arch-bitches ~]$ sudo systemctl stop mysqld
+[arch-nicky@arch-bitches ~]$ sudo rm -R /var/lib/mysql/
+[arch-nicky@arch-bitches ~]$ sudo pacman -R mariadb && sudo pacman -S mariadb
+checking dependencies...
+
+Packages (1): mariadb-10.0.12-2
+
+Total Removed Size:   102.06 MiB
+
+:: Do you want to remove these packages? [Y/n]
+(1/1) removing mariadb                                                                   [###################################################] 100%
+resolving dependencies...
+looking for inter-conflicts...
+
+Packages (1): mariadb-10.0.12-2
+
+Total Installed Size:   102.06 MiB
+resolving dependencies...
+looking for inter-conflicts...
+
+Packages (1): mariadb-10.0.12-2
+
+Total Installed Size:   102.06 MiB
+
+:: Proceed with installation? [Y/n]
+(1/1) checking keys in keyring                                                           [###################################################] 100%
+(1/1) checking package integrity                                                         [###################################################] 100%
+(1/1) loading package files                                                              [###################################################] 100%
+(1/1) checking for file conflicts                                                        [###################################################] 100%
+(1/1) checking available disk space                                                      [###################################################] 100%
+(1/1) installing mariadb                                                                 [###################################################] 100%
+Installing MariaDB/MySQL system tables in '/var/lib/mysql' ...
+140731 10:59:18 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+140731 10:59:18 [Note] InnoDB: The InnoDB memory heap is disabled
+140731 10:59:18 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+140731 10:59:18 [Note] InnoDB: Compressed tables use zlib 1.2.8
+140731 10:59:18 [Note] InnoDB: Using Linux native AIO
+140731 10:59:18 [Note] InnoDB: Not using CPU crc32 instructions
+140731 10:59:18 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+140731 10:59:18 [Note] InnoDB: Completed initialization of buffer pool
+140731 10:59:18 [Note] InnoDB: The first specified data file ./ibdata1 did not exist: a new database to be created!
+140731 10:59:18 [Note] InnoDB: Setting file ./ibdata1 size to 12 MB
+140731 10:59:18 [Note] InnoDB: Database physically writes the file full: wait...
+140731 10:59:19 [Note] InnoDB: Setting log file ./ib_logfile101 size to 48 MB
+140731 10:59:22 [Note] InnoDB: Setting log file ./ib_logfile1 size to 48 MB
+140731 10:59:25 [Note] InnoDB: Renaming log file ./ib_logfile101 to ./ib_logfile0
+140731 10:59:25 [Warning] InnoDB: New log files created, LSN=45781
+140731 10:59:25 [Note] InnoDB: Doublewrite buffer not found: creating new
+140731 10:59:26 [Note] InnoDB: Doublewrite buffer created
+140731 10:59:26 [Note] InnoDB: 128 rollback segment(s) are active.
+140731 10:59:27 [Warning] InnoDB: Creating foreign key constraint system tables.
+140731 10:59:27 [Note] InnoDB: Foreign key constraint system tables created
+140731 10:59:27 [Note] InnoDB: Creating tablespace and datafile system tables.
+140731 10:59:27 [Note] InnoDB: Tablespace and datafile system tables created.
+140731 10:59:27 [Note] InnoDB: Waiting for purge to start
+140731 10:59:27 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.17-65.0 started; log sequence number 0
+140731 10:59:27 [Warning] Failed to load slave replication state from table mysql.gtid_slave_pos: 1146: Table 'mysql.gtid_slave_pos' doesn't exist
+140731 10:59:32 [Note] InnoDB: FTS optimize thread exiting.
+140731 10:59:32 [Note] InnoDB: Starting shutdown...
+140731 10:59:33 [Note] InnoDB: Shutdown completed; log sequence number 1616697
+OK
+Filling help tables...
+140731 10:59:33 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+140731 10:59:33 [Note] InnoDB: The InnoDB memory heap is disabled
+140731 10:59:33 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+140731 10:59:33 [Note] InnoDB: Compressed tables use zlib 1.2.8
+140731 10:59:33 [Note] InnoDB: Using Linux native AIO
+140731 10:59:33 [Note] InnoDB: Not using CPU crc32 instructions
+140731 10:59:33 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+140731 10:59:33 [Note] InnoDB: Completed initialization of buffer pool
+140731 10:59:34 [Note] InnoDB: Highest supported file format is Barracuda.
+140731 10:59:34 [Note] InnoDB: 128 rollback segment(s) are active.
+140731 10:59:34 [Note] InnoDB: Waiting for purge to start
+140731 10:59:34 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.17-65.0 started; log sequence number 1616697
+140731 10:59:35 [Note] InnoDB: FTS optimize thread exiting.
+140731 10:59:35 [Note] InnoDB: Starting shutdown...
+140731 10:59:37 [Note] InnoDB: Shutdown completed; log sequence number 1616707
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !
+To do so, start the server, then issue the following commands:
+
+'/usr/bin/mysqladmin' -u root password 'new-password'
+'/usr/bin/mysqladmin' -u root -h arch-bitches password 'new-password'
+
+Alternatively you can run:
+'/usr/bin/mysql_secure_installation'
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the MariaDB Knowledgebase at http://mariadb.com/kb or the
+MySQL manual for more instructions.
+
+You can start the MariaDB daemon with:
+cd '/usr' ; /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
+
+You can test the MariaDB daemon with mysql-test-run.pl
+
+Please report any problems at http://mariadb.org/jira
+
+The latest information about MariaDB is available at http://mariadb.org/.
+You can find additional information about the MySQL part at:
+http://dev.mysql.com
+Support MariaDB development by buying support/new features from
+SkySQL Ab. You can contact us about this at sales@skysql.com.
+Alternatively consider joining our community based development effort:
+http://mariadb.com/kb/en/contributing-to-the-mariadb-project/
+
+Optional dependencies for mariadb
+    perl-dbd-mysql: for mysqlhotcopy, mysql_convert_table_format and mysql_setpermission
+
+
+I ran 
+cd '/usr' ; sudo /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
+this seemed to work. 
+I then had to open another terminal and ran 
+
+[arch-nicky@arch-bitches ~]$ mysql_upgrade -u root -p
+Enter password:
+Phase 1/3: Fixing table and database names
+Phase 2/3: Checking and upgrading tables
+Processing databases
+information_schema
+mysql
+mysql.column_stats                                 OK
+mysql.columns_priv                                 OK
+mysql.db                                           OK
+mysql.event                                        OK
+mysql.func                                         OK
+mysql.gtid_slave_pos                               OK
+mysql.help_category                                OK
+mysql.help_keyword                                 OK
+mysql.help_relation                                OK
+mysql.help_topic                                   OK
+mysql.host                                         OK
+mysql.index_stats                                  OK
+mysql.innodb_index_stats                           OK
+mysql.innodb_table_stats                           OK
+mysql.plugin                                       OK
+mysql.proc                                         OK
+mysql.procs_priv                                   OK
+mysql.proxies_priv                                 OK
+mysql.roles_mapping                                OK
+mysql.servers                                      OK
+mysql.table_stats                                  OK
+mysql.tables_priv                                  OK
+mysql.time_zone                                    OK
+mysql.time_zone_leap_second                        OK
+mysql.time_zone_name                               OK
+mysql.time_zone_transition                         OK
+mysql.time_zone_transition_type                    OK
+mysql.user                                         OK
+performance_schema
+test
+Phase 3/3: Running 'mysql_fix_privilege_tables'...
+OK
+Could not create the upgrade info file '/var/lib/mysql/mysql_upgrade_info' in the MySQL Servers datadir, errno: 13
+[arch-nicky@arch-bitches ~]$ sudo mysql_upgrade -u root -p
+[sudo] password for arch-nicky:  oops here I was just hitting return. there is no password at first for the default mariadb root user, but this was asking for the Arch system root user 
+Sorry, try again.
+[sudo] password for arch-nicky:
+Sorry, try again.
+[sudo] password for arch-nicky:  here enter in my sudo password
+Enter password:  here just hit enter. 
+Phase 1/3: Fixing table and database names
+Phase 2/3: Checking and upgrading tables
+Processing databases
+information_schema
+mysql
+mysql.column_stats                                 OK
+mysql.columns_priv                                 OK
+mysql.db                                           OK
+mysql.event                                        OK
+mysql.func                                         OK
+mysql.gtid_slave_pos                               OK
+mysql.help_category                                OK
+mysql.help_keyword                                 OK
+mysql.help_relation                                OK
+mysql.help_topic                                   OK
+mysql.host                                         OK
+mysql.index_stats                                  OK
+mysql.innodb_index_stats                           OK
+mysql.innodb_table_stats                           OK
+mysql.plugin                                       OK
+mysql.proc                                         OK
+mysql.procs_priv                                   OK
+mysql.proxies_priv                                 OK
+mysql.roles_mapping                                OK
+mysql.servers                                      OK
+mysql.table_stats                                  OK
+mysql.tables_priv                                  OK
+mysql.time_zone                                    OK
+mysql.time_zone_leap_second                        OK
+mysql.time_zone_name                               OK
+mysql.time_zone_transition                         OK
+mysql.time_zone_transition_type                    OK
+mysql.user                                         OK
+performance_schema
+test
+Phase 3/3: Running 'mysql_fix_privilege_tables'...
+OK
+[arch-nicky@arch-bitches ~]$
+
+
+
+-----Create our SheriffSales DB
+
+[arch-nicky@arch-bitches PythonSheriffSales]$ mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 28
+Server version: 10.0.12-MariaDB-log MariaDB Server
+
+Copyright (c) 2000, 2014, Oracle, SkySQL Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE SheriffSales
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]>
+
+--These next two steps aren't necessary. The tables etc can be created from the raw data. 
+-----Get a dump of the remote database
+mysqldump -u djinnius -p djinnius_SheriffSales -h mysql.server272.com -P 3306 > djinniusmysqldump.mysql
+
+-----upload the dump of the database to our local one
+[arch-nicky@arch-bitches ~]$ mysql -u root -p SheriffSales -h localhost -P 3306 < djinniusmysqldump.mysql
+Enter password:
+
+--- add user & give them access to the local database we just set up. 
+-- https://mariadb.com/kb/en/mariadb/mariadb-documentation/sql-commands/data-definition/create/create-database/
+-- https://mariadb.com/kb/en/mariadb/mariadb-documentation/sql-commands/account-management-sql-commands/grant/
+
+MariaDB [(none)]> CREATE USER 'nicolae'@'localhost' IDENTIFIED BY 'ceausescu';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON SheriffSales TO 'nicolae'@'localhost' WITH GRANT OPTION;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> show tables
+    -> ;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> show dbs
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'dbs' at line 1
+MariaDB [(none)]> SHOW DATABASES
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| SheriffSales       |
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON SheriffSales.* TO 'nicolae'@'localhost' WITH GRANT OPTION;
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+--- I then needed to install the pymysql module
+ https://github.com/petehunt/PyMySQL.git ; cd PyMySQL; sudo python setup.py install ;
+---I then needed a loginfile for the rental reg, by default it looks for it i ~/.mysqllogin_rentalreg
+nicolae
+ceausescu
+localhost
+3306
+SheriffSales
+RentalRegistrationMontgomeryCountyOhio2014
+
+--- I needed ot install the MySQLdb module
+sudo pacman -S mysql-python
+
+--->Hmm I'm not sure why I had to use both MySQLdb and pymysql. well whatevs.
+
+-----
+Setting up SheriffSales on a PC running Arch (adjust package manager calls accordingly for other Linux distros). 
+You will need to have both Python2 and Python3 installed.
+
+Installation And Setup
+1. Install MariaDB/MySQL: sudo pacman -S mariadb
+2. Run the daemon: cd '/usr' ; sudo /usr/bin/mysqld_safe --datadir='/var/lib/mysql'
+3. Upgrade MariaDB: sudo mysql_upgrade -u root -p
+4. Run MariaDB's secure installation script: mysql_secure_installation
+5. Login to MariaDB as root: mysql -u root -p
+6. Inside MariaDB, create our SheriffSales database: CREATE DATABASE SheriffSales;
+7. Inside MariaDB, create a user: CREATE USER 'MyUser'@'localhost' IDENTIFIED BY 'MyPassword';
+8. Inside MariaDB, grant privileges to our user on our database: GRANT ALL PRIVILEGES ON SheriffSales.* TO 'MyUser'@'localhost' WITH GRANT OPTION;
+9. Install the MySQLdb module for python: sudo pacman -S mysql-python
+10. Install the pymysql module for python: https://github.com/petehunt/PyMySQL.git ; cd PyMySQL; sudo python setup.py install ;
+11. Create a mysql login file: emacs ~/.mysqllogin_rentalreg ; Enter in the username,password,database address, database port, database name, and table each on a separate line.
+11. Run the master script to populate all database tables: bash MasterScript_Update3MontgomeryCountyDatabases.sh
+
+Web Interface : You need a local LAMP stack / web server setup for this part.
+1. Open PythonSheriffSales/php/dbinfo_local.php and edit it appropriately for your user
+2. Edit php/js files to properly point to the dbinfo_local.php file
+3. Open PythonSheriffSales/MapHTMLPages/SplitHTMLJS/SheriffSalesMapDynamic.php in your web browser
+X. Enjoy
+
+TODO
+1. Create setup script to place username and password into .mysqllogin and dbinfo_user.php 

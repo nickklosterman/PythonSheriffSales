@@ -1,0 +1,1 @@
+All the dbinfo_user.php references need to be local and not one directory down. That is all. 
