@@ -27,8 +27,8 @@ def UpdateRecordInDatabase(SaleDate,CaseNumber,Address, Plaintiff,Defendant,Atto
     con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        #print("UPDATE Property SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
-        cur.execute("UPDATE Property SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s", (SoldTo,SaleAmt,SaleStatus,key)) 
+        #print("UPDATE SheriffSalesMontgomeryCountyOhio SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s" % (SoldTo,SaleAmt,SaleStatus,key)) 
+        cur.execute("UPDATE SheriffSalesMontgomeryCountyOhio SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s", (SoldTo,SaleAmt,SaleStatus,key)) 
     con.commit()
     cur.close()
     con.close()
@@ -41,7 +41,7 @@ def InsertIntoDB(date,CaseNumber,Address, Plaintiff,Defendant,Attorney,SoldTo,PI
         cur = con.cursor(mdb.cursors.DictCursor)
 
 # check to see if record exists before inserting, if exists check for salestatus change, update saleamt 
-        cur.execute("INSERT INTO Property(SaleDate,CaseNumber,Address,SaleStatus,MinBid,Appraisal,ZipCode,Plaintiff,Defendant,Attorney,SoldTo,PID,SaleAmt) VALUES ( %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (date, CaseNumber,Address,SaleStatus,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,SoldTo,PID,SaleAmt)) #even though their database types are int/float etc they are entered as strings here.... 
+        cur.execute("INSERT INTO SheriffSalesMontgomeryCountyOhio(SaleDate,CaseNumber,Address,SaleStatus,MinBid,Appraisal,ZipCode,Plaintiff,Defendant,Attorney,SoldTo,PID,SaleAmt) VALUES ( %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (date, CaseNumber,Address,SaleStatus,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,SoldTo,PID,SaleAmt)) #even though their database types are int/float etc they are entered as strings here.... 
     con.commit()
     cur.close()
     con.close()  
@@ -51,7 +51,7 @@ def InsertUpdateIfExistsIntoDB(date,CaseNumber,Address, Plaintiff,Defendant,Atto
     con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("INSERT INTO Property(SaleDate,CaseNumber,Address,SaleStatus,MinBid,Appraisal,ZipCode,Plaintiff,Defendant,Attorney,SoldTo,PID,SaleAmt) VALUES ( %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE SoldTo=%s,SaleAmt=%s,SaleStatus=%s", (date, CaseNumber,Address,SaleStatus,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,SoldTo,PID,SaleAmt,SoldTo,SaleAmt,SaleStatus)) #even though their database types are int/float etc they are entered as strings here 
+        cur.execute("INSERT INTO SheriffSalesMontgomeryCountyOhio(SaleDate,CaseNumber,Address,SaleStatus,MinBid,Appraisal,ZipCode,Plaintiff,Defendant,Attorney,SoldTo,PID,SaleAmt) VALUES ( %s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE SoldTo=%s,SaleAmt=%s,SaleStatus=%s", (date, CaseNumber,Address,SaleStatus,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,SoldTo,PID,SaleAmt,SoldTo,SaleAmt,SaleStatus)) #even though their database types are int/float etc they are entered as strings here 
     con.commit()
     cur.close()
     con.close()  
@@ -63,38 +63,24 @@ def QueryDatabaseIfRecordExists(date,CaseNumber,Address, Plaintiff,Defendant,Att
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
 # check to see if record exists before inserting, if exists check for salestatus change, update saleamt 
-        #resultcount=int(cur.execute("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s and SaleStatus!=%s ", (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID,SaleStatus)))  # look for match on all fields except those that would've been update after teh property was sold
-        resultcount=int(cur.execute("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s ", (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID)))  # look for match on all fields except those that would've been update after teh property was sold
-#        resultcount=int(cur.execute("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and PID=%s and SaleStatus!=%s and SoldTo!=%s and SaleAmt!=%s", (date, CaseNumber,Address,PID,SaleStatus,SoldTo,SaleAmt)))  
-#        resultcount=int(cur.execute("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and PID=%s and SaleStatus=%s and SoldTo=%s and SaleAmt=%s", (date, CaseNumber,Address,PID,SaleStatus,SoldTo,SaleAmt)))   #if they've been update salestatus,soldto and saleamt will have changed
-        #print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s and SaleStatus!=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID,SaleStatus))  # look for match on all fields except those that would've been update after teh property was sold
-#        resultcount=cur.row_count() can also be used at any time to obtain number of rows returned by the query
+        resultcount=int(cur.execute("SELECT * FROM SheriffSalesMontgomeryCountyOhio WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s ", (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID)))  # look for match on all fields except those that would've been update after teh property was sold
 
         if resultcount==1:
             row=cur.fetchone()
             key=int(row['id'])
             soldto=row['SoldTo']
             salestatus=row['SaleStatus']
-            saleamt=float(row['SaleAmt']) #otherwise is a decimal object coming from MySQL
-            if  salestatus!=SaleStatus: # and soldto!=SoldTo:
-                #print(saleamt,SaleAmt,salestatus,SaleStatus,soldto,SoldTo)
+            saleamt=float(row['SaleAmt']) 
+            if  salestatus!=SaleStatus: 
                 print("*"),
             else:
                 key=-3 #if salestatus hasn't changed then don't update
-#            print(saleamt,SaleAmt,salestatus,SaleStatus,soldto,SoldTo)
-#            print(key)
             if 1==0:
                 if date=="2012-04-06":
                     print("--%s--++%s++" %(row['SaleStatus'],SaleStatus))
         elif resultcount>1:
             print("multiple results:%i",resultcount)
             key=-2
-            #rows=cur.fetchall()
-#I commented out the following as I think printing this stuff out was killing the processor and at this point i think I have the process down such that i don't need the debug info
-        #else:
-            #print("no results found"),
-            #print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID))  
-#            print("SELECT * FROM Property WHERE SaleDate=%s and CaseNumber=%s and Address=%s and MinBid=%s and Appraisal=%s and ZipCode=%s and Plaintiff=%s and Defendant=%s and Attorney=%s and PID=%s and SaleStatus!=%s " % (date, CaseNumber,Address,MinBidAmt,Appraisal,Zipcode,Plaintiff,Defendant,Attorney,PID,SaleStatus))  # look for match on all fields except those that would've been update after teh property was sold
     cur.close()
     con.close()  
     return int(key) #otherwise it is a long
@@ -105,7 +91,7 @@ def CreateDatabase():
     con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("CREATE TABLE IF NOT EXISTS Property ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, SaleDate DATE,CaseNumber VARCHAR(13) NOT NULL, Address VARCHAR(80) NOT NULL, ZipCode INT NOT NULL,Plaintiff VARCHAR(45) NOT NULL,Defendant VARCHAR(45) NOT NULL,Attorney VARCHAR(45) NOT NULL, SoldTo VARCHAR(45) NOT NULL , PID VARCHAR(45) NOT NULL,Appraisal DECIMAL(12,2) NOT NULL, MinBid DECIMAL (12,2) NOT NULL, SaleAmt DECIMAL (12,2) , SaleStatus VARCHAR(11) NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )") #Latitude FLOAT(10,6) NOT NULL, Longitude FLOAT(10,6) NOT NULL)")
+        cur.execute("CREATE TABLE IF NOT EXISTS SheriffSalesMontgomeryCountyOhio ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, SaleDate DATE,CaseNumber VARCHAR(13) NOT NULL, Address VARCHAR(80) NOT NULL, ZipCode INT NOT NULL,Plaintiff VARCHAR(45) NOT NULL,Defendant VARCHAR(45) NOT NULL,Attorney VARCHAR(45) NOT NULL, SoldTo VARCHAR(45) NOT NULL , PID VARCHAR(45) NOT NULL,Appraisal DECIMAL(12,2) NOT NULL, MinBid DECIMAL (12,2) NOT NULL, SaleAmt DECIMAL (12,2) , SaleStatus VARCHAR(11) NOT NULL, Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )") 
     con.commit()
     cur.close()
     con.close()
@@ -115,60 +101,43 @@ def DropTableFromDatabase():
     con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("DROP TABLE IF EXISTS Property")
+        cur.execute("DROP TABLE IF EXISTS SheriffSalesMontgomeryCountyOhio")
     con.commit()
     cur.close()
     con.close()
 
-def QueryDatabase():
-    con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
-    with con:
-        cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("SELECT * FROM Property")
-        rows = cur.fetchall()
-        for row in rows:
-#        print "%s %s %s" % (row["CaseNumber"], row["MinBid"])                                                                                                  
-            print "%s-=-%s-=-%s-=-%s" % (row["CaseNumber"], row["SaleDate"], row["Address"], row["MinBid"]) #acts as decimal type                                                        
-            print "%s-=-%s-=-%s-=-%f" % (row["CaseNumber"], row["SaleDate"], row["Address"], row["MinBid"]) #acts as float                                                               
-    cur.close()
-    con.close()
 
-
-
-def GeocodeDatabase():
-    sleep_time = 1.0
-    con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
-    with con:
-        cur = con.cursor(mdb.cursors.DictCursor)
-        curUpdate = con.cursor(mdb.cursors.DictCursor)
-        resultcount=int(cur.execute("SELECT * FROM Property WHERE Latitude is NULL"))
-        print("Need to geocode "+str(resultcount)+" addresses.")
-        rows = cur.fetchall()
-        counter=0
-        out_file_failed = 'geocode_failed.txt'
-        outf_failed = open(out_file_failed,'w')
+# def GeocodeDatabase():
+#     sleep_time = 1.0
+#     con = mdb.connect('localhost', 'nicolae', 'ceausescu', 'SheriffSales')
+#     with con:
+#         cur = con.cursor(mdb.cursors.DictCursor)
+#         curUpdate = con.cursor(mdb.cursors.DictCursor)
+#         resultcount=int(cur.execute("SELECT * FROM SheriffSalesMontgomeryCountyOhio WHERE Latitude is NULL"))
+#         print("Need to geocode "+str(resultcount)+" addresses.")
+#         rows = cur.fetchall()
+#         counter=0
+#         out_file_failed = 'geocode_failed.txt'
+#         outf_failed = open(out_file_failed,'w')
         
-        for row in rows:
-            counter+=1
-            print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses.")
-            if 1==1:
-#                geocode_data=geocode(row["Address"])
-                geocode_data=geocodeV2.geocodeV2(row["Address"]) #http://stackoverflow.com/questions/5514573/python-error-typeerror-module-object-is-not-callable-for-headfirst-python-co  for modulename.functionname. The module creates a namespace 
-#                if len(geocode_data)>1:
-                if geocode_data['status']=='OK':
-                    lat=geocode_data['lat']
-                    lon=geocode_data['lng']
-                    curUpdate.execute("UPDATE Property SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
-                else:
-#                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['code'])
-                    print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['status'])
-                    outf_failed.write(row["Address"]+'\n')
-                    outf_failed.flush()
-                time.sleep(sleep_time)  
-        outf_failed.close()
-    con.commit()
-    cur.close()
-    con.close()
+#         for row in rows:
+#             counter+=1
+#             print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses.")
+#             if 1==1:
+#                 geocode_data=geocodeV2.geocodeV2(row["Address"]) #http://stackoverflow.com/questions/5514573/python-error-typeerror-module-object-is-not-callable-for-headfirst-python-co  for modulename.functionname. The module creates a namespace 
+#                 if geocode_data['status']=='OK':
+#                     lat=geocode_data['lat']
+#                     lon=geocode_data['lng']
+#                     curUpdate.execute("UPDATE SheriffSalesMontgomeryCountyOhio SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  
+#                 else:
+#                     print("Geocoding of '"+row["Address"]+"' failed with error code "+geocode_data['status'])
+#                     outf_failed.write(row["Address"]+'\n')
+#                     outf_failed.flush()
+#                 time.sleep(sleep_time)  
+#         outf_failed.close()
+#     con.commit()
+#     cur.close()
+#     con.close()
 
 def ProcessFile(inputfilename,outputfilename):
     print("Using input:%s and output:%s" % (inputfilename,outputfilename))
@@ -191,7 +160,7 @@ def ProcessFile(inputfilename,outputfilename):
     enddataflag=0
     data=""
 #create property record object. initialize with these extracted values
-#geocode Property Record, check if record present. update with new data (sold info->soldto,saleprice)
+#geocode SheriffSalesMontgomeryCountyOhio Record, check if record present. update with new data (sold info->soldto,saleprice)
 
 #although keying off line # works, it isn't foolproof. yet there aren't tags to truly key off of either. 
 
@@ -314,40 +283,6 @@ def convertDateFormat(date):
 
 
 
-
-# root_url = "http://maps.google.com/maps/geo?"
-# return_codes = {'200':'SUCCESS',
-#                 '400':'BAD REQUEST',
-#                 '500':'SERVER ERROR',
-#                 '601':'MISSING QUERY',
-#                 '602':'UNKOWN ADDRESS',
-#                 '603':'UNAVAILABLE ADDRESS',
-#                 '604':'UNKOWN DIRECTIONS',
-#                 '610':'BAD KEY',
-#                 '620':'TOO MANY QUERIES'
-#     }
-
-# def geocode(addr,out_fmt='csv'):
-#     #encode our dictionary of url parameters
-#     values = {'q' : addr, 'output':out_fmt}
-#     data = urllib.urlencode(values)
-#     #set up our request
-#     url = root_url+data
-#     req = urllib2.Request(url)
-#     #make request and read response
-#     response = urllib2.urlopen(req)
-#     geodat = response.read().split(',')
-#     response.close()
-#     #handle the data returned from google
-#     code = return_codes[geodat[0]]
-#     if code == 'SUCCESS':
-#         code,precision,lat,lng = geodat
-#         return {'code':code,'precision':precision,'lat':lat,'lng':lng}
-#     else:
-#         return {'code':code}
-
-
-
 ########### MAIN ############
 
 import sys
@@ -369,7 +304,7 @@ if 1==1:
     CreateDatabase()
     ProcessFile(inputfilename,outputfilename)
 
-GeocodeDatabase()
+#GeocodeDatabase()
 
 
 #30-06-2012 added validation check for zipcode.

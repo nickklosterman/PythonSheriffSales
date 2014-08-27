@@ -65,3 +65,5 @@ curl -d "idate1=${startdate}&idate2=${enddate}&iSUMDET=DET" http://www.mcohio.or
 
 python2 SheriffSaleProcessors/SheriffSalesLinkCreatorMontgomeryCountyOhio_Detailed.py "${outputFileName}"
 
+cd ~/Git/PythonSheriffSales/Geocoders 
+python2 UnifiedGeocoder.py -t RealEstateSalesMontgomeryCountyOhio2014 -l  ~/.mysqllogin_rentalreg

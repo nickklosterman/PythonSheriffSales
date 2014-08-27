@@ -7,15 +7,6 @@ var markersArr = [];
 var map;
 var infoWindow;
 
-// var query
-// , maxbid 
-// , minbid 
-// ,  saletype 
-// ,  salevalidity 
-// ,  startdate 
-// ,  enddate 
-// , salestatus ;
-
 var recordCount = 0;
 var firstRun = true;
 
@@ -164,12 +155,12 @@ function getQueryString(database,isUpdate){
 	    break;
 	case "RentalRegistration":
 	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
-	    console.log(recordstodisplay);
+	    //console.log(recordstodisplay);
 	    numberofunits = $("#RentalRegistration #numberofunits").val();
 	    districtname = $("#RentalRegistration #districtname").val();
 //	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=" + offset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
 	    queryString = "Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=" + offset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
-	    console.log(queryString);
+	    //console.log(queryString);
 	    break;
 	case "SheriffSales":
 	    recordstodisplay = $("#SheriffSales #recordstodisplay").val();
@@ -189,51 +180,10 @@ function getQueryString(database,isUpdate){
 }
 
 function Mapfunction(database,isUpdate){
-console.log(database,isUpdate);
+    //console.log(database,isUpdate);
     var maxbid 
-    // , minbid 
-    // , saletype 
-    // , salevalidity 
-    // , startdate
-    // , enddate
-    // , pricefiltercategory
-    // , numberofunits
-    // , recordstodisplay
-    // , recordsoffset 
     , queryString;
 
-    //    alert (maxbid,minbid,saletype,salevalidity,startdate,enddate)
-    // switch(database){
-    // case "SheriffSales":
-    // 	recordstodisplay = $("#SheriffSales #recordstodisplay").val();
-    // 	maxbid = $("#SheriffSales #maxbid").val();
-    // 	minbid = $("#SheriffSales #minbid").val();
-    // 	salestatus = $("#SheriffSales #salestatus").val();
-    // 	saledate = $("#SheriffSales #saledate").val();
-    // 	pricefiltercategory = $("#SheriffSales #pricefiltercategory").val();
-    // 	recordsoffset=offset;
-
-    // 	checkMinMaxBidValues(); 
-    // 	break;
-    // case "RentalRegistration":
-    // 	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
-    // 	numberofunits = $("#RentalRegistration #numberofunits").val();
-    // 	recordstodisplay = $("#RentalRegistration #minbid").val();
-    // 	districtname = $("#RentalRegistration #districtname").val();
-    // 	recordsoffset=offset;
-    // 	break;
-    // case "RealEstateSales": 
-    // 	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
-    // 	maxbid = $("#RealEstateSales #maxsale").val();
-    // 	minbid = $("#RealEstateSales #minsale").val();
-    // 	saletype = $("#RealEstateSales #saletype").val();
-    // 	salevalidity = $("#RealEstateSales #salevalidity").val();
-    // 	startdate = $("#RealEstateSales #startdate").val();
-    // 	enddate = $("#RealEstateSales #enddate").val(); 
-
-    // 	checkMinMaxBidValues(); 
-    // 	break;
-    // }
 
     /*
       debug steps:
@@ -247,11 +197,11 @@ console.log(database,isUpdate);
 
     */
     
-    //if (isUpdate === false) // i.e. we are initializing the page
-    if (typeof map === 'undefined')
+    
+    if (typeof map === 'undefined') // i.e. we are initializing the page
     {
 	map = new google.maps.Map(document.getElementById("map"), {
-            center: new google.maps.LatLng(39.7620028,-84.3542049),
+            center: new google.maps.LatLng(39.7620028,-84.3542049), //center around Dayton, OH, USA
             zoom: 10,
             mapTypeId: 'roadmap'
 	});
@@ -259,12 +209,9 @@ console.log(database,isUpdate);
 
     }
     queryString=getQueryString(database,isUpdate);
-    //alert (queryString)
     getRecordCountOfQuery(queryString);
     downloadUrl( queryString, function(data) {
-//if (data !== null){
 	processMarkers(database,data);
-//} else { alert('bork');  }
     });
 }
 
@@ -297,14 +244,13 @@ function processMarkers(database,data) {
     iconC ,
     marker ;
 
-    console.log(data);
+    //console.log(data);
     var xml = data.responseXML;// responseXML will be null but responseText and response will be populated if the returned result isn't xml
-    console.log("xml"+xml);
+    //console.log("xml"+xml);
     if (xml !== null) {
         var markers = xml.documentElement.getElementsByTagName("marker");
-//        var markers = xml.getElementsByTagName("marker");
 	clearLocations();
-	console.log("processing Markers:"+database)
+	//console.log("processing Markers:"+database)
 	switch(database){
 	case "SheriffSales":
 	    for (i = 0; i < markers.length; i++) {
@@ -334,8 +280,7 @@ function processMarkers(database,data) {
 			   .value == "Summary") {
 		    info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate + "<br/>Appraisal:" + Appraisal + "<br/>Minimum bid:" + MinBid + "<br/>Sale amount:" + SaleAmt + "<br/> Sale status:" + SaleStatus;
 		} else {
-		    console.log(document.getElementById("infowindow")
-				.value)
+		    //console.log(document.getElementById("infowindow").value)
 		}
 
 		icon = SheriffSaleStatusIcons[SaleStatus] || {};
@@ -501,8 +446,7 @@ function checkMinMaxBidValues() {
     Maxbid = Maxbid0.replace(/,/g, "");
     Minbid = Minbid0.replace(/,/g, "");
 
-    if (parseInt(Minbid) > parseInt(Maxbid)) //phail ! spaces in () statement
-	if (parseInt(Minbid) > parseInt(Maxbid)) //Good. no spaces
+    if (parseInt(Minbid) > parseInt(Maxbid)) 
     {
         $("#maxbid")
             .value = Minbid;
@@ -513,17 +457,16 @@ function checkMinMaxBidValues() {
 
 function getRecordCountOfQuery(oldQueryString) {
     var xml, record;
-
-    var queryString = oldQueryString.replace(/Unified/g, "../phpgetrecordcount")
+// The query is the same but we use a different php file to get the data. Therefore we simply replace the filename in the query
+    var queryString = oldQueryString.replace(/Unified/g, "phpgetrecordcount") 
 //    console.log(queryString);
     downloadUrl(queryString, function (data) {
-	//debugger;
 	xml = data.responseXML;
 	if (typeof xml !== 'undefined' && xml !== null ) {
             record = xml.documentElement.getElementsByTagName("data");
-	            console.log("record", record);
+	    // console.log("record", record);
             recordCount = record[0].getAttribute("recordCount");
-	            console.log("recordCount in downloadUrl:", recordCount);
+	    // console.log("recordCount in downloadUrl:", recordCount);
             writeout();
 	}
     });
