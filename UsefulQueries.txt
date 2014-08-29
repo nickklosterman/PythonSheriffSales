@@ -20,5 +20,22 @@ create table RealEstateSalesMontgomeryCountyOhio select * from RealEstateSalesMo
 create table RentalRegistrationMontgomeryCountyOhio select * from RentalRegistrationMontgomeryCountyOhio2014 union select * from RentalRegistrationMontgomeryCountyOhio2013;
 
 
+Fri Aug 29 11:24:28 EDT 2014
+select count(plaintiff),plaintiff from SheriffSalesMontgomeryCountyOhio where not plaintiff = soldto and salestatus = "SOLD" group by soldto order by count(plaintiff) asc;
+select count(plaintiff),plaintiff from SheriffSalesMontgomeryCountyOhio where not plaintiff = soldto and salestatus = "SOLD" group by soldto;
 
+select count(plaintiff),plaintiff from SheriffSalesMontgomeryCountyOhio where not plaintiff = soldto and salestatus = "SOLD" group by soldto order by count(plaintiff) asc;
+select count(soldto),soldto from SheriffSalesMontgomeryCountyOhio where not plaintiff = soldto and salestatus = "SOLD" group by soldto;
 
+select * from SheriffSalesMontgomeryCountyOhio where plaintiff = "JPMORGAN CHASE BANK NATIONAL ASSOCIATION" and salestatus = "ACTIVE"; //find the active properties where the seller is most likely to not buy it back! well....not so much...
+select count(Soldto) from SheriffSalesMontgomeryCountyOhio where plaintiff like "JPMORGAN%" and salestatus = "SOLD" and soldto like 'JPMORGAN%'; //it appears that as of today only 55/496 properties weren't repurchased by JPMORGAN when they held the mortgage
+
+select Soldto from SheriffSalesMontgomeryCountyOhio where plaintiff like "JPMORGAN%" and salestatus = "SOLD" and NOT soldto like 'JPMORGAN%';
+
+//distinct plaintiffs
+select distinct(plaintiff) from SheriffSalesMontgomeryCountyOhio order by plaintiff asc;
+
+//plaintiffs and number of cases they are involved in
+select count(plaintiff),plaintiff from SheriffSalesMontgomeryCountyOhio group by plaintiff order by count(plaintiff) asc;
+
+select count(plaintiff),plaintiff from SheriffSalesMontgomeryCountyOhio group by plaintiff order by plaintiff asc;
