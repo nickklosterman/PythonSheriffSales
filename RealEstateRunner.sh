@@ -9,5 +9,5 @@ cd ~/Git/PythonSheriffSales/
 python2 ProcessRealEstateSalesMontgomeryCountyOhio2014.py
 
 cd ~/Git/PythonSheriffSales/Geocoders 
-python2 UnifiedGeocoder.py -t RealEstateSalesMontgomeryCountyOhio2014 -l  ~/.mysqllogin_rentalreg
+python2 UnifiedGeocoder.py -t RealEstateSalesMontgomeryCountyOhio -l  ~/.mysqllogin_rentalreg
 #python2 GeocodeRealEstateDatabase2014.py

@@ -64,10 +64,10 @@ def GeocodeDatabase(user,password,Table):
         curUpdate = con.cursor(mdb.cursors.DictCursor)
         #for this table all records will need to be geocoded
         if (Table=="SheriffSalesMontgomeryCountyOhio"):    
-            resultcount=int(cur.execute("SELECT * FROM SheriffSalesMontgomeryCountyOhio WHERE Latitude is NULL"))
-        elif (Table=="RealEstateSalesMontgomeryCountyOhio2014"):    
-            resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM RealEstateSalesMontgomeryCountyOhio2014 WHERE Latitude is NULL"))
-        elif (Table=="RentalRegistrationMontgomeryCountyOhio2014"):
+            resultcount=int(cur.execute("SELECT * FROM %s WHERE Latitude is NULL"% (Table)))
+        elif (Table=="RealEstateSalesMontgomeryCountyOhio"):    
+            resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM %s WHERE Latitude is NULL"% (Table) ))
+        elif (Table=="RentalRegistrationMontgomeryCountyOhio"):
             resultcount=int(cur.execute("SELECT id,LOCATION FROM %s WHERE Latitude is NULL"% (Table)))  #I was thinking keying off Table would be more modular but not so :(
         else:
             print("Geocoding missing valid table name.")
@@ -82,9 +82,9 @@ def GeocodeDatabase(user,password,Table):
 
             if (Table=="SheriffSalesMontgomeryCountyOhio"):
                 addr=row["Address"]
-            elif (Table=="RealEstateSalesMontgomeryCountyOhio2014"):    
+            elif (Table=="RealEstateSalesMontgomeryCountyOhio"):    
                 addr=row["PARCELLOCATION"]+" DAYTON OHIO"
-            elif (Table=="RentalRegistrationMontgomeryCountyOhio2014"):
+            elif (Table=="RentalRegistrationMontgomeryCountyOhio"):
                 addr=row["LOCATION"]+" DAYTON OHIO"                
             else:
                 print("Geocoding missing valid table name.")

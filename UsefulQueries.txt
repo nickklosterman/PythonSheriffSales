@@ -39,3 +39,23 @@ select distinct(plaintiff) from SheriffSalesMontgomeryCountyOhio order by plaint
 select count(plaintiff),plaintiff from SheriffSalesMontgomeryCountyOhio group by plaintiff order by count(plaintiff) asc;
 
 select count(plaintiff),plaintiff from SheriffSalesMontgomeryCountyOhio group by plaintiff order by plaintiff asc;
+
+Tue Sep  2 15:51:23 EDT 2014
+use isnull to check for fields with NULL as the value
+MariaDB [SheriffSales]> select count(*) from SheriffSalesMontgomeryCountyOhio where latitude=NULL;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.02 sec)
+
+
+MariaDB [SheriffSales]> select count(*) from SheriffSalesMontgomeryCountyOhio where isnull(latitude);
++----------+
+| count(*) |
++----------+
+|       81 |
++----------+
+1 row in set (0.03 sec)
+
