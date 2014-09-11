@@ -10,6 +10,11 @@ https://developers.google.com/maps/articles/phpsqlsearch_v3
 javascript select update based off
 http://www.hscripts.com/tutorials/javascript/dom/select-events.php
 
+GOOGLE MAPS STUFF:
+http://www.sanwebe.com/2011/11/adding-markers-onclick-in-google-map
+http://gmaps-samples-v3.googlecode.com/svn/trunk/styledmaps/wizard/index.html
+https://developers.google.com/maps/documentation/javascript/examples/circle-simple
+
 
 County Maps for US
 http://www.censusfinder.com/mapin.htm indiana

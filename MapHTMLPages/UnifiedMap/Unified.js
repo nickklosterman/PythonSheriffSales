@@ -6,10 +6,10 @@
 var markersArr = [];
 var map;
 var infoWindow;
-
+var positionOne = {lat:0,lng:0},positionTwo = {lat:0,lng:0};
 var recordCount = 0;
 var firstRun = true;
-
+var rectangle;
 
 var customIcons1 = {
     1: {
@@ -197,9 +197,8 @@ function Mapfunction(database,isUpdate){
 
     */
     
-    
-    if (typeof map === 'undefined') // i.e. we are initializing the page
-    {
+    //THIS NEEDS TO BE MOVED TO AN initialize FUNCTION. See : https://developers.google.com/maps/documentation/javascript/examples/circle-simple and check out the javascript + HTML tab below the map.
+    if (false && typeof map === 'undefined') { // i.e. we are initializing the page 
 	map = new google.maps.Map(document.getElementById("map"), {
             center: new google.maps.LatLng(39.7620028,-84.3542049), //center around Dayton, OH, USA
             zoom: 10,
@@ -207,11 +206,126 @@ function Mapfunction(database,isUpdate){
 	});
 	infoWindow = new google.maps.InfoWindow;
 
+//set up event handlers
+	google.maps.event.addListener(map, 'click', function(e) { 
+	    positionOne.lat=e.latLng.lat()
+	    positionOne.lng=e.latLng.lng()
+	    document.getElementById('positionOneText')
+		//.value=positionOne.lat+"|"+positionOne.lng;
+		.innerHTML=positionOne.lat+","+positionOne.lng;
+
+	})
+	google.maps.event.addListener(map, 'rightclick', function(e) { 
+	    positionTwo.lat=e.latLng.lat()
+	    positionTwo.lng=e.latLng.lng()
+	    document.getElementById('positionTwoText')
+		//.value=positionTwo.lat+"|"+positionTwo.lng;
+		.innerHTML=positionTwo.lat+","+positionTwo.lng;
+
+	})
+	var bounds = new google.maps.LatLngBounds( 
+	    new google.maps.LatLng(40, -84.4),
+	    new google.maps.LatLng(39.5, -83.7)
+	);
+
+	// https://developers.google.com/maps/documentation/javascript/examples/rectangle-simple	   
+	// Define a rectangle and set its editable property to true.
+	rectangle = new google.maps.Rectangle({
+	    strokeColor: '#AAAAAA',
+	    strokeWeight: 0.5,
+	    fillOpacity: 0.05,
+	    bounds: bounds,
+	    editable: true
+	});
+
+	//	rectangle.setMap(map);
+	google.maps.event.addListener(rectangle, 'bounds_changed', function() {
+	    console.log('Bounds changed.');
+	    //var ne = rectangle.getBounds().getNorthEast()
+	    positionOne = rectangle.getBounds().getNorthEast()
+	    // var sw = rectangle.getBounds().getSouthWest()
+	    positionTwo = rectangle.getBounds().getSouthWest()
+//	    console.log(ne.lat()+","+ne.lng())
+//	    console.log(sw.lat()+","+sw.lng())
+
+	    document.getElementById('positionOneText')
+		//.value=positionOne.lat+"|"+positionOne.lng;
+		.innerHTML=positionOne.lat()+","+positionOne.lng();
+
+	    document.getElementById('positionTwoText')
+		//.value=positionTwo.lat+"|"+positionTwo.lng;
+		.innerHTML=positionTwo.lat()+","+positionTwo.lng();
+localStorage.setItem("filterBoundsNE",new google.mapls.LatLng(positionOne.lat(), positionOne.lng()))
+localStorage.setItem("filterBoundsSW",new google.mapls.LatLng(positionTwo.lat(), positionTwo.lng())) 
+	});
+
     }
     queryString=getQueryString(database,isUpdate);
     getRecordCountOfQuery(queryString);
     downloadUrl( queryString, function(data) {
 	processMarkers(database,data);
+    });
+}
+
+function initialize() { 
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(39.7620028,-84.3542049), //center around Dayton, OH, USA
+        zoom: 10,
+        mapTypeId: 'roadmap'
+    });
+    infoWindow = new google.maps.InfoWindow;
+
+    //set up event handlers
+    google.maps.event.addListener(map, 'click', function(e) { 
+	positionOne.lat=e.latLng.lat()
+	positionOne.lng=e.latLng.lng()
+	document.getElementById('positionOneText')
+	//.value=positionOne.lat+"|"+positionOne.lng;
+	    .innerHTML=positionOne.lat+","+positionOne.lng;
+
+    })
+    google.maps.event.addListener(map, 'rightclick', function(e) { 
+	positionTwo.lat=e.latLng.lat()
+	positionTwo.lng=e.latLng.lng()
+	document.getElementById('positionTwoText')
+	//.value=positionTwo.lat+"|"+positionTwo.lng;
+	    .innerHTML=positionTwo.lat+","+positionTwo.lng;
+
+    })
+    var bounds = new google.maps.LatLngBounds( 
+	new google.maps.LatLng(40, -84.4),
+	new google.maps.LatLng(39.5, -83.7)
+    );
+
+    // https://developers.google.com/maps/documentation/javascript/examples/rectangle-simple	   
+    // Define a rectangle and set its editable property to true.
+    rectangle = new google.maps.Rectangle({
+	strokeColor: '#AAAAAA',
+	strokeWeight: 0.5,
+	fillOpacity: 0.05,
+	bounds: bounds,
+	editable: true
+    });
+
+    //	rectangle.setMap(map);
+    google.maps.event.addListener(rectangle, 'bounds_changed', function() {
+	console.log('Bounds changed.');
+	//var ne = rectangle.getBounds().getNorthEast()
+	positionOne = rectangle.getBounds().getNorthEast()
+	// var sw = rectangle.getBounds().getSouthWest()
+	positionTwo = rectangle.getBounds().getSouthWest()
+	//	    console.log(ne.lat()+","+ne.lng())
+	//	    console.log(sw.lat()+","+sw.lng())
+
+	document.getElementById('positionOneText')
+	//.value=positionOne.lat+"|"+positionOne.lng;
+	    .innerHTML=positionOne.lat()+","+positionOne.lng();
+
+	document.getElementById('positionTwoText')
+	//.value=positionTwo.lat+"|"+positionTwo.lng;
+	    .innerHTML=positionTwo.lat()+","+positionTwo.lng();
+	localStorage.setItem("filterBoundsNE",new google.mapls.LatLng(positionOne.lat(), positionOne.lng()))
+	localStorage.setItem("filterBoundsSW",new google.mapls.LatLng(positionTwo.lat(), positionTwo.lng())) 
     });
 }
 
@@ -471,3 +585,33 @@ function getRecordCountOfQuery(oldQueryString) {
 	}
     });
 }
+
+function filterCoordinates(checkboxObj){
+    if (checkboxObj.checked===true) {
+	console.log("checked")
+	rectangle.setMap(map)
+    } else {
+console.log("Alternately, could use the circle to mark a region and perform the math elsewhere to do the match on the redius from that point.")
+	var foo=parseCoordinatesFromLocalStorage(localStorage.getItem("filterBoundsNE"))
+	var bar=parseCoordinatesFromLocalStorage(localStorage.getItem("filterBoundsSW"))
+	console.log(foo+" "+bar);
+	rectangle.setMap(null)
+    }
+}
+
+//stolen from http://creatingandroidwebapps.wordpress.com/tutorials/lesson-4-handling-phonegap-lifecycle-events/
+function parseCoordinatesFromLocalStorage(obj) {
+    if(obj == null){
+        //alert("no location saved");
+        return null;
+	//return new google.maps.LatLng(39.5,-84)
+    }
+    var retrievedString = obj.replace(/[()]/g,'')
+    var splitArray = retrievedString.split(",");
+    var lat = parseFloat( ((splitArray[0]).split(":"))[1]);
+    var lng = parseFloat( ((splitArray[1]).split(":"))[1]);
+    var retrievedLatLng = new google.maps.LatLng(lat,lng);
+    return retrievedLatLng; 
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
