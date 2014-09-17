@@ -70,9 +70,12 @@ http://www.co.greene.oh.us/Sheriff/SO_Foreclosures_Current.htm
 http://www.co.greene.oh.us/Sheriff/SO_Foreclosures_Past.htm
 
 Hamilton County
-http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySalesDisclaimer.aspx
-http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySales.aspx Must click "agree" to see sales. Then java posts list
-http://www.hcso.org/PublicServices/ExecutionSales/SoldProperty.aspx There is a link on the ExecPropertySales.aspx page at the very top that takes you here.
+new as of Wed Sep 17 13:19:04 EDT 2014
+use http://apps.hcso.org/PropertySale.aspx for 
+
+old http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySalesDisclaimer.aspx
+old http://www.hcso.org/PublicServices/ExecutionSales/ExecPropertySales.aspx Must click "agree" to see sales. Then java posts list
+old http://www.hcso.org/PublicServices/ExecutionSales/SoldProperty.aspx There is a link on the ExecPropertySales.aspx page at the very top that takes you here.
 http://www.courtindex.com/ <-- Cinci court report where official list is published for foreclosures
 http://www.courtclerk.org/ Cinci clerk oif courts for lien & tax info
 http://www.hamiltoncountyauditor.org/ add'l property info
@@ -84,6 +87,11 @@ Franklin County
 http://sheriff.franklincountyohio.gov/
 http://sheriff.franklincountyohio.gov/search/real-estate.cfm
 http://sheriff.franklincountyohio.gov/search/real-estate.cfm?view=all <-- possibly wget this?
+new as of Wed Sep 17 12:52:48 EDT 2014
+view-source:http://sheriff.franklincountyohio.gov/search/real-estate/ scrape for dates in the <option values="">MM/DD/YYY<option> to use to pull the data from
+http://sheriff.franklincountyohio.gov/search/real-estate/results.aspx?q=searchType=SaleDate&searchString=9/19/2014&foreclosureType=&sortType=appraised   paged results
+
+http://sheriff.franklincountyohio.gov/search/real-estate/printresults.aspx?q=searchType%3dSaleDate%26searchString%3d11%2f14%2f2014+12%3a00%3a00+AM%26foreclosureType%3d%26sortType%3ddefendant%26saleDateFrom%3d%26saleDateTo%3d  use the print page for all results on one page; but doesn't show the sale amount on the print page :(
 
 Warren County
 http://www.wcsooh.org/
