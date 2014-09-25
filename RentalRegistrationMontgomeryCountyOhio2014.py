@@ -4,7 +4,7 @@
 
 _URI="localhost"
 _Database="SheriffSales"
-_Table="RentalRegistrationMontgomeryCountyOhio2014"
+_Table="RentalRegistrationMontgomeryCountyOhio"
 _INSERT=0
 _UPDATE=1
 _INSERTS=0

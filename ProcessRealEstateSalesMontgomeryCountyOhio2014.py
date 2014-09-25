@@ -3,7 +3,7 @@
 
 _URI="localhost"
 _Database="SheriffSales"
-_Table="RealEstateSalesMontgomeryCountyOhio2014"
+_Table='RealEstateSalesMontgomeryCountyOhio'
 
 import re
 def striphtml(data):
@@ -80,7 +80,7 @@ def UpdateRecordInDatabase(row,loginfile):
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
         print("U") 
-        cur.execute("UPDATE RealEstateSalesMontgomeryCountyOhio2014 SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s", (SoldTo,SaleAmt,SaleStatus,key)) 
+        cur.execute("UPDATE %s SET SoldTo=%s, SaleAmt=%s, SaleStatus=%s WHERE id=%s", (_Table,SoldTo,SaleAmt,SaleStatus,key)) 
     con.commit()
     cur.close()
     con.close()
@@ -94,7 +94,7 @@ def InsertIntoDB(row,loginfile): #PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY):
         date=convertDateFormat(row["SALEDTE"])
         saletype=convertSALETYPEToChar(row['SALETYPE'])
         salevalidity=convertSALEVALIDITYToChar(row['SALEVALIDITY'])
-        cur.execute("INSERT INTO RealEstateSalesMontgomeryCountyOhio2014(SALEDT,PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY,PRICE) VALUES ( %s,%s,%s,%s,%s,%s)", (date, row['PARID'],row['PARCELLOCATION'],saletype,salevalidity,row['PRICE'])) #even though their database types are int/float etc they are entered as strings here.... 
+        cur.execute("INSERT INTO RealEstateSalesMontgomeryCountyOhio (SALEDT,PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY,PRICE) VALUES ( %s,%s,%s,%s,%s,%s)", (date, row['PARID'],row['PARCELLOCATION'],saletype,salevalidity,row['PRICE'])) #even though their database types are int/float etc they are entered as strings here.... 
     con.commit()
     cur.close()
     con.close()  
@@ -107,7 +107,7 @@ def InsertUpdateIfExistsIntoDB(row,loginfile):
         date=convertDateFormat(row["SALEDTE"])
         saletype=convertSALETYPEToChar(row['SALETYPE'])
         salevalidity=convertSALEVALIDITYToChar(row['SALEVALIDITY'])
-        cur.execute("INSERT INTO RealEstateSalesMontgomeryCountyOhio2014(SALEDT,PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY) VALUES ( %s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE PRICE=%s", (date, row['PARID'],row['PARCELLOCATION'],saletype,salevalidity,row['PRICE'])) #even though their database types are int/float etc they are entered as strings here.... 
+        cur.execute("INSERT INTO RealEstateSalesMontgomeryCountyOhio (SALEDT,PARID,PARCELLOCATION,SALETYPE,SALEVALIDITY) VALUES ( %s,%s,%s,%s,%s) ON DUPLICATE KEY UPDATE PRICE=%s", (date, row['PARID'],row['PARCELLOCATION'],saletype,salevalidity,row['PRICE'])) #even though their database types are int/float etc they are entered as strings here.... 
 
     con.commit()
     cur.close()
@@ -124,7 +124,7 @@ def QueryDatabaseIfRecordExists(row,loginfile):
         parcellocation=row['PARCELLOCATION']
 #        print("%s-=-%s-=-%s",date,parid,parcellocation)
         # check to see if record exists before inserting, if exists check for salestatus change, update saleamt 
-        resultcount=int(cur.execute("SELECT id FROM RealEstateSalesMontgomeryCountyOhio2014 WHERE SALEDT=%s and PARID LIKE %s and PARCELLOCATION LIKE %s", (date, parid, parcellocation )))  # look for match on all fields except those that would've been update after teh property was sold
+        resultcount=int(cur.execute("SELECT id FROM RealEstateSalesMontgomeryCountyOhio WHERE SALEDT=%s and PARID LIKE %s and PARCELLOCATION LIKE %s", (date, parid, parcellocation )))  # look for match on all fields except those that would've been update after teh property was sold
         if resultcount==1:
             row=cur.fetchone()
             key=int(row['id'])
@@ -144,7 +144,7 @@ def CreateDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("CREATE TABLE IF NOT EXISTS RealEstateSalesMontgomeryCountyOhio2014 ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, PARID VARCHAR(20), CONVNUM INT, SALEDT DATE, PRICE INT, OLDOWN VARCHAR(33), OWNERNAME1 VARCHAR(33), PARCELLOCATION VARCHAR(45) NOT NULL, MAILINGNAME1 VARCHAR(45), MAILINGNAME2 VARCHAR(45), PADDR1 VARCHAR(45), PADDR2 VARCHAR(45), PADDR3 VARCHAR(45), CLASS CHAR, ACRES FLOAT(8,6), TAXABLELAND INT, TAXABLEBLDG INT, TAXABLETOTAL INT, ASMTLAND INT, ASMTBLDG INT, ASMTTOTAL INT, SALETYPE CHAR, SALEVALIDITY CHAR, DYTNCRDT CHAR,Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )") 
+        cur.execute("CREATE TABLE IF NOT EXISTS RealEstateSalesMontgomeryCountyOhio ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, PARID VARCHAR(20), CONVNUM INT, SALEDT DATE, PRICE INT, OLDOWN VARCHAR(33), OWNERNAME1 VARCHAR(33), PARCELLOCATION VARCHAR(45) NOT NULL, MAILINGNAME1 VARCHAR(45), MAILINGNAME2 VARCHAR(45), PADDR1 VARCHAR(45), PADDR2 VARCHAR(45), PADDR3 VARCHAR(45), CLASS CHAR, ACRES FLOAT(8,6), TAXABLELAND INT, TAXABLEBLDG INT, TAXABLETOTAL INT, ASMTLAND INT, ASMTBLDG INT, ASMTTOTAL INT, SALETYPE CHAR, SALEVALIDITY CHAR, DYTNCRDT CHAR,Latitude FLOAT(10,6) , Longitude FLOAT(10,6) )") 
 # Time vs space tradeoff. Not doing mapping/coding of 1->Bob 2->Rob etc will save time (no conversion) but eats up space. However, the same amount of data is transmitted regardless. If you had the client instead of the mysql server do the conversion less data is transmitted but then the processing is done by the client. So hopefully they have a faster comp than the server. This may or may not be the case but it also frees up the server for doing more requests
     con.commit()
     cur.close()
@@ -155,7 +155,7 @@ def DropTableFromDatabase(loginfile):
     con =GetConnection(_URI,loginfile,_Database)
     with con:
         cur = con.cursor(mdb.cursors.DictCursor)
-        cur.execute("DROP TABLE IF EXISTS RealEstateSalesMontgomeryCountyOhio2014")
+        cur.execute("DROP TABLE IF EXISTS %s",(_Table))
     con.commit()
     cur.close()
     con.close()
@@ -222,7 +222,7 @@ if (not os.path.isfile(loginfile)):
     print("A valid loginfile was not provided.")
     print("Exiting.")
 else:
-    print(inputfilename,outputfilename,loginfile)
+    print(inputfilename,outputfilename,loginfile,_Table)
     CreateDatabase(loginfile)
     CSVProcessFile(inputfilename,outputfilename,loginfile)
 

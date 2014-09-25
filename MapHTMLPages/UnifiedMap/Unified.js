@@ -6,19 +6,10 @@
 var markersArr = [];
 var map;
 var infoWindow;
-
-// var query
-// , maxbid 
-// , minbid 
-// ,  saletype 
-// ,  salevalidity 
-// ,  startdate 
-// ,  enddate 
-// , salestatus ;
-
+var positionOne = {lat:0,lng:0},positionTwo = {lat:0,lng:0};
 var recordCount = 0;
 var firstRun = true;
-
+var rectangle;
 
 var customIcons1 = {
     1: {
@@ -130,13 +121,17 @@ function getQueryString(database,isUpdate){
     if (isUpdate === false) {
 	switch(database) {
 	case "RealEstateSales":
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2014-01-01&enddate=2014-09-09&table=RealEstateSalesMontgomeryCountyOhio&recordstodisplay=25";  //this query works
+//	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2014-01-01&enddate=2014-09-09&table=RealEstateSalesMontgomeryCountyOhio&recordstodisplay=25";  //this query works
+	    //relative urls get around the XSS blocking imposed by browsers.
+	    queryString = "Unified.php?maxbid=1000000000&minbid=1&saletype=*&salevalidity=*&startdate=2014-01-01&enddate=2014-09-09&table=RealEstateSalesMontgomeryCountyOhio&recordstodisplay=25";  
 	    break;
 	case "RentalRegistration":
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25&districtname=*&numberofunits=*";
+//	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25&districtname=*&numberofunits=*";
+	    queryString = "Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25&districtname=*&numberofunits=*";
 	    break;
 	case "SheriffSales":
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=SheriffSalesMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
+//	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=SheriffSalesMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
+	    queryString = "Unified.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=SheriffSalesMontgomeryCountyOhio&recordsoffset=0&recordstodisplay=25"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
 	    break;
 	}
     } else { 
@@ -155,15 +150,17 @@ function getQueryString(database,isUpdate){
 	    enddate = $("#RealEstateSales #enddate").val(); 
 
 	    checkMinMaxBidValues(); 
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSalesMontgomeryCountyOhio"; //must have spaces in btw + "" otherwise you break it!
+//	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSalesMontgomeryCountyOhio"; //must have spaces in btw + "" otherwise you break it!
+	    queryString = "Unified.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salevalidity=" + salevalidity + "&saletype=" + saletype + "&startdate=" + startdate + "&enddate=" + enddate + "&table=RealEstateSalesMontgomeryCountyOhio"; //must have spaces in btw + "" otherwise you break it!
 	    break;
 	case "RentalRegistration":
 	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
-	    console.log(recordstodisplay);
+	    //console.log(recordstodisplay);
 	    numberofunits = $("#RentalRegistration #numberofunits").val();
 	    districtname = $("#RentalRegistration #districtname").val();
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=" + offset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
-	    console.log(queryString);
+//	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=" + offset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
+	    queryString = "Unified.php?table=RentalRegistrationMontgomeryCountyOhio&recordsoffset=" + offset + "&recordstodisplay=" + recordstodisplay + "&districtname=" + districtname + "&numberofunits=" + numberofunits; //must have spaces in btw + "" otherwise you break it!
+	    //console.log(queryString);
 	    break;
 	case "SheriffSales":
 	    recordstodisplay = $("#SheriffSales #recordstodisplay").val();
@@ -173,7 +170,8 @@ function getQueryString(database,isUpdate){
 	    saledate = $("#SheriffSales #saledate").val();
 	    pricefiltercategory = $("#SheriffSales #pricefiltercategory").val();
 	    checkMinMaxBidValues(); 
-	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=SheriffSalesMontgomeryCountyOhio&recordsoffset=" + offset + "&maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&recordstodisplay=" + recordstodisplay; 
+//	    queryString = "http://www.djinnius.com/SheriffSales/Sandbox/SplitHTMLJS/Unified.php?table=SheriffSalesMontgomeryCountyOhio&recordsoffset=" + offset + "&maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&recordstodisplay=" + recordstodisplay; 
+	    queryString = "Unified.php?table=SheriffSalesMontgomeryCountyOhio&recordsoffset=" + offset + "&maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&recordstodisplay=" + recordstodisplay; 
 	    break;
 	}
     }
@@ -182,51 +180,10 @@ function getQueryString(database,isUpdate){
 }
 
 function Mapfunction(database,isUpdate){
-console.log(database,isUpdate);
+    //console.log(database,isUpdate);
     var maxbid 
-    // , minbid 
-    // , saletype 
-    // , salevalidity 
-    // , startdate
-    // , enddate
-    // , pricefiltercategory
-    // , numberofunits
-    // , recordstodisplay
-    // , recordsoffset 
     , queryString;
 
-    //    alert (maxbid,minbid,saletype,salevalidity,startdate,enddate)
-    // switch(database){
-    // case "SheriffSales":
-    // 	recordstodisplay = $("#SheriffSales #recordstodisplay").val();
-    // 	maxbid = $("#SheriffSales #maxbid").val();
-    // 	minbid = $("#SheriffSales #minbid").val();
-    // 	salestatus = $("#SheriffSales #salestatus").val();
-    // 	saledate = $("#SheriffSales #saledate").val();
-    // 	pricefiltercategory = $("#SheriffSales #pricefiltercategory").val();
-    // 	recordsoffset=offset;
-
-    // 	checkMinMaxBidValues(); 
-    // 	break;
-    // case "RentalRegistration":
-    // 	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
-    // 	numberofunits = $("#RentalRegistration #numberofunits").val();
-    // 	recordstodisplay = $("#RentalRegistration #minbid").val();
-    // 	districtname = $("#RentalRegistration #districtname").val();
-    // 	recordsoffset=offset;
-    // 	break;
-    // case "RealEstateSales": 
-    // 	recordstodisplay = $("#RentalRegistration #recordstodisplay").val();
-    // 	maxbid = $("#RealEstateSales #maxsale").val();
-    // 	minbid = $("#RealEstateSales #minsale").val();
-    // 	saletype = $("#RealEstateSales #saletype").val();
-    // 	salevalidity = $("#RealEstateSales #salevalidity").val();
-    // 	startdate = $("#RealEstateSales #startdate").val();
-    // 	enddate = $("#RealEstateSales #enddate").val(); 
-
-    // 	checkMinMaxBidValues(); 
-    // 	break;
-    // }
 
     /*
       debug steps:
@@ -239,25 +196,73 @@ console.log(database,isUpdate);
       when assigning variables there must be a space between the operator and the names of variables: i.e. bob=88 fails but bob = 88 works
 
     */
-    
-    //if (isUpdate === false) // i.e. we are initializing the page
-    if (typeof map === 'undefined')
-    {
-	map = new google.maps.Map(document.getElementById("map"), {
-            center: new google.maps.LatLng(39.7620028,-84.3542049),
-            zoom: 10,
-            mapTypeId: 'roadmap'
-	});
-	infoWindow = new google.maps.InfoWindow;
-
-    }
+alert("check out snap.js http://jakiestfu.github.io/Snap.js/demo/apps/default.html")
     queryString=getQueryString(database,isUpdate);
-    //alert (queryString)
     getRecordCountOfQuery(queryString);
     downloadUrl( queryString, function(data) {
-//if (data !== null){
 	processMarkers(database,data);
-//} else { alert('bork');  }
+    });
+}
+
+function initialize() { 
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(39.7620028,-84.3542049), //center around Dayton, OH, USA
+        zoom: 10,
+        mapTypeId: 'roadmap'
+    });
+    infoWindow = new google.maps.InfoWindow;
+
+    //set up event handlers
+    google.maps.event.addListener(map, 'click', function(e) { 
+	positionOne.lat=e.latLng.lat()
+	positionOne.lng=e.latLng.lng()
+	document.getElementById('positionOneText')
+	//.value=positionOne.lat+"|"+positionOne.lng;
+	    .innerHTML=positionOne.lat+","+positionOne.lng;
+
+    })
+    google.maps.event.addListener(map, 'rightclick', function(e) { 
+	positionTwo.lat=e.latLng.lat()
+	positionTwo.lng=e.latLng.lng()
+	document.getElementById('positionTwoText')
+	//.value=positionTwo.lat+"|"+positionTwo.lng;
+	    .innerHTML=positionTwo.lat+","+positionTwo.lng;
+
+    })
+    var bounds = new google.maps.LatLngBounds( 
+	new google.maps.LatLng(40, -84.4),
+	new google.maps.LatLng(39.5, -83.7)
+    );
+
+    // https://developers.google.com/maps/documentation/javascript/examples/rectangle-simple	   
+    // Define a rectangle and set its editable property to true.
+    rectangle = new google.maps.Rectangle({
+	strokeColor: '#AAAAAA',
+	strokeWeight: 0.5,
+	fillOpacity: 0.05,
+	bounds: bounds,
+	editable: true
+    });
+
+    //	rectangle.setMap(map);
+    google.maps.event.addListener(rectangle, 'bounds_changed', function() {
+	console.log('Bounds changed.');
+	//var ne = rectangle.getBounds().getNorthEast()
+	positionOne = rectangle.getBounds().getNorthEast()
+	// var sw = rectangle.getBounds().getSouthWest()
+	positionTwo = rectangle.getBounds().getSouthWest()
+	//	    console.log(ne.lat()+","+ne.lng())
+	//	    console.log(sw.lat()+","+sw.lng())
+
+	document.getElementById('positionOneText')
+	//.value=positionOne.lat+"|"+positionOne.lng;
+	    .innerHTML=positionOne.lat()+","+positionOne.lng();
+
+	document.getElementById('positionTwoText')
+	//.value=positionTwo.lat+"|"+positionTwo.lng;
+	    .innerHTML=positionTwo.lat()+","+positionTwo.lng();
+	localStorage.setItem("filterBoundsNE",new google.mapls.LatLng(positionOne.lat(), positionOne.lng()))
+	localStorage.setItem("filterBoundsSW",new google.mapls.LatLng(positionTwo.lat(), positionTwo.lng())) 
     });
 }
 
@@ -290,14 +295,13 @@ function processMarkers(database,data) {
     iconC ,
     marker ;
 
-    console.log(data);
+    //console.log(data);
     var xml = data.responseXML;// responseXML will be null but responseText and response will be populated if the returned result isn't xml
-    console.log("xml"+xml);
+    //console.log("xml"+xml);
     if (xml !== null) {
         var markers = xml.documentElement.getElementsByTagName("marker");
-//        var markers = xml.getElementsByTagName("marker");
 	clearLocations();
-	console.log("processing Markers:"+database)
+	//console.log("processing Markers:"+database)
 	switch(database){
 	case "SheriffSales":
 	    for (i = 0; i < markers.length; i++) {
@@ -327,8 +331,7 @@ function processMarkers(database,data) {
 			   .value == "Summary") {
 		    info = "<b>Sale Date:" + SaleDate + "<br/>Address:" + Address + "<br/>Sale Amount:" + SaleAmt + "</b> <br/>Sale Date:" + SaleDate + "<br/>Appraisal:" + Appraisal + "<br/>Minimum bid:" + MinBid + "<br/>Sale amount:" + SaleAmt + "<br/> Sale status:" + SaleStatus;
 		} else {
-		    console.log(document.getElementById("infowindow")
-				.value)
+		    //console.log(document.getElementById("infowindow").value)
 		}
 
 		icon = SheriffSaleStatusIcons[SaleStatus] || {};
@@ -494,8 +497,7 @@ function checkMinMaxBidValues() {
     Maxbid = Maxbid0.replace(/,/g, "");
     Minbid = Minbid0.replace(/,/g, "");
 
-    if (parseInt(Minbid) > parseInt(Maxbid)) //phail ! spaces in () statement
-	if (parseInt(Minbid) > parseInt(Maxbid)) //Good. no spaces
+    if (parseInt(Minbid) > parseInt(Maxbid)) 
     {
         $("#maxbid")
             .value = Minbid;
@@ -506,18 +508,47 @@ function checkMinMaxBidValues() {
 
 function getRecordCountOfQuery(oldQueryString) {
     var xml, record;
-
-    var queryString = oldQueryString.replace(/Unified/g, "../phpgetrecordcount")
+// The query is the same but we use a different php file to get the data. Therefore we simply replace the filename in the query
+    var queryString = oldQueryString.replace(/Unified/g, "phpgetrecordcount") 
 //    console.log(queryString);
     downloadUrl(queryString, function (data) {
-	//debugger;
 	xml = data.responseXML;
 	if (typeof xml !== 'undefined' && xml !== null ) {
             record = xml.documentElement.getElementsByTagName("data");
-	            console.log("record", record);
+	    // console.log("record", record);
             recordCount = record[0].getAttribute("recordCount");
-	            console.log("recordCount in downloadUrl:", recordCount);
+	    // console.log("recordCount in downloadUrl:", recordCount);
             writeout();
 	}
     });
 }
+
+function filterCoordinates(checkboxObj){
+    if (checkboxObj.checked===true) {
+	console.log("checked")
+	rectangle.setMap(map)
+    } else {
+console.log("Alternately, could use the circle to mark a region and perform the math elsewhere to do the match on the redius from that point.")
+	var foo=parseCoordinatesFromLocalStorage(localStorage.getItem("filterBoundsNE"))
+	var bar=parseCoordinatesFromLocalStorage(localStorage.getItem("filterBoundsSW"))
+	console.log(foo+" "+bar);
+	rectangle.setMap(null)
+    }
+}
+
+//stolen from http://creatingandroidwebapps.wordpress.com/tutorials/lesson-4-handling-phonegap-lifecycle-events/
+function parseCoordinatesFromLocalStorage(obj) {
+    if(obj == null){
+        //alert("no location saved");
+        return null;
+	//return new google.maps.LatLng(39.5,-84)
+    }
+    var retrievedString = obj.replace(/[()]/g,'')
+    var splitArray = retrievedString.split(",");
+    var lat = parseFloat( ((splitArray[0]).split(":"))[1]);
+    var lng = parseFloat( ((splitArray[1]).split(":"))[1]);
+    var retrievedLatLng = new google.maps.LatLng(lat,lng);
+    return retrievedLatLng; 
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);

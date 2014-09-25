@@ -1,6 +1,0 @@
-<?
-$username="Nottingham";
-$password="RobbinHoods";
-$database="djinnius_SheriffSales";
-$table="Property";
-?>

@@ -52,7 +52,7 @@ enddate=`grep idate2 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\
 startdateForFilename=`grep idate1 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\///g'` # remove / and replace w nothing
 enddateForFilename=`grep idate2 /tmp/sflistauction.cfm | sed -e 's/^.*value="//;s/".*//;s/\///g'` # remove / and replace w nothing
 
-filename="Sheriff Sales List.htm"
+#filename="Sheriff Sales List.htm"
 filename="Sheriff_Sales_List.htm"
 
 outputFileName=$(createUniqueFilenameWithDates "${filename}" ${startdateForFilename} ${enddateForFilename})
@@ -65,3 +65,5 @@ curl -d "idate1=${startdate}&idate2=${enddate}&iSUMDET=DET" http://www.mcohio.or
 
 python2 SheriffSaleProcessors/SheriffSalesLinkCreatorMontgomeryCountyOhio_Detailed.py "${outputFileName}"
 
+cd ~/Git/PythonSheriffSales/Geocoders 
+python2 UnifiedGeocoder.py -t SheriffSalesMontgomeryCountyOhio -l  ~/.mysqllogin_rentalreg

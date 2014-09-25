@@ -1,6 +1,0 @@
-startyear=2000
-while [ $startyear -lt 2013 ]
-do
-wget http://www.mctreas.org/data\Yearly\SALES_${startyear}.zip
-let 'startyear+='
-done

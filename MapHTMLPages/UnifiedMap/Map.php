@@ -107,6 +107,14 @@
 	  <label id="CurrentRecordsDisplayed"></label>
 	Reverse order button to sort by asc or desc date.
       </div>
+<div>
+      <input id="coordinateFilterCheckbox" type="checkbox" onclick="filterCoordinates(this)">Filter
+      Coordinates between <div id='positionOneText'>0,0</div> 
+      <!-- <input type='text' id='positionOneText' value='0,0' />   -->
+      and
+      <div id='positionTwoText'>0,0</div>  
+      <!-- <input type='text' id='positionTwoText' value='0,0' />  -->
+</div>
 
 
     </div> <!-- SheriffSales -->

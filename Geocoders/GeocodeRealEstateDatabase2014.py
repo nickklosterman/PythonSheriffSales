@@ -26,9 +26,6 @@ def GeocodeDatabase(user,password):
         databasename='RealEstateSalesMontgomeryCountyOhio2014'
         cur = con.cursor(mdb.cursors.DictCursor)
         curUpdate = con.cursor(mdb.cursors.DictCursor)
-#        resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM RealEstateSales WHERE Latitude is NULL"))
-#        print("SELECT id,PARCELLOCATION FROM %s WHERE Latitude is NULL",(databasename))
-#        resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM %s WHERE Latitude is NULL",(databasename)))
         resultcount=int(cur.execute("SELECT id,PARCELLOCATION FROM RealEstateSalesMontgomeryCountyOhio2014 WHERE Latitude is NULL"))
         print("Need to geocode "+str(resultcount)+" addresses.")
         rows = cur.fetchall()
@@ -45,11 +42,9 @@ def GeocodeDatabase(user,password):
             else:
                 addr=row["PARCELLOCATION"]+"DAYTON OHIO"
                 geocode_data=geocodeV2(addr)  #I wrote a geocodeV2 module that is in the SheriffSaleProcessors directory that could be used here
-                #if len(geocode_data)>1:
                 if geocode_data['status']=="OK":
                     lat=geocode_data['lat']
                     lon=geocode_data['lng']
-#                    curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s", (databasename,lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
                     curUpdate.execute("UPDATE RealEstateSalesMontgomeryCountyOhio2014 SET Latitude=%s, Longitude=%s WHERE id=%s", (lat,lon,row["id"]))  #SELECT count(*) FROM Property WHERE Latitude is NULL 
                 else:
                     print("Geocoding of '"+row["PARCELLOCATION"]+"' failed with error code "+geocode_data['status'])
@@ -61,7 +56,7 @@ def GeocodeDatabase(user,password):
     cur.close()
     con.close()
 
-#root_url = "http://maps.google.com/maps/geo?"
+
 root_url="http://maps.googleapis.com/maps/api/geocode/json?&address="
 sensor_suffix="&sensor=false"
 return_codes = {'200':'SUCCESS',

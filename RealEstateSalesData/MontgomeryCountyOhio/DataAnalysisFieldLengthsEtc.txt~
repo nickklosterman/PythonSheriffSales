@@ -1,1 +1,0 @@
-cut -f 14 -d "," SALES_2012_RES.csv | sort | uniq | wc -l  # most acreage listed as 0
