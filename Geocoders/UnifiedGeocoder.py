@@ -88,14 +88,15 @@ def GeocodeDatabase(user,password,Table):
                 addr=row["LOCATION"]+" DAYTON OHIO"                
             else:
                 print("Geocoding missing valid table name.")
-            print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses. Address:"+str(addr))
+            #print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses. Address:"+str(addr))
             if OverQueryLimitFlag == 0:
                 geocode_data=geocodeV2(addr) 
                 if geocode_data['status']=="OK":
                     #print(geocode_data)
                     lat=geocode_data['lat']
                     lon=geocode_data['lng']
-                    curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s" % (Table,lat,lon,row["id"]))  
+                    curUpdate.execute("UPDATE %s SET Latitude=%s, Longitude=%s WHERE id=%s" % (Table,lat,lon,row["id"]))
+                    print("Geocoding "+str(counter)+" of "+str(resultcount)+" addresses. Address:"+str(addr)+"  Lat:"+str(lat)+" Lon:"+str(lon))
                 elif geocode_data['status']=="OVER_QUERY_LIMIT":
                     print("Over Query Limit Notification Received") 
                     OverQueryLimitFlag = 1
