@@ -98,7 +98,8 @@ function load() {
     infoWindow = new google.maps.InfoWindow;
 
     //    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=Appraisal&table=Property&recordsoffset=0&recordstodisplay=50"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
-    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=Property&recordsoffset=0&recordstodisplay=205"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
+//    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=Property&recordsoffset=0&recordstodisplay=205"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
+    queryString = "../../php/phpdatabasequery.php?maxbid=2000000&minbid=1000&salestatus=*&saledate=*&pricefiltercategory=MinBid&table=Property&recordsoffset=0&recordstodisplay=205"; //must have spaces in btw + "" otherwise you break it!"; //must have spaces in btw + "" otherwise you break it!
     console.log("this query isn't pulling the variables from the inputs, its just hardcoded. this is one reason I wanna use updateMap() solely");
     console.log("load:", queryString);
 
@@ -184,7 +185,8 @@ function updateMap() {
     checkMinMaxBidValues(); //kinda overkill since check in the php as well. forgetting the damn ; at the end has screwed me several times.
     console.log("offset:", offset);
     recordsoffset = offset;
-    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&table=Property&recordsoffset=" + recordsoffset + "&recordstodisplay=" + recordstodisplay; //must have spaces in btw + "" otherwise you break it!
+//    queryString = "http://djinnius.com/SheriffSales/Sandbox/phpdatabasequery.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&table=Property&recordsoffset=" + recordsoffset + "&recordstodisplay=" + recordstodisplay; //must have spaces in btw + "" otherwise you break it!
+    queryString = "../../php/phpdatabasequery.php?maxbid=" + maxbid + "&minbid=" + minbid + "&salestatus=" + salestatus + "&saledate=" + saledate + "&pricefiltercategory=" + pricefiltercategory + "&table=Property&recordsoffset=" + recordsoffset + "&recordstodisplay=" + recordstodisplay; //must have spaces in btw + "" otherwise you break it!
 
     getRecordCountOfQuery(queryString);
 

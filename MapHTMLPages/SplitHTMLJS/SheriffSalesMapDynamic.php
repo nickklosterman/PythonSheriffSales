@@ -4,7 +4,8 @@
     <title>Montgomery County Sheriff Sales</title>
     <link rel="stylesheet" type="text/css" href="SheriffSalesMapDynamic.css" />
     <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-    <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+<!--    <script type="text/javascript" src="jquery-1.8.0.min.js"></script> -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="SheriffSalesMapDynamic.js"></script>
     <script src="SheriffSalesMapDynamic.jquery.js"></script>
   </head>
@@ -49,7 +50,8 @@
 	    <option value="*" selected>All</option>
         <?php
              //specifies username,password,database, and table
-             require("../dbinfo_user.php");
+             //require("../dbinfo_user.php");
+	     require("../php/dbinfo_local.php");
              // Opens a connection to a MySQL server
              $connection=mysql_connect (localhost, $username, $password);
              if (!$connection) {
