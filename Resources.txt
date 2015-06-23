@@ -93,6 +93,8 @@ http://sheriff.franklincountyohio.gov/search/real-estate/results.aspx?q=searchTy
 
 http://sheriff.franklincountyohio.gov/search/real-estate/printresults.aspx?q=searchType%3dSaleDate%26searchString%3d11%2f14%2f2014+12%3a00%3a00+AM%26foreclosureType%3d%26sortType%3ddefendant%26saleDateFrom%3d%26saleDateTo%3d  use the print page for all results on one page; but doesn't show the sale amount on the print page :(
 
+http://www.franklincountyauditor.com/real-estate/real-estate Tax records etc found from here.
+
 Warren County
 http://www.wcsooh.org/
 http://www.wcsooh.org/search/shfentry.htm
