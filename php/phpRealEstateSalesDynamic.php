@@ -118,6 +118,19 @@ if ($salevalidity!='*')
 $query .=" and SALEVALIDITY = '$salevalidity' ";
 $query .=" and SALEDT >= '$startdate' and SALEDT <= '$enddate'"; //>= and <= bc i think this is the expected behavior to include the chosen dates
 
+
+if ( is_numeric($recordstodisplay) && is_numeric($recordsoffset) )
+{
+ if ( $recordsoffset >= 0 )
+ { 
+  if ( $recordstodisplay > 0 ) 
+  {$query .=" LIMIT $recordsoffset,$recordstodisplay ";}
+  else
+  {  $query .="LIMIT 0,$recordstodisplay ";}
+ }
+}
+
+
 $result = mysql_query($query);
 if (!$result) {
 die('Invalid query: ' . mysql_error());
