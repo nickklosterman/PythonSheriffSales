@@ -95,6 +95,8 @@ http://sheriff.franklincountyohio.gov/search/real-estate/printresults.aspx?q=sea
 
 http://www.franklincountyauditor.com/real-estate/real-estate Tax records etc found from here.
 
+To get recent sales of the area, perform a serach on a valid property, in the property view on the right side there will be an 'Actions'. In this side menu there will be 'Neighborhood sales' it'll give you a URL like: http://property.franklincountyauditor.com/_web/Search/NbhdSearch.aspx?pin=025%3a545T045D++++06200&fromDL=yes&idx=1&sIndex=0#
+
 Warren County
 http://www.wcsooh.org/
 http://www.wcsooh.org/search/shfentry.htm
